@@ -11,5 +11,6 @@ class NormDocScreen: BaseFragment(R.layout.screen_norm_doc) {
         title.text = "нормативные документы"
 
 
+
     }
 }
