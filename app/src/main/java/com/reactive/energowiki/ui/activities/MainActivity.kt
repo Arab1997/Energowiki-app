@@ -33,7 +33,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
         setClicks()
 
         debug()
-//        startFragment()
+        startFragment()
     }
 
     private fun setClicks() {
