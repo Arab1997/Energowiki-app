@@ -35,7 +35,7 @@ open class BaseViewModel(
     var parentLayoutId: Int = 0
 
     @LayoutRes
-    var navLayoutId: Int = 0
+    var fragmentLayoutId: Int = 0
 
     val data: MutableLiveData<Any> by inject()
     val shared: MutableLiveData<Any> by inject(named("sharedLive"))

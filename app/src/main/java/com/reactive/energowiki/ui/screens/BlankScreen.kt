@@ -1,12 +1,11 @@
-package com.reactive.energowiki.ui.screens.splash
+package com.reactive.energowiki.ui.screens
 
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 
-class SplashScreen : BaseFragment(R.layout.screen_splash) {
+class BlankScreen : BaseFragment(R.layout.screen_blank) {
 
     override fun initialize() {
 
     }
-
 }

@@ -42,7 +42,7 @@ abstract class BaseFragment(@LayoutRes val layoutId: Int) : Fragment(layoutId) {
 
     fun addFragment(
         fragment: Fragment,
-        addBackStack: Boolean = true, @IdRes id: Int = parentLayoutId(),
+        addBackStack: Boolean = true, @IdRes id: Int = fragmentLayoutId(),
         tag: String = fragment.hashCode().toString()
     ) {
         hideKeyboard()
@@ -58,7 +58,7 @@ abstract class BaseFragment(@LayoutRes val layoutId: Int) : Fragment(layoutId) {
         }
     }
 
-    fun replaceFragment(fragment: Fragment, @IdRes id: Int = navLayoutId()) {
+    fun replaceFragment(fragment: Fragment, @IdRes id: Int = fragmentLayoutId()) {
         hideKeyboard()
         activity?.supportFragmentManager?.commit(allowStateLoss = true) {
             replace(id, fragment)
@@ -114,8 +114,11 @@ abstract class BaseFragment(@LayoutRes val layoutId: Int) : Fragment(layoutId) {
     }
 }
 
-fun FragmentActivity.initialFragment(fragment: BaseFragment, showAnim: Boolean = false) {
-    val containerId = ViewModelProviders.of(this)[BaseViewModel::class.java].parentLayoutId
+fun FragmentActivity.initialFragment(
+    fragment: BaseFragment,
+    @IdRes containerId: Int,
+    showAnim: Boolean = false
+) {
     supportFragmentManager.commit(allowStateLoss = true) {
         if (showAnim)
             setCustomAnimations(
@@ -135,5 +138,5 @@ fun FragmentActivity.finishFragment() {
 fun BaseFragment.parentLayoutId() =
     ViewModelProviders.of(activity!!)[BaseViewModel::class.java].parentLayoutId
 
-fun BaseFragment.navLayoutId() =
-    ViewModelProviders.of(activity!!)[BaseViewModel::class.java].navLayoutId
+fun BaseFragment.fragmentLayoutId() =
+    ViewModelProviders.of(activity!!)[BaseViewModel::class.java].fragmentLayoutId

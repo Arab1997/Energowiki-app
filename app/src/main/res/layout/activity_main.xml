@@ -6,10 +6,19 @@
     android:background="@android:color/transparent"
     android:orientation="vertical">
 
+    <include layout="@layout/content_toolbar" />
+
     <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar" />
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:translationZ="5dp" />
 
     <ProgressBar
         android:id="@+id/progressBar"

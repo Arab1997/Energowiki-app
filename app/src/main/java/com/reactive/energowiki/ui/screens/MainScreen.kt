@@ -1,9 +1,9 @@
-package com.reactive.energowiki.ui.screens.main
+package com.reactive.energowiki.ui.screens
 
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 
-class BlankScreen : BaseFragment(R.layout.screen_blank) {
+class MainScreen : BaseFragment(R.layout.screen_main) {
 
     override fun initialize() {
 
