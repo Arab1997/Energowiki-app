@@ -21,7 +21,11 @@ android {
         preDexLibraries = false
         javaMaxHeapSize "4g"
     }
-    signingConfigs {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+/*    signingConfigs {
         debug {
             storeFile file("/Volumes/HDD/keys/new-reactive/new")
             storePassword "qdP6XBFhekJK"
@@ -36,11 +40,12 @@ android {
             keyPassword "qdP6XBFhekJK"
         }
     }
+    */
     buildTypes {
         debug {
             manifestPlaceholders = [enableCrashReporting: "false"]
             buildConfigField 'String', 'BASE_URL', '"https://xxx.xxx/"'
-            signingConfig signingConfigs.debug
+//            signingConfig signingConfigs.debug
             minifyEnabled false
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -51,7 +56,7 @@ android {
             minifyEnabled false
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+//            signingConfig signingConfigs.release
         }
     }
     kotlinOptions {
