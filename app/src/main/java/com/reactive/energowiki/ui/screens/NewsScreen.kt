@@ -3,6 +3,7 @@ package com.reactive.energowiki.ui.screens.main
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.adapters.NewsAdapter
+import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.content_toolbar.*
 
 class NewsScreen: BaseFragment(R.layout.screen_news) {
@@ -10,7 +11,7 @@ class NewsScreen: BaseFragment(R.layout.screen_news) {
     override fun initialize() {
         close.setOnClickListener { finishFragment() }
 
-        title.text = "НОВОСТИ"
+        header.text = "НОВОСТИ"
 
 
 
