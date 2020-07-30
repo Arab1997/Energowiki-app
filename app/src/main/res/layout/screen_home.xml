@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/screenStyle">
 
     <include layout="@layout/content_toolbar"/>
@@ -96,7 +97,9 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:padding="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:padding="10dp"
+                    android:background="@drawable/rounded_pink_cart"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="80dp"
@@ -109,14 +112,257 @@
                     android:drawableStart="@drawable/ic_miscellaneous"/>
 
                 <TextView
-                    android:layout_marginStart="20dp"
+                    android:padding="10dp"
+                    android:background="@drawable/rounded_light_blue_cart"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="80dp"
-                    android:drawableStart="@drawable/ic_miscellaneous"/>
+                    android:text="Подать заявку через ЕИП"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:drawablePadding="10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/font"
+                    android:drawableStart="@drawable/ic_computer"/>
 
             </LinearLayout>
 
+            <TextView
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="15dp"
+                android:padding="10dp"
+                android:background="@drawable/rounded_green_cart"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="Оплата за электроэнергии и за газ"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:drawablePadding="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/font"
+                android:drawableStart="@drawable/ic_computer"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="15dp"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:paddingTop="17dp"
+                android:paddingBottom="17dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+                    <include
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        layout="@layout/item_home_menu"/>
+
+                    <include
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="20dp"
+                        layout="@layout/item_home_menu"/>
+
+                    <include
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="20dp"
+                        layout="@layout/item_home_menu"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+                    <include
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        layout="@layout/item_home_menu"/>
+
+                    <include
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="20dp"
+                        layout="@layout/item_home_menu"/>
+
+                    <include
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="20dp"
+                        layout="@layout/item_home_menu"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginTop="50dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Новости"
+                    android:textSize="16sp"
+                    android:textColor="@color/dark"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Все новости"
+                    android:textSize="12sp"
+                    android:textColor="#5292D1"
+                    android:textStyle="bold"/>
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                tools:listitem="@layout/item_news"
+                tools:itemCount="3"/>
+
+
+            <RelativeLayout
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Частые вопросы"
+                    android:textSize="16sp"
+                    android:textColor="@color/dark"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Все вопросы"
+                    android:textSize="12sp"
+                    android:textColor="#5292D1"
+                    android:textStyle="bold"/>
+            </RelativeLayout>
+            
+            <LinearLayout
+                android:padding="9dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/ic_question"
+                    android:contentDescription="@string/contentdescription" />
+
+                <TextView
+                    android:layout_marginStart="10dp"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/dark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Считается ли напряжение 12 В переменного тока 50 Гц опасным для жизни человека, если оно полностью приложено к его телу"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="9dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/ic_question"
+                    android:contentDescription="@string/contentdescription" />
+
+                <TextView
+                    android:layout_marginStart="10dp"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/dark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Считается ли напряжение 12 В переменного тока 50 Гц опасным для жизни человека, если оно полностью приложено к его телу"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Полезные ссылки"
+                    android:textSize="16sp"
+                    android:textColor="@color/dark"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Все список"
+                    android:textSize="12sp"
+                    android:textColor="#5292D1"
+                    android:textStyle="bold"/>
+            </RelativeLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                android:orientation="horizontal"
+                app:spanCount="2"/>
 
         </LinearLayout>
 

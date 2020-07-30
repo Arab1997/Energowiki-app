@@ -2,6 +2,7 @@
 <resources>
     <color name="accent">@color/red</color>
 
+    <color name="dark">#000000</color>
     <color name="black">#212121</color>
     <color name="white">#FFFFFF</color>
     <color name="yellow">#FFC84C</color>
@@ -9,14 +10,14 @@
     <color name="hint">#899196</color>
     <color name="back">#F5F6FC</color>
     <color name="green">#08C5A4</color>
-    <color name="blue">#0070D7</color>
+<!--    <color name="blue">#0070D7</color>-->
     <color name="dark_blue">#00386C</color>
     <color name="font">#090D17</color>
     <color name="pink">#FF5D5D</color>
 
 
-    <color name="back">#F5F6FC</color>
-    <color name="font">#323A3D</color>
+<!--    <color name="back">#F5F6FC</color>-->
+<!--    <color name="font">#323A3D</color>-->
     <color name="blue">#74A8DA</color>
 
 </resources>
