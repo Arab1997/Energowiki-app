@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    style="@style/itemDescStyle"
+    android:layout_width="match_parent"
+    android:layout_height="?actionBarSize"
+    android:layout_marginBottom="5dp"
+    android:background="@color/back"
+    android:padding="0dp">
+
+    <ImageView
+        android:id="@+id/close"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:src="@drawable/ic_arrow_back_ios_24"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:textAllCaps="true"
+        android:gravity="left|center"
+        android:textColor="@color/font"
+        android:layout_marginLeft="8dp"
+        android:textSize="15sp"
+        tools:text="@tools:sample/lorem" />
+
+    <ImageView
+        android:id="@+id/right"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        tools:ignore="ContentDescription" />
+
+</LinearLayout>

@@ -8,4 +8,9 @@
     <color name="red">#F32A1F</color>
     <color name="hint">#899196</color>
 
+
+    <color name="back">#F5F6FC</color>
+    <color name="font">#323A3D</color>
+    <color name="blue">#74A8DA</color>
+
 </resources>

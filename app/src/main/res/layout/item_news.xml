@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   style="@style/itemStyle"
+    android:background="@drawable/round_back_10" >
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="87dp"
+        android:layout_height="87dp"
+        android:src="@drawable/logo"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="11dp"
+        android:layout_marginLeft="16dp"
+        >
+        <TextView
+            android:id="@+id/newsTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="sdfjnjkkkkkkkkkkkkkkkkkkkkkkkkkdjkfvvvvvvvvv"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+           <ImageView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/ic_calendar"/>
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="19:28 13.05.2020"
+                android:layout_gravity="center"
+
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
