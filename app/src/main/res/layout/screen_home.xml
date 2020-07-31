@@ -49,8 +49,7 @@
                 android:padding="10dp"
                 android:text="Сообщить об аварии"
                 android:textColor="@color/font"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                android:textSize="13sp" />
 
             <TextView
                 android:layout_width="0dp"
@@ -63,8 +62,7 @@
                 android:padding="10dp"
                 android:text="Подать заявку через ЕИП"
                 android:textColor="@color/font"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                android:textSize="13sp" />
 
         </LinearLayout>
 
@@ -81,8 +79,7 @@
             android:padding="10dp"
             android:text="Оплата за электроэнергии и за газ"
             android:textColor="@color/font"
-            android:textSize="13sp"
-            android:textStyle="bold" />
+            android:textSize="13sp" />
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -121,8 +118,7 @@
                 android:layout_height="wrap_content"
                 android:text="Все новости"
                 android:textColor="#5292D1"
-                android:textSize="12sp"
-                android:textStyle="bold" />
+                android:textSize="12sp" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -158,8 +154,7 @@
                 android:layout_height="wrap_content"
                 android:text="Все новости"
                 android:textColor="#5292D1"
-                android:textSize="12sp"
-                android:textStyle="bold" />
+                android:textSize="12sp" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -196,8 +191,7 @@
                 android:layout_height="wrap_content"
                 android:text="Все новости"
                 android:textColor="#5292D1"
-                android:textSize="12sp"
-                android:textStyle="bold" />
+                android:textSize="12sp" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView

@@ -1,14 +1,13 @@
 package com.reactive.energowiki.ui.activities
 
 import android.view.KeyEvent
-import com.reactive.energowiki.ui.screens.SplashScreen
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseActivity
 import com.reactive.energowiki.base.BaseViewModel
 import com.reactive.energowiki.base.initialFragment
 import com.reactive.energowiki.base.parentLayoutId
-import com.reactive.energowiki.ui.screens.BasicsScreen
 import com.reactive.energowiki.ui.screens.HomeScreen
+import com.reactive.energowiki.ui.screens.SplashScreen
 import com.reactive.energowiki.utils.extensions.inDevelopment
 import com.reactive.energowiki.utils.extensions.showGone
 import com.reactive.energowiki.utils.preferences.SharedManager
@@ -33,7 +32,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
         setClicks()
 
         debug()
-        startFragment()
+//        startFragment()
     }
 
     private fun setClicks() {
@@ -41,7 +40,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
         notifications.setOnClickListener { inDevelopment(this) }
     }
 
-    private fun debug() = initialFragment(BasicsScreen(), viewModel.fragmentLayoutId)
+    private fun debug() = initialFragment(HomeScreen(), viewModel.fragmentLayoutId)
 
     private fun startFragment() {
         val splash = SplashScreen().apply {

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Reactive Template</string>
+    <string name="app_name">EnergoWiki</string>
     <string name="back_again">Нажмите еще раз, чтобы выйти</string>
     <string name="check_connection">Проверьте подключение к интернету. И попробуй еще раз</string>
     <string name="slow_internet">Скорость интернета низкая. пожалуйста, подождите</string>
