@@ -24,13 +24,41 @@
         <item name="android:background">@color/back</item>
     </style>
 
+    <style name="recyclerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
     <style name="cardStyle" parent="elevationStyle">
         <item name="android:orientation">vertical</item>
         <item name="android:focusableInTouchMode">true</item>
+        <item name="gravity">center</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">10dp</item>
         <item name="android:background">@drawable/rounded_white</item>
     </style>
 
+    <style name="itemStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">30dp</item>
+        <item name="android:layout_marginRight">30dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="background">@drawable/rounded_white</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
 
+    <style name="textStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:layout_marginTop">11dp</item>
+        <item name="android:layout_marginBottom">11dp</item>
+        <item name="textAllCaps">true</item>
+    </style>
 
     <style name="itemDescStyle">
         <item name="android:layout_width">match_parent</item>
@@ -48,33 +76,5 @@
         <item name="android:longClickable">false</item>
         <item name="android:layout_marginBottom">24dp</item>
     </style>
-
-    <style name="recyclerStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:orientation">vertical</item>
-    </style>
-
-    <style name="itemStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginLeft">30dp</item>
-        <item name="android:layout_marginRight">30dp</item>
-        <item name="android:layout_marginTop">20dp</item>
-        <item name="background">@drawable/round_back_10</item>
-        <item name="android:orientation">horizontal</item>
-    </style>
-
-    <style name="textStyle">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginLeft">16dp</item>
-        <item name="android:layout_marginRight">20dp</item>
-        <item name="android:layout_marginTop">11dp</item>
-        <item name="android:layout_marginBottom">11dp</item>
-        <item name="textAllCaps">true</item>
-    </style>
-
-
 
 </resources>

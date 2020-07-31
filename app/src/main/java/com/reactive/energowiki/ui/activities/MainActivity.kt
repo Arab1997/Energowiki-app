@@ -8,7 +8,7 @@ import com.reactive.energowiki.base.BaseViewModel
 import com.reactive.energowiki.base.initialFragment
 import com.reactive.energowiki.base.parentLayoutId
 import com.reactive.energowiki.ui.screens.BasicsScreen
-import com.reactive.energowiki.ui.screens.MainScreen
+import com.reactive.energowiki.ui.screens.HomeScreen
 import com.reactive.energowiki.utils.extensions.inDevelopment
 import com.reactive.energowiki.utils.extensions.showGone
 import com.reactive.energowiki.utils.preferences.SharedManager
@@ -45,7 +45,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
 
     private fun startFragment() {
         val splash = SplashScreen().apply {
-            setListener { replaceFragment(MainScreen(), id = parentLayoutId()) }
+            setListener { replaceFragment(HomeScreen(), id = parentLayoutId()) }
         }
         initialFragment(splash, viewModel.parentLayoutId, true)
     }
