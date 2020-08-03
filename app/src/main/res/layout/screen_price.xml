@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/screenStyle">
+    <include layout="@layout/content_header" />
+    <LinearLayout
+        style="@style/cardStyle"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+        <LinearLayout
+            style="@style/itemStyle"
+            android:orientation="horizontal"
+            android:weightSum="3">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="1 кВт/час цена:"
+                android:textAllCaps="false"
+                android:textColor="@color/dark"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:gravity="center"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="bottom">
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/itemStyle"
+                    android:hint="12"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hint"
+                    android:textSize="16sp"
+                    android:inputType="number"/>
+                <include layout="@layout/item_divider"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/hint"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="30dp"
+    android:text="техники подключенные к электричеству"
+    android:drawableRight="@drawable/ic_baseline_add_circle_24"
+    android:layout_marginRight="30dp"
+    android:textColor="@color/dark"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerForm"
+        style="@style/itemStyle"
+        android:layout_marginLeft="20dp"
+        android:background="@color/back"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:listitem="@layout/item_tex" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp">
+
+        <Button
+            android:id="@+id/report"
+            style="@style/btnStyle"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_yellow_cart"
+            android:text="отчёт" />
+
+        <Button
+            style="@style/btnStyle"
+            android:id="@+id/sbros"
+            android:layout_gravity="right"
+            android:background="@drawable/rounded_green_cart"
+            android:text="сброс" />
+
+
+    </LinearLayout>
+
+    <View
+        style="@style/itemStyle"
+        android:layout_height="1dp"
+        android:background="@color/hint"
+        android:layout_marginTop="10dp"
+
+        />
+
+    <LinearLayout
+        style="@style/itemStyle"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:background="@color/back">
+
+        <TextView
+            android:layout_weight="1"
+            style="@style/btnStyle"
+            android:text="результат расчета"
+            android:textColor="@color/black"
+
+            />
+
+        <TextView
+            android:id="@+id/result1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="34 000 сум"
+            android:textStyle="bold"
+            android:textColor="@color/dark"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/result2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12 кВт"
+        android:textStyle="bold"
+        android:textColor="@color/dark"
+        android:textSize="18sp"
+        android:layout_gravity="right"
+        android:layout_marginRight="30dp"/>
+
+</LinearLayout>

@@ -13,7 +13,7 @@ class NormDocScreen : BaseFragment(R.layout.screen_basics) {
     override fun initialize() {
         close.setOnClickListener { finishFragment() }
 
-        header.text = "Ннормативные документы"
+        header.text = "Нормативные документы"
 
         adapter = NormDocAdapter {
         }.apply {

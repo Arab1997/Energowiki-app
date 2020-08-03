@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_white_cart"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <TextView
+        style="@style/btnStyle"
+        android:textColor="@color/dark"
+        android:textStyle="bold"
+        android:text="Пылисос"
+        android:layout_gravity="left"/>
+        <TextView
+            android:layout_width="match_parent"
+            style="@style/btnStyle"
+            android:textColor="@color/dark"
+            android:text="х1"
+            android:gravity="right"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+    >
+        <TextView
+            style="@style/btnStyle"
+            android:textColor="@color/black"
+            android:text="1700 вт"
+            android:layout_gravity="left"/>
+    <TextView
+        style="@style/btnStyle"
+        android:textColor="@color/black"
+        android:text="2 час/сутки"
+        android:gravity="right"
+        android:layout_marginLeft="0dp"/>
+
+
+
+
+</LinearLayout>
+</LinearLayout>

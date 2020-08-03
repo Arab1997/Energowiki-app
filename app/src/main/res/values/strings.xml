@@ -5,4 +5,11 @@
     <string name="slow_internet">Скорость интернета низкая. пожалуйста, подождите</string>
     <string name="smth_wrong">Что-то пошло не так. Пожалуйста, попробуйте еще раз</string>
     <string name="contentdescription">contentDescription</string>
+
+
+    <string-array name ="region" >
+        <item>Ташкент</item>
+        <item>Бухара</item>
+        <item>Самарканд</item>
+    </string-array>
 </resources>

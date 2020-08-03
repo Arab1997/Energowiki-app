@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_white_cart">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_cancel_24"
+        android:layout_gravity="right"
+        android:layout_margin="10dp" />
+    
+    <TextView
+        style="@style/btnStyle"
+        android:text="Подать заявку"
+        android:textColor="@color/dark"
+        android:layout_gravity="center"
+        android:elevation="0dp"
+        android:translationZ="0dp"
+        android:textStyle="bold"
+        />
+
+    <com.google.android.material.textfield.TextInputEditText
+        style="@style/itemStyle"
+        android:id="@+id/fio"
+        android:hint="Ф.И.О"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="14sp"
+        android:padding="10dp"
+        android:layout_marginLeft="30dp"/>
+
+    <include layout="@layout/item_divider" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        style="@style/itemStyle"
+        android:id="@+id/address"
+        android:hint="адрес проживание"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="14sp"
+        android:padding="10dp"
+        android:layout_marginLeft="30dp"/>
+
+    <include layout="@layout/item_divider" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:padding="10dp"
+        android:entries="@array/region"
+
+        />
+    <include layout="@layout/item_divider"/>
+    <TextView
+        style="@style/btnStyle"
+        android:text="Техт заявки "
+        android:textColor="@color/black"
+        android:elevation="0dp"
+        android:translationZ="0dp"
+        android:textSize="12sp"
+        android:layout_marginLeft="30dp"
+
+        />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inform"
+        style="@style/itemStyle"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:padding="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"/>
+
+    <include layout="@layout/item_divider" />
+    <com.google.android.material.textfield.TextInputEditText
+        style="@style/itemStyle"
+        android:id="@+id/phone"
+        android:hint="Номер телефона"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="14sp"
+        android:padding="10dp"
+        android:layout_marginLeft="30dp"/>
+
+    <include layout="@layout/item_divider" />
+
+    <Button
+        android:id="@+id/sent"
+        style="@style/btnStyle"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_light_blue_cart"
+        android:text="Отправить"
+        android:textAllCaps="false"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"/>
+
+
+</LinearLayout>

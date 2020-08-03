@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/screenStyle">
+
+    <include layout="@layout/content_header" />
+
+
+    <LinearLayout
+        style="@style/cardStyle"
+        android:layout_margin="30dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp">
+        <TextView
+            style="@style/itemStyle"
+            android:text="Мощность"
+            android:textAllCaps="false"
+            android:textColor="@color/dark"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+        <TextView
+            style="@style/itemStyle"
+            android:text="Ток"
+            android:layout_marginTop="20dp"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginRight="30dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/itemStyle"
+                    android:hint="12"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hint"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="30dp"
+                    android:inputType="number"/>
+                <include layout="@layout/item_divider"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="3">
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/hint"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            style="@style/itemStyle"
+            android:text="Напряжения"
+            android:layout_marginTop="20dp"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginRight="30dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/itemStyle"
+                    android:hint="12"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hint"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="30dp"
+                    android:inputType="number"/>
+                <include layout="@layout/item_divider"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="3">
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/hint"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerForm"
+        style="@style/itemStyle"
+        android:layout_marginLeft="0dp"
+        android:background="@color/back"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="3"
+        tools:itemCount="6"
+        tools:listitem="@layout/item_form" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_marginRight="30dp">
+
+        <Button
+            android:id="@+id/report"
+            style="@style/btnStyle"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_yellow_cart"
+            android:text="отчёт" />
+
+        <Button
+            style="@style/btnStyle"
+            android:id="@+id/sbros"
+            android:layout_gravity="right"
+            android:background="@drawable/rounded_green_cart"
+            android:text="сброс" />
+
+
+    </LinearLayout>
+
+    <View
+        style="@style/itemStyle"
+        android:layout_height="1dp"
+        android:background="@color/hint"
+        android:layout_marginTop="20dp"
+
+        />
+
+    <LinearLayout
+        style="@style/itemStyle"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:background="@color/back">
+
+        <TextView
+            android:layout_weight="1"
+            style="@style/btnStyle"
+            android:text="результат расчета"
+            android:textColor="@color/dark"
+            />
+
+        <TextView
+            android:id="@+id/result1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 B"
+            android:textStyle="bold"
+            android:textColor="@color/dark"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</LinearLayout>
