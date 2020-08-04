@@ -4,18 +4,11 @@ import android.content.Context
 import androidx.annotation.LayoutRes
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.google.gson.Gson
 import com.reactive.energowiki.R
-import com.reactive.energowiki.network.ApiInterface
-import com.reactive.energowiki.network.ErrorResp
-import com.reactive.energowiki.network.LoginRequest
-import com.reactive.energowiki.network.RetrofitClient
-import com.reactive.energowiki.utils.Constants
+import com.reactive.energowiki.network.*
 import com.reactive.energowiki.utils.extensions.loge
-import com.reactive.energowiki.utils.extensions.logi
 import com.reactive.energowiki.utils.extensions.toast
 import com.reactive.energowiki.utils.network.Errors
-import com.reactive.energowiki.utils.preferences.SharedManager
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -25,11 +18,7 @@ import org.koin.core.inject
 import org.koin.core.qualifier.named
 import retrofit2.HttpException
 
-open class BaseViewModel(
-    private val gson: Gson,
-    private val context: Context,
-    private val sharedManager: SharedManager
-) : ViewModel(), KoinComponent {
+open class BaseViewModel(private val context: Context) : ViewModel(), KoinComponent {
 
     @LayoutRes
     var parentLayoutId: Int = 0
@@ -41,10 +30,17 @@ open class BaseViewModel(
     val shared: MutableLiveData<Any> by inject(named("sharedLive"))
     val error: MutableLiveData<ErrorResp> by inject(named("errorLive"))
 
-    private val api = RetrofitClient
-        .getRetrofit(Constants.BASE_URL, getToken(), context, gson)
-        .create(ApiInterface::class.java)
 
+    private val news: MutableLiveData<List<Documents>> by inject(named("documents"))
+    private val documents: MutableLiveData<List<Documents>> by inject(named("documents"))
+    private val organizations: MutableLiveData<List<Organizations>> by inject(named("organizations"))
+    private val spravkas: MutableLiveData<List<Documents>> by inject(named("documents"))
+    private val links: MutableLiveData<List<Links>> by inject(named("links"))
+    private val faqs: MutableLiveData<List<Documents>> by inject(named("documents"))
+    private val glossaries: MutableLiveData<List<Documents>> by inject(named("documents"))
+    private val categoryApplication: MutableLiveData<List<Links>> by inject(named("links"))
+
+    private val api: ApiInterface by inject()
     private val compositeDisposable = CompositeDisposable()
 
     private fun parseError(e: Throwable?) {
@@ -90,29 +86,108 @@ open class BaseViewModel(
 
     fun fetchData() {
 
-        if (sharedManager.token.isNotEmpty()) {
-
-            logi("Current token : " + sharedManager.token)
-
-        }
+        getDocuments()
+        getNews()
+        getOrganizations()
+        getSpravkas()
+        getLinks()
+        getFaqs()
+        getGlossaries()
+        getCategoryApplication()
     }
 
-    private fun getToken() = "Bearer ${sharedManager.token}"
-
-     fun login(phone: String, password: String) = compositeDisposable.add(
-        api.login(LoginRequest(phone, password)).observeAndSubscribe()
+    private fun getDocuments() = compositeDisposable.add(
+        api.getDocuments().observeAndSubscribe()
             .subscribe({
-                sharedManager.token = it.access_token
-                data.value = it
+                documents.postValue(it)
             }, {
                 parseError(it)
             })
     )
 
-    private fun logOut() = compositeDisposable.add(
-        api.logout().observeAndSubscribe()
+    private fun getNews() = compositeDisposable.add(
+        api.getNews().observeAndSubscribe()
             .subscribe({
-                sharedManager.deleteAll()
+                news.postValue(it)
+            }, {
+                parseError(it)
+            })
+    )
+
+    private fun getOrganizations() = compositeDisposable.add(
+        api.getOrganizations().observeAndSubscribe()
+            .subscribe({
+                organizations.postValue(it)
+            }, {
+                parseError(it)
+            })
+    )
+
+    private fun getSpravkas() = compositeDisposable.add(
+        api.getSpravkas().observeAndSubscribe()
+            .subscribe({
+                spravkas.postValue(it)
+            }, {
+                parseError(it)
+            })
+    )
+
+    private fun getLinks() = compositeDisposable.add(
+        api.getLinks().observeAndSubscribe()
+            .subscribe({
+                links.postValue(it)
+            }, {
+                parseError(it)
+            })
+    )
+
+    private fun getFaqs() = compositeDisposable.add(
+        api.getFaqs().observeAndSubscribe()
+            .subscribe({
+                faqs.postValue(it)
+            }, {
+                parseError(it)
+            })
+    )
+
+    private fun getGlossaries() = compositeDisposable.add(
+        api.getGlossaries().observeAndSubscribe()
+            .subscribe({
+                glossaries.postValue(it)
+            }, {
+                parseError(it)
+            })
+    )
+
+    private fun getCategoryApplication() = compositeDisposable.add(
+        api.getCategoryApplication().observeAndSubscribe()
+            .subscribe({
+                categoryApplication.postValue(it)
+            }, {
+                parseError(it)
+            })
+    )
+
+    private fun sendAvari(address: String, text: String) = compositeDisposable.add(
+        api.sendAvari(address, text).observeAndSubscribe()
+            .subscribe({
+                data.postValue(it)
+            }, {
+                parseError(it)
+            })
+    )
+
+    private fun sendApplication(
+        fio: String,
+        text: String,
+        address: String,
+        phone: String,
+        category_application_id: String
+    ) = compositeDisposable.add(
+        api.sendApplication(fio, text, address, phone, category_application_id)
+            .observeAndSubscribe()
+            .subscribe({
+                data.postValue(it)
             }, {
                 parseError(it)
             })

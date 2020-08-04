@@ -17,19 +17,18 @@ object RetrofitClient {
 
     fun getRetrofit(
         baseUrl: String,
-        token: String,
         context: Context,
         gson: Gson
     ): Retrofit {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
-            .client(getClient(token, context))
+            .client(getClient(context))
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
     }
 
-    private fun getClient(token: String, context: Context): OkHttpClient {
+    private fun getClient(context: Context): OkHttpClient {
         val builder = UnsafeOkHttpClient.getUnsafeOkHttpClientBuilder()
         val interceptor = HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
             override fun log(message: String) {
@@ -41,7 +40,7 @@ object RetrofitClient {
                 .newBuilder()
                 .addHeader("Content-Type", "application/json")
                 .addHeader("Accept", "application/json")
-            if (token.isNotEmpty()) request.addHeader("Authorization", "Bearer $token")
+                .addHeader("Authorization", "Basic T2JtZW46MTIzNDU2")
             chain.proceed(request.build())
         })
         if (BuildConfig.DEBUG) {

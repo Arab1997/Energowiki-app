@@ -7,7 +7,6 @@
 
     <include layout="@layout/content_header" />
 
-
     <LinearLayout
         style="@style/cardStyle"
         android:layout_marginLeft="30dp"
