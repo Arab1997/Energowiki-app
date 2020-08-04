@@ -36,8 +36,7 @@
             android:layout_marginStart="20dp"
             android:drawableStart="@drawable/ic_baseline_insert_drive_file_24"
             android:drawablePadding="4dp"
-            android:text="№ 1546
-"
+            android:text="№ 1546"
             android:textColor="@color/black"
             android:textSize="12sp" />
 

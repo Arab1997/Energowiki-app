@@ -39,7 +39,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
         notifications.setOnClickListener { inDevelopment(this) }
     }
 
-    private fun debug() = initialFragment(CalculationScreen(), viewModel.fragmentLayoutId)
+    private fun debug() = initialFragment(PriceScreen(), viewModel.fragmentLayoutId)
 
     private fun startFragment() {
         val splash = SplashScreen().apply {

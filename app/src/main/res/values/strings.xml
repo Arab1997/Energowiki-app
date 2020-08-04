@@ -7,8 +7,8 @@
     <string name="contentdescription">contentDescription</string>
 
 
-    <string-array name ="region" >
-        <item>Ташкент</item>
+    <string-array name="region" >
+        <item >Ташкент</item>
         <item>Бухара</item>
         <item>Самарканд</item>
     </string-array>

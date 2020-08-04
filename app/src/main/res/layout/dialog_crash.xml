@@ -1,114 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/rounded_white_cart">
+    android:background="@drawable/rounded_white_cart"
+    android:orientation="vertical">
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_cancel_24"
         android:layout_gravity="right"
-        android:layout_margin="10dp" />
-    
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/ic_baseline_cancel_24" />
+
     <TextView
-        style="@style/btnStyle"
+        style="@style/baseStyle"
+        android:layout_marginBottom="14dp"
+        android:fontFamily="@font/inter_bold"
+        android:gravity="center"
         android:text="Сообщить об аварии"
         android:textColor="@color/dark"
-        android:layout_gravity="center"
-        android:elevation="0dp"
-        android:translationZ="0dp"
-        android:textStyle="bold"
-        />
+        android:textSize="16dp" />
 
     <TextView
-        style="@style/btnStyle"
+        style="@style/baseStyle"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
         android:text="Позвоните по номеру"
         android:textColor="@color/black"
-        android:layout_gravity="center"
-        android:elevation="0dp"
-        android:translationZ="0dp"
-        android:textSize="12sp"
-        android:paddingBottom="0dp"
-        android:paddingTop="0dp"
-        />
+        android:textSize="14sp" />
 
     <TextView
-        style="@style/btnStyle"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:elevation="0dp"
-        android:paddingTop="0dp"
+        style="@style/baseStyle"
+        android:layout_marginBottom="25dp"
+        android:fontFamily="@font/inter_bold"
+        android:gravity="center"
         android:text="+ 998 71 123 45 67"
         android:textColor="@color/dark"
-        android:textStyle="bold"
-
-        android:translationZ="0dp" />
+        android:textSize="20dp" />
 
     <TextView
-        style="@style/btnStyle"
+        style="@style/baseStyle"
+        android:layout_marginBottom="22dp"
+        android:gravity="center"
         android:text="или"
         android:textColor="@color/black"
-        android:layout_gravity="center"
-        android:elevation="0dp"
-        android:translationZ="0dp"
-        android:textSize="12sp"
-        />
+        android:textSize="14sp" />
+
     <TextView
-        style="@style/btnStyle"
+        style="@style/baseStyle"
+        android:layout_marginBottom="26dp"
+        android:gravity="center"
         android:text="Заполните форму"
         android:textColor="@color/black"
-        android:layout_gravity="center"
-        android:elevation="0dp"
-        android:translationZ="0dp"
-        android:paddingTop="0dp"
-        android:textSize="12sp"
-        />
+        android:textSize="14sp" />
+
     <com.google.android.material.textfield.TextInputEditText
-        style="@style/itemStyle"
         android:id="@+id/address"
+        style="@style/baseStyle"
+        android:layout_marginLeft="55dp"
+        android:layout_marginRight="55dp"
         android:hint="Адрес место аварии"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        android:textSize="14sp"
-        android:padding="10dp"
-        android:layout_marginLeft="30dp"/>
+        android:textSize="11sp" />
 
-    <include layout="@layout/item_divider" />
 
     <TextView
-        style="@style/btnStyle"
+        style="@style/baseStyle"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:text="Доп. информации об аварии"
         android:textColor="@color/black"
-        android:elevation="0dp"
-        android:translationZ="0dp"
-        android:textSize="12sp"
-        android:layout_marginLeft="30dp"
+        android:textSize="11sp" />
 
-        />
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/inform"
-        style="@style/itemStyle"
+        style="@style/baseStyle"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="55dp"
+        android:hint="информация"
         android:textColor="@color/black"
-        android:textSize="14sp"
-        android:padding="10dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"/>
-
-    <include layout="@layout/item_divider" />
+        android:textSize="11sp" />
 
     <Button
         android:id="@+id/sent"
-        style="@style/btnStyle"
+        android:layout_width="121dp"
+        android:layout_height="29dp"
         android:layout_gravity="center"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="22dp"
         android:background="@drawable/rounded_light_blue_cart"
+        android:fontFamily="@font/inter_bold"
+        android:gravity="center"
         android:text="Отправить"
         android:textAllCaps="false"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="30dp"/>
+        android:textColor="@color/white"
+        android:textSize="11dp" />
 
 
 </LinearLayout>

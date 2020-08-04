@@ -8,6 +8,10 @@ class CalculationScreen : BaseFragment(R.layout.screen_calculation) {
 
 
     override fun initialize() {
+        close.setOnClickListener { finishFragment() }
+
+        header.text = "Закон Ома постоянного тока"
+
     }
 
-}
+    }
