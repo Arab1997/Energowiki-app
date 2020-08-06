@@ -131,6 +131,23 @@ fun FragmentActivity.initialFragment(
     }
 }
 
+fun FragmentActivity.addFragment(
+    fragment: BaseFragment,
+    @IdRes containerId: Int
+) {
+    supportFragmentManager.commit(allowStateLoss = true) {
+        setReorderingAllowed(true)
+        setCustomAnimations(
+            R.anim.enter_from_right,
+            R.anim.exit_to_left,
+            R.anim.enter_from_left,
+            R.anim.exit_to_right
+        )
+        addToBackStack(fragment.hashCode().toString())
+        add(containerId, fragment)
+    }
+}
+
 fun FragmentActivity.finishFragment() {
     supportFragmentManager.popBackStack()
 }

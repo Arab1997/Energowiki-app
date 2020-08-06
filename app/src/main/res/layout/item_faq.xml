@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/faq"
+    android:id="@+id/name"
     style="@style/cardStyle"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:drawableStart="@drawable/ic_baseline_live_help_24"
     android:drawablePadding="10dp"
+    android:drawableTint="#4C92D3"
     android:maxLines="3"
     android:padding="9dp"
     android:text="Специалисты Минэнерго завершили электрификацию металлургического завода"

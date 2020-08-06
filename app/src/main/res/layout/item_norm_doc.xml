@@ -4,7 +4,7 @@
     android:padding="13dp">
 
     <TextView
-        android:id="@+id/news"
+        android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLines="3"
@@ -24,6 +24,7 @@
             android:layout_gravity="center"
             android:drawableStart="@drawable/ic_baseline_today_24"
             android:drawablePadding="4dp"
+            android:drawableTint="#00386D"
             android:text="19:28 13.05.2020"
             android:textColor="@color/black"
             android:textSize="12sp" />
@@ -36,6 +37,7 @@
             android:layout_marginStart="20dp"
             android:drawableStart="@drawable/ic_baseline_insert_drive_file_24"
             android:drawablePadding="4dp"
+            android:drawableTint="#00386D"
             android:text="№ 1546"
             android:textColor="@color/black"
             android:textSize="12sp" />

@@ -14,5 +14,6 @@
     <color name="dark_blue">#00386C</color>
     <color name="font">#090D17</color>
     <color name="pink">#FF5D5D</color>
+    <color name="grey">#919191</color>
 
 </resources>

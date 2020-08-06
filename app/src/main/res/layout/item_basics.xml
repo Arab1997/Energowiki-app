@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/name"
     style="@style/cardStyle"
     android:layout_height="80dp"
     android:fontFamily="@font/inter_medium"

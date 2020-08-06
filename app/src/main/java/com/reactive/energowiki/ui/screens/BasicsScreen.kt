@@ -4,20 +4,23 @@ import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.adapters.BasicsAdapter
 import kotlinx.android.synthetic.main.content_header.*
-import kotlinx.android.synthetic.main.screen_basics.*
+import kotlinx.android.synthetic.main.screen_recycler.*
 
-class BasicsScreen : BaseFragment(R.layout.screen_basics) {
+class BasicsScreen : BaseFragment(R.layout.screen_recycler) {
 
     private lateinit var adapter: BasicsAdapter
+    private var data = arrayListOf<BasicsData>()
     override fun initialize() {
 
         close.setOnClickListener { finishFragment() }
+
         header.text = "Основы"
 
         adapter = BasicsAdapter {
-        }.apply {
-            setData(arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
-        }
+            addFragment(CalculatorScreen())
+        }.apply { setData(data) }
         recycler.adapter = adapter
     }
 }
+
+data class BasicsData(val name: String, val type: Int)

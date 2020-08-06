@@ -18,7 +18,7 @@
             android:textSize="13sp" />
 
         <Spinner
-            android:id="@+id/region"
+            android:id="@+id/regionSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
@@ -27,14 +27,15 @@
         <include layout="@layout/item_divider" />
 
         <TextView
+            android:id="@+id/filial"
             style="@style/baseStyle"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15sp"
             android:text="Филиал"
             android:textColor="@color/black"
             android:textSize="13sp" />
 
         <Spinner
-            android:id="@+id/filial"
+            android:id="@+id/filialSpinner"
             style="@style/baseStyle"
             android:layout_marginTop="9dp"
             android:entries="@array/region"
@@ -44,7 +45,7 @@
 
         <TextView
             style="@style/baseStyle"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15sp"
             android:text="Лицевой номер"
             android:textColor="@color/black"
             android:textSize="13sp" />
@@ -53,21 +54,25 @@
             android:id="@+id/number"
             style="@style/baseStyle"
             android:hint="007-2112345"
+            android:inputType="number"
+            android:maxLength="8"
             android:textColor="@color/black"
             android:textColorHint="@color/hint"
             android:textSize="10sp" />
 
-
         <TextView
             style="@style/baseStyle"
+            android:layout_marginTop="15sp"
             android:text="Сумма платежа"
             android:textColor="@color/black"
             android:textSize="13sp" />
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/sum"
             style="@style/baseStyle"
             android:hint="120 000 сум"
+            android:inputType="number"
+            android:maxLength="8"
             android:textColor="@color/black"
             android:textColorHint="@color/hint"
             android:textSize="10sp" />
@@ -78,13 +83,11 @@
         android:id="@+id/pay"
         android:layout_width="131dp"
         android:layout_height="44dp"
-        android:layout_gravity="right"
-        android:layout_marginRight="30dp"
+        android:layout_gravity="end"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/rounded_green_cart"
         android:text="оплатить"
         android:textColor="@color/white"
-        android:textSize="14dp"
+        android:textSize="14sp" />
 
-
-        />
 </LinearLayout>

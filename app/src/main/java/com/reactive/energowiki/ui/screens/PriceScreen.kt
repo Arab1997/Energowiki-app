@@ -5,7 +5,7 @@ import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.adapters.LinksAdapter
 import kotlinx.android.synthetic.main.content_header.*
-import kotlinx.android.synthetic.main.screen_basics.*
+import kotlinx.android.synthetic.main.screen_recycler.*
 
 class PriceScreen : BaseFragment(R.layout.screen_price) {
 

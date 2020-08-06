@@ -31,14 +31,14 @@ open class BaseViewModel(private val context: Context) : ViewModel(), KoinCompon
     val error: MutableLiveData<ErrorResp> by inject(named("errorLive"))
 
 
-    private val news: MutableLiveData<List<Documents>> by inject(named("documents"))
-    private val documents: MutableLiveData<List<Documents>> by inject(named("documents"))
-    private val organizations: MutableLiveData<List<Organizations>> by inject(named("organizations"))
-    private val spravkas: MutableLiveData<List<Documents>> by inject(named("documents"))
-    private val links: MutableLiveData<List<Links>> by inject(named("links"))
-    private val faqs: MutableLiveData<List<Documents>> by inject(named("documents"))
-    private val glossaries: MutableLiveData<List<Documents>> by inject(named("documents"))
-    private val categoryApplication: MutableLiveData<List<Links>> by inject(named("links"))
+    val news: MutableLiveData<List<Documents>> by inject(named("documents"))
+    val documents: MutableLiveData<List<Documents>> by inject(named("documents"))
+    val organizations: MutableLiveData<List<Organizations>> by inject(named("organizations"))
+    val spravkas: MutableLiveData<List<Documents>> by inject(named("documents"))
+    val links: MutableLiveData<List<Links>> by inject(named("links"))
+    val faqs: MutableLiveData<List<Documents>> by inject(named("documents"))
+    val glossaries: MutableLiveData<List<Documents>> by inject(named("documents"))
+    val categoryApplication: MutableLiveData<List<Links>> by inject(named("links"))
 
     private val api: ApiInterface by inject()
     private val compositeDisposable = CompositeDisposable()

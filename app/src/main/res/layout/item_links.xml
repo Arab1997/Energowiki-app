@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/news"
+    android:id="@+id/name"
     style="@style/cardStyle"
     android:drawableStart="@drawable/flag"
     android:drawablePadding="20sp"
