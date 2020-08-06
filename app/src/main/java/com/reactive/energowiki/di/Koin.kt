@@ -23,9 +23,7 @@ val viewModelModule = module {
     single(named("sharedLive")) { provideMutableLiveData() }
     single(named("errorLive")) { MutableLiveData<ErrorResp>() }
 
-    single(named("links")) { MutableLiveData<List<Links>>() }
     single(named("documents")) { MutableLiveData<List<Documents>>() }
-    single(named("organizations")) { MutableLiveData<List<Organizations>>() }
 }
 
 val networkModule = module {

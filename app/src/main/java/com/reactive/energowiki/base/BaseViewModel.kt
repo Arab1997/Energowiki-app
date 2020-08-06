@@ -33,12 +33,12 @@ open class BaseViewModel(private val context: Context) : ViewModel(), KoinCompon
 
     val news: MutableLiveData<List<Documents>> by inject(named("documents"))
     val documents: MutableLiveData<List<Documents>> by inject(named("documents"))
-    val organizations: MutableLiveData<List<Organizations>> by inject(named("organizations"))
+    val organizations: MutableLiveData<List<Documents>> by inject(named("documents"))
     val spravkas: MutableLiveData<List<Documents>> by inject(named("documents"))
-    val links: MutableLiveData<List<Links>> by inject(named("links"))
+    val links: MutableLiveData<List<Documents>> by inject(named("documents"))
     val faqs: MutableLiveData<List<Documents>> by inject(named("documents"))
     val glossaries: MutableLiveData<List<Documents>> by inject(named("documents"))
-    val categoryApplication: MutableLiveData<List<Links>> by inject(named("links"))
+    val categoryApplication: MutableLiveData<List<Documents>> by inject(named("documents"))
 
     private val api: ApiInterface by inject()
     private val compositeDisposable = CompositeDisposable()
@@ -168,7 +168,7 @@ open class BaseViewModel(private val context: Context) : ViewModel(), KoinCompon
             })
     )
 
-    private fun sendAvari(address: String, text: String) = compositeDisposable.add(
+    fun sendAvari(address: String, text: String) = compositeDisposable.add(
         api.sendAvari(address, text).observeAndSubscribe()
             .subscribe({
                 data.postValue(it)
@@ -177,7 +177,7 @@ open class BaseViewModel(private val context: Context) : ViewModel(), KoinCompon
             })
     )
 
-    private fun sendApplication(
+    fun sendApplication(
         fio: String,
         text: String,
         address: String,

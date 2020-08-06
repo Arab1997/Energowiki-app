@@ -2,6 +2,7 @@ package com.reactive.energowiki.base
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -111,6 +112,16 @@ abstract class BaseFragment(@LayoutRes val layoutId: Int) : Fragment(layoutId) {
                 true
             }
         }
+    }
+
+    private val baseHandler = Handler()
+    private var baseRunnable = Runnable {
+    }
+
+    fun removePreviousCallback(action: () -> Unit, millis: Long = 500) {
+        baseHandler.removeCallbacks(baseRunnable)
+        baseRunnable = Runnable { action() }
+        baseHandler.postDelayed(baseRunnable, millis)
     }
 }
 

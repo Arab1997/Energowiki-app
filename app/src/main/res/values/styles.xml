@@ -32,15 +32,16 @@
     </style>
 
     <style name="cardStyle" parent="elevationStyle">
-        <item name="android:orientation">vertical</item>
-        <item name="android:focusableInTouchMode">true</item>
         <item name="gravity">center</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:orientation">vertical</item>
         <item name="android:layout_marginTop">10dp</item>
-        <item name="android:layout_marginBottom">15dp</item>
         <item name="android:layout_marginLeft">10dp</item>
         <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/rounded_white_cart</item>
     </style>
 
@@ -96,4 +97,23 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="textAllCaps">false</item>
     </style>
+
+    <style name="BottomSheet" parent="@style/Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="android:background">@drawable/bottom_sheet_white_rounded</item>
+        <item name="android:elevation">0dp</item>
+    </style>
+
+    <style name="BaseBottomSheetDialog" parent="@style/Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog">
+        <item name="android:statusBarColor">@color/black</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/black</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+
 </resources>

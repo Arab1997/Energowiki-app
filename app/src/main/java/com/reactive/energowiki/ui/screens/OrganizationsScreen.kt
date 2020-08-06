@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.adapters.OrganizationsAdapter
-import com.reactive.energowiki.utils.extensions.inDevelopment
+import com.reactive.energowiki.ui.bottomsheets.OrganizationBottomSheet
 import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.screen_recycler.*
 
@@ -18,7 +18,10 @@ class OrganizationsScreen : BaseFragment(R.layout.screen_recycler) {
         header.text = "Организации"
 
         adapter = OrganizationsAdapter {
-            inDevelopment(requireContext())
+            removePreviousCallback({
+                val bottomSheet = OrganizationBottomSheet.newInstance(it)
+                bottomSheet.show(childFragmentManager, "")
+            })
         }
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(requireContext())

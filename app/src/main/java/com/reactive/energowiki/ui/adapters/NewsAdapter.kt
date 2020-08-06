@@ -5,7 +5,6 @@ import com.reactive.energowiki.base.BaseAdapter
 import com.reactive.energowiki.network.Documents
 import com.reactive.energowiki.ui.activities.setLangText
 import com.reactive.energowiki.utils.common.ViewHolder
-import com.reactive.energowiki.utils.extensions.loge
 import com.reactive.energowiki.utils.extensions.parseSdf2
 import kotlinx.android.synthetic.main.item_news.view.*
 

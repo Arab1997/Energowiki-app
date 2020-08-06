@@ -10,6 +10,8 @@ import com.reactive.energowiki.R
 import com.reactive.energowiki.base.*
 import com.reactive.energowiki.ui.adapters.NavAdapter
 import com.reactive.energowiki.ui.adapters.NotificationsAdapter
+import com.reactive.energowiki.ui.dialogs.AvariyaDialog
+import com.reactive.energowiki.ui.dialogs.RequestDialog
 import com.reactive.energowiki.ui.screens.*
 import com.reactive.energowiki.ui.screens.payment.PaymentScreen
 import com.reactive.energowiki.utils.extensions.inDevelopment
@@ -95,8 +97,14 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
 
     private var data = arrayListOf<HomeData>()
     private fun initDrawer() {
-        avariya.setOnClickListener { inDevelopment(this) }
-        zayavka.setOnClickListener { inDevelopment(this) }
+        avariya.setOnClickListener {
+            addFragment(AvariyaDialog(), viewModel.parentLayoutId)
+            toggleDrawer()
+        }
+        zayavka.setOnClickListener {
+            addFragment(RequestDialog(), viewModel.parentLayoutId)
+            toggleDrawer()
+        }
 
         data = arrayListOf(
             HomeData(0, "Главная", HomeMenus.MAIN),
@@ -129,16 +137,22 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
                     add(BasicsScreen())
                 }
                 HomeMenus.CAPACITY -> {
+                    inDevelopment(this)
                 }
                 HomeMenus.CONDUCTOR -> {
+                    inDevelopment(this)
                 }
                 HomeMenus.PUE -> {
+                    inDevelopment(this)
                 }
                 HomeMenus.ENGINE -> {
+                    inDevelopment(this)
                 }
                 HomeMenus.CABLE -> {
+                    inDevelopment(this)
                 }
                 HomeMenus.PEREKUR -> {
+                    inDevelopment(this)
                 }
                 HomeMenus.PAYMENT -> {
                     add(PaymentScreen())
@@ -159,6 +173,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
                     add(GlossariesScreen())
                 }
                 HomeMenus.PRICE -> {
+                    inDevelopment(this)
                 }
                 HomeMenus.CALCULATOR -> {
                     add(CalculatorScreen())
@@ -170,6 +185,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
                     add(ReferenceScreen())
                 }
                 HomeMenus.ABOUT -> {
+                    inDevelopment(this)
                 }
 
                 else -> {
@@ -186,6 +202,6 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
     }
 }
 
-fun TextView.setLangText(first: String, second: String) {
+fun TextView.setLangText(first: String?, second: String?) {
     this.text = if (MainActivity.isCurrentLangUz) first else second
 }

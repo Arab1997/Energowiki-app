@@ -1,104 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dim"
+    style="@style/elevationStyle"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/rounded_white_cart"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient">
 
-    <ImageView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginRight="14dp"
-        android:layout_marginTop="14dp"
-        android:src="@drawable/ic_baseline_cancel_24" />
+        android:layout_centerInParent="true"
+        android:layout_margin="12sp"
+        android:background="@drawable/rounded_white_cart"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-    <TextView
-        style="@style/baseStyle"
-        android:layout_marginBottom="14dp"
-        android:fontFamily="@font/inter_bold"
-        android:gravity="center"
-        android:text="Сообщить об аварии"
-        android:textColor="@color/dark"
-        android:textSize="16dp" />
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="14dp"
+            android:layout_marginRight="14dp"
+            android:padding="5sp"
+            android:src="@drawable/ic_baseline_cancel_24"
+            tools:ignore="ContentDescription,RtlHardcoded" />
 
-    <TextView
-        style="@style/baseStyle"
-        android:layout_marginBottom="8dp"
-        android:gravity="center"
-        android:text="Позвоните по номеру"
-        android:textColor="@color/black"
-        android:textSize="14sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
+            android:gravity="center"
+            android:text="Сообщить об аварии"
+            android:textColor="@color/dark"
+            android:textSize="16sp" />
 
-    <TextView
-        style="@style/baseStyle"
-        android:layout_marginBottom="25dp"
-        android:fontFamily="@font/inter_bold"
-        android:gravity="center"
-        android:text="+ 998 71 123 45 67"
-        android:textColor="@color/dark"
-        android:textSize="20dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13sp"
+            android:gravity="center"
+            android:text="Позвоните по номеру"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
-    <TextView
-        style="@style/baseStyle"
-        android:layout_marginBottom="22dp"
-        android:gravity="center"
-        android:text="или"
-        android:textColor="@color/black"
-        android:textSize="14sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:fontFamily="@font/inter_medium"
+            android:gravity="center"
+            android:text="+998711234567"
+            android:textColor="@color/dark"
+            android:textSize="20sp" />
 
-    <TextView
-        style="@style/baseStyle"
-        android:layout_marginBottom="26dp"
-        android:gravity="center"
-        android:text="Заполните форму"
-        android:textColor="@color/black"
-        android:textSize="14sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="или"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/address"
-        style="@style/baseStyle"
-        android:layout_marginLeft="55dp"
-        android:layout_marginRight="55dp"
-        android:hint="Адрес место аварии"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="11sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Заполните форму"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="45dp"
+            android:gravity="center_vertical"
+            android:hint="Адрес место аварии"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLines="2"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="45dp"
+            android:gravity="center_vertical"
+            android:hint="Доп. информации об аварии"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/sent"
+            android:layout_width="121dp"
+            android:layout_height="29dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="22dp"
+            android:layout_marginBottom="22dp"
+            android:background="@drawable/rounded_dark_blue"
+            android:fontFamily="@font/inter_bold"
+            android:gravity="center"
+            android:text="Отправить"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="11dp" />
 
 
-    <TextView
-        style="@style/baseStyle"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="Доп. информации об аварии"
-        android:textColor="@color/black"
-        android:textSize="11sp" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/inform"
-        style="@style/baseStyle"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="55dp"
-        android:hint="информация"
-        android:textColor="@color/black"
-        android:textSize="11sp" />
-
-    <Button
-        android:id="@+id/sent"
-        android:layout_width="121dp"
-        android:layout_height="29dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="22dp"
-        android:layout_marginBottom="22dp"
-        android:background="@drawable/rounded_light_blue_cart"
-        android:fontFamily="@font/inter_bold"
-        android:gravity="center"
-        android:text="Отправить"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="11dp" />
-
-
-</LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

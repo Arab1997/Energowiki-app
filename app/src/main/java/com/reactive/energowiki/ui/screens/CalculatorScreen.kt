@@ -13,5 +13,4 @@ class CalculatorScreen : BaseFragment(R.layout.screen_calculation) {
         header.text = "Закон Ома постоянного тока"
 
     }
-
-    }
+}

@@ -10,8 +10,8 @@
     <color name="hint">#899196</color>
     <color name="back">#F5F6FC</color>
     <color name="green">#08C5A4</color>
-    <color name="blue">#64D5F5</color>
-    <color name="dark_blue">#00386C</color>
+    <color name="blue">#00386C</color>
+    <color name="light">#64D5F5</color>
     <color name="font">#090D17</color>
     <color name="pink">#FF5D5D</color>
     <color name="grey">#919191</color>

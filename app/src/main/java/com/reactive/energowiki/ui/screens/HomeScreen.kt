@@ -8,6 +8,10 @@ import com.reactive.energowiki.ui.adapters.FAQAdapter
 import com.reactive.energowiki.ui.adapters.LinksAdapter
 import com.reactive.energowiki.ui.adapters.MenuAdapter
 import com.reactive.energowiki.ui.adapters.NewsAdapter
+import com.reactive.energowiki.ui.bottomsheets.DetailBottomSheet
+import com.reactive.energowiki.ui.bottomsheets.NewsBottomSheet
+import com.reactive.energowiki.ui.dialogs.AvariyaDialog
+import com.reactive.energowiki.ui.dialogs.RequestDialog
 import com.reactive.energowiki.ui.screens.payment.PaymentScreen
 import com.reactive.energowiki.utils.extensions.inDevelopment
 import kotlinx.android.synthetic.main.screen_home.*
@@ -40,6 +44,10 @@ class HomeScreen : BaseFragment(R.layout.screen_home) {
         linksAll.setOnClickListener { addFragment(LinksScreen()) }
 
         payment.setOnClickListener { addFragment(PaymentScreen()) }
+
+        avariya.setOnClickListener { addFragment(AvariyaDialog(), id = viewModel.parentLayoutId) }
+
+        zayavka.setOnClickListener { addFragment(RequestDialog(), id = viewModel.parentLayoutId) }
     }
 
     private var homeData = arrayListOf<HomeData>()
@@ -97,17 +105,26 @@ class HomeScreen : BaseFragment(R.layout.screen_home) {
     private fun initRecyclers() {
 
         newsAdapter = NewsAdapter {
-            inDevelopment(requireContext()) // todo
+            removePreviousCallback({
+                val bottomSheet = NewsBottomSheet.newInstance(it)
+                bottomSheet.show(childFragmentManager, "")
+            })
         }
         recyclerNews.adapter = newsAdapter
 
         faqAdapter = FAQAdapter {
-            inDevelopment(requireContext()) // todo
+            removePreviousCallback({
+                val bottomSheet = DetailBottomSheet.newInstance(it)
+                bottomSheet.show(childFragmentManager, "")
+            })
         }
         recyclerFAQ.adapter = faqAdapter
 
         linksAdapter = LinksAdapter {
-            inDevelopment(requireContext()) // todo
+            removePreviousCallback({
+                val bottomSheet = DetailBottomSheet.newInstance(it)
+                bottomSheet.show(childFragmentManager, "")
+            })
         }
         recyclerLinks.adapter = linksAdapter
     }
@@ -140,5 +157,5 @@ enum class HomeMenus {
     DOCUMENTS, ORGANIZATIONS, PUE, CALCULATOR, GLOSSARY, PEREKUR,
     REFERENCE, BASICS, CAPACITY, CONDUCTOR, ENGINE, CABLE,
     ELECTRICITY, GAS,
-    MAIN, PAYMENT, NEWS, LINKS, PRICE, FAQ,  ABOUT
+    MAIN, PAYMENT, NEWS, LINKS, PRICE, FAQ, ABOUT
 }

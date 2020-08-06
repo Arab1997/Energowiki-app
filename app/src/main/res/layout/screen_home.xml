@@ -22,6 +22,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="10dp"
+                android:nestedScrollingEnabled="false"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="3"
@@ -44,6 +45,8 @@
                 android:layout_marginEnd="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/rounded_pink_cart"
+                android:clickable="true"
+                android:focusable="true"
                 android:gravity="center_vertical"
                 android:padding="10dp">
 
@@ -70,6 +73,8 @@
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/rounded_light_blue_cart"
+                android:clickable="true"
+                android:focusable="true"
                 android:gravity="center_vertical"
                 android:padding="10dp">
 
@@ -116,6 +121,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
+            android:nestedScrollingEnabled="false"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="3"

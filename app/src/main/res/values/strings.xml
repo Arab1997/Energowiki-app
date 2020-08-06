@@ -7,8 +7,8 @@
     <string name="contentdescription">contentDescription</string>
 
 
-    <string-array name="region" >
-        <item >Ташкент</item>
+    <string-array name="region">
+        <item>Ташкент</item>
         <item>Бухара</item>
         <item>Самарканд</item>
     </string-array>
@@ -23,4 +23,5 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.reactive.energowiki.app
 
 import androidx.multidex.MultiDexApplication
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.reactive.energowiki.BuildConfig
 import com.reactive.energowiki.di.networkModule
 import com.reactive.energowiki.di.sharedPrefModule
@@ -28,7 +29,7 @@ class App : MultiDexApplication() {
     }
 
     private fun initFirebase() {
-//        FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(!BuildConfig.DEBUG)
+        FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(!BuildConfig.DEBUG)
     }
 
     private fun initKoin() {

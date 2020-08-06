@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "290536003148",
+    "firebase_url": "https://energowiki.firebaseio.com",
+    "project_id": "energowiki",
+    "storage_bucket": "energowiki.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:290536003148:android:0fbb71fc68886cfaf7c6e9",
+        "android_client_info": {
+          "package_name": "com.reactive.energowiki"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "290536003148-kt2e6jusqdjqjmppsoacke3qmlcoq3q5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpDW_GpvZ2bPZVtWu8h3T4FhVwT9SE0VY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "290536003148-kt2e6jusqdjqjmppsoacke3qmlcoq3q5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

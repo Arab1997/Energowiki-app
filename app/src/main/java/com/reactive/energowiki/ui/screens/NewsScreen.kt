@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.adapters.NewsAdapter
-import com.reactive.energowiki.utils.extensions.inDevelopment
+import com.reactive.energowiki.ui.bottomsheets.NewsBottomSheet
 import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.screen_recycler.*
 
@@ -18,7 +18,10 @@ class NewsScreen : BaseFragment(R.layout.screen_recycler) {
         header.text = "НОВОСТИ"
 
         adapter = NewsAdapter {
-            inDevelopment(requireContext()) // todo
+            removePreviousCallback({
+                val bottomSheet = NewsBottomSheet.newInstance(it)
+                bottomSheet.show(childFragmentManager, "")
+            })
         }
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(requireContext())

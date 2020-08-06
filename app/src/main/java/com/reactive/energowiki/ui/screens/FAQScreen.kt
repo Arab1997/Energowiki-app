@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.adapters.FAQAdapter
-import com.reactive.energowiki.utils.extensions.inDevelopment
+import com.reactive.energowiki.ui.bottomsheets.DetailBottomSheet
 import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.screen_recycler.*
 
@@ -18,7 +18,10 @@ class FAQScreen : BaseFragment(R.layout.screen_recycler) {
         header.text = "Частые вопросы"
 
         adapter = FAQAdapter {
-            inDevelopment(requireContext()) // todo
+            removePreviousCallback({
+                val bottomSheet = DetailBottomSheet.newInstance(it)
+                bottomSheet.show(childFragmentManager, "")
+            })
         }
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(requireContext())
