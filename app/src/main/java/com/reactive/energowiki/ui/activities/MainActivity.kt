@@ -1,5 +1,6 @@
 package com.reactive.energowiki.ui.activities
 
+import android.content.Intent
 import android.view.KeyEvent
 import android.widget.TextView
 import androidx.fragment.app.FragmentManager
@@ -15,6 +16,7 @@ import com.reactive.energowiki.ui.dialogs.AvariyaDialog
 import com.reactive.energowiki.ui.dialogs.RequestDialog
 import com.reactive.energowiki.ui.screens.*
 import com.reactive.energowiki.ui.screens.payment.PaymentScreen
+import com.reactive.energowiki.utils.UpdateManager
 import com.reactive.energowiki.utils.extensions.inDevelopment
 import com.reactive.energowiki.utils.extensions.showGone
 import com.reactive.energowiki.utils.preferences.SharedManager
@@ -34,11 +36,13 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
         var isCurrentLangUz: Boolean = true
     }
 
+    private lateinit var updateManager: UpdateManager
     override fun onActivityCreated() {
         viewModel.apply {
             parentLayoutId = R.id.container
             fragmentLayoutId = R.id.fragmentContainer
         }
+
         initConnection()
 
         initToolbar()
@@ -48,6 +52,9 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
 //        debug()
         startFragment()
 
+        updateManager = UpdateManager(this).apply {
+            if (!BuildConfig.DEBUG) checkUpdate()
+        }
     }
 
     private fun initConnection() {
@@ -207,6 +214,16 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
     private fun add(fragment: BaseFragment) {
         supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         addFragment(fragment, viewModel.fragmentLayoutId)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateManager.onResume()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        updateManager.onActivityResult(requestCode, resultCode)
     }
 }
 
