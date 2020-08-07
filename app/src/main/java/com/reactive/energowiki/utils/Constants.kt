@@ -5,7 +5,7 @@ import com.reactive.energowiki.BuildConfig
 object Constants {
 
     const val BASE_URL =BuildConfig.BASE_URL
-    const val TIMEOUT = 10.toLong()
+    const val TIMEOUT = 20.toLong()
 
 }
 

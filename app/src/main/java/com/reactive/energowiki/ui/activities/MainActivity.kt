@@ -3,6 +3,7 @@ package com.reactive.energowiki.ui.activities
 import android.view.KeyEvent
 import android.widget.TextView
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.reactive.energowiki.BuildConfig
@@ -17,6 +18,7 @@ import com.reactive.energowiki.ui.screens.payment.PaymentScreen
 import com.reactive.energowiki.utils.extensions.inDevelopment
 import com.reactive.energowiki.utils.extensions.showGone
 import com.reactive.energowiki.utils.preferences.SharedManager
+import com.reactive.energowiki.utils.livedata.ConnectionLiveData
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_navigation.*
 import kotlinx.android.synthetic.main.content_toolbar.*
@@ -36,9 +38,8 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
         viewModel.apply {
             parentLayoutId = R.id.container
             fragmentLayoutId = R.id.fragmentContainer
-
-            fetchData()
         }
+        initConnection()
 
         initToolbar()
 
@@ -47,6 +48,13 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
 //        debug()
         startFragment()
 
+    }
+
+    private fun initConnection() {
+        ConnectionLiveData(this).observe(this, Observer {
+            val hasNetwork = it?.isConnected ?: false
+            if (hasNetwork) viewModel.fetchData()
+        })
     }
 
     private fun debug() = initialFragment(PriceScreen(), viewModel.fragmentLayoutId)

@@ -6,6 +6,7 @@ import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.adapters.OrganizationsAdapter
 import com.reactive.energowiki.ui.bottomsheets.OrganizationBottomSheet
+import com.reactive.energowiki.utils.extensions.loge
 import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.screen_recycler.*
 
