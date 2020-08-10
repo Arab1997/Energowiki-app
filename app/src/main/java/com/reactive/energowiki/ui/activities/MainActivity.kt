@@ -36,7 +36,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
         var isCurrentLangUz: Boolean = true
     }
 
-    private lateinit var updateManager: UpdateManager
+    private var updateManager: UpdateManager?=null
     override fun onActivityCreated() {
         viewModel.apply {
             parentLayoutId = R.id.container
@@ -218,12 +218,12 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
 
     override fun onResume() {
         super.onResume()
-        updateManager.onResume()
+        updateManager!!.onResume()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        updateManager.onActivityResult(requestCode, resultCode)
+        updateManager!!.onActivityResult(requestCode, resultCode)
     }
 }
 
