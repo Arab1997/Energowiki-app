@@ -45,6 +45,7 @@ android {
     buildTypes {
         debug {
             buildConfigField 'String', 'BASE_URL', '"http://energowiki.chamadon.uz/api/"'
+            buildConfigField 'String', 'BASE_IMAGE_URL', '"http://energowiki.chamadon.uz/frontend/web/"'
 //            signingConfig signingConfigs.debug
             minifyEnabled false
             shrinkResources false
@@ -52,6 +53,7 @@ android {
         }
         release {
             buildConfigField 'String', 'BASE_URL', '"http://energowiki.chamadon.uz/api/"'
+            buildConfigField 'String', 'BASE_IMAGE_URL', '"http://energowiki.chamadon.uz/frontend/web/"'
             minifyEnabled false
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

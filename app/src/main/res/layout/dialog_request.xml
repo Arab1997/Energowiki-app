@@ -69,6 +69,15 @@
             android:textColorHint="@color/black"
             android:textSize="12sp" />
 
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="45dp"
+            tools:listitem="@layout/item_glossary" />
+
         <EditText
             android:id="@+id/info"
             android:layout_width="match_parent"

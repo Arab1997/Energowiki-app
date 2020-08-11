@@ -4,6 +4,7 @@ import android.widget.SectionIndexer
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseAdapter
 import com.reactive.energowiki.network.Documents
+import com.reactive.energowiki.ui.activities.getLangText
 import com.reactive.energowiki.ui.activities.setLangText
 import com.reactive.energowiki.utils.common.ViewHolder
 import kotlinx.android.synthetic.main.item_glossary.view.*
@@ -26,7 +27,8 @@ class GlossariesAdapter(private val listener: (Documents) -> Unit) :
     override fun getSections(): Array<Any> {
         val sections = ArrayList<String>(26)
         for (i in items.indices) {
-            val section = items[i].title_ru[0].toString().toUpperCase()
+            val section =
+                (getLangText(items[i].title_ru, items[i].title_uz))!![0].toString().toUpperCase()
             if (!sections.contains(section)) {
                 sections.add(section)
                 sectionPositions.add(i)

@@ -72,6 +72,7 @@ data class Documents(
     val name_ru: String,
     val name_uz: String,
     val phone: String,
+    val image: String,
     val work_time_ru: String,
     val work_time_uz: String,
     val ws: String

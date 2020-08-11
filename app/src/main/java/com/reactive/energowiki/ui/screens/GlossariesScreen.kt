@@ -4,6 +4,7 @@ import androidx.lifecycle.Observer
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.network.Documents
+import com.reactive.energowiki.ui.activities.getLangText
 import com.reactive.energowiki.ui.adapters.GlossariesAdapter
 import com.reactive.energowiki.ui.bottomsheets.DetailBottomSheet
 import com.reactive.energowiki.utils.common.RxEditText
@@ -43,7 +44,8 @@ class GlossariesScreen : BaseFragment(R.layout.screen_glossaries) {
                 .subscribeOn(AndroidSchedulers.mainThread())
                 .subscribe { text ->
                     if (text.length >= 2) {
-                        val filtered = ArrayList(data.filter { it.title_ru.contains(text) })
+                        val filtered = ArrayList(
+                            data.filter { it.title_ru.toLowerCase().contains(text.toLowerCase()) })
                         adapter.setData(filtered)
                     } else if (text.isEmpty()) {
                         hideKeyboard()
@@ -55,7 +57,7 @@ class GlossariesScreen : BaseFragment(R.layout.screen_glossaries) {
 
     override fun observe() {
         viewModel.glossaries.observe(viewLifecycleOwner, Observer {
-            data = ArrayList(it)
+            data = ArrayList(it.sortedBy { getLangText(it.title_ru, it.title_uz) })
             adapter.setData(data)
         })
     }

@@ -19,7 +19,7 @@ class DetailBottomSheet : BottomSheetRoundedFragment(R.layout.bottomsheet_detail
     override fun initialize() {
 
         close.setOnClickListener { dismiss() }
-        header.setLangText(data.title_uz, data.title_uz)
-        content.setLangText(data.text_uz, data.text_ru)
+        header.setLangText(data.title_ru, data.title_uz)
+        content.setLangText(data.text_ru, data.text_uz)
     }
 }

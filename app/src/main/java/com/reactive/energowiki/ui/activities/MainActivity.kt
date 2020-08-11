@@ -1,6 +1,7 @@
 package com.reactive.energowiki.ui.activities
 
 import android.content.Intent
+import android.net.Uri
 import android.view.KeyEvent
 import android.widget.TextView
 import androidx.fragment.app.FragmentManager
@@ -49,8 +50,8 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
 
         initDrawer()
 
-        debug()
-//        startFragment()
+//        debug()
+        startFragment()
 
         if (!BuildConfig.DEBUG) updateManager = UpdateManager(this).apply {
             checkUpdate()
@@ -225,8 +226,23 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
         super.onActivityResult(requestCode, resultCode, data)
         updateManager?.onActivityResult(requestCode, resultCode)
     }
+
+
+    fun openLink(link: String) {
+        startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse(if (!link.startsWith("http")) "https://$link" else link)
+            )
+        )
+    }
+
 }
 
 fun TextView.setLangText(first: String?, second: String?) {
     this.text = if (MainActivity.isCurrentLangUz) first else second
+}
+
+fun getLangText(first: String?, second: String?): String? {
+    return if (MainActivity.isCurrentLangUz) first else second
 }

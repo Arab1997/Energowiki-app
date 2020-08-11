@@ -20,10 +20,7 @@ class LinksScreen : BaseFragment(R.layout.screen_recycler) {
         header.text = "Полезные ссылки"
 
         adapter = LinksAdapter {
-            removePreviousCallback({
-                val bottomSheet = DetailBottomSheet.newInstance(it)
-                bottomSheet.show(childFragmentManager, "")
-            })
+            removePreviousCallback({ mainActivity.openLink(it.url) })
         }
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(requireContext())

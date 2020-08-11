@@ -52,4 +52,8 @@
         </attr>
 
     </declare-styleable>
+    <declare-styleable name="RoundImageView">
+        <attr name="rect_radius" format="dimension" />
+    </declare-styleable>
+
 </resources>

@@ -121,10 +121,7 @@ class HomeScreen : BaseFragment(R.layout.screen_home) {
         recyclerFAQ.adapter = faqAdapter
 
         linksAdapter = LinksAdapter {
-            removePreviousCallback({
-                val bottomSheet = DetailBottomSheet.newInstance(it)
-                bottomSheet.show(childFragmentManager, "")
-            })
+            removePreviousCallback({ mainActivity.openLink(it.url) })
         }
         recyclerLinks.adapter = linksAdapter
     }
