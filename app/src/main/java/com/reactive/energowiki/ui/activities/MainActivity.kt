@@ -36,7 +36,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
         var isCurrentLangUz: Boolean = true
     }
 
-    private lateinit var updateManager: UpdateManager
+    private var updateManager: UpdateManager? = null
     override fun onActivityCreated() {
         viewModel.apply {
             parentLayoutId = R.id.container
@@ -49,11 +49,11 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
 
         initDrawer()
 
-//        debug()
-        startFragment()
+        debug()
+//        startFragment()
 
-        updateManager = UpdateManager(this).apply {
-            if (!BuildConfig.DEBUG) checkUpdate()
+        if (!BuildConfig.DEBUG) updateManager = UpdateManager(this).apply {
+            checkUpdate()
         }
     }
 
@@ -64,7 +64,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
         })
     }
 
-    private fun debug() = initialFragment(PriceScreen(), viewModel.fragmentLayoutId)
+    private fun debug() = initialFragment(GlossariesScreen(), viewModel.fragmentLayoutId)
 
     private fun startFragment() {
         val splash = SplashScreen().apply {
@@ -218,12 +218,12 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
 
     override fun onResume() {
         super.onResume()
-        updateManager.onResume()
+        updateManager?.onResume()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        updateManager.onActivityResult(requestCode, resultCode)
+        updateManager?.onActivityResult(requestCode, resultCode)
     }
 }
 
