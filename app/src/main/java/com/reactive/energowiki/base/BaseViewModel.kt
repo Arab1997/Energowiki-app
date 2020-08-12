@@ -86,13 +86,13 @@ open class BaseViewModel(private val context: Context) : ViewModel(), KoinCompon
 
     fun fetchData() {
 
-        getDocuments()
         getNews()
-        getOrganizations()
-        getSpravkas()
-        getLinks()
         getFaqs()
+        getLinks()
+        getSpravkas()
+        getDocuments()
         getGlossaries()
+        getOrganizations()
         getCategoryApplication()
     }
 
@@ -159,7 +159,7 @@ open class BaseViewModel(private val context: Context) : ViewModel(), KoinCompon
             })
     )
 
-    private fun getCategoryApplication() = compositeDisposable.add(
+    fun getCategoryApplication() = compositeDisposable.add(
         api.getCategoryApplication().observeAndSubscribe()
             .subscribe({
                 categoryApplication.postValue(it)

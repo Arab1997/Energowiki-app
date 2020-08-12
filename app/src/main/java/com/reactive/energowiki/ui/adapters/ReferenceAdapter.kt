@@ -13,7 +13,7 @@ class ReferenceAdapter(private val listener: (Documents) -> Unit) :
         holder.itemView.apply {
             data.let {
                 setOnClickListener { _ -> listener.invoke(it) }
-                name.setLangText(it.title_uz, it.title_ru)
+                name.setLangText(it.title_ru, it.title_uz)
             }
         }
 

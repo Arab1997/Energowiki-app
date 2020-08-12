@@ -30,6 +30,8 @@ abstract class BottomSheetRoundedFragment(@LayoutRes val layoutId: Int) :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         initialize()
+
+        setMaxHeight(0.0)
     }
 
     abstract fun initialize()
@@ -48,7 +50,7 @@ abstract class BottomSheetRoundedFragment(@LayoutRes val layoutId: Int) :
                     behavior.peekHeight = currentHeight
                     this.layoutParams.height = currentHeight
                 }
-                behavior.skipCollapsed = false
+                behavior.skipCollapsed = true
             }
         }
     }

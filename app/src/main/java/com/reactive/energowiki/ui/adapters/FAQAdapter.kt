@@ -15,7 +15,7 @@ class FAQAdapter(private val listener: (Documents) -> Unit) :
         holder.itemView.apply {
             setOnClickListener { listener.invoke(data) }
 
-            name.setLangText(data.title_uz, data.title_ru)
+            name.setLangText(data.title_ru, data.title_uz)
         }
 
     }

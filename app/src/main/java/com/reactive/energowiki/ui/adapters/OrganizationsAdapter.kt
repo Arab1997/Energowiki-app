@@ -18,7 +18,7 @@ class OrganizationsAdapter(private val listener: (Documents) -> Unit) :
             data.let {
                 setOnClickListener { _ -> listener.invoke(it) }
 
-                name.setLangText(it.name_uz, it.name_ru)
+                name.setLangText(it.name_ru, it.name_uz)
             }
         }
     }

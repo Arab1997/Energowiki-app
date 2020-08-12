@@ -8,6 +8,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.reactive.energowiki.R
 import com.reactive.energowiki.network.Documents
+import com.reactive.energowiki.ui.activities.getLangText
 import com.reactive.energowiki.ui.activities.setLangText
 import com.reactive.energowiki.utils.bottomsheet.BottomSheetRoundedFragment
 import kotlinx.android.synthetic.main.bottomsheet_organization.*
@@ -23,27 +24,35 @@ class OrganizationBottomSheet : BottomSheetRoundedFragment(R.layout.bottomsheet_
         }
     }
 
-    private lateinit var mMap: GoogleMap
+    private var mMap: GoogleMap? = null
 
     override fun initialize() {
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
         close.setOnClickListener { dismiss() }
-        header.setLangText(data.title_uz, data.title_uz)
-        address.setLangText(data.address_uz, data.address_ru)
-        time.setLangText(data.work_time_uz, data.work_time_ru)
+        header.setLangText(data.name_ru, data.name_uz)
+        address.setLangText(data.address_ru, data.address_uz)
+        time.setLangText(data.work_time_ru, data.work_time_uz)
         phone.text = data.phone
         mail.text = data.email
         web.text = data.ws
+
+        move()
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+        move()
+    }
 
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.animateCamera(CameraUpdateFactory.newLatLng(sydney))
+    private fun move() {
+        mMap?.let {
+            val marker = LatLng(data.longitude.toDouble(), data.latitude.toDouble())
+            it.addMarker(
+                MarkerOptions().position(marker).title(getLangText(data.name_ru, data.name_uz))
+            )
+            it.animateCamera(CameraUpdateFactory.newLatLngZoom(marker, 16.0f))
+        }
     }
 }
