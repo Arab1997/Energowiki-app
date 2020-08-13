@@ -2,7 +2,6 @@ package com.reactive.energowiki.ui.screens
 
 import android.annotation.SuppressLint
 import android.text.Editable
-import android.text.Html
 import android.text.TextWatcher
 import android.view.View
 import android.widget.AdapterView
@@ -11,10 +10,14 @@ import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.screen_calculation.*
+import kotlin.math.pow
 
 
 class CalculatorScreen : BaseFragment(R.layout.screen_calculation) {
 
+    private var koef1 :Double = 1.0
+    private var koef2 :Double = 1.0
+    private var koef3 :Double = 1.0
 
     override fun initialize() {
 
@@ -35,7 +38,7 @@ class CalculatorScreen : BaseFragment(R.layout.screen_calculation) {
     private fun initSpinners() {
         val rValues = arrayListOf<String>("пОм", "нОм", "мкОм", "мОм", "Ом", "кОм", "МОм", "ГОм")
         val lValues = arrayListOf<String>("м", "ft", "км", "см", "мм")
-        val SValues = arrayListOf<String>(Html.fromHtml("мм<sup>2</sup>").toString(), "мм", "kcmil")
+        val SValues = arrayListOf<String>("мм^2", "мм", "kcmil")
         val ra: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, rValues)
         ra.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner1.adapter = ra
@@ -47,6 +50,55 @@ class CalculatorScreen : BaseFragment(R.layout.screen_calculation) {
         spinner3.adapter = aa
 
         spinner1.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                koef1 = 1.0
+                koef1 *= when (position) {
+                    0 -> 10.0.pow(-12.0)
+                    1 -> 10.0.pow(-9.0)
+                    2 -> 10.0.pow(-6.0)
+                    3 -> 10.0.pow(-3.0)
+                    4 -> 1.0
+                    5 -> 10.0.pow(3)
+                    6 -> 10.0.pow(6)
+                    7 -> 10.0.pow(9)
+                    else -> 1.0
+                }
+                initCalculation()
+            }
+        }
+
+        spinner2.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                koef2 = 1.0
+                koef2 *= when (position) {
+                    0 -> 1.0
+                    1 -> 0.3048
+                    2 -> 10.0.pow(3.0)
+                    3 -> 10.0.pow(-2.0)
+                    4 -> 10.0.pow(-3)
+                    else -> 1.0
+                }
+                initCalculation()
+            }
+
+        }
+        spinner3.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
 
@@ -126,11 +178,11 @@ class CalculatorScreen : BaseFragment(R.layout.screen_calculation) {
         val l = input2.text.toString().let { if (it.isEmpty()) 1 else it.toInt() }
         val s = input3.text.toString().let { if (it.isEmpty()) 0 else it.toInt() }
         val result = R * s / l
-        showResult(result)
+        showResult(result * koef1 * koef2)
     }
 
     @SuppressLint("SetTextI18n")
-    private fun showResult(res: Int) {
+    private fun showResult(res: Double) {
         result.text = "$res В"
     }
 }
