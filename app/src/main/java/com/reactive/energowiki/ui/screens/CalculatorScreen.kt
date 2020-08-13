@@ -38,7 +38,7 @@ class CalculatorScreen : BaseFragment(R.layout.screen_calculation) {
     private fun initSpinners() {
         val rValues = arrayListOf<String>("пОм", "нОм", "мкОм", "мОм", "Ом", "кОм", "МОм", "ГОм")
         val lValues = arrayListOf<String>("м", "ft", "км", "см", "мм")
-        val SValues = arrayListOf<String>("мм^2", "мм", "kcmil")
+        val SValues = arrayListOf<String>("мм^2", "м^2", "kcmil")
         val ra: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, rValues)
         ra.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner1.adapter = ra
@@ -108,6 +108,14 @@ class CalculatorScreen : BaseFragment(R.layout.screen_calculation) {
                 position: Int,
                 id: Long
             ) {
+                koef3 = 1.0
+                koef3 *= when (position) {
+                    0 -> 10.0.pow(-6.0) // mm^2 to m^2
+                    1 -> 1.0 // m^2
+                    2 -> 2 * 10.0.pow(-6.0) // kcmil to m^2
+                    else -> 1.0
+                }
+                initCalculation()
             }
 
         }
@@ -178,7 +186,7 @@ class CalculatorScreen : BaseFragment(R.layout.screen_calculation) {
         val l = input2.text.toString().let { if (it.isEmpty()) 1 else it.toInt() }
         val s = input3.text.toString().let { if (it.isEmpty()) 0 else it.toInt() }
         val result = R * s / l
-        showResult(result * koef1 * koef2)
+        showResult(result * koef1 * koef2 * koef3)
     }
 
     @SuppressLint("SetTextI18n")
