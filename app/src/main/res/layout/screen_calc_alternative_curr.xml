@@ -23,10 +23,88 @@
             android:textSize="13sp" />
 
         <TextView
-            android:id="@+id/input3Name"
+            android:id="@+id/input1Name"
             style="@style/baseStyle"
             android:layout_marginTop="20dp"
             android:text="R = "
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <EditText
+                android:id="@+id/input1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:hint="0"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:longClickable="false"
+                android:maxLength="5"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hint"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/spinner1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="20dp"
+                android:layout_weight="0.6"
+                tools:listitem="@layout/item_spin" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/input2Name"
+            style="@style/baseStyle"
+            android:layout_marginTop="20dp"
+            android:text="W(L) ="
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <EditText
+                android:id="@+id/input2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:hint="0"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:longClickable="false"
+                android:maxLength="5"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hint"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="20dp"
+                android:layout_weight="0.6"
+                tools:listitem="@layout/item_spin" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/input3Name"
+            style="@style/baseStyle"
+            android:layout_marginTop="20dp"
+            android:text="W(C) ="
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold"/>
@@ -65,7 +143,7 @@
             android:id="@+id/input4Name"
             style="@style/baseStyle"
             android:layout_marginTop="20dp"
-            android:text="W(L) ="
+            android:text="W ="
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold"/>
@@ -91,78 +169,6 @@
 
             <Spinner
                 android:id="@+id/spinner4"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="bottom"
-                android:layout_marginStart="20dp"
-                android:layout_weight="0.6"
-                tools:listitem="@layout/item_spin" />
-
-        </LinearLayout>
-
-        <TextView
-            style="@style/baseStyle"
-            android:layout_marginTop="20dp"
-            android:text="W(C) ="
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp">
-
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:hint="0"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:longClickable="false"
-                android:maxLength="5"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hint"
-                android:textSize="12sp" />
-
-            <Spinner
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="bottom"
-                android:layout_marginStart="20dp"
-                android:layout_weight="0.6"
-                tools:listitem="@layout/item_spin" />
-
-        </LinearLayout>
-
-        <TextView
-            style="@style/baseStyle"
-            android:layout_marginTop="20dp"
-            android:text="W ="
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp">
-
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:hint="0"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:longClickable="false"
-                android:maxLength="5"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hint"
-                android:textSize="12sp" />
-
-            <Spinner
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="bottom"

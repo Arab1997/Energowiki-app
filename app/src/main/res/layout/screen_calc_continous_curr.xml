@@ -23,7 +23,7 @@
             android:textSize="13sp" />
 
         <TextView
-            android:id="@+id/input3Name"
+            android:id="@+id/input1Name"
             style="@style/baseStyle"
             android:layout_marginTop="20dp"
             android:text="R = "
@@ -36,7 +36,7 @@
             android:layout_height="40dp">
 
             <EditText
-                android:id="@+id/input3"
+                android:id="@+id/input1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -51,7 +51,7 @@
                 android:textSize="12sp" />
 
             <Spinner
-                android:id="@+id/spinner3"
+                android:id="@+id/spinner1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="bottom"
@@ -62,7 +62,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/input4Name"
+            android:id="@+id/input2Name"
             style="@style/baseStyle"
             android:layout_marginTop="20dp"
             android:text="U ="
@@ -75,7 +75,7 @@
             android:layout_height="40dp">
 
             <EditText
-                android:id="@+id/input4"
+                android:id="@+id/input2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -90,7 +90,7 @@
                 android:textSize="12sp" />
 
             <Spinner
-                android:id="@+id/spinner4"
+                android:id="@+id/spinner2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="bottom"
