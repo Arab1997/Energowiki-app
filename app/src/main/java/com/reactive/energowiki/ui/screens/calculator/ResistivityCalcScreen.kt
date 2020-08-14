@@ -9,7 +9,19 @@ import android.widget.ArrayAdapter
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import kotlinx.android.synthetic.main.content_header.*
+import kotlinx.android.synthetic.main.screen_calc_conductor.*
 import kotlinx.android.synthetic.main.screen_calc_resistivity.*
+import kotlinx.android.synthetic.main.screen_calc_resistivity.clearBtn
+import kotlinx.android.synthetic.main.screen_calc_resistivity.input2
+import kotlinx.android.synthetic.main.screen_calc_resistivity.input3
+import kotlinx.android.synthetic.main.screen_calc_resistivity.input4
+import kotlinx.android.synthetic.main.screen_calc_resistivity.result
+import kotlinx.android.synthetic.main.screen_calc_resistivity.resultBtn
+import kotlinx.android.synthetic.main.screen_calc_resistivity.spinner1
+import kotlinx.android.synthetic.main.screen_calc_resistivity.spinner2
+import kotlinx.android.synthetic.main.screen_calc_resistivity.spinner3
+import kotlinx.android.synthetic.main.screen_calc_resistivity.spinner4
+import java.lang.Math.pow
 import kotlin.math.pow
 
 
@@ -20,6 +32,8 @@ class ResistivityCalcScreen : BaseFragment(R.layout.screen_calc_resistivity) {
     private var koef2 :Double = 1.0
     private var koef3 :Double = 1.0
     private var koef4 :Int = 1
+    private var koef5:Double=1.0
+    private var k:Double=1.0
 
     override fun initialize() {
 
@@ -42,18 +56,22 @@ class ResistivityCalcScreen : BaseFragment(R.layout.screen_calc_resistivity) {
         spinValues.add(arrayListOf("м", "ft", "км", "см", "мм"))
         spinValues.add(arrayListOf("мм²", "м²", "kcmil"))
         spinValues.add(arrayListOf("°C", "°F"))
+        spinValues.add(arrayListOf("Медь","Алюминий","Никелин","Вольфрам","Середро","Железо","Сталь","Константан","Нихром","Латунь","Золото","Платина","Фехраль","Маганин","Цинк","Никель"))
         val ra: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[0])
         ra.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner1.adapter = ra
+        spinner1.adapter = ra //R
         val la: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[1])
         la.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner2.adapter = la
+        spinner2.adapter = la //l
         val aa: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[2])
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner3.adapter = aa
+        spinner3.adapter = aa  //S
         val ta: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[3])
         ta.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner4.adapter = ta
+        spinner4.adapter = ta //t
+        val pa: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[4])
+        pa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner1.adapter = pa //material p
 
         spinner1.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -145,6 +163,55 @@ class ResistivityCalcScreen : BaseFragment(R.layout.screen_calc_resistivity) {
             }
 
         }
+
+        spinner5.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                when (position) {
+                    0 -> {koef5=0.015995
+                        k=4.3 }
+                    1 -> {koef5=0.023848
+                        k=4.2 }
+                    2 -> {koef5=0.418068
+                        k=0.1 }
+                    3 -> {koef5=0.0495
+                        k=5.0 }
+                    4 -> {koef5=0.014688
+                        k=4.1 }
+                    5 -> {koef5=0.08624
+                        k=6.0 }
+                    6 -> {koef5=0.0133
+                        k=2.6 }
+                    7 ->{koef5=0.4995
+                        k=0.05 }
+                    8 -> {koef5=1.0978
+                        k=0.1 }
+                    9 -> {koef5=0.074625
+                        k=0.25 }
+                    10 -> {koef5=0.02116
+                        k=4.0 }
+                    11 -> {koef5=0.098654
+                        k=3.9 }
+                    12 -> {koef5=1.1525
+                        k=0.1 }
+                    13 -> {koef5=0.4699
+                        k=0.01 }
+                    14 -> {koef5=0.054044
+                        k=4.2 }
+                    15 -> {koef5=0.07569
+                        k=6.5 }
+                }
+                initCalculation()
+            }
+        }
+
     }
 
     private fun initClicks() {
@@ -228,8 +295,8 @@ class ResistivityCalcScreen : BaseFragment(R.layout.screen_calc_resistivity) {
         val s = input3.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
         val t=input4.text.toString().let { if(it.isEmpty()) 0.0 else it.toDouble() }
         var result=0.0
-        if(koef4==1) result=R*s/(l*(1+(t-32)*5/2457))
-        else result=R*s/(l*(1+t/273))
+        if(koef4==1) result=R*s/(l*(1+(t-32)*5*k*pow(10.0,-3.0)/9))
+        else result=R*s/(l*(1+t*k* pow(10.0, -3.0)))
 
         showResult(result * koef1 * koef3 / koef2)
     }
