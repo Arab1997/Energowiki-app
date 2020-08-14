@@ -1,4 +1,4 @@
-package com.reactive.energowiki.ui.screens
+package com.reactive.energowiki.ui.screens.calculator
 
 import android.annotation.SuppressLint
 import android.text.Editable
