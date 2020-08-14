@@ -66,7 +66,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
         })
     }
 
-    private fun debug() = initialFragment(CalculatorScreen(), viewModel.fragmentLayoutId)
+    private fun debug() = initialFragment(CalculatorFragment(), viewModel.fragmentLayoutId)
 
     private fun startFragment() {
         val splash = SplashScreen().apply {

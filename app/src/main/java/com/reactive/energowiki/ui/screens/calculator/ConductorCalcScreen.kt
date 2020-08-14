@@ -6,16 +6,6 @@ import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.screen_calc_conductor.*
-import kotlinx.android.synthetic.main.screen_calc_resistivity.*
-import kotlinx.android.synthetic.main.screen_calc_resistivity.clearBtn
-import kotlinx.android.synthetic.main.screen_calc_resistivity.input2
-import kotlinx.android.synthetic.main.screen_calc_resistivity.input3
-import kotlinx.android.synthetic.main.screen_calc_resistivity.result
-import kotlinx.android.synthetic.main.screen_calc_resistivity.resultBtn
-import kotlinx.android.synthetic.main.screen_calc_resistivity.spinner1
-import kotlinx.android.synthetic.main.screen_calc_resistivity.spinner2
-import kotlinx.android.synthetic.main.screen_calc_resistivity.spinner3
-
 class ConductorCalcScreen: BaseFragment(R.layout.screen_calc_conductor){
 
     private val spinValues = arrayListOf<ArrayList<String>>()
@@ -61,9 +51,9 @@ class ConductorCalcScreen: BaseFragment(R.layout.screen_calc_conductor){
         close.setOnClickListener { finishFragment() }
 
         clearBtn.setOnClickListener {
-            input1.text?.clear()
             input2.text?.clear()
             input3.text?.clear()
+            input4.text?.clear()
         }
 
         resultBtn.setOnClickListener {
@@ -72,10 +62,10 @@ class ConductorCalcScreen: BaseFragment(R.layout.screen_calc_conductor){
     }
 
     private fun initCalculation() {
-        val R = input1.text.toString().let { if (it.isEmpty()) 0 else it.toInt() }
-        val l = input2.text.toString().let { if (it.isEmpty()) 1 else it.toInt() }
-        val s = input3.text.toString().let { if (it.isEmpty()) 0 else it.toInt() }
-        val result = R * s / l
+        val R = input2.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
+        val l = input3.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
+        val s = input4.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
+        val result= R * s / l
         showResult(result * koef1 * koef2 * koef3)
     }
 

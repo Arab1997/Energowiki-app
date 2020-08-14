@@ -19,6 +19,7 @@ class ResistivityCalcScreen : BaseFragment(R.layout.screen_calc_resistivity) {
     private var koef1 :Double = 1.0
     private var koef2 :Double = 1.0
     private var koef3 :Double = 1.0
+    private var koef4 :Int = 1
 
     override fun initialize() {
 
@@ -40,6 +41,7 @@ class ResistivityCalcScreen : BaseFragment(R.layout.screen_calc_resistivity) {
         spinValues.add(arrayListOf("пОм", "нОм", "мкОм", "мОм", "Ом", "кОм", "МОм", "ГОм"))
         spinValues.add(arrayListOf("м", "ft", "км", "см", "мм"))
         spinValues.add(arrayListOf("мм²", "м²", "kcmil"))
+        spinValues.add(arrayListOf("°C", "°F"))
         val ra: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[0])
         ra.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner1.adapter = ra
@@ -49,6 +51,9 @@ class ResistivityCalcScreen : BaseFragment(R.layout.screen_calc_resistivity) {
         val aa: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[2])
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner3.adapter = aa
+        val ta: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[3])
+        ta.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner4.adapter = ta
 
         spinner1.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -120,6 +125,26 @@ class ResistivityCalcScreen : BaseFragment(R.layout.screen_calc_resistivity) {
             }
 
         }
+        spinner4.onItemSelectedListener= object: AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                koef4 = 1
+                koef4 *= when (position) {
+                    0-> 0
+                    1 -> 1
+                    else -> 0
+                }
+                initCalculation()
+            }
+
+        }
     }
 
     private fun initClicks() {
@@ -130,6 +155,7 @@ class ResistivityCalcScreen : BaseFragment(R.layout.screen_calc_resistivity) {
             input1.text?.clear()
             input2.text?.clear()
             input3.text?.clear()
+            input4.text?.clear()
         }
 
         resultBtn.setOnClickListener {
@@ -180,18 +206,36 @@ class ResistivityCalcScreen : BaseFragment(R.layout.screen_calc_resistivity) {
             }
 
         })
+        input4.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                initCalculation()
+            }
+
+        })
     }
 
     private fun initCalculation() {
-        val R = input1.text.toString().let { if (it.isEmpty()) 0 else it.toInt() }
-        val l = input2.text.toString().let { if (it.isEmpty()) 1 else it.toInt() }
-        val s = input3.text.toString().let { if (it.isEmpty()) 0 else it.toInt() }
-        val result = R * s / l
-        showResult(result * koef1 * koef2 * koef3)
+        val R = input1.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
+        val l = input2.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
+        val s = input3.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
+        val t=input4.text.toString().let { if(it.isEmpty()) 0.0 else it.toDouble() }
+        var result=0.0
+        if(koef4==1) result=R*s/(l*(1+(t-32)*5/2457))
+        else result=R*s/(l*(1+t/273))
+
+        showResult(result * koef1 * koef3 / koef2)
     }
 
     @SuppressLint("SetTextI18n")
     private fun showResult(res: Double) {
-        result.text = "$res В"
+        result.text = "$res Om*m"
     }
 }
