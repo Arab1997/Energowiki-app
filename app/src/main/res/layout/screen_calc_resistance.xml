@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/screenStyle"
     android:paddingTop="15dp"
-    tools:ignore="HardcodedText" >
+    tools:ignore="HardcodedText">
 
     <include layout="@layout/content_header" />
 
@@ -13,7 +13,8 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="25dp"
         android:layout_marginRight="30dp"
-        android:padding="25dp">
+        android:padding="25dp"
+        tools:ignore="LabelFor">
 
         <TextView
             android:id="@+id/title"
@@ -22,6 +23,7 @@
             android:text="сопротивление ( R )"
             android:textColor="@color/dark"
             android:textSize="13sp" />
+
         <TextView
             android:id="@+id/input1Name"
             style="@style/baseStyle"
@@ -36,13 +38,11 @@
 
             <Spinner
                 android:id="@+id/spinner1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="bottom"
-                android:layout_weight="1"
+                style="@style/bigSpinnerStyle"
                 tools:listitem="@layout/item_spin" />
 
         </LinearLayout>
+
         <TextView
             android:id="@+id/input2Name"
             style="@style/baseStyle"
@@ -57,26 +57,12 @@
 
             <EditText
                 android:id="@+id/input2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:hint="0"
-                android:importantForAutofill="no"
-                android:inputType="numberDecimal"
-                android:longClickable="false"
-                android:maxLength="5"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hint"
-                android:textSize="12sp"
-                android:gravity="center"/>
+                style="@style/inputStyle"
+                android:importantForAutofill="no" />
 
             <Spinner
                 android:id="@+id/spinner2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="bottom"
-                android:layout_marginStart="20dp"
-                android:layout_weight="0.6"
+                style="@style/spinnerStyle"
                 tools:listitem="@layout/item_spin" />
 
         </LinearLayout>
@@ -95,29 +81,16 @@
 
             <EditText
                 android:id="@+id/input3"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:hint="0"
-                android:importantForAutofill="no"
-                android:inputType="numberDecimal"
-                android:longClickable="false"
-                android:maxLength="5"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hint"
-                android:textSize="12sp"
-                android:gravity="center"/>
+                style="@style/inputStyle"
+                android:importantForAutofill="no" />
 
             <Spinner
                 android:id="@+id/spinner3"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="bottom"
-                android:layout_marginStart="20dp"
-                android:layout_weight="0.6"
+                style="@style/spinnerStyle"
                 tools:listitem="@layout/item_spin" />
 
         </LinearLayout>
+
         <TextView
             android:id="@+id/input4Name"
             style="@style/baseStyle"
@@ -132,31 +105,16 @@
 
             <EditText
                 android:id="@+id/input4"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:hint="0"
-                android:importantForAutofill="no"
-                android:inputType="numberDecimal"
-                android:longClickable="false"
-                android:maxLength="5"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hint"
-                android:textSize="12sp"
-                android:gravity="center"/>
+                style="@style/inputStyle"
+                android:importantForAutofill="no" />
 
 
             <Spinner
                 android:id="@+id/spinner4"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="bottom"
-                android:layout_marginStart="20dp"
-                android:layout_weight="0.6"
+                style="@style/spinnerStyle"
                 tools:listitem="@layout/item_spin" />
 
         </LinearLayout>
-
 
 
     </LinearLayout>
@@ -176,22 +134,22 @@
             android:layout_height="44dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/rounded_yellow_cart"
+            android:gravity="center"
             android:text="Сброс"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="14sp"
-            android:gravity="center"/>
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/resultBtn"
             android:layout_width="98dp"
             android:layout_height="44dp"
             android:background="@drawable/rounded_green_cart"
+            android:gravity="center"
             android:text="Отчёт"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="14sp"
-            android:gravity="center"/>
+            android:textSize="14sp" />
     </LinearLayout>
 
     <View

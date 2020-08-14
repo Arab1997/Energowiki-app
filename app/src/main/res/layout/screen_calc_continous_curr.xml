@@ -12,7 +12,8 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="25dp"
         android:layout_marginRight="30dp"
-        android:padding="25dp">
+        android:padding="25dp"
+        tools:ignore="LabelFor">
 
         <TextView
             android:id="@+id/title"
@@ -29,7 +30,7 @@
             android:text="R = "
             android:textColor="@color/black"
             android:textSize="15sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,26 +38,12 @@
 
             <EditText
                 android:id="@+id/input1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:hint="0"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:longClickable="false"
-                android:maxLength="5"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hint"
-                android:textSize="12sp" />
+                style="@style/inputStyle"
+                android:autofillHints="no" />
 
             <Spinner
                 android:id="@+id/spinner1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="bottom"
-                android:layout_marginStart="20dp"
-                android:layout_weight="0.6"
+                style="@style/spinnerStyle"
                 tools:listitem="@layout/item_spin" />
 
         </LinearLayout>
@@ -68,7 +55,7 @@
             android:text="U ="
             android:textColor="@color/black"
             android:textSize="15sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -76,26 +63,12 @@
 
             <EditText
                 android:id="@+id/input2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:hint="0"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:longClickable="false"
-                android:maxLength="5"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hint"
-                android:textSize="12sp" />
+                style="@style/inputStyle"
+                android:importantForAutofill="no" />
 
             <Spinner
                 android:id="@+id/spinner2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="bottom"
-                android:layout_marginStart="20dp"
-                android:layout_weight="0.6"
+                style="@style/spinnerStyle"
                 tools:listitem="@layout/item_spin" />
 
         </LinearLayout>

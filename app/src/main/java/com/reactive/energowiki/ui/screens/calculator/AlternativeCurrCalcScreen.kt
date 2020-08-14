@@ -36,10 +36,10 @@ class AlternativeCurrCalcScreen: BaseFragment(R.layout.screen_calc_alternative_c
         spinner2.adapter = aa2
         val aa3: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[1])
         aa3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner2.adapter = aa3
+        spinner3.adapter = aa3
         val aa4: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[1])
         aa4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner2.adapter = aa4
+        spinner4.adapter = aa4
 
 
         spinner1.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
