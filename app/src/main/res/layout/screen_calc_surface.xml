@@ -18,7 +18,7 @@
             android:id="@+id/title"
             style="@style/baseStyle"
             android:fontFamily="@font/inter_bold"
-            android:text="Длина (l)"
+            android:text="поверхность ( S )"
             android:textColor="@color/dark"
             android:textSize="13sp" />
 
@@ -124,7 +124,7 @@
             android:id="@+id/input4Name"
             style="@style/baseStyle"
             android:layout_marginTop="20dp"
-            android:text="Сечение "
+            android:text="Длина проводника ( l )"
             android:textColor="@color/black"
             android:textSize="13sp" />
 

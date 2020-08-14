@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import kotlinx.android.synthetic.main.content_header.*
-import kotlinx.android.synthetic.main.screen_calc_conductor.*
 import kotlinx.android.synthetic.main.screen_calc_resistivity.*
 import kotlinx.android.synthetic.main.screen_calc_resistivity.clearBtn
 import kotlinx.android.synthetic.main.screen_calc_resistivity.input2
@@ -21,7 +20,6 @@ import kotlinx.android.synthetic.main.screen_calc_resistivity.spinner1
 import kotlinx.android.synthetic.main.screen_calc_resistivity.spinner2
 import kotlinx.android.synthetic.main.screen_calc_resistivity.spinner3
 import kotlinx.android.synthetic.main.screen_calc_resistivity.spinner4
-import java.lang.Math.pow
 import kotlin.math.pow
 
 
@@ -55,7 +53,7 @@ class ResistivityCalcScreen : BaseFragment(R.layout.screen_calc_resistivity) {
         spinValues.add(arrayListOf("пОм", "нОм", "мкОм", "мОм", "Ом", "кОм", "МОм", "ГОм"))
         spinValues.add(arrayListOf("м", "ft", "км", "см", "мм"))
         spinValues.add(arrayListOf("мм²", "м²", "kcmil"))
-        spinValues.add(arrayListOf("°C", "°F"))
+        spinValues.add(arrayListOf("°C", "°Ф"))
         spinValues.add(arrayListOf("Медь","Алюминий","Никелин","Вольфрам","Середро","Железо","Сталь","Константан","Нихром","Латунь","Золото","Платина","Фехраль","Маганин","Цинк","Никель"))
         val ra: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[0])
         ra.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -71,7 +69,7 @@ class ResistivityCalcScreen : BaseFragment(R.layout.screen_calc_resistivity) {
         spinner4.adapter = ta //t
         val pa: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[4])
         pa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner1.adapter = pa //material p
+        spinner5.adapter = pa //material p
 
         spinner1.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -295,14 +293,14 @@ class ResistivityCalcScreen : BaseFragment(R.layout.screen_calc_resistivity) {
         val s = input3.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
         val t=input4.text.toString().let { if(it.isEmpty()) 0.0 else it.toDouble() }
         var result=0.0
-        if(koef4==1) result=R*s/(l*(1+(t-32)*5*k*pow(10.0,-3.0)/9))
-        else result=R*s/(l*(1+t*k* pow(10.0, -3.0)))
+        if(koef4==1) result=R*s/(l*(1+(t-32)*5*k*10.0.pow(-3.0)/9))
+        else result=R*s/(l*(1+t*k* 10.0.pow(-3.0)))
 
         showResult(result * koef1 * koef3 / koef2)
     }
 
     @SuppressLint("SetTextI18n")
     private fun showResult(res: Double) {
-        result.text = "$res Om*m"
+        result.text = "$res Ом*м"
     }
 }

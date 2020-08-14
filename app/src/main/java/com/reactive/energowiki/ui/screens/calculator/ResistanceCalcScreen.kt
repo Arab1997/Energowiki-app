@@ -21,13 +21,13 @@ import kotlinx.android.synthetic.main.screen_calc_conductor.spinner3
 import kotlinx.android.synthetic.main.screen_calc_conductor.spinner4
 import kotlin.math.pow
 
-class ConductorCalcScreen: BaseFragment(R.layout.screen_calc_conductor){
+class ResistanceCalcScreen: BaseFragment(R.layout.screen_calc_resistance){
 
     private val spinValues = arrayListOf<ArrayList<String>>()
     private var koef1 :Double =  0.015995
     private var koef2 :Double = 1.0
-    private var koef3 :Int = 1
-    private var koef4 :Double =1.0
+    private var koef3 :Double =1.0
+    private var koef4 :Int = 1
     private var k:Double=4.3
 
 
@@ -36,28 +36,28 @@ class ConductorCalcScreen: BaseFragment(R.layout.screen_calc_conductor){
 
         initClicks()
 
-        initSpinners()
-
         initEditTexts()
+
+        initSpinners()
     }
 
     private fun initSpinners(){
         spinValues.add(arrayListOf("Медь","Алюминий","Никелин","Вольфрам","Середро","Железо","Сталь","Константан","Нихром","Латунь","Золото","Платина","Фехраль","Маганин","Цинк","Никель"))
-        spinValues.add(arrayListOf("пОм", "нОм", "мкОм", "мОм", "Ом", "кОм", "МОм", "ГОм"))
-        spinValues.add(arrayListOf("°C", "°Ф"))
+        spinValues.add(arrayListOf("м", "ft", "км", "см", "мм"))
         spinValues.add(arrayListOf("мм²", "м²", "kcmil"))
+        spinValues.add(arrayListOf("°C", "°Ф"))
         val aa1: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[0])
         aa1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner1.adapter = aa1 //material p
         val aa2: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[1])
         aa2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner2.adapter = aa2  // R
+        spinner2.adapter = aa2  // l
         val aa3: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[2])
         aa3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner3.adapter = aa3  // t
+        spinner3.adapter = aa3  // S
         val aa4: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[3])
         aa4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner4.adapter = aa4  //S
+        spinner4.adapter = aa4  //t
 
         spinner1.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -119,21 +119,18 @@ class ConductorCalcScreen: BaseFragment(R.layout.screen_calc_conductor){
             ) {
                 koef2 = 1.0
                 koef2 *= when (position) {
-                    0 -> 10.0.pow(-12.0)
-                    1 -> 10.0.pow(-9.0)
-                    2 -> 10.0.pow(-6.0)
-                    3 -> 10.0.pow(-3.0)
-                    4 -> 1.0
-                    5 -> 10.0.pow(3)
-                    6 -> 10.0.pow(6)
-                    7 -> 10.0.pow(9)
+                    0 -> 1.0
+                    1 -> 0.3048
+                    2 -> 10.0.pow(3.0)
+                    3 -> 10.0.pow(-2.0)
+                    4 -> 10.0.pow(-3)
                     else -> 1.0
                 }
                 initCalculation()
             }
-        }
 
-        spinner3.onItemSelectedListener= object: AdapterView.OnItemSelectedListener {
+        }
+        spinner4.onItemSelectedListener= object: AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
 
@@ -143,8 +140,8 @@ class ConductorCalcScreen: BaseFragment(R.layout.screen_calc_conductor){
                 position: Int,
                 id: Long
             ) {
-                koef3 = 1
-                koef3 *= when (position) {
+                koef4 = 1
+                koef4 *= when (position) {
                     0 -> 1
                     1 -> 0
                     else -> 1
@@ -153,7 +150,7 @@ class ConductorCalcScreen: BaseFragment(R.layout.screen_calc_conductor){
             }
         }
 
-        spinner4.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+        spinner3.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
 
@@ -163,8 +160,8 @@ class ConductorCalcScreen: BaseFragment(R.layout.screen_calc_conductor){
                 position: Int,
                 id: Long
             ) {
-                koef4 = 1.0
-                koef4 *= when (position) {
+                koef3 = 1.0
+                koef3 *= when (position) {
                     0 -> 10.0.pow(-6.0) // mm^2 to m^2
                     1 -> 1.0 // m^2
                     2 -> 2 * 10.0.pow(-6.0) // kcmil to m^2
@@ -195,7 +192,6 @@ class ConductorCalcScreen: BaseFragment(R.layout.screen_calc_conductor){
             initCalculation()
         }
     }
-
     private fun initEditTexts() {
         input2.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -243,19 +239,19 @@ class ConductorCalcScreen: BaseFragment(R.layout.screen_calc_conductor){
 
 
     private fun initCalculation() {
-        val R = input2.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
-        val t = input3.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
-        val s = input4.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
+        val l = input2.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
+        val s = input3.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
+        val t = input4.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
         var result=0.0
-        if(koef3==0) result=R*s/(koef1*(1+(t-32)*5*k*10.0.pow(-3.0)/9))
-        else result=R*s/(koef1*(1+t*k*10.0.pow(-3.0)))
+        if(koef4==0) result=koef1*(1+(t-32)*5*k*10.0.pow(-3.0)/9)*l/s
+        else result=koef1*(1+t*k*10.0.pow(-3.0))*l/s
 
-        showResult(result  * koef2 * koef4*10.0.pow(6.0))
+        showResult(result  * koef2 *10.0.pow(-6.0)/koef3)
     }
 
     @SuppressLint("SetTextI18n")
     private fun showResult(res: Double) {
-        result.text = "$res м"
+        result.text = "$res Ом"
     }
 
 }
