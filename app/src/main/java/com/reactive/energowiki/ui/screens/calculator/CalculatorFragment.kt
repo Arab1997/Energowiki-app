@@ -13,6 +13,7 @@ class CalculatorFragment : BaseFragment(R.layout.fragment_calculator) {
             when (it) {
                 1 -> addFragment(ResistivityCalcScreen())
                 2 -> addFragment(ConductorCalcScreen())
+                3 -> addFragment(VoltageCalcScreen())
                 else -> Toast.makeText(requireContext(), "inDevelopment", Toast.LENGTH_SHORT).show()
             }
         }.apply {

@@ -15,6 +15,7 @@ import kotlin.math.pow
 
 class ResistivityCalcScreen : BaseFragment(R.layout.screen_calc_resistivity) {
 
+    private val spinValues = arrayListOf<ArrayList<String>>()
     private var koef1 :Double = 1.0
     private var koef2 :Double = 1.0
     private var koef3 :Double = 1.0
@@ -36,16 +37,16 @@ class ResistivityCalcScreen : BaseFragment(R.layout.screen_calc_resistivity) {
     }
 
     private fun initSpinners() {
-        val rValues = arrayListOf<String>("пОм", "нОм", "мкОм", "мОм", "Ом", "кОм", "МОм", "ГОм")
-        val lValues = arrayListOf<String>("м", "ft", "км", "см", "мм")
-        val SValues = arrayListOf<String>("мм^2", "м^2", "kcmil")
-        val ra: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, rValues)
+        spinValues.add(arrayListOf("пОм", "нОм", "мкОм", "мОм", "Ом", "кОм", "МОм", "ГОм"))
+        spinValues.add(arrayListOf("м", "ft", "км", "см", "мм"))
+        spinValues.add(arrayListOf("мм²", "м²", "kcmil"))
+        val ra: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[0])
         ra.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner1.adapter = ra
-        val la: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, lValues)
+        val la: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[1])
         la.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner2.adapter = la
-        val aa: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, SValues)
+        val aa: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[2])
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner3.adapter = aa
 
