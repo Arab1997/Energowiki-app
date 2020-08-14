@@ -1,6 +1,320 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/screenStyle"
+    android:paddingTop="15dp"
+    tools:ignore="HardcodedText" >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <include layout="@layout/content_header" />
+
+    <LinearLayout
+        style="@style/cardStyle"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="30dp"
+        android:padding="25dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <Spinner
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                tools:listitem="@layout/item_spin" />
+            <Spinner
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                tools:listitem="@layout/item_spin" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <Spinner
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                tools:listitem="@layout/item_spin" />
+            <Spinner
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                tools:listitem="@layout/item_spin" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:layout_margin="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleY="0.7"
+                    android:scaleX="0.7"
+                    android:textSize="12sp"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:textColor="@color/dark"
+                    android:textSize="10sp"
+                    android:text="Свой размер"
+                    tools:ignore="SmallSp" />
+                
+            </LinearLayout>
+            <Spinner
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                tools:listitem="@layout/item_spin" />
+            <Spinner
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                tools:listitem="@layout/item_spin" />
+        </LinearLayout>
+
+        <Spinner
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            tools:listitem="@layout/item_spin" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/input1Name"
+            style="@style/baseStyle"
+            android:text="Сопротивленил ( R )"
+            android:textColor="@color/black"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <EditText
+                android:id="@+id/input1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="0"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:longClickable="false"
+                android:maxLength="5"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hint"
+                android:textSize="12sp"
+                android:gravity="center"/>
+
+            <Spinner
+                android:id="@+id/spinner1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="20dp"
+                android:layout_weight="0.4"
+                tools:listitem="@layout/item_spin" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/input2Name"
+            style="@style/baseStyle"
+            android:layout_marginTop="10dp"
+            android:text="Длина проводника ( l )"
+            android:textColor="@color/black"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <EditText
+                android:id="@+id/input2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="0"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:longClickable="false"
+                android:maxLength="5"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hint"
+                android:textSize="12sp"
+                android:gravity="center"/>
+
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="20dp"
+                android:layout_weight="0.4"
+                tools:listitem="@layout/item_spin" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/input3Name"
+            style="@style/baseStyle"
+            android:layout_marginTop="10dp"
+            android:text="Площадь поперечного сечения ( S )"
+            android:textColor="@color/black"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <EditText
+                android:id="@+id/input3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="0"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:longClickable="false"
+                android:maxLength="5"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hint"
+                android:textSize="12sp"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_marginStart="20dp"
+                android:layout_weight="0.4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Вольт"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="cos ( ф )"
+                android:gravity="center_vertical"
+                android:textSize="12sp"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:layout_marginStart="20dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:hint="0"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:longClickable="false"
+                android:maxLength="5"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hint"
+                android:textSize="12sp"
+                android:gravity="center"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:orientation="horizontal"
+        tools:ignore="RtlHardcoded">
+
+        <Button
+            android:id="@+id/clearBtn"
+            android:layout_width="98dp"
+            android:layout_height="44dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/rounded_yellow_cart"
+            android:text="Сброс"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/resultBtn"
+            android:layout_width="98dp"
+            android:layout_height="44dp"
+            android:background="@drawable/rounded_green_cart"
+            android:text="Отчёт"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <View
+        style="@style/baseStyle"
+        android:layout_height="1dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/hint" />
+
+    <LinearLayout
+        style="@style/baseStyle"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/back">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:fontFamily="@font/inter_medium"
+            android:text="Результат расчета"
+            android:textColor="@color/dark"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
+            android:text="0 B"
+            android:textColor="@color/dark"
+            android:textSize="20sp" />
+    </LinearLayout>
+</LinearLayout>
