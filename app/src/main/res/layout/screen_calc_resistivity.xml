@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/screenStyle"
-    android:paddingTop="15dp">
+    android:paddingTop="15dp"
+    tools:ignore="HardcodedText" >
 
     <include layout="@layout/content_header" />
 
@@ -18,7 +19,7 @@
             android:id="@+id/title"
             style="@style/baseStyle"
             android:fontFamily="@font/inter_bold"
-            android:text="Мощность"
+            android:text="Удельное сопротивление проводника (р)"
             android:textColor="@color/dark"
             android:textSize="13sp" />
 
@@ -26,7 +27,7 @@
             android:id="@+id/input1Name"
             style="@style/baseStyle"
             android:layout_marginTop="20dp"
-            android:text="Ток"
+            android:text="Сопротивленил ( R )"
             android:textColor="@color/black"
             android:textSize="13sp" />
 
@@ -46,7 +47,8 @@
                 android:maxLength="5"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hint"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:gravity="center"/>
 
             <Spinner
                 android:id="@+id/spinner1"
@@ -63,7 +65,7 @@
             android:id="@+id/input2Name"
             style="@style/baseStyle"
             android:layout_marginTop="20dp"
-            android:text="Ток"
+            android:text="Длина проводника ( l )"
             android:textColor="@color/black"
             android:textSize="13sp" />
 
@@ -83,7 +85,8 @@
                 android:maxLength="5"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hint"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:gravity="center"/>
 
             <Spinner
                 android:id="@+id/spinner2"
@@ -100,7 +103,7 @@
             android:id="@+id/input3Name"
             style="@style/baseStyle"
             android:layout_marginTop="20dp"
-            android:text="Ток"
+            android:text="Площадь поперечного сечения ( S )"
             android:textColor="@color/black"
             android:textSize="13sp" />
 
@@ -120,7 +123,8 @@
                 android:maxLength="5"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hint"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:gravity="center"/>
 
             <Spinner
                 android:id="@+id/spinner3"
@@ -153,7 +157,8 @@
             android:text="Сброс"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:gravity="center"/>
 
         <Button
             android:id="@+id/resultBtn"
@@ -163,7 +168,8 @@
             android:text="Отчёт"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:gravity="center"/>
     </LinearLayout>
 
     <View
