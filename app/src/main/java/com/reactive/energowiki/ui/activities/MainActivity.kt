@@ -1,6 +1,7 @@
 package com.reactive.energowiki.ui.activities
 
 import android.content.Intent
+import android.net.Uri
 import android.view.KeyEvent
 import android.widget.TextView
 import androidx.fragment.app.FragmentManager
@@ -49,8 +50,8 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
 
         initDrawer()
 
-//        debug()
-        startFragment()
+        debug()
+//        startFragment()
 
         if (!BuildConfig.DEBUG) updateManager = UpdateManager(this).apply {
             checkUpdate()
@@ -64,7 +65,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
         })
     }
 
-    private fun debug() = initialFragment(GlossariesScreen(), viewModel.fragmentLayoutId)
+    private fun debug() = initialFragment(CalculatorScreen(), viewModel.fragmentLayoutId)
 
     private fun startFragment() {
         val splash = SplashScreen().apply {

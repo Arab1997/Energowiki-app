@@ -35,13 +35,12 @@ class CalculatorScreen : BaseFragment(R.layout.screen_calculation) {
             initCalculation()
         }
     }
-
     private fun initCalculation() {
         showResult(0)
     }
 
     @SuppressLint("SetTextI18n")
     private fun showResult(res: Int) {
-        result.text = "$res В"
+        result.text = "$res V"
     }
 }
