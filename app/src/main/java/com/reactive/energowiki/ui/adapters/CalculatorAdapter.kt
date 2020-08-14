@@ -13,6 +13,8 @@ class CalculatorAdapter(private val listener: (Any) -> Unit): BaseAdapter<Any>(R
             3 -> holder.itemView.name.text = "Потери напряжения"
             4 -> holder.itemView.name.text = "Закон Ома постоянного тока"
             5 -> holder.itemView.name.text = "Закон Ома переменного тока"
+            6 -> holder.itemView.name.text = "Сопротивление проводника"
+            7 -> holder.itemView.name.text = "Площадь поперечного сечения"
         }
         holder.itemView.setOnClickListener {
             listener.invoke(data)

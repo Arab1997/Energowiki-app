@@ -13,12 +13,15 @@ class CalculatorFragment : BaseFragment(R.layout.fragment_calculator) {
             when (it) {
                 1 -> addFragment(ResistivityCalcScreen())
                 2 -> addFragment(ConductorCalcScreen())
-                3 -> addFragment(ResistanceCalcScreen())
-                4 -> addFragment(SurfaceCalcScreen())
+                3 -> addFragment(VoltageCalcScreen())
+                4 -> addFragment(ContinousCurrCalcScreen())
+                5 -> addFragment(AlternativeCurrCalcScreen())
+                6 -> addFragment(ResistanceCalcScreen())
+                7 -> addFragment(SurfaceCalcScreen())
                 else -> Toast.makeText(requireContext(), "inDevelopment", Toast.LENGTH_SHORT).show()
             }
         }.apply {
-            setData(arrayListOf(1, 2, 3, 4, 5))
+            setData(arrayListOf(1, 2, 3, 4, 5, 6, 7))
         }
     }
 }

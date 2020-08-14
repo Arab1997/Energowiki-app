@@ -26,9 +26,10 @@
             android:id="@+id/input3Name"
             style="@style/baseStyle"
             android:layout_marginTop="20dp"
-            android:text="t° проводника ( °C )"
+            android:text="R = "
             android:textColor="@color/black"
-            android:textSize="13sp" />
+            android:textSize="15sp"
+            android:textStyle="bold"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,9 +65,10 @@
             android:id="@+id/input4Name"
             style="@style/baseStyle"
             android:layout_marginTop="20dp"
-            android:text="Сечение"
+            android:text="U ="
             android:textColor="@color/black"
-            android:textSize="13sp" />
+            android:textSize="15sp"
+            android:textStyle="bold"/>
 
         <LinearLayout
             android:layout_width="match_parent"
