@@ -17,7 +17,6 @@ import com.reactive.energowiki.ui.dialogs.AvariyaDialog
 import com.reactive.energowiki.ui.dialogs.RequestDialog
 import com.reactive.energowiki.ui.screens.*
 import com.reactive.energowiki.ui.screens.calculator.CalculatorFragment
-import com.reactive.energowiki.ui.screens.calculator.CalculatorScreen
 import com.reactive.energowiki.ui.screens.payment.PaymentScreen
 import com.reactive.energowiki.utils.UpdateManager
 import com.reactive.energowiki.utils.extensions.inDevelopment

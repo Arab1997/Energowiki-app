@@ -9,11 +9,11 @@ import android.widget.ArrayAdapter
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import kotlinx.android.synthetic.main.content_header.*
-import kotlinx.android.synthetic.main.screen_calculation.*
+import kotlinx.android.synthetic.main.screen_calc_resistivity.*
 import kotlin.math.pow
 
 
-class CalculatorScreen : BaseFragment(R.layout.screen_calculation) {
+class ResistivityCalcScreen : BaseFragment(R.layout.screen_calc_resistivity) {
 
     private var koef1 :Double = 1.0
     private var koef2 :Double = 1.0
@@ -32,7 +32,7 @@ class CalculatorScreen : BaseFragment(R.layout.screen_calculation) {
 
     private fun initViews() {
 
-        header.text = "Закон Ома постоянного тока"
+        header.text = "Удельное сопротивление и проводимость"
     }
 
     private fun initSpinners() {

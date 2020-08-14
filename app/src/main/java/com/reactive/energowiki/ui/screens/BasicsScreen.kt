@@ -3,7 +3,7 @@ package com.reactive.energowiki.ui.screens
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.adapters.BasicsAdapter
-import com.reactive.energowiki.ui.screens.calculator.CalculatorScreen
+import com.reactive.energowiki.ui.screens.calculator.ResistivityCalcScreen
 import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.screen_recycler.*
 
@@ -20,7 +20,7 @@ class BasicsScreen : BaseFragment(R.layout.screen_recycler) {
         header.text = "Основы"
 
         adapter = BasicsAdapter {
-            addFragment(CalculatorScreen())
+            addFragment(ResistivityCalcScreen())
         }.apply { setData(data) }
         recycler.adapter = adapter
     }
