@@ -20,7 +20,7 @@
             android:id="@+id/title"
             style="@style/baseStyle"
             android:fontFamily="@font/inter_bold"
-            android:text="Удельное сопротивление проводника (р)"
+            android:text="Удельное сопротивление проводника ( р )"
             android:textColor="@color/dark"
             android:textSize="13sp" />
 

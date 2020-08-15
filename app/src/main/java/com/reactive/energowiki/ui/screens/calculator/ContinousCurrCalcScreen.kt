@@ -9,12 +9,20 @@ import android.widget.ArrayAdapter
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import kotlinx.android.synthetic.main.content_header.*
-import kotlinx.android.synthetic.main.screen_calc_continous_curr.*
+import kotlinx.android.synthetic.main.screen_calc_continous_curr.clearBtn
+import kotlinx.android.synthetic.main.screen_calc_continous_curr.input1
+import kotlinx.android.synthetic.main.screen_calc_continous_curr.input2
+import kotlinx.android.synthetic.main.screen_calc_continous_curr.result
+import kotlinx.android.synthetic.main.screen_calc_continous_curr.resultBtn
+import kotlinx.android.synthetic.main.screen_calc_continous_curr.spinner1
+import kotlinx.android.synthetic.main.screen_calc_continous_curr.spinner2
+import kotlin.math.pow
 
 class ContinousCurrCalcScreen : BaseFragment(R.layout.screen_calc_continous_curr){
 
     private val spinValues = arrayListOf<ArrayList<String>>()
-
+    private var koef1: Double = 1.0
+    private var koef2: Double = 1.0
     override fun initialize() {
         initViews()
 
@@ -27,8 +35,7 @@ class ContinousCurrCalcScreen : BaseFragment(R.layout.screen_calc_continous_curr
 
     private fun initSpinners(){
         spinValues.add(arrayListOf("пОм", "нОм", "мкОм", "мОм", "Ом", "кОм", "МОм", "ГОм"))
-        //todo: Khoshimova
-        spinValues.add(arrayListOf("В"))
+        spinValues.add(arrayListOf("пВ", "нВ", "мкВ", "мВ", "В", "кВ", "МВ", "ГВ"))
         val aa1: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[0])
         aa1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner1.adapter = aa1
@@ -47,7 +54,18 @@ class ContinousCurrCalcScreen : BaseFragment(R.layout.screen_calc_continous_curr
                 position: Int,
                 id: Long
             ) {
-                //todo: Khoshimova koef
+                koef1 = 1.0
+                koef1 *= when (position) {
+                    0 -> 10.0.pow(-12.0)
+                    1 -> 10.0.pow(-9.0)
+                    2 -> 10.0.pow(-6.0)
+                    3 -> 10.0.pow(-3.0)
+                    4 -> 1.0
+                    5 -> 10.0.pow(3)
+                    6 -> 10.0.pow(6)
+                    7 -> 10.0.pow(9)
+                    else -> 1.0
+                }
                 initCalculation()
             }
         }
@@ -61,8 +79,18 @@ class ContinousCurrCalcScreen : BaseFragment(R.layout.screen_calc_continous_curr
                 view: View?,
                 position: Int,
                 id: Long
-            ) {
-                //todo: Khoshimova
+            ) { koef1 = 1.0
+                koef1 *= when (position) {
+                    0 -> 10.0.pow(-12.0)
+                    1 -> 10.0.pow(-9.0)
+                    2 -> 10.0.pow(-6.0)
+                    3 -> 10.0.pow(-3.0)
+                    4 -> 1.0
+                    5 -> 10.0.pow(3)
+                    6 -> 10.0.pow(6)
+                    7 -> 10.0.pow(9)
+                    else -> 1.0
+                }
                 initCalculation()
             }
         }
@@ -90,6 +118,20 @@ class ContinousCurrCalcScreen : BaseFragment(R.layout.screen_calc_continous_curr
     }
 
     private fun initEditTexts() {
+        input1.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                initCalculation()
+            }
+
+        })
         input2.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
 
@@ -108,15 +150,16 @@ class ContinousCurrCalcScreen : BaseFragment(R.layout.screen_calc_continous_curr
 
 
     private fun initCalculation() {
-        val result=0.0
-        //todo: Khoshimova
+        val R = input1.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
+        val U = input2.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
+        val result=U/R
 
-        showResult(result)
+        showResult(result*koef2/koef1)
     }
 
     @SuppressLint("SetTextI18n")
     private fun showResult(res: Double) {
-        result.text = "$res м"
+        result.text = "$res А"
     }
 
 }

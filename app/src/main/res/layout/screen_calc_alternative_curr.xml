@@ -19,7 +19,7 @@
             android:id="@+id/title"
             style="@style/baseStyle"
             android:fontFamily="@font/inter_bold"
-            android:text="Длина"
+            android:text="Закон Ома переменного тока ( I )"
             android:textColor="@color/dark"
             android:textSize="13sp" />
 
@@ -99,7 +99,7 @@
             android:id="@+id/input4Name"
             style="@style/baseStyle"
             android:layout_marginTop="20dp"
-            android:text="W ="
+            android:text="U ="
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold" />

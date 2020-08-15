@@ -19,7 +19,7 @@
             android:id="@+id/title"
             style="@style/baseStyle"
             android:fontFamily="@font/inter_bold"
-            android:text="Длина"
+            android:text="Закон Ома постоянного тока ( I )"
             android:textColor="@color/dark"
             android:textSize="13sp" />
 
