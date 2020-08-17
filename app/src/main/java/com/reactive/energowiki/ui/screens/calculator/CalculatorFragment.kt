@@ -23,5 +23,5 @@ class CalculatorFragment : BaseFragment(R.layout.fragment_calculator) {
         }.apply {
             setData(arrayListOf(1, 2, 3, 4, 5, 6, 7))
         }
-    }
+        }
 }

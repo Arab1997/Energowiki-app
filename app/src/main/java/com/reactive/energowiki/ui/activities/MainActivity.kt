@@ -17,6 +17,7 @@ import com.reactive.energowiki.ui.dialogs.AvariyaDialog
 import com.reactive.energowiki.ui.dialogs.RequestDialog
 import com.reactive.energowiki.ui.screens.*
 import com.reactive.energowiki.ui.screens.calculator.CalculatorFragment
+import com.reactive.energowiki.ui.screens.dvigates.Dvigatel1_1CalcScreen
 import com.reactive.energowiki.ui.screens.payment.PaymentScreen
 import com.reactive.energowiki.utils.UpdateManager
 import com.reactive.energowiki.utils.extensions.inDevelopment
@@ -66,7 +67,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
         })
     }
 
-    private fun debug() = initialFragment(CalculatorFragment(), viewModel.fragmentLayoutId)
+    private fun debug() = initialFragment(Dvigatel1_1CalcScreen(), viewModel.fragmentLayoutId)
 
     private fun startFragment() {
         val splash = SplashScreen().apply {

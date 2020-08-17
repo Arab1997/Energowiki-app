@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.adapters.LinksAdapter
-import com.reactive.energowiki.ui.adapters.NewsAdapter
 import com.reactive.energowiki.ui.bottomsheets.DetailBottomSheet
 import com.reactive.energowiki.utils.extensions.inDevelopment
 import kotlinx.android.synthetic.main.content_header.*
