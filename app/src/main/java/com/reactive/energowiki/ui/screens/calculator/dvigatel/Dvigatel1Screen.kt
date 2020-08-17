@@ -1,4 +1,4 @@
-package com.reactive.energowiki.ui.screens.dvigates
+package com.reactive.energowiki.ui.screens.calculator.dvigatel
 
 import android.annotation.SuppressLint
 import android.text.Editable
@@ -11,11 +11,11 @@ import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.adapters.Dvigatel1_1Adapter
 import kotlinx.android.synthetic.main.content_header.*
-import kotlinx.android.synthetic.main.screen_calc_dvigatel_1_1.*
-import kotlinx.android.synthetic.main.screen_calc_dvigatel_1_1.recycler
+import kotlinx.android.synthetic.main.screen_dvigatel_1.*
+import kotlinx.android.synthetic.main.screen_dvigatel_1.recycler
 import kotlin.math.pow
 
-class Dvigatel1_1CalcScreen : BaseFragment(R.layout.screen_calc_dvigatel_1_1) {
+class Dvigatel1Screen : BaseFragment(R.layout.screen_dvigatel_1) {
 
     private val spinValues = arrayListOf<ArrayList<String>>()
     private var koef1: Double = 10.0.pow(-12.0)

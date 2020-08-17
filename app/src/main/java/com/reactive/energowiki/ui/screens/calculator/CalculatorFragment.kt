@@ -9,6 +9,8 @@ import com.reactive.energowiki.ui.screens.HomeMenus
 import com.reactive.energowiki.ui.screens.calculator.basics.*
 import com.reactive.energowiki.ui.screens.calculator.capacity.Capacity1Screen
 import com.reactive.energowiki.ui.screens.calculator.capacity.Capacity2Screen
+import com.reactive.energowiki.ui.screens.calculator.dvigatel.Dvigatel1Screen
+import com.reactive.energowiki.utils.extensions.toast
 import kotlinx.android.synthetic.main.fragment_calculator.*
 
 class CalculatorFragment : BaseFragment(R.layout.fragment_calculator) {
@@ -48,6 +50,10 @@ class CalculatorFragment : BaseFragment(R.layout.fragment_calculator) {
                             Toast.LENGTH_SHORT
                         ).show()
                     }
+                    CalculatorMenus.ENGINE -> when(it) {
+                        1 -> addFragment(Dvigatel1Screen())
+                        else -> toast(requireContext(), "inDevelopment")
+                    }
                 }
 
             }.apply {
@@ -65,5 +71,5 @@ class CalculatorFragment : BaseFragment(R.layout.fragment_calculator) {
 data class CalculatorData(val name: String, val type: CalculatorMenus)
 
 enum class CalculatorMenus {
-    BASICS, CAPACITY
+    BASICS, CAPACITY, ENGINE
 }

@@ -96,7 +96,7 @@ class HomeScreen : BaseFragment(R.layout.screen_home) {
                 HomeMenus.BASICS -> addFragment(BasicsScreen())
                 HomeMenus.CAPACITY -> addFragment(CalculatorFragment.newInstance(CalculatorData("Емкость", CalculatorMenus.CAPACITY)))// todo
                 HomeMenus.CONDUCTOR -> inDevelopment(requireContext())// todo
-                HomeMenus.ENGINE -> inDevelopment(requireContext())// todo
+                HomeMenus.ENGINE -> addFragment(CalculatorFragment.newInstance(CalculatorData("Двигатель", CalculatorMenus.ENGINE)))// todo
                 HomeMenus.CABLE -> inDevelopment(requireContext())// todo
                 else -> {
                 }
