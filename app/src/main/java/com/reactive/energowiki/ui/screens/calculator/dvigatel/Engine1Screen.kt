@@ -6,6 +6,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import kotlinx.android.synthetic.main.content_header.*
@@ -16,7 +17,7 @@ class Engine1Screen: BaseFragment(R.layout.screen_engine_1) {
 
     private val spinValues = arrayListOf<ArrayList<String>>()
     var type=0
-    var koef1=1.0
+    var koef1=1000.0
     var koef2=1.0
 
     override fun initialize() {
@@ -167,15 +168,16 @@ class Engine1Screen: BaseFragment(R.layout.screen_engine_1) {
     }
 
     private fun initCalculation() {
-        var inputNum2:Double = input2.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
-        var inputNum3:Double = input3.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
-        var inputNum4:Double = input4.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
-        var inputNum5:Double = input5.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
+        var inputNum2 = input2.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
+        var inputNum3 = input3.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
+        var inputNum4 = input4.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
+        var inputNum5 = input5.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
         var res=0.0
         when(type){
-            0 -> res=inputNum2/(3.0.pow(0.5)*inputNum5*inputNum4*inputNum3*koef1*koef2)
-            1 -> res=inputNum2/(inputNum5*inputNum4*inputNum3*koef1*koef2)
+            0 -> res=inputNum2*koef1/((3.0).pow(0.5)*inputNum5*inputNum4*inputNum3*koef2)
+            1 -> res=inputNum2*koef1/(inputNum5*inputNum4*inputNum3*koef2)
         }
+        Toast.makeText(requireContext(), res.toString(), Toast.LENGTH_LONG).show()
         showResult(res)
     }
     @SuppressLint("SetTextI18n")
