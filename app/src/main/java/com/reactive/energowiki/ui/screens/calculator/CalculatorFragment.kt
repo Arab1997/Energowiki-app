@@ -1,15 +1,13 @@
 package com.reactive.energowiki.ui.screens.calculator
 
 import android.widget.Toast
-import androidx.annotation.DrawableRes
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.adapters.CalculatorAdapter
-import com.reactive.energowiki.ui.screens.HomeMenus
 import com.reactive.energowiki.ui.screens.calculator.basics.*
 import com.reactive.energowiki.ui.screens.calculator.capacity.Capacity1Screen
 import com.reactive.energowiki.ui.screens.calculator.capacity.Capacity2Screen
-import com.reactive.energowiki.ui.screens.calculator.dvigatel.Dvigatel1Screen
+import com.reactive.energowiki.ui.screens.calculator.dvigatel.Engine1Screen
 import com.reactive.energowiki.utils.extensions.toast
 import kotlinx.android.synthetic.main.fragment_calculator.*
 
@@ -51,7 +49,7 @@ class CalculatorFragment : BaseFragment(R.layout.fragment_calculator) {
                         ).show()
                     }
                     CalculatorMenus.ENGINE -> when(it) {
-                        1 -> addFragment(Dvigatel1Screen())
+                        1 -> addFragment(Engine1Screen())
                         else -> toast(requireContext(), "inDevelopment")
                     }
                 }
