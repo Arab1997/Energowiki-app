@@ -35,22 +35,14 @@ class CalculatorFragment : BaseFragment(R.layout.fragment_calculator) {
                         5 -> addFragment(AlternativeCurrCalcScreen())
                         6 -> addFragment(ResistanceCalcScreen())
                         7 -> addFragment(SurfaceCalcScreen())
-                        else -> Toast.makeText(
-                            requireContext(),
-                            "inDevelopment",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        else -> toast(requireContext(), "inDevelopment")
                     }
                     CalculatorMenus.CAPACITY -> when (it) {
                         1 -> addFragment(Capacity1Screen())
                         2 -> addFragment(Capacity2Screen())
-                        else -> Toast.makeText(
-                            requireContext(),
-                            "inDevelopment",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        else -> toast(requireContext(), "inDevelopment")
                     }
-                    CalculatorMenus.ENGINE -> when(it) {
+                    CalculatorMenus.ENGINE -> when (it) {
                         1 -> addFragment(Dvigatel1Screen())
                         else -> toast(requireContext(), "inDevelopment")
                     }
@@ -61,6 +53,9 @@ class CalculatorFragment : BaseFragment(R.layout.fragment_calculator) {
                     when (data.type) {
                         CalculatorMenus.BASICS -> arrayListOf<Any>(1, 2, 3, 4, 5, 6, 7)
                         CalculatorMenus.CAPACITY -> arrayListOf<Any>(1, 2, 3, 4, 5, 6, 7, 8, 9)
+                        CalculatorMenus.CONDUCTOR -> arrayListOf<Any>(1, 2, 3, 4, 5, 6)
+                        CalculatorMenus.ENGINE -> arrayListOf<Any>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+                        CalculatorMenus.CABEL -> arrayListOf<Any>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
                         else -> arrayListOf<Any>(1, 2, 3, 4, 5, 6, 7, 8, 9)
                     }
                 )
@@ -71,5 +66,5 @@ class CalculatorFragment : BaseFragment(R.layout.fragment_calculator) {
 data class CalculatorData(val name: String, val type: CalculatorMenus)
 
 enum class CalculatorMenus {
-    BASICS, CAPACITY, ENGINE
+    BASICS, CAPACITY, CONDUCTOR, ENGINE, CABEL
 }

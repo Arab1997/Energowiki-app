@@ -93,13 +93,12 @@ class HomeScreen : BaseFragment(R.layout.screen_home) {
         menuAdapter = MenuAdapter {
             when (it.type) {
                 HomeMenus.REFERENCE -> addFragment(ReferenceScreen())
-                HomeMenus.BASICS -> addFragment(BasicsScreen())
-                HomeMenus.CAPACITY -> addFragment(CalculatorFragment.newInstance(CalculatorData("Емкость", CalculatorMenus.CAPACITY)))// todo
-                HomeMenus.CONDUCTOR -> inDevelopment(requireContext())// todo
-                HomeMenus.ENGINE -> addFragment(CalculatorFragment.newInstance(CalculatorData("Двигатель", CalculatorMenus.ENGINE)))// todo
-                HomeMenus.CABLE -> inDevelopment(requireContext())// todo
-                else -> {
-                }
+                HomeMenus.BASICS -> addFragment(CalculatorFragment.newInstance(CalculatorData("Основы", CalculatorMenus.BASICS)))
+                HomeMenus.CAPACITY -> addFragment(CalculatorFragment.newInstance(CalculatorData("Емкость", CalculatorMenus.CAPACITY)))
+                HomeMenus.CONDUCTOR -> addFragment(CalculatorFragment.newInstance(CalculatorData("Проводник", CalculatorMenus.CONDUCTOR)))
+                HomeMenus.ENGINE -> addFragment(CalculatorFragment.newInstance(CalculatorData("Двигатель", CalculatorMenus.ENGINE)))
+                HomeMenus.CABLE -> addFragment(CalculatorFragment.newInstance(CalculatorData("Кабель", CalculatorMenus.CABEL)))
+                else -> addFragment(ReferenceScreen())
             }
         }.apply { setData(menuData) }
         recyclerMenu.adapter = menuAdapter
