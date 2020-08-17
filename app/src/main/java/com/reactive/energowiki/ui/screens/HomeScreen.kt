@@ -12,6 +12,9 @@ import com.reactive.energowiki.ui.bottomsheets.DetailBottomSheet
 import com.reactive.energowiki.ui.bottomsheets.NewsBottomSheet
 import com.reactive.energowiki.ui.dialogs.AvariyaDialog
 import com.reactive.energowiki.ui.dialogs.RequestDialog
+import com.reactive.energowiki.ui.screens.calculator.CalculatorData
+import com.reactive.energowiki.ui.screens.calculator.CalculatorFragment
+import com.reactive.energowiki.ui.screens.calculator.CalculatorMenus
 import com.reactive.energowiki.ui.screens.payment.PaymentScreen
 import com.reactive.energowiki.utils.extensions.inDevelopment
 import kotlinx.android.synthetic.main.screen_home.*
@@ -91,7 +94,7 @@ class HomeScreen : BaseFragment(R.layout.screen_home) {
             when (it.type) {
                 HomeMenus.REFERENCE -> addFragment(ReferenceScreen())
                 HomeMenus.BASICS -> addFragment(BasicsScreen())
-                HomeMenus.CAPACITY -> inDevelopment(requireContext())// todo
+                HomeMenus.CAPACITY -> addFragment(CalculatorFragment.newInstance(CalculatorData("Емкость", CalculatorMenus.CAPACITY)))// todo
                 HomeMenus.CONDUCTOR -> inDevelopment(requireContext())// todo
                 HomeMenus.ENGINE -> inDevelopment(requireContext())// todo
                 HomeMenus.CABLE -> inDevelopment(requireContext())// todo

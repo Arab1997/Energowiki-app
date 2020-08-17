@@ -1,4 +1,4 @@
-package com.reactive.energowiki.ui.screens.calculator
+package com.reactive.energowiki.ui.screens.calculator.basics
 
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment

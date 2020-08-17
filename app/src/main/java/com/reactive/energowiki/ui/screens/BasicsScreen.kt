@@ -3,7 +3,7 @@ package com.reactive.energowiki.ui.screens
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.adapters.BasicsAdapter
-import com.reactive.energowiki.ui.screens.calculator.ResistivityCalcScreen
+import com.reactive.energowiki.ui.screens.calculator.basics.ResistivityCalcScreen
 import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.screen_recycler.*
 

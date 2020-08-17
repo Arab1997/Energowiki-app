@@ -16,7 +16,9 @@ import com.reactive.energowiki.ui.adapters.NotificationsAdapter
 import com.reactive.energowiki.ui.dialogs.AvariyaDialog
 import com.reactive.energowiki.ui.dialogs.RequestDialog
 import com.reactive.energowiki.ui.screens.*
+import com.reactive.energowiki.ui.screens.calculator.CalculatorData
 import com.reactive.energowiki.ui.screens.calculator.CalculatorFragment
+import com.reactive.energowiki.ui.screens.calculator.CalculatorMenus
 import com.reactive.energowiki.ui.screens.payment.PaymentScreen
 import com.reactive.energowiki.utils.UpdateManager
 import com.reactive.energowiki.utils.extensions.inDevelopment
@@ -66,7 +68,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
         })
     }
 
-    private fun debug() = initialFragment(CalculatorFragment(), viewModel.fragmentLayoutId)
+    private fun debug() = initialFragment(HomeScreen(), viewModel.fragmentLayoutId)
 
     private fun startFragment() {
         val splash = SplashScreen().apply {
@@ -193,7 +195,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
                     inDevelopment(this)
                 }
                 HomeMenus.CALCULATOR -> {
-                    add(CalculatorFragment())
+                    add(CalculatorFragment.newInstance(CalculatorData("Основы", CalculatorMenus.BASICS)))
                 }
                 HomeMenus.LINKS -> {
                     add(LinksScreen())
