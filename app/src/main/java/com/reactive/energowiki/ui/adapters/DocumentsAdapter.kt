@@ -17,7 +17,7 @@ class DocumentsAdapter(private val listener: (Documents) -> Unit) :
         holder.itemView.apply {
             setOnClickListener { listener.invoke(data) }
 
-            text.setLangText(data.title_ru, data.title_uz)
+            name.setLangText(data.title_ru, data.title_uz)
             number.text = "№ ${data.number}"
             time.text = data.date?.parseSdf1()
         }
