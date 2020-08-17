@@ -1,4 +1,4 @@
-package com.reactive.energowiki.ui.screens.calculator.dvigatel
+package com.reactive.energowiki.ui.screens.calculator.engine
 
 import android.annotation.SuppressLint
 import android.text.Editable
