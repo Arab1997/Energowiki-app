@@ -17,19 +17,6 @@
         tools:ignore="LabelFor">
 
         <TextView
-            android:id="@+id/input1Name"
-            style="@style/baseStyle"
-            android:text="Тип тока"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-        <Spinner
-            android:id="@+id/spinner1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            tools:listitem="@layout/item_spin" />
-        <TextView
             android:id="@+id/input2Name"
             style="@style/baseStyle"
             android:layout_marginTop="20dp"
@@ -73,51 +60,17 @@
                 style="@style/inputStyle"
                 android:importantForAutofill="no" />
 
-            <Spinner
+            <TextView
                 android:id="@+id/spinner3"
                 style="@style/spinnerStyle"
-                tools:listitem="@layout/item_spin" />
+                android:gravity="center"
+                android:text="кВт"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                />
 
         </LinearLayout>
-        <TextView
-            android:id="@+id/input4Name"
-            style="@style/baseStyle"
-            android:layout_marginTop="20dp"
-            android:text="cos(ϕ)"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-
-            <EditText
-                android:id="@+id/input4"
-                style="@style/inputStyle"
-                android:layout_width="match_parent"
-                android:importantForAutofill="no" />
-
-        <TextView
-            android:id="@+id/input5Name"
-            style="@style/baseStyle"
-            android:layout_marginTop="20dp"
-            android:text="Напряжение"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp">
-
-            <EditText
-                android:id="@+id/input5"
-                style="@style/inputStyle"
-                android:importantForAutofill="no" />
-            <TextView
-           style="@style/spinnerStyle"
-            android:text="Волть"
-                android:gravity="center"/>
         </LinearLayout>
-    </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -171,17 +124,25 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:fontFamily="@font/inter_medium"
-            android:text="Результат расчета"
+            android:text="Кпд (%)"
             android:textColor="@color/dark"
             android:textSize="13sp" />
-
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_miscellaneous"/>
         <TextView
             android:id="@+id/result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_medium"
-            android:text="0 B"
+            android:text="0 "
             android:textColor="@color/dark"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:maxLength="7"/>
     </LinearLayout>
 </LinearLayout>

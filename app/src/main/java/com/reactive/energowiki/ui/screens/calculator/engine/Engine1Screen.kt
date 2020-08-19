@@ -21,6 +21,7 @@ class Engine1Screen: BaseFragment(R.layout.screen_engine_1) {
     var koef2=1.0
 
     override fun initialize() {
+        initViews()
 
         initClicks()
 
@@ -29,7 +30,10 @@ class Engine1Screen: BaseFragment(R.layout.screen_engine_1) {
         initEditTexts()
 
     }
+    private fun initViews() {
 
+        header.text = "Ток электродвигателя"
+    }
     private fun initSpinners() {
         spinValues.add(arrayListOf("Трехфазный", "Однофазный"))
         spinValues.add(arrayListOf("кВт", "ЛС"))
@@ -57,15 +61,10 @@ class Engine1Screen: BaseFragment(R.layout.screen_engine_1) {
                 view: View?,
                 pos: Int,
                 id: Long
-            ) { type*= when (pos) {
-                0 -> 0
-                1 -> 1
-                else -> 1
-            }
-
-            }
+            ) { type= pos
+            initCalculation()
         }
-
+        }
         spinner2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
@@ -77,12 +76,12 @@ class Engine1Screen: BaseFragment(R.layout.screen_engine_1) {
                 id: Long
             ) {
                 koef1=1000.0
-                koef1*=when(pos){
+                koef1=when(pos){
                     0 -> 1000.0
                     1 -> 746.0
                     else -> 1000.0
                 }
-
+                initCalculation()
             }
         }
         spinner3.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -95,13 +94,15 @@ class Engine1Screen: BaseFragment(R.layout.screen_engine_1) {
                 pos: Int,
                 id: Long
             ) {
-                koef2=0.0
-                koef2*=when(pos){
+                koef2=1.0
+                koef2=when(pos){
                     0 -> 1.0
                     1 -> 0.01
                     else -> 1.0
                 }
+                initCalculation()
             }
+
         }
     }
 
@@ -168,17 +169,16 @@ class Engine1Screen: BaseFragment(R.layout.screen_engine_1) {
     }
 
     private fun initCalculation() {
-        var inputNum2 = input2.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
-        var inputNum3 = input3.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
-        var inputNum4 = input4.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
-        var inputNum5 = input5.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
+        var inputNum2 = input2.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
+        var inputNum3 = input3.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
+        var inputNum4 = input4.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
+        var inputNum5 = input5.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
         var res=0.0
         when(type){
-            0 -> res=inputNum2*koef1/((3.0).pow(0.5)*inputNum5*inputNum4*inputNum3*koef2)
+            0 -> res=inputNum2*koef1/(3.0.pow(0.5)*inputNum5*inputNum4*inputNum3*koef2)
             1 -> res=inputNum2*koef1/(inputNum5*inputNum4*inputNum3*koef2)
         }
-        Toast.makeText(requireContext(), res.toString(), Toast.LENGTH_LONG).show()
-        showResult(res)
+        showResult((1000*res).toInt().toDouble()/1000)
     }
     @SuppressLint("SetTextI18n")
     private fun showResult(res: Double){

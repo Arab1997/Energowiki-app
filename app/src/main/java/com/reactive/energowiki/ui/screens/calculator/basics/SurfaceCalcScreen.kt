@@ -25,7 +25,7 @@ class SurfaceCalcScreen: BaseFragment(R.layout.screen_calc_surface){
 
     private val spinValues = arrayListOf<ArrayList<String>>()
     private var koef1 :Double =  0.015995
-    private var koef2 :Double = 1.0
+    private var koef2 :Double = 10.0.pow(-12.0)
     private var koef3 :Int = 1
     private var koef4 :Double =1.0
     private var k:Double=4.3
@@ -127,7 +127,7 @@ class SurfaceCalcScreen: BaseFragment(R.layout.screen_calc_surface){
                     5 -> 10.0.pow(3)
                     6 -> 10.0.pow(6)
                     7 -> 10.0.pow(9)
-                    else -> 1.0
+                    else -> 10.0.pow(-12.0)
                 }
                 initCalculation()
             }
@@ -146,7 +146,7 @@ class SurfaceCalcScreen: BaseFragment(R.layout.screen_calc_surface){
                 koef3 *= when (position) {
                     0 -> 1
                     1 -> 0
-                    else -> 0
+                    else -> 1
                 }
                 initCalculation()
             }
@@ -250,7 +250,7 @@ class SurfaceCalcScreen: BaseFragment(R.layout.screen_calc_surface){
         if(koef3==0) result=koef1*(1+(t-32)*5*k*10.0.pow(-3.0)/9)*l/R
         else result=koef1*(1+t*k*10.0.pow(-3.0))*l/R
 
-        showResult(result  * koef4 *10.0.pow(-6.0)/koef2)
+        showResult((result  * koef4 *10.0.pow(-6.0*1000)/koef2).toInt().toDouble()/1000)
     }
 
     @SuppressLint("SetTextI18n")

@@ -44,18 +44,19 @@ class CalculatorAdapter(private val type: CalculatorData, private val listener: 
                 1 -> holder.itemView.name.text = "Ток электродвигателя"
                 2 -> holder.itemView.name.text = "Активная мощность"
                 3 -> holder.itemView.name.text = "Полная мощность ( 3 фазы)"
-                4 -> holder.itemView.name.text = "Коекффициент мощности (3 фазы)"
+                4 -> holder.itemView.name.text = "Коеффициент мощности (3 фазы)"
                 5 -> holder.itemView.name.text = "Кпд электродвигателя"
-                6 -> holder.itemView.name.text = "Крутящий  момент"
-                7 -> holder.itemView.name.text =
+                6 -> holder.itemView.name.text = "Скольжение электродвигателя"
+                7 -> holder.itemView.name.text = "Крутящий  момент"
+                8 -> holder.itemView.name.text =
                     "Единичная компенсация мощноности трехнофазного электродвигателя"
-                8 -> holder.itemView.name.text = "Мощность элекродвигателя для центробежного насоса"
-                9 -> holder.itemView.name.text =
+                9 -> holder.itemView.name.text = "Мощность элекродвигателя для центробежного насоса"
+                10 -> holder.itemView.name.text =
                     "Мощность электродвигателя для поршневого компрессора"
-                10 -> holder.itemView.name.text = "Мощность электродвигателя для вентилятро"
-                11 -> holder.itemView.name.text =
+                11 -> holder.itemView.name.text = "Мощность электродвигателя для вентилятро"
+                12 -> holder.itemView.name.text =
                     "Асимметрия напряжений трехфазного элеткродвигателя"
-                12 -> holder.itemView.name.text = "Ассиметрия токов трехфазного электродвигателя"
+                13 -> holder.itemView.name.text = "Ассиметрия токов трехфазного электродвигателя"
             }
             CalculatorMenus.CABEL -> when (data) {
                 1 -> holder.itemView.name.text = "Количество кабелей, которые помещаются в трубу"

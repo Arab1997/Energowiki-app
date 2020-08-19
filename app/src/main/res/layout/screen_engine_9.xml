@@ -19,87 +19,49 @@
         <TextView
             android:id="@+id/input1Name"
             style="@style/baseStyle"
-            android:text="Тип тока"
+            android:text="Плотность жидкости (кг/м^3)"
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold" />
-        <Spinner
-            android:id="@+id/spinner1"
+        <EditText
+            android:id="@+id/input1"
+            style="@style/inputStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:importantForAutofill="no" />
 
-            tools:listitem="@layout/item_spin" />
         <TextView
             android:id="@+id/input2Name"
             style="@style/baseStyle"
             android:layout_marginTop="20dp"
-            android:text="Мощность двигателя"
+            android:text="Производителность (м^3/ч)"
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold" />
-
-        <LinearLayout
+        <EditText
+            android:id="@+id/input2"
+            style="@style/inputStyle"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:id="@+id/lay1">
-
-            <EditText
-                android:id="@+id/input2"
-                style="@style/inputStyle"
-                android:autofillHints="no" />
-
-            <Spinner
-                android:id="@+id/spinner2"
-                style="@style/spinnerStyle"
-                tools:listitem="@layout/item_spin" />
-
-        </LinearLayout>
-
+            android:importantForAutofill="no" />
         <TextView
             android:id="@+id/input3Name"
             style="@style/baseStyle"
             android:layout_marginTop="20dp"
-            android:text="Кпд"
+            android:text="Напор (м)"
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        <LinearLayout
+        <EditText
+            android:id="@+id/input3"
+            style="@style/inputStyle"
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:importantForAutofill="no" />
 
-            <EditText
-                android:id="@+id/input3"
-                style="@style/inputStyle"
-                android:importantForAutofill="no" />
-
-            <Spinner
-                android:id="@+id/spinner3"
-                style="@style/spinnerStyle"
-                tools:listitem="@layout/item_spin" />
-
-        </LinearLayout>
         <TextView
             android:id="@+id/input4Name"
             style="@style/baseStyle"
             android:layout_marginTop="20dp"
-            android:text="cos(ϕ)"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-
-            <EditText
-                android:id="@+id/input4"
-                style="@style/inputStyle"
-                android:layout_width="match_parent"
-                android:importantForAutofill="no" />
-
-        <TextView
-            android:id="@+id/input5Name"
-            style="@style/baseStyle"
-            android:layout_marginTop="20dp"
-            android:text="Напряжение"
+            android:text="Кпд насоса"
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -109,13 +71,14 @@
             android:layout_height="40dp">
 
             <EditText
-                android:id="@+id/input5"
+                android:id="@+id/input4"
                 style="@style/inputStyle"
                 android:importantForAutofill="no" />
-            <TextView
-           style="@style/spinnerStyle"
-            android:text="Волть"
-                android:gravity="center"/>
+            <Spinner
+                android:id="@+id/spinner4"
+                style="@style/spinnerStyle"
+                tools:listitem="@layout/item_spin"
+                />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -166,20 +129,48 @@
         android:background="@color/back">
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"
             android:fontFamily="@font/inter_medium"
-            android:text="Результат расчета"
+            android:text="Мощность двигателя"
             android:textColor="@color/dark"
             android:textSize="13sp" />
 
         <TextView
-            android:id="@+id/result"
-            android:layout_width="wrap_content"
+            android:id="@+id/result1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_medium"
+            android:gravity="right"
+            android:text="0 B"
+            android:textColor="@color/dark"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        style="@style/baseStyle"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/back">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/inter_medium"
+            android:text="Лошадиных сил"
+            android:textColor="@color/dark"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/result2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
+            android:gravity="right"
             android:text="0 B"
             android:textColor="@color/dark"
             android:textSize="20sp" />

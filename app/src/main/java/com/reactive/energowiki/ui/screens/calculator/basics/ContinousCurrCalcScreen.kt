@@ -21,8 +21,8 @@ import kotlin.math.pow
 class ContinousCurrCalcScreen : BaseFragment(R.layout.screen_calc_continous_curr){
 
     private val spinValues = arrayListOf<ArrayList<String>>()
-    private var koef1: Double = 1.0
-    private var koef2: Double = 1.0
+    private var koef1: Double = 10.0.pow(-12.0)
+    private var koef2: Double = 10.0.pow(-12.0)
     override fun initialize() {
         initViews()
 
@@ -64,7 +64,7 @@ class ContinousCurrCalcScreen : BaseFragment(R.layout.screen_calc_continous_curr
                     5 -> 10.0.pow(3)
                     6 -> 10.0.pow(6)
                     7 -> 10.0.pow(9)
-                    else -> 1.0
+                    else -> 10.0.pow(-12.0)
                 }
                 initCalculation()
             }
@@ -89,7 +89,7 @@ class ContinousCurrCalcScreen : BaseFragment(R.layout.screen_calc_continous_curr
                     5 -> 10.0.pow(3)
                     6 -> 10.0.pow(6)
                     7 -> 10.0.pow(9)
-                    else -> 1.0
+                    else -> 10.0.pow(-12.0)
                 }
                 initCalculation()
             }
@@ -154,7 +154,7 @@ class ContinousCurrCalcScreen : BaseFragment(R.layout.screen_calc_continous_curr
         val U = input2.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
         val result=U/R
 
-        showResult(result*koef2/koef1)
+        showResult((result*koef2*1000/koef1).toInt().toDouble()/1000)
     }
 
     @SuppressLint("SetTextI18n")

@@ -14,10 +14,10 @@ import kotlin.math.pow
 
 class AlternativeCurrCalcScreen : BaseFragment(R.layout.screen_calc_alternative_curr) {
     private val spinValues = arrayListOf<ArrayList<String>>()
-    private var koef1: Double = 1.0
-    private var koef2: Double = 1.0
-    private var koef3: Double = 1.0
-    private var koef4: Double = 1.0
+    private var koef1: Double = 10.0.pow(-12.0)
+    private var koef2: Double = 10.0.pow(-12.0)
+    private var koef3: Double = 10.0.pow(-12.0)
+    private var koef4: Double = 10.0.pow(-12.0)
 
 
     override fun initialize() {
@@ -71,7 +71,7 @@ class AlternativeCurrCalcScreen : BaseFragment(R.layout.screen_calc_alternative_
                     5 -> 10.0.pow(3)
                     6 -> 10.0.pow(6)
                     7 -> 10.0.pow(9)
-                    else -> 1.0
+                    else -> 10.0.pow(-12.0)
                 }
                 initCalculation()
             }
@@ -97,7 +97,7 @@ class AlternativeCurrCalcScreen : BaseFragment(R.layout.screen_calc_alternative_
                     5 -> 10.0.pow(3)
                     6 -> 10.0.pow(6)
                     7 -> 10.0.pow(9)
-                    else -> 1.0
+                    else -> 10.0.pow(-12.0)
                 }
                 initCalculation()
             }
@@ -123,7 +123,7 @@ class AlternativeCurrCalcScreen : BaseFragment(R.layout.screen_calc_alternative_
                     5 -> 10.0.pow(3)
                     6 -> 10.0.pow(6)
                     7 -> 10.0.pow(9)
-                    else -> 1.0
+                    else -> 10.0.pow(-12.0)
                 }
                 initCalculation()
             }
@@ -149,7 +149,7 @@ class AlternativeCurrCalcScreen : BaseFragment(R.layout.screen_calc_alternative_
                     5 -> 10.0.pow(3)
                     6 -> 10.0.pow(6)
                     7 -> 10.0.pow(9)
-                    else -> 1.0
+                    else -> 10.0.pow(-12.0)
                 }
                 initCalculation()
             }
@@ -243,7 +243,7 @@ class AlternativeCurrCalcScreen : BaseFragment(R.layout.screen_calc_alternative_
         val w_c = input3.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
         val U = input4.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
         val result = U / (((koef1 * R).pow(2) + (koef3 * w_c - 1 / (w_l * koef2)).pow(2)).pow(0.5))
-        showResult(result * koef4)
+        showResult((result * koef4*1000).toInt().toDouble()/1000)
     }
 
     @SuppressLint("SetTextI18n")

@@ -26,12 +26,12 @@ import kotlin.math.pow
 class ResistivityCalcScreen : BaseFragment(R.layout.screen_calc_resistivity) {
 
     private val spinValues = arrayListOf<ArrayList<String>>()
-    private var koef1 :Double = 1.0
+    private var koef1 :Double =10.0.pow(-12.0)
     private var koef2 :Double = 1.0
-    private var koef3 :Double = 1.0
-    private var koef4 :Int = 1
-    private var koef5:Double=1.0
-    private var k:Double=1.0
+    private var koef3 :Double = 10.0.pow(-12.0)
+    private var koef4 :Int = 0
+    private var koef5:Double=0.015995
+    private var k:Double=4.3
 
     override fun initialize() {
 
@@ -91,7 +91,7 @@ class ResistivityCalcScreen : BaseFragment(R.layout.screen_calc_resistivity) {
                     5 -> 10.0.pow(3)
                     6 -> 10.0.pow(6)
                     7 -> 10.0.pow(9)
-                    else -> 1.0
+                    else -> 10.0.pow(-12.0)
                 }
                 initCalculation()
             }
@@ -296,7 +296,7 @@ class ResistivityCalcScreen : BaseFragment(R.layout.screen_calc_resistivity) {
         if(koef4==1) result=R*s/(l*(1+(t-32)*5*k*10.0.pow(-3.0)/9))
         else result=R*s/(l*(1+t*k* 10.0.pow(-3.0)))
 
-        showResult(result * koef1 * koef3 / koef2)
+        showResult((1000*result * koef1 * koef3 / koef2).toInt().toDouble()/1000)
     }
 
     @SuppressLint("SetTextI18n")

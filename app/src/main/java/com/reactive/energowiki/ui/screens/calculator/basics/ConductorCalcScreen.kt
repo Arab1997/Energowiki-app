@@ -25,9 +25,9 @@ class ConductorCalcScreen: BaseFragment(R.layout.screen_calc_conductor){
 
     private val spinValues = arrayListOf<ArrayList<String>>()
     private var koef1 :Double =  0.015995
-    private var koef2 :Double = 1.0
+    private var koef2 :Double =  10.0.pow(-12.0)
     private var koef3 :Int = 1
-    private var koef4 :Double =1.0
+    private var koef4 :Double =10.0.pow(-6.0)
     private var k:Double=4.3
 
 
@@ -127,7 +127,7 @@ class ConductorCalcScreen: BaseFragment(R.layout.screen_calc_conductor){
                     5 -> 10.0.pow(3)
                     6 -> 10.0.pow(6)
                     7 -> 10.0.pow(9)
-                    else -> 1.0
+                    else ->  10.0.pow(-12.0)
                 }
                 initCalculation()
             }
@@ -168,7 +168,7 @@ class ConductorCalcScreen: BaseFragment(R.layout.screen_calc_conductor){
                     0 -> 10.0.pow(-6.0) // mm^2 to m^2
                     1 -> 1.0 // m^2
                     2 -> 2 * 10.0.pow(-6.0) // kcmil to m^2
-                    else -> 1.0
+                    else -> 10.0.pow(-6.0)
                 }
                 initCalculation()
             }
@@ -250,7 +250,7 @@ class ConductorCalcScreen: BaseFragment(R.layout.screen_calc_conductor){
         if(koef3==0) result=R*s/(koef1*(1+(t-32)*5*k*10.0.pow(-3.0)/9))
         else result=R*s/(koef1*(1+t*k*10.0.pow(-3.0)))
 
-        showResult(result  * koef2 * koef4*10.0.pow(6.0))
+        showResult((result  * koef2 * koef4*10.0.pow(6.0)*1000).toInt().toDouble()/1000)
     }
 
     @SuppressLint("SetTextI18n")

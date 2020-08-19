@@ -33,7 +33,7 @@
             android:id="@+id/input2Name"
             style="@style/baseStyle"
             android:layout_marginTop="20dp"
-            android:text="Мощность двигателя"
+            android:text="Ток"
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -48,10 +48,11 @@
                 style="@style/inputStyle"
                 android:autofillHints="no" />
 
-            <Spinner
+            <TextView
                 android:id="@+id/spinner2"
                 style="@style/spinnerStyle"
-                tools:listitem="@layout/item_spin" />
+                android:text="Ампер"
+                android:gravity="center"/>
 
         </LinearLayout>
 
@@ -166,17 +167,18 @@
         android:background="@color/back">
 
         <TextView
+            android:id="@+id/name1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:fontFamily="@font/inter_medium"
-            android:text="Результат расчета"
+            android:text="Мощность"
             android:textColor="@color/dark"
             android:textSize="13sp" />
 
         <TextView
-            android:id="@+id/result"
+            android:id="@+id/result1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_medium"
@@ -184,4 +186,32 @@
             android:textColor="@color/dark"
             android:textSize="20sp" />
     </LinearLayout>
+    <LinearLayout
+        style="@style/baseStyle"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/back">
+
+        <TextView
+            android:id="@+id/name2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:fontFamily="@font/inter_medium"
+            android:text="Лошадиных сил"
+            android:textColor="@color/dark"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/result2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
+            android:text="0 B"
+            android:textColor="@color/dark"
+            android:textSize="20sp" />
+    </LinearLayout>
+
 </LinearLayout>

@@ -26,7 +26,7 @@ class ResistanceCalcScreen: BaseFragment(R.layout.screen_calc_resistance){
     private val spinValues = arrayListOf<ArrayList<String>>()
     private var koef1 :Double =  0.015995
     private var koef2 :Double = 1.0
-    private var koef3 :Double =1.0
+    private var koef3 :Double =10.0.pow(-6.0)
     private var koef4 :Int = 1
     private var k:Double=4.3
 
@@ -165,7 +165,7 @@ class ResistanceCalcScreen: BaseFragment(R.layout.screen_calc_resistance){
                     0 -> 10.0.pow(-6.0) // mm^2 to m^2
                     1 -> 1.0 // m^2
                     2 -> 2 * 10.0.pow(-6.0) // kcmil to m^2
-                    else -> 1.0
+                    else -> 10.0.pow(-6.0)
                 }
                 initCalculation()
             }
@@ -246,7 +246,7 @@ class ResistanceCalcScreen: BaseFragment(R.layout.screen_calc_resistance){
         if(koef4==0) result=koef1*(1+(t-32)*5*k*10.0.pow(-3.0)/9)*l/s
         else result=koef1*(1+t*k*10.0.pow(-3.0))*l/s
 
-        showResult(result  * koef2 *10.0.pow(-6.0)/koef3)
+        showResult((result  * koef2 *10.0.pow(-6.0)*1000/koef3).toInt().toDouble()/1000)
     }
 
     @SuppressLint("SetTextI18n")

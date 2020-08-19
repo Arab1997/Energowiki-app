@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/screenStyle">
+
+<LinearLayout
     style="@style/screenStyle"
     android:paddingTop="15dp"
+    android:paddingBottom="15dp"
     tools:ignore="HardcodedText">
 
     <include layout="@layout/content_header" />
@@ -16,87 +21,13 @@
         android:padding="25dp"
         tools:ignore="LabelFor">
 
-        <TextView
-            android:id="@+id/input1Name"
-            style="@style/baseStyle"
-            android:text="Тип тока"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold" />
         <Spinner
             android:id="@+id/spinner1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             tools:listitem="@layout/item_spin" />
         <TextView
             android:id="@+id/input2Name"
-            style="@style/baseStyle"
-            android:layout_marginTop="20dp"
-            android:text="Мощность двигателя"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:id="@+id/lay1">
-
-            <EditText
-                android:id="@+id/input2"
-                style="@style/inputStyle"
-                android:autofillHints="no" />
-
-            <Spinner
-                android:id="@+id/spinner2"
-                style="@style/spinnerStyle"
-                tools:listitem="@layout/item_spin" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/input3Name"
-            style="@style/baseStyle"
-            android:layout_marginTop="20dp"
-            android:text="Кпд"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp">
-
-            <EditText
-                android:id="@+id/input3"
-                style="@style/inputStyle"
-                android:importantForAutofill="no" />
-
-            <Spinner
-                android:id="@+id/spinner3"
-                style="@style/spinnerStyle"
-                tools:listitem="@layout/item_spin" />
-
-        </LinearLayout>
-        <TextView
-            android:id="@+id/input4Name"
-            style="@style/baseStyle"
-            android:layout_marginTop="20dp"
-            android:text="cos(ϕ)"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-
-            <EditText
-                android:id="@+id/input4"
-                style="@style/inputStyle"
-                android:layout_width="match_parent"
-                android:importantForAutofill="no" />
-
-        <TextView
-            android:id="@+id/input5Name"
             style="@style/baseStyle"
             android:layout_marginTop="20dp"
             android:text="Напряжение"
@@ -109,15 +40,106 @@
             android:layout_height="40dp">
 
             <EditText
-                android:id="@+id/input5"
+                android:id="@+id/input2"
                 style="@style/inputStyle"
-                android:importantForAutofill="no" />
+                android:autofillHints="no" />
+
             <TextView
-           style="@style/spinnerStyle"
-            android:text="Волть"
+                android:id="@+id/spinner2"
+                style="@style/spinnerStyle"
+                android:text="Волть"
+                android:textColor="@color/black"
                 android:gravity="center"/>
+
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/input3Name"
+            style="@style/baseStyle"
+            android:layout_marginTop="20dp"
+            android:text="cos(ϕ)"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/input3"
+                style="@style/inputStyle"
+                android:importantForAutofill="no"
+                android:layout_width="match_parent"/>
+
+          <TextView
+            android:id="@+id/input4Name"
+            style="@style/baseStyle"
+            android:layout_marginTop="20dp"
+            android:text="Частота"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+            <Spinner
+                android:id="@+id/spinner4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_spin"
+            />
+        <TextView
+            android:id="@+id/input5Name"
+            style="@style/baseStyle"
+            android:layout_marginTop="20dp"
+            android:text="Частота"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+        <Spinner
+            android:id="@+id/spinner5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_spin"
+            />
+
+        <TextView
+            android:id="@+id/input6Name"
+            style="@style/baseStyle"
+            android:layout_marginTop="20dp"
+            android:text="Напряжение"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/lay1">
+
+            <EditText
+                android:id="@+id/input6"
+                style="@style/inputStyle"
+                android:autofillHints="no" />
+
+            <Spinner
+                android:id="@+id/spinner6"
+                style="@style/spinnerStyle"
+                tools:listitem="@layout/item_spin"
+                />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/input7Name"
+            style="@style/baseStyle"
+            android:layout_marginTop="20dp"
+            android:text="cos(ϕ)"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/input7"
+            style="@style/inputStyle"
+            android:importantForAutofill="no"
+            android:layout_width="match_parent"/>
+
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -166,18 +188,46 @@
         android:background="@color/back">
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"
             android:fontFamily="@font/inter_medium"
-            android:text="Результат расчета"
+            android:text="Емкость"
             android:textColor="@color/dark"
             android:textSize="13sp" />
 
         <TextView
-            android:id="@+id/result"
+            android:id="@+id/result1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
+            android:text="0 B"
+            android:textColor="@color/dark"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        style="@style/baseStyle"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/back">
+
+        <TextView
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/inter_medium"
+            android:text="Мощность установки"
+            android:textColor="@color/dark"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/result2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="right"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_medium"
             android:text="0 B"
@@ -185,3 +235,4 @@
             android:textSize="20sp" />
     </LinearLayout>
 </LinearLayout>
+</androidx.core.widget.NestedScrollView>

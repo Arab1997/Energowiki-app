@@ -14,109 +14,52 @@
         android:layout_marginTop="25dp"
         android:layout_marginRight="30dp"
         android:padding="25dp"
-        tools:ignore="LabelFor">
+        tools:ignore="LabelFor"
+        android:orientation="vertical"
+        android:gravity="center">
 
         <TextView
             android:id="@+id/input1Name"
             style="@style/baseStyle"
-            android:text="Тип тока"
+            android:text="L1 [Ампер]"
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold" />
-        <Spinner
-            android:id="@+id/spinner1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            tools:listitem="@layout/item_spin" />
+            <EditText
+                android:id="@+id/input1"
+                style="@style/inputStyle"
+                android:layout_width="match_parent"
+                android:autofillHints="no" />
         <TextView
             android:id="@+id/input2Name"
             style="@style/baseStyle"
-            android:layout_marginTop="20dp"
-            android:text="Мощность двигателя"
+            android:layout_marginTop="10dp"
+            android:text="L1 [Ампер]"
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:id="@+id/lay1">
 
             <EditText
                 android:id="@+id/input2"
+                android:layout_width="match_parent"
                 style="@style/inputStyle"
-                android:autofillHints="no" />
+                android:importantForAutofill="no" />
 
-            <Spinner
-                android:id="@+id/spinner2"
-                style="@style/spinnerStyle"
-                tools:listitem="@layout/item_spin" />
-
-        </LinearLayout>
-
-        <TextView
+            <TextView
             android:id="@+id/input3Name"
             style="@style/baseStyle"
-            android:layout_marginTop="20dp"
-            android:text="Кпд"
+            android:layout_marginTop="10dp"
+            android:text="L1 [Ампер]"
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        <LinearLayout
+        <EditText
+            android:id="@+id/input3"
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            style="@style/inputStyle"
+            android:importantForAutofill="no" />
 
-            <EditText
-                android:id="@+id/input3"
-                style="@style/inputStyle"
-                android:importantForAutofill="no" />
-
-            <Spinner
-                android:id="@+id/spinner3"
-                style="@style/spinnerStyle"
-                tools:listitem="@layout/item_spin" />
-
-        </LinearLayout>
-        <TextView
-            android:id="@+id/input4Name"
-            style="@style/baseStyle"
-            android:layout_marginTop="20dp"
-            android:text="cos(ϕ)"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-
-            <EditText
-                android:id="@+id/input4"
-                style="@style/inputStyle"
-                android:layout_width="match_parent"
-                android:importantForAutofill="no" />
-
-        <TextView
-            android:id="@+id/input5Name"
-            style="@style/baseStyle"
-            android:layout_marginTop="20dp"
-            android:text="Напряжение"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp">
-
-            <EditText
-                android:id="@+id/input5"
-                style="@style/inputStyle"
-                android:importantForAutofill="no" />
-            <TextView
-           style="@style/spinnerStyle"
-            android:text="Волть"
-                android:gravity="center"/>
-        </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -166,22 +109,52 @@
         android:background="@color/back">
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"
             android:fontFamily="@font/inter_medium"
-            android:text="Результат расчета"
+            android:text="Ассиметрия ( % )"
             android:textColor="@color/dark"
             android:textSize="13sp" />
 
         <TextView
-            android:id="@+id/result"
-            android:layout_width="wrap_content"
+            android:id="@+id/result1"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_medium"
             android:text="0 B"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:gravity="right|center_vertical"
             android:textColor="@color/dark"
             android:textSize="20sp" />
     </LinearLayout>
-</LinearLayout>
+    <LinearLayout
+        style="@style/baseStyle"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/back">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/inter_medium"
+            android:text="Рост температуры ( % )"
+            android:textColor="@color/dark"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/result2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
+            android:text="0 B"
+            android:maxLines="1"
+            android:textColor="@color/dark"
+            android:textSize="20sp" />
+    </LinearLayout>
+    </LinearLayout>
