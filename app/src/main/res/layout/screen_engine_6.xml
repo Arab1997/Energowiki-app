@@ -77,14 +77,13 @@
             <CheckBox
                 android:id="@+id/checkBox"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="onCheckboxClicked" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
         <TextView
             android:id="@+id/input5Name"
             style="@style/baseStyle"
             android:layout_marginTop="20dp"
-            android:text="cos(ϕ)"
+            android:text="Полюсов в статоре"
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold"
@@ -146,10 +145,9 @@
         android:background="@color/back">
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"
             android:fontFamily="@font/inter_medium"
             android:text="Результат расчета"
             android:textColor="@color/dark"
@@ -157,7 +155,9 @@
 
         <TextView
             android:id="@+id/result"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="right"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_medium"
             android:text="0 B"

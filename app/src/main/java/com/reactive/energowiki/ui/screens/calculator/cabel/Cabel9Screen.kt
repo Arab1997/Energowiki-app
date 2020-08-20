@@ -10,6 +10,14 @@ import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.screen_cabel_9.*
+import kotlinx.android.synthetic.main.screen_cabel_9.checkBox
+import kotlinx.android.synthetic.main.screen_cabel_9.clearBtn
+import kotlinx.android.synthetic.main.screen_cabel_9.input3
+import kotlinx.android.synthetic.main.screen_cabel_9.input5Name
+import kotlinx.android.synthetic.main.screen_cabel_9.result
+import kotlinx.android.synthetic.main.screen_cabel_9.resultBtn
+import kotlinx.android.synthetic.main.screen_cabel_9.spinner2
+import kotlinx.android.synthetic.main.screen_engine_6.*
 
 class Cabel9Screen: BaseFragment(R.layout.screen_cabel_9){
     private val spinValues = arrayListOf<ArrayList<String>>()
@@ -231,6 +239,40 @@ class Cabel9Screen: BaseFragment(R.layout.screen_cabel_9){
     }
 
     private fun initClicks() {
+
+        radioB1.setOnClickListener {
+           if(radioB1.isChecked){
+            input7.isClickable=false
+           input6.isClickable=true
+           radioB2.isChecked=false}
+            else {
+               input7.isClickable=true
+               input6.isClickable=false
+               radioB2.isChecked=true}
+            initCalculation()
+        }
+        radioB2.setOnClickListener {
+            if(radioB2.isChecked){
+                input6.isClickable=false
+                input7.isClickable=true
+                radioB1.isChecked=false}
+            else {
+                input6.isClickable=true
+                input7.isClickable=false
+                radioB2.isChecked=true
+            }
+            initCalculation()
+        }
+        checkBox.setOnCheckedChangeListener{buttonView, isChecked ->
+            if(isChecked)
+            {spinner81.visibility=View.VISIBLE
+                input8.visibility=View.GONE }
+            else {
+                input8.visibility=View.VISIBLE
+                spinner81.visibility=View.GONE
+                }
+            initCalculation()
+        }
 
         close.setOnClickListener { finishFragment() }
 

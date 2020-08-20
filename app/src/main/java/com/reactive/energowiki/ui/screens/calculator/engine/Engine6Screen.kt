@@ -137,15 +137,23 @@ class Engine6Screen: BaseFragment(R.layout.screen_engine_6){
     }
     private fun initClicks() {
 
-        if (checkBox.isChecked) {
-            input5Name.visibility=View.VISIBLE
-            spinner5.visibility=View.VISIBLE
-            Toast.makeText(requireContext(), "Check", Toast.LENGTH_LONG).show()
-        } else {
-            input5Name.visibility=View.GONE
-            spinner5.visibility=View.GONE
-            Toast.makeText(requireContext(), "no Check", Toast.LENGTH_LONG).show()
+        checkBox.setOnCheckedChangeListener{buttonView, isChecked ->
+            if(isChecked)
+            {input5Name.visibility=View.VISIBLE
+            spinner5.visibility=View.VISIBLE }
+            else {
+                input5Name.visibility=View.GONE
+                spinner5.visibility=View.GONE }
+            initCalculation()
         }
+
+//        if (checkBox.isChecked) {
+//            Toast.makeText(requireContext(), "Check", Toast.LENGTH_LONG).show()
+//        } else {
+//            input5Name.visibility=View.GONE
+//            spinner5.visibility=View.GONE
+//            Toast.makeText(requireContext(), "no Check", Toast.LENGTH_LONG).show()
+//        }
         close.setOnClickListener { finishFragment() }
 
         clearBtn.setOnClickListener {
