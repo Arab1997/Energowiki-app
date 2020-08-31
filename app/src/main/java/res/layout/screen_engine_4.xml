@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/screenStyle"
+    android:paddingTop="15dp"
+    tools:ignore="HardcodedText">
+
+    <include layout="@layout/content_header" />
+
+    <LinearLayout
+        style="@style/cardStyle"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="30dp"
+        android:padding="25dp"
+        tools:ignore="LabelFor">
+
+        <TextView
+            android:id="@+id/input2Name"
+            style="@style/baseStyle"
+            android:text="Мощность двигателя"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/lay1">
+
+            <EditText
+                android:id="@+id/input2"
+                style="@style/inputStyle"
+                android:autofillHints="no" />
+
+            <Spinner
+                android:id="@+id/spinner2"
+                style="@style/spinnerStyle"
+                tools:listitem="@layout/item_spin" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/input3Name"
+            style="@style/baseStyle"
+            android:layout_marginTop="20dp"
+            android:text="Кпд"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <EditText
+                android:id="@+id/input3"
+                style="@style/inputStyle"
+                android:importantForAutofill="no" />
+
+            <TextView
+                style="@style/spinnerStyle"
+                android:text="Ампер"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/input5Name"
+            style="@style/baseStyle"
+            android:layout_marginTop="20dp"
+            android:text="Напряжение"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <EditText
+                android:id="@+id/input4"
+                style="@style/inputStyle"
+                android:importantForAutofill="no" />
+
+            <TextView
+                style="@style/spinnerStyle"
+                android:gravity="center"
+                android:text="Волть"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:orientation="horizontal"
+        tools:ignore="RtlHardcoded">
+        <Button
+            android:id="@+id/clearBtn"
+            android:layout_width="98dp"
+            android:layout_height="44dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/rounded_yellow_cart"
+            android:gravity="center"
+            android:text="Сброс"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/resultBtn"
+            android:layout_width="98dp"
+            android:layout_height="44dp"
+            android:background="@drawable/rounded_green_cart"
+            android:gravity="center"
+            android:text="Отчёт"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        style="@style/baseStyle"
+        android:layout_height="1dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/hint" />
+
+    <LinearLayout
+        style="@style/baseStyle"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/back">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/inter_medium"
+            android:text="Результат расчета"
+            android:textColor="@color/dark"
+            android:textSize="13sp" />
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_miscellaneous"/>
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
+            android:text="null"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:textColor="@color/dark"
+            android:textSize="20sp" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/name"
+    style="@style/cardStyle"
+    android:drawableStart="@drawable/flag"
+    android:drawablePadding="20sp"
+    android:fontFamily="@font/inter_medium"
+    android:gravity="center_vertical"
+    android:padding="14sp"
+    android:text="ЕДИНАЯ СИСТЕМА ИДЕНТИФИКАЦИИ"
+    android:textAllCaps="true"
+    android:textColor="@color/black"
+    android:textSize="12sp" />
