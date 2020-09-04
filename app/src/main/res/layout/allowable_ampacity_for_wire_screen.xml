@@ -104,6 +104,7 @@
         </LinearLayout>
         <RelativeLayout
             android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
             android:layout_height="37dp">
 
 
@@ -112,6 +113,7 @@
                 style="@style/baseStyle"
                 android:layout_width="216dp"
                 android:layout_height="34dp"
+                android:gravity="center_vertical"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginTop="3dp"
@@ -143,6 +145,7 @@
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
             android:layout_height="40dp">
 
             <TextView
@@ -196,10 +199,10 @@
                 android:textSize="13sp" />
 
             <RelativeLayout
-                android:layout_width="224dp"
-                android:layout_height="match_parent"
+                android:layout_width="192dp"
+                android:layout_height="27dp"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="78dp"
                 android:layout_toEndOf="@+id/input5Name">
 
                 <Spinner

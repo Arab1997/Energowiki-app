@@ -11,6 +11,18 @@ import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.screen_calc_alternative_curr.*
+import kotlinx.android.synthetic.main.screen_calc_alternative_curr.clearBtn
+import kotlinx.android.synthetic.main.screen_calc_alternative_curr.input1
+import kotlinx.android.synthetic.main.screen_calc_alternative_curr.input2
+import kotlinx.android.synthetic.main.screen_calc_alternative_curr.input3
+import kotlinx.android.synthetic.main.screen_calc_alternative_curr.input4
+import kotlinx.android.synthetic.main.screen_calc_alternative_curr.result
+import kotlinx.android.synthetic.main.screen_calc_alternative_curr.resultBtn
+import kotlinx.android.synthetic.main.screen_calc_alternative_curr.spinner1
+import kotlinx.android.synthetic.main.screen_calc_alternative_curr.spinner2
+import kotlinx.android.synthetic.main.screen_calc_alternative_curr.spinner3
+import kotlinx.android.synthetic.main.screen_calc_alternative_curr.spinner4
+import kotlinx.android.synthetic.main.screen_motor_protection.*
 import kotlin.math.pow
 
 class MotorProtectionScreen : BaseFragment(R.layout.screen_motor_protection) {
@@ -32,8 +44,87 @@ class MotorProtectionScreen : BaseFragment(R.layout.screen_motor_protection) {
     }
 
     private fun initSpinners() {
-        spinValues.add(arrayListOf("пОм", "нОм", "мкОм", "мОм", "Ом", "кОм", "МОм", "ГОм"))
-        spinValues.add(arrayListOf("пВ", "нВ", "мкВ", "мВ", "В", "кВ", "МВ", "ГВ"))
+        spinValues.add(arrayListOf("Медь", "Алюминий"))
+        spinValues.add(
+            arrayListOf(
+                "Трехфазный",
+                "Трехфазный + N",
+                "Двухфазный",
+                "Двухфазный + N",
+                "Однофазный"
+            )
+        )
+        spinValues.add(
+            arrayListOf(
+                "Одно ядро открыто",
+                "Два-основных закрыт",
+                "Три-основные закрытые",
+                "Два одноядерных замкнутых",
+                "Три одноядерных закрытых",
+                "Четыре одноядерных закрытых",
+                "Одножильный кабель в воздухе",
+                "Двухжильный кабель в воздухе",
+                "Трехжильный кабель в воздухе",
+                "Двухжильный кабель в земле",
+                "Трехжильный кабель в земле"
+            )
+        )
+
+        spinValues.add(
+            arrayListOf(
+                "auto",
+                "- 5 °C |41 °Ф",
+                " 0 °C | 32 °Ф",
+                " 5 °C |41 °Ф",
+                "10 °C |50 °Ф",
+                "15 °C |59 °Ф",
+                "20 °C |68 °Ф",
+                "25 °C |77 °Ф",
+                "30 °C |86 °Ф",
+                "35 °C |95 °Ф",
+                "40 °C |104 °Ф",
+                "45 °C |113 °Ф",
+                "50 °C |122 °Ф"
+            )
+        )
+
+        spinValues.add(
+            arrayListOf(
+                "100%",
+                "15%",
+                "25%",
+                "40%",
+                "60%"
+            )
+        )
+        spinValues.add(
+            arrayListOf(
+                "p.u",
+                "%"
+            )
+        )
+
+        spinValues.add(
+            arrayListOf(
+                "m",
+                "ft"
+            )
+        )
+
+        spinValues.add(
+            arrayListOf(
+                "%",
+                "V"
+            )
+        )
+
+        spinValues.add(
+            arrayListOf(
+                "кв",
+                "А"
+            )
+        )
+
         val aa1: ArrayAdapter<String> =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[0])
         aa1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -50,6 +141,30 @@ class MotorProtectionScreen : BaseFragment(R.layout.screen_motor_protection) {
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[1])
         aa4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner4.adapter = aa4
+        val aa5: ArrayAdapter<String> =
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[1])
+        aa5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner5.adapter = aa5
+
+        val aa6: ArrayAdapter<String> =
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[1])
+        aa6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner6.adapter = aa6
+
+        val aa7: ArrayAdapter<String> =
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[1])
+        aa7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner7.adapter = aa7
+
+        val aa8: ArrayAdapter<String> =
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[1])
+        aa8.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner8.adapter = aa8
+
+        val aa9: ArrayAdapter<String> =
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[1])
+        aa9.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner9.adapter = aa9
 
 
         spinner1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -173,7 +288,7 @@ class MotorProtectionScreen : BaseFragment(R.layout.screen_motor_protection) {
         }
 
         resultBtn.setOnClickListener {
-            Toast.makeText(context,"click",Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "click", Toast.LENGTH_SHORT).show()
 
             initCalculation()
         }
@@ -245,7 +360,7 @@ class MotorProtectionScreen : BaseFragment(R.layout.screen_motor_protection) {
         val w_c = input3.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
         val U = input4.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
         val result = U / (((koef1 * R).pow(2) + (koef3 * w_c - 1 / (w_l * koef2)).pow(2)).pow(0.5))
-        showResult((result * koef4*1000).toInt().toDouble()/1000)
+        showResult((result * koef4 * 1000).toInt().toDouble() / 1000)
     }
 
     @SuppressLint("SetTextI18n")

@@ -10,7 +10,7 @@ import android.widget.Toast
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import kotlinx.android.synthetic.main.content_header.*
-import kotlinx.android.synthetic.main.screen_calc_alternative_curr.*
+import kotlinx.android.synthetic.main.screen_max_ampacity.*
 import kotlin.math.pow
 
 class MaximumCircuitAmpacityScreen : BaseFragment(R.layout.screen_max_ampacity) {
