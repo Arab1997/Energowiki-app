@@ -6,6 +6,7 @@ import com.reactive.energowiki.ui.adapters.PueAdapter
 import com.reactive.energowiki.ui.screens.calculator.cabel.*
 import com.reactive.energowiki.ui.screens.calculator.capacity.Capacity1Screen
 import com.reactive.energowiki.ui.screens.calculator.capacity.Capacity2Screen
+import com.reactive.energowiki.ui.screens.calculator.capacity.Capacity3Screen
 import com.reactive.energowiki.ui.screens.calculator.engine.*
 import com.reactive.energowiki.ui.screens.pue.*
 import com.reactive.energowiki.utils.extensions.toast
@@ -39,6 +40,7 @@ class PueFragment : BaseFragment(R.layout.fragment_pue) {
                     PueMenus.CAPACITY -> when (it) {
                         1 -> addFragment(Capacity1Screen())
                         2 -> addFragment(Capacity2Screen())
+                        3 -> addFragment(Capacity3Screen())
                         else -> toast(requireContext(), "inDevelopment")
                     }
                     PueMenus.ENGINE -> when (it) {
