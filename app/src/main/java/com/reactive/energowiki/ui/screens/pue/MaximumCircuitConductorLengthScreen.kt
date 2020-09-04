@@ -442,6 +442,7 @@ class MaximumCircuitConductorLengthScreen : BaseFragment(R.layout.screen_max_len
             }
         })
     }
+
     private fun initCalculation() {
         val R = input1.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
         val w_l = input2.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }

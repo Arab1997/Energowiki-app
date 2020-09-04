@@ -90,7 +90,7 @@
             <Spinner
                 android:id="@+id/spinner4"
                 style="@style/spinnerStyle"
-                android:layout_width="125dp"
+                android:layout_width="155dp"
                 tools:listitem="@layout/item_spin" />
 
         </LinearLayout>
@@ -124,7 +124,6 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="73dp"
                 android:layout_marginTop="0dp"
-                android:layout_marginBottom="-6dp"
                 android:layout_toEndOf="@+id/text2"
                 android:hint="0.85"
                 android:importantForAutofill="no"
@@ -166,7 +165,6 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="66dp"
                 android:layout_marginTop="0dp"
-                android:layout_marginBottom="-6dp"
                 android:layout_toEndOf="@+id/text3"
                 android:hint="3"
                 android:importantForAutofill="no"
@@ -205,7 +203,6 @@
                 android:id="@+id/input3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="-6dp"
                 android:layout_weight="1"
                 android:gravity="start"
                 android:importantForAutofill="no"
@@ -220,7 +217,7 @@
             <Spinner
                 android:id="@+id/spinner5"
                 style="@style/spinnerStyle"
-                android:layout_width="55dp"
+                android:layout_width="75dp"
                 tools:listitem="@layout/item_spin" />
 
         </LinearLayout>
@@ -232,7 +229,7 @@
             android:layout_marginTop="8dp">
 
             <LinearLayout
-                android:layout_width="40dp"
+                android:layout_width="20dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center_vertical">
@@ -252,7 +249,6 @@
                 android:id="@+id/input4"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="-6dp"
                 android:layout_weight="1"
                 android:gravity="start"
                 android:importantForAutofill="no"
@@ -266,13 +262,13 @@
 
 
             <TextView
-                android:layout_width="100dp"
+                android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:gravity="center"
+                android:gravity="bottom|center_horizontal"
                 android:text="Вольт"
                 android:textColor="@color/black"
-                android:textSize="12dp" />
+                android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -327,10 +323,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
-                android:gravity="center_vertical"
                 android:text="Ампер"
+                android:gravity="bottom|center_horizontal"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -385,10 +381,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
-                android:gravity="center_vertical"
+                android:gravity="bottom|center_horizontal"
                 android:text="кВт"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="10sp" />
         </LinearLayout>
 
 
@@ -414,7 +410,6 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
-                android:layout_marginBottom="-6dp"
                 android:layout_weight="0.4"
                 android:gravity="start"
                 android:importantForAutofill="no"

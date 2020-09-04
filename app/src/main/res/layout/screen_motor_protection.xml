@@ -134,7 +134,7 @@
                     android:layout_marginStart="2dp"
                     android:text="Напряжение"
                     android:textColor="@color/black"
-                    android:textSize="12sp"
+                    android:textSize="13sp"
                     tools:ignore="SmallSp" />
 
             </LinearLayout>
@@ -147,7 +147,6 @@
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="30dp"
-                android:layout_marginBottom="-6dp"
                 android:layout_weight="1"
                 android:gravity="start"
                 android:importantForAutofill="no"
@@ -156,12 +155,13 @@
                 android:maxLength="5"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hint"
-                android:textSize="12sp" />
+                android:textSize="13sp" />
 
             <TextView
                 android:layout_width="88dp"
                 android:layout_height="wrap_content"
                 android:text="Волты"
+                android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:textSize="10sp"
                 tools:ignore="SmallSp" />
@@ -179,15 +179,15 @@
                 android:layout_marginStart="2dp"
                 android:text="Рабочий цикл"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="13sp"
                 tools:ignore="SmallSp" />
 
             <Spinner
                 android:id="@+id/spinner5"
-                android:layout_width="0dp"
+                android:layout_width="197dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_marginStart="115dp"
+                android:layout_marginStart="95dp"
                 android:layout_weight="0.6"
                 tools:listitem="@layout/item_spin" />
 
@@ -208,7 +208,7 @@
                 android:layout_marginStart="2dp"
                 android:text="Коэффициент мощности"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="13sp"
                 tools:ignore="SmallSp" />
 
             <EditText
@@ -251,14 +251,13 @@
                 android:layout_marginStart="2dp"
                 android:text="Эффективность"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="13sp"
                 tools:ignore="SmallSp" />
 
             <EditText
                 android:id="@+id/input3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="-6dp"
                 android:layout_weight="1"
                 android:gravity="start"
                 android:importantForAutofill="no"
@@ -273,7 +272,7 @@
             <Spinner
                 android:id="@+id/spinner6"
                 style="@style/spinnerStyle"
-                android:layout_width="86dp"
+                android:layout_width="46dp"
                 tools:listitem="@layout/item_spin" />
 
         </LinearLayout>
@@ -304,7 +303,6 @@
                 android:id="@+id/input4"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="-6dp"
                 android:layout_weight="1"
                 android:gravity="start"
                 android:importantForAutofill="no"
@@ -319,7 +317,7 @@
             <Spinner
                 android:id="@+id/spinner7"
                 style="@style/spinnerStyle"
-                android:layout_width="86dp"
+                android:layout_width="46dp"
                 tools:listitem="@layout/item_spin" />
 
         </LinearLayout>
@@ -351,7 +349,6 @@
                 android:id="@+id/input5"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="-6dp"
                 android:layout_weight="1"
                 android:gravity="start"
                 android:importantForAutofill="no"
@@ -367,13 +364,14 @@
             <Spinner
                 android:id="@+id/spinner8"
                 style="@style/spinnerStyle"
-                android:layout_width="86dp"
+                android:layout_width="46dp"
                 tools:listitem="@layout/item_spin" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="37dp"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="8dp">
 
 
@@ -382,7 +380,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
                 android:text="Коэффициент пускового тока"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
@@ -393,7 +391,6 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
-                android:layout_marginBottom="-6dp"
                 android:layout_weight="0.4"
                 android:gravity="start"
                 android:importantForAutofill="no"
@@ -449,7 +446,7 @@
             <Spinner
                 android:id="@+id/spinner9"
                 style="@style/spinnerStyle"
-                android:layout_width="86dp"
+                android:layout_width="46dp"
                 tools:listitem="@layout/item_spin" />
         </LinearLayout>
 
@@ -477,7 +474,6 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
-                android:layout_marginBottom="-6dp"
                 android:layout_weight="0.4"
                 android:gravity="start"
                 android:importantForAutofill="no"
