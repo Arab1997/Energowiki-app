@@ -7,6 +7,7 @@ import com.reactive.energowiki.ui.screens.calculator.basics.*
 import com.reactive.energowiki.ui.screens.calculator.cabel.*
 import com.reactive.energowiki.ui.screens.calculator.capacity.Capacity1Screen
 import com.reactive.energowiki.ui.screens.calculator.capacity.Capacity2Screen
+import com.reactive.energowiki.ui.screens.calculator.capacity.Capacity3Screen
 import com.reactive.energowiki.ui.screens.calculator.engine.*
 import com.reactive.energowiki.utils.extensions.toast
 import kotlinx.android.synthetic.main.fragment_calculator.*
@@ -38,6 +39,7 @@ class CalculatorFragment : BaseFragment(R.layout.fragment_calculator) {
                     CalculatorMenus.CAPACITY -> when (it) {
                         1 -> addFragment(Capacity1Screen())
                         2 -> addFragment(Capacity2Screen())
+                        3 -> addFragment(Capacity3Screen())
                         else -> toast(requireContext(), "inDevelopment")
                     }
                     CalculatorMenus.ENGINE -> when (it) {
