@@ -162,7 +162,8 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
                     inDevelopment(this)
                 }
                 HomeMenus.PUE -> {
-                    inDevelopment(this)
+                    // inDevelopment(this)
+                    add(PueFragment.newInstance(PueData("ПУЭ", PueMenus.BASICS)))
                 }
                 HomeMenus.ENGINE -> {
                     inDevelopment(this)

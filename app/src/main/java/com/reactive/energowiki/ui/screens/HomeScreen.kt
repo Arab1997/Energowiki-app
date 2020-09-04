@@ -68,7 +68,7 @@ class HomeScreen : BaseFragment(R.layout.screen_home) {
             when (it.type) {
                 HomeMenus.DOCUMENTS -> addFragment(DocumentsScreen())
                 HomeMenus.ORGANIZATIONS -> addFragment(OrganizationsScreen())
-                HomeMenus.PUE -> inDevelopment(requireContext())// todo
+                HomeMenus.PUE -> addFragment(PueFragment.newInstance(PueData("Основы", PueMenus.BASICS)))
                 HomeMenus.CALCULATOR -> inDevelopment(requireContext())// todo
                 HomeMenus.GLOSSARY -> addFragment(GlossariesScreen())
                 HomeMenus.PEREKUR -> inDevelopment(requireContext())// todo
