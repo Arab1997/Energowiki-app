@@ -9,15 +9,7 @@ import android.widget.ArrayAdapter
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import kotlinx.android.synthetic.main.content_header.*
-import kotlinx.android.synthetic.main.allowable_ampacity_for_wire_screen.clearBtn
-import kotlinx.android.synthetic.main.allowable_ampacity_for_wire_screen.input2
-import kotlinx.android.synthetic.main.allowable_ampacity_for_wire_screen.input4
-import kotlinx.android.synthetic.main.allowable_ampacity_for_wire_screen.result
-import kotlinx.android.synthetic.main.allowable_ampacity_for_wire_screen.resultBtn
-import kotlinx.android.synthetic.main.allowable_ampacity_for_wire_screen.spinner1
-import kotlinx.android.synthetic.main.allowable_ampacity_for_wire_screen.spinner2
-import kotlinx.android.synthetic.main.allowable_ampacity_for_wire_screen.spinner3
-import kotlinx.android.synthetic.main.allowable_ampacity_for_wire_screen.spinner4
+import kotlinx.android.synthetic.main.wire_size_screen.*
 import kotlin.math.pow
 
 class WireSizeScreen : BaseFragment(R.layout.wire_size_screen) {
