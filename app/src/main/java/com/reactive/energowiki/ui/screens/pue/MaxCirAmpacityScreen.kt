@@ -29,7 +29,7 @@ import kotlinx.android.synthetic.main.screen_max_ampacity.spinner6
 import kotlinx.android.synthetic.main.screen_max_ampacity.*
 import kotlin.math.pow
 
-class MaximumCircuitAmpacityScreen : BaseFragment(R.layout.screen_max_ampacity) {
+class MaxCirAmpacityScreen : BaseFragment(R.layout.screen_max_ampacity) {
     private val spinValues = arrayListOf<ArrayList<String>>()
     private var koef1: Double = 10.0.pow(-12.0)
     private var koef2: Double = 10.0.pow(-12.0)
@@ -165,7 +165,7 @@ class MaximumCircuitAmpacityScreen : BaseFragment(R.layout.screen_max_ampacity) 
         val aa7: ArrayAdapter<String> =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[6])
         aa7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner6.adapter = aa7
+        spinner7.adapter = aa7
 
 
         spinner1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -352,7 +352,7 @@ class MaximumCircuitAmpacityScreen : BaseFragment(R.layout.screen_max_ampacity) 
     }
 
     private fun initViews() {
-        header.text = "Защита двигателя"
+        header.text = "Максимальная нагрузка"
     }
 
     private fun initClicks() {

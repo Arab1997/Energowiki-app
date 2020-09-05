@@ -10,6 +10,7 @@ import android.widget.Toast
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import kotlinx.android.synthetic.main.content_header.*
+import kotlinx.android.synthetic.main.screen_capacity_3.*
 import kotlinx.android.synthetic.main.screen_max_length.clearBtn
 import kotlinx.android.synthetic.main.screen_max_length.input1
 import kotlinx.android.synthetic.main.screen_max_length.input2
@@ -29,7 +30,7 @@ import kotlinx.android.synthetic.main.screen_max_length.spinner6
 import kotlinx.android.synthetic.main.screen_max_length.*
 import kotlin.math.pow
 
-class MaximumCircuitConductorLengthScreen : BaseFragment(R.layout.screen_max_length) {
+class MaxCirCondLengthScreen : BaseFragment(R.layout.screen_max_length) {
     private val spinValues = arrayListOf<ArrayList<String>>()
     private var koef1: Double = 10.0.pow(-12.0)
     private var koef2: Double = 10.0.pow(-12.0)
@@ -319,7 +320,7 @@ class MaximumCircuitConductorLengthScreen : BaseFragment(R.layout.screen_max_len
     }
 
     private fun initViews() {
-        header.text = "Защита двигателя"
+        header.text = "Максимальная длина"
     }
 
     private fun initClicks() {
@@ -341,6 +342,31 @@ class MaximumCircuitConductorLengthScreen : BaseFragment(R.layout.screen_max_len
 
             initCalculation()
         }
+
+           if(radioCurrent.isChecked){
+               input5.visibility = View.VISIBLE
+               input6.visibility = View.INVISIBLE
+
+           }
+
+           if(radioPower.isChecked){
+               input6.visibility = View.VISIBLE
+               input5.visibility = View.INVISIBLE
+
+           }
+/*
+        radioCurrent.setOnClickListener {
+
+            radioCurrent.isChecked = false
+            input5.visibility = View.VISIBLE
+        }
+
+        radioPower.setOnClickListener {
+
+            radioPower.isChecked = false
+            input6.visibility = View.VISIBLE
+        }*/
+
     }
 
     private fun initEditTexts() {

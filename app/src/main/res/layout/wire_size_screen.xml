@@ -13,14 +13,17 @@
         <TextView
             android:id="@+id/text"
             style="@style/baseStyle"
-            android:layout_width="178dp"
+            android:layout_width="160dp"
             android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginBottom="0dp"
             android:gravity="left"
-            android:text="Раздел"
+            android:text="Сечение"
             android:textColor="#0577D1"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -29,12 +32,13 @@
         <TextView
             android:id="@+id/amper"
             style="@style/baseStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="186dp"
+            android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="10dp"
+            android:layout_marginEnd="27dp"
+            android:layout_marginBottom="0dp"
             android:layout_toEndOf="@+id/text"
             android:gravity="right"
             android:paddingRight="10dp"
@@ -95,21 +99,21 @@
             android:layout_marginTop="10dp">
 
             <TextView
-                android:id="@+id/input333Name"
                 style="@style/baseStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="0dp"
                 android:layout_marginBottom="0dp"
                 android:paddingTop="10dp"
-                android:text="Температура окружающей среды"
+                android:text="Температура среды"
                 android:textColor="@color/black"
                 android:textSize="13sp" />
 
             <Spinner
                 android:id="@+id/spinner4"
                 style="@style/spinnerStyle"
-                android:layout_width="126dp"
+                android:layout_width="106dp"
+                android:gravity="end"
                 tools:listitem="@layout/item_spin" />
 
         </LinearLayout>
@@ -129,16 +133,14 @@
                 android:gravity="center_vertical"
                 android:text="Количество проводников"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="13sp" />
 
 
             <EditText
                 android:id="@+id/input1"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginBottom="-6dp"
-                android:layout_weight="0.4"
+                android:layout_weight="0.3"
                 android:gravity="start"
                 android:hint="3"
                 android:importantForAutofill="no"
@@ -147,7 +149,7 @@
                 android:maxLength="5"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hint"
-                android:textSize="12sp" />
+                android:textSize="13sp" />
 
         </LinearLayout>
 
@@ -164,15 +166,13 @@
                 android:gravity="center_vertical"
                 android:text="Коэффициент мощности"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="13sp" />
 
 
             <EditText
                 android:id="@+id/input2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginBottom="-6dp"
                 android:layout_weight="0.4"
                 android:gravity="start"
                 android:importantForAutofill="no"
@@ -182,7 +182,7 @@
                 android:text="0.85"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hint"
-                android:textSize="12sp" />
+                android:textSize="13sp" />
 
         </LinearLayout>
 
@@ -192,7 +192,7 @@
             android:layout_marginTop="10dp">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center_vertical">
@@ -213,8 +213,7 @@
                 android:id="@+id/input3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="30dp"
-                android:layout_marginBottom="-6dp"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:gravity="start"
                 android:importantForAutofill="no"
@@ -224,7 +223,7 @@
                 android:text="24"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hint"
-                android:textSize="12sp" />
+                android:textSize="13sp" />
 
 
             <Spinner
@@ -246,7 +245,7 @@
                 android:gravity="center_vertical">
 
                 <TextView
-                    android:layout_width="88dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
                     android:text="Напряжение"
@@ -258,10 +257,9 @@
 
             <EditText
                 android:id="@+id/input4"
-                android:layout_width="1dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="-6dp"
+                android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:gravity="start"
                 android:importantForAutofill="no"
@@ -273,15 +271,14 @@
                 android:textColorHint="@color/hint"
                 android:textSize="12sp" />
 
-
             <TextView
-                style="@style/spinnerStyle"
-                android:layout_width="88dp"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
                 android:text="Волты"
                 android:textColor="@color/black"
-                android:textSize="12sp"
-                tools:ignore="SmallSp" />
+                android:textSize="10sp" />
         </LinearLayout>
 
 
@@ -291,7 +288,7 @@
             android:layout_marginTop="10dp">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center_vertical">
@@ -306,13 +303,11 @@
                     tools:ignore="SmallSp" />
 
             </LinearLayout>
-
             <EditText
                 android:id="@+id/input5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="30dp"
-                android:layout_marginBottom="-6dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:gravity="start"
                 android:importantForAutofill="no"
@@ -349,6 +344,7 @@
                     android:layout_margin="0dp"
                     android:gravity="center"
                     android:scaleX="0.7"
+                    android:checked="true"
                     android:scaleY="0.7"
                     android:textSize="12sp" />
 
@@ -368,7 +364,6 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
-                android:layout_marginBottom="-6dp"
                 android:layout_weight="1"
                 android:gravity="start"
                 android:importantForAutofill="no"
@@ -380,14 +375,14 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
                 android:text="Ампер"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="10sp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -407,6 +402,7 @@
                     android:layout_margin="0dp"
                     android:gravity="center"
                     android:scaleX="0.7"
+                    android:checked="false"
                     android:scaleY="0.7"
                     android:textSize="12sp" />
 
@@ -426,7 +422,6 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
-                android:layout_marginBottom="-6dp"
                 android:layout_weight="1"
                 android:gravity="start"
                 android:importantForAutofill="no"
@@ -438,18 +433,18 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
                 android:text="кВт"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:gravity="center_vertical"
             android:layout_height="40dp">
 
 
@@ -458,9 +453,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:text="Определяемый Пользователем Поправочный Коэффициент"
-                android:textColor="@color/black"
+                android:text="Свой поправочный коэффициент"                  android:textColor="@color/black"
                 android:textSize="12sp" />
 
 
@@ -469,7 +462,6 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
-                android:layout_marginBottom="-6dp"
                 android:layout_weight="0.4"
                 android:gravity="start"
                 android:importantForAutofill="no"
@@ -503,7 +495,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
-
+                android:checked="true"
                 android:layout_weight="0.4"
                 android:gravity="center" />
 
@@ -538,7 +530,6 @@
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="-6dp"
                 android:layout_weight="1"
                 android:gravity="start"
                 android:importantForAutofill="no"
@@ -552,19 +543,19 @@
 
 
             <TextView
-                style="@style/spinnerStyle"
-                android:layout_width="88dp"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
                 android:gravity="center"
                 android:text="%"
                 android:textColor="@color/black"
-                android:textSize="10sp"
-                tools:ignore="SmallSp" />
+                android:textSize="10sp" />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="20dp">
 
 
             <TextView
