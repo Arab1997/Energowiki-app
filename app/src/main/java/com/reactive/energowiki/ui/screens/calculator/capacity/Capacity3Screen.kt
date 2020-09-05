@@ -215,7 +215,6 @@ class Capacity3Screen : BaseFragment(R.layout.screen_capacity_3) {
 
             when (spinner_capacity_screen3_1.selectedItemPosition) {
                 0 -> {
-
                     operatingC =
                         (3/(2 * (input_text_power_amper / (2 * input_text_hz * input_text_volt * PI))) * 100).toInt()
                     startingC = (operatingC * 2.5).toInt()

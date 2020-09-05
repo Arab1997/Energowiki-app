@@ -122,14 +122,15 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="90"
-                    android:text="Треугольник"
                     android:id="@+id/text_1_screen_capacity"
-                    android:textSize="20dp"
-
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="90"
                     android:padding="8dp"
-                    android:layout_height="wrap_content"/>
+
+                    android:text="Треугольник"
+                    android:textSize="20dp" />
+
                 <Spinner
                     android:layout_width="0dp"
                     android:padding="8dp"
