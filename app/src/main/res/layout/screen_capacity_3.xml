@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:background="#F4F4F4"
         android:layout_marginTop="?actionBarSize"
-        android:padding="4dp"
+        android:padding="2dp"
         android:layout_height="wrap_content">
 
         <LinearLayout
@@ -27,21 +27,22 @@
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
                 android:weightSum="100"
-                android:padding="4dp"
+                android:padding="2dp"
                 android:background="#F4F4F4"
                 android:layout_height="wrap_content">
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="70"
+                    android:layout_weight="40"
                     android:text="Рабочий"
+
                     android:textSize="16dp"
                     android:textStyle="bold"
                     android:layout_height="wrap_content"/>
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="30"
-                    android:text="300"
+                    android:layout_weight="60"
+                    android:id="@+id/operating_value"
                     android:textStyle="bold"
                     android:textColor="#2196F3"
                     android:layout_height="wrap_content"/>
@@ -51,12 +52,12 @@
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
                 android:weightSum="100"
-                android:padding="4dp"
+                android:padding="2dp"
                 android:background="#F4F4F4"
                 android:layout_height="wrap_content">
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="70"
+                    android:layout_weight="40"
                     android:text="Пусковой"
                     android:textSize="16dp"
                     android:textStyle="bold"
@@ -64,8 +65,8 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="30"
-                    android:text="300"
+                    android:layout_weight="60"
+                    android:id="@+id/starting_value"
                     android:textStyle="bold"
                     android:textColor="#2196F3"
                     android:layout_height="wrap_content"/>
@@ -75,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
                 android:weightSum="100"
-                android:padding="4dp"
+                android:padding="2dp"
                 android:background="#F4F4F4"
                 android:layout_height="wrap_content">
                 <TextView
@@ -89,7 +90,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_weight="30"
-                    android:text="300"
+                    android:id="@+id/min_voltage_value"
                     android:textStyle="bold"
                     android:textColor="#2196F3"
                     android:layout_height="wrap_content"/>
