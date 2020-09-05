@@ -14,11 +14,11 @@ class PueAdapter(private val type: PueData, private val listener: (Any) -> Unit)
     override fun bindViewHolder(holder: ViewHolder, data: Any) {
         when (type.type) {
             PueMenus.BASICS -> when (data) {
-                1 -> holder.itemView.name.text = "Допустимые силы тока для провода"
-                2 -> holder.itemView.name.text = "Калкулятор размера провода"
-                3 -> holder.itemView.name.text = "Защита двигателя"
-                4 -> holder.itemView.name.text = "Максимальная длина проводника цепи"
-                5 -> holder.itemView.name.text = "Максимальная мощность цепи"
+                1 -> holder.itemView.name.text = "Допустимый длительный ток"
+                2 -> holder.itemView.name.text = "Сечение проводника по нагреву и потерям"
+                3 -> holder.itemView.name.text = "Сечение и автоматзащиты кабеля электродвигателя"
+                4 -> holder.itemView.name.text = "Максимальная длина цепи"
+                5 -> holder.itemView.name.text = "Максимальная нагрузка цепи"
             }
             PueMenus.CAPACITY -> when (data) {
                 1 -> holder.itemView.name.text = "Соединение конденсаторов"

@@ -6,7 +6,7 @@
     android:paddingTop="15dp"
     tools:ignore="HardcodedText">
 
-
+    <include layout="@layout/content_header" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerPue"
         android:layout_width="match_parent"

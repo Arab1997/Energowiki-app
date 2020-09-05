@@ -10,6 +10,7 @@ import com.reactive.energowiki.ui.screens.calculator.capacity.Capacity3Screen
 import com.reactive.energowiki.ui.screens.calculator.engine.*
 import com.reactive.energowiki.ui.screens.pue.*
 import com.reactive.energowiki.utils.extensions.toast
+import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.fragment_pue.*
 
 class PueFragment : BaseFragment(R.layout.fragment_pue) {
@@ -23,17 +24,20 @@ class PueFragment : BaseFragment(R.layout.fragment_pue) {
     }
 
     override fun initialize() {
+        header.text = "ПУЭ"
+        close.setOnClickListener { finishFragment() }
+
         recyclerPue.adapter =
             PueAdapter(
                 data ?: PueData("Основы", PueMenus.BASICS)
             ) {
                 when (data.type) {
                     PueMenus.BASICS -> when (it) {
-                        1 -> addFragment(AllowableAmpacitiesForWireScreen())
+                        1 -> addFragment(AllowAmpacitForWireScreen())
                         2 -> addFragment(WireSizeScreen())
                         3 -> addFragment(MotorProtectionScreen())
-                        4 -> addFragment(MaximumCircuitConductorLengthScreen())
-                        5 -> addFragment(MaximumCircuitAmpacityScreen())
+                        4 -> addFragment(MaxCirCondLengthScreen())
+                        5 -> addFragment(MaxCirAmpacityScreen())
 
                         else -> toast(requireContext(), "inDevelopment")
                     }

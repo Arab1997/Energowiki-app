@@ -377,7 +377,7 @@ class MotorProtectionScreen : BaseFragment(R.layout.screen_motor_protection) {
     }
 
     private fun initViews() {
-        header.text = "Защита двигателя"
+        header.text = "Цель электродвигателя"
     }
 
     private fun initClicks() {

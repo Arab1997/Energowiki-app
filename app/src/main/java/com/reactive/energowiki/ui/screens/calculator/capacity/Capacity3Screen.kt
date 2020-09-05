@@ -29,8 +29,6 @@ class Capacity3Screen: BaseFragment(R.layout.screen_capacity_3){
 
     private fun initSpinners() {
 
-
-
         spinValues1.add(arrayListOf("Треугольник", "Звезда", "Неполная звезда (а)", "Неполная звезда (б)"))
         val adapter1: ArrayAdapter<String> =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues1[0])

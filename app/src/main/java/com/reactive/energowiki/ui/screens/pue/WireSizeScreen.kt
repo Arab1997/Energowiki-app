@@ -33,6 +33,16 @@ class WireSizeScreen : BaseFragment(R.layout.wire_size_screen) {
     }
 
     private fun initSpinners() {
+        spinValues.add(arrayListOf("Медь", "Алюминий"))
+        spinValues.add(
+            arrayListOf(
+                "Трехфазный",
+                "Трехфазный + N",
+                "Двухфазный",
+                "Двухфазный + N",
+                "Однофазный"
+            )
+        )
         spinValues.add(
             arrayListOf(
                 "Одно ядро открыто",
@@ -48,7 +58,6 @@ class WireSizeScreen : BaseFragment(R.layout.wire_size_screen) {
                 "Трехжильный кабель в земле"
             )
         )
-        spinValues.add(arrayListOf("Медь", "Алюминий"))
         spinValues.add(
             arrayListOf(
                 "auto",
@@ -68,26 +77,17 @@ class WireSizeScreen : BaseFragment(R.layout.wire_size_screen) {
         )
         spinValues.add(
             arrayListOf(
-                "1 мм² |1.13 мм",
-                "1.2 мм²| 1.4 мм",
-                "1.5 мм²| 1.38 мм",
-                "2 мм² | 1.6 мм",
-                "2.5 мм²|1.78 мм",
-                "3 мм²| 1.95 мм",
-                "4 мм²| 2.26 мм",
-                "5 мм²| 2.52 мм",
-                "6 мм²| 2.76 мм",
-                "8 мм²| 3.19 мм",
-                "10 мм²| 3.57 мм",
-                "16 мм²| 4.51 мм",
-                "25 мм²| 5.64 мм",
-                "35 мм²| 6.68 мм",
-                "70 мм²| 9.44 мм",
-                "95 мм²| 11 мм",
-                "120 мм²| 12.36 мм",
-                "150 мм²| 13.82 мм"
+                "м",
+                "ft"
             )
         )
+        spinValues.add(
+            arrayListOf(
+                "%",
+                "В"
+            )
+        )
+
         val aa1: ArrayAdapter<String> =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[0])
         aa1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -108,6 +108,16 @@ class WireSizeScreen : BaseFragment(R.layout.wire_size_screen) {
         aa4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner4.adapter = aa4  //S
 
+        val aa5: ArrayAdapter<String> =
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[4])
+        aa5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner5.adapter = aa5  //S
+
+        val aa6: ArrayAdapter<String> =
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[5])
+        aa6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner6.adapter = aa6  //S
+
         //Allowable ampacity 28.06 A
         spinner1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -127,42 +137,6 @@ class WireSizeScreen : BaseFragment(R.layout.wire_size_screen) {
                     1 -> {
                         koef1 = 0.023848
                         k = 4.2
-                    }
-                    2 -> {
-                        koef1 = 0.418068
-                        k = 0.1
-                    }
-                    3 -> {
-                        koef1 = 0.0495
-                        k = 5.0
-                    }
-                    4 -> {
-                        koef1 = 0.014688
-                        k = 4.1
-                    }
-                    5 -> {
-                        koef1 = 0.08624
-                        k = 6.0
-                    }
-                    6 -> {
-                        koef1 = 0.0133
-                        k = 2.6
-                    }
-                    7 -> {
-                        koef1 = 0.4995
-                        k = 0.05
-                    }
-                    8 -> {
-                        koef1 = 1.0978
-                        k = 0.1
-                    }
-                    9 -> {
-                        koef1 = 0.074625
-                        k = 0.25
-                    }
-                    10 -> {
-                        koef1 = 0.02116
-                        k = 4.0
                     }
                 }
                 initCalculation()
@@ -187,6 +161,19 @@ class WireSizeScreen : BaseFragment(R.layout.wire_size_screen) {
                     1 -> {
                         koef1 = 0.023848
                         k = 4.2
+                    }
+
+                    2 -> {
+                        koef1 = 0.015995
+                        k = 4.3
+                    }
+                    3 -> {
+                        koef1 = 0.023848
+                        k = 4.2
+                    }
+                    4 -> {
+                        koef1 = 0.015995
+                        k = 4.3
                     }
 
                 }
@@ -217,34 +204,12 @@ class WireSizeScreen : BaseFragment(R.layout.wire_size_screen) {
                     8 -> 10.0.pow(12)
                     9 -> 10.0.pow(15)
                     10 -> 10.0.pow(18)
-                    11 -> 10.0.pow(21)
-                    12 -> 10.0.pow(24)
                     else -> 10.0.pow(-12.0)
                 }
                 initCalculation()
             }
         }
-        // t
-        /* spinner4.onItemSelectedListener= object: AdapterView.OnItemSelectedListener {
-             override fun onNothingSelected(parent: AdapterView<*>?) {
-             }
 
-             override fun onItemSelected(
-                 parent: AdapterView<*>?,
-                 view: View?,
-                 position: Int,
-                 id: Long
-             ) {
-                 koef3 = 1
-                 koef3 *= when (position) {
-                     0 -> 1
-                     1 -> 0
-                     else -> 1
-                 }
-                 initCalculation()
-             }
-         }*/
-//section
         spinner4.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
@@ -270,12 +235,48 @@ class WireSizeScreen : BaseFragment(R.layout.wire_size_screen) {
                     10 -> 2 * 10.0.pow(-6.0) // kcmil to m^2
                     11 -> 2 * 10.0.pow(-6.0) // kcmil to m^2
                     12 -> 2 * 10.0.pow(-6.0) // kcmil to m^2
-                    13 -> 2 * 10.0.pow(-6.0) // kcmil to m^2
-                    14 -> 2 * 10.0.pow(-6.0) // kcmil to m^2
-                    15 -> 2 * 10.0.pow(-6.0) // kcmil to m^2
-                    16 -> 2 * 10.0.pow(-6.0) // kcmil to m^2
-                    17 -> 2 * 10.0.pow(-6.0) // kcmil to m^2
-                    18 -> 2 * 10.0.pow(-6.0) // kcmil to m^2
+                    else -> 10.0.pow(-6.0)
+                }
+                initCalculation()
+            }
+
+        }
+
+        spinner5.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                koef4 = 1.0
+                koef4 *= when (position) {
+                    0 -> 10.0.pow(-6.0) // mm^2 to m^2
+                    1 -> 1.0 // m^2
+                    else -> 10.0.pow(-6.0)
+                }
+                initCalculation()
+            }
+
+        }
+
+        spinner6.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                koef4 = 1.0
+                koef4 *= when (position) {
+                    0 -> 10.0.pow(-6.0) // mm^2 to m^2
+                    1 -> 1.0 // m^2
                     else -> 10.0.pow(-6.0)
                 }
                 initCalculation()
@@ -287,7 +288,7 @@ class WireSizeScreen : BaseFragment(R.layout.wire_size_screen) {
 
     private fun initViews() {
 
-        header.text = "Допустимые электрические токи"
+        header.text = "Сечение проводника"
     }
 
     private fun initClicks() {
@@ -295,9 +296,15 @@ class WireSizeScreen : BaseFragment(R.layout.wire_size_screen) {
         close.setOnClickListener { finishFragment() }
 
         clearBtn.setOnClickListener {
+            input1.text?.clear()
             input2.text?.clear()
-            // input3.text?.clear()
+            input3.text?.clear()
             input4.text?.clear()
+            input5.text?.clear()
+            input6.text?.clear()
+            input7.text?.clear()
+            input8.text?.clear()
+            input9.text?.clear()
         }
 
         resultBtn.setOnClickListener {
@@ -306,6 +313,20 @@ class WireSizeScreen : BaseFragment(R.layout.wire_size_screen) {
     }
 
     private fun initEditTexts() {
+        input1.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                initCalculation()
+            }
+
+        })
         input2.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
 
@@ -320,8 +341,91 @@ class WireSizeScreen : BaseFragment(R.layout.wire_size_screen) {
             }
 
         })
+        input3.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
 
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                initCalculation()
+            }
+
+        })
         input4.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                initCalculation()
+            }
+
+        })
+        input5.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                initCalculation()
+            }
+
+        })
+        input6.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                initCalculation()
+            }
+
+        })
+        input7.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                initCalculation()
+            }
+
+        })
+        input8.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                initCalculation()
+            }
+
+        })
+        input9.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
 
             }
@@ -339,14 +443,14 @@ class WireSizeScreen : BaseFragment(R.layout.wire_size_screen) {
 
 
     private fun initCalculation() {
-        //val R = input2.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
-        /* val c = input2.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
+        val R = input2.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
+         val c = input2.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
          val f = input4.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
          var result=0.0
          if(koef3==0) result=R*f/(koef1*(1+(c-32)*5*k*10.0.pow(-3.0)/9))
          else result=R*f/(koef1*(1+c*k*10.0.pow(-3.0)))
 
-         showResult((result  * koef2 * koef4*10.0.pow(6.0)*1000).toInt().toDouble()/1000)*/
+         showResult((result  * koef2 * koef4*10.0.pow(6.0)*1000).toInt().toDouble()/1000)
     }
 
     @SuppressLint("SetTextI18n")

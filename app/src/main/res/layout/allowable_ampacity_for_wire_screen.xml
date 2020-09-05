@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/screenStyle"
     tools:ignore="HardcodedText">
-
     <include layout="@layout/content_header" />
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,7 +20,7 @@
             android:layout_marginStart="0dp"
             android:layout_marginBottom="0dp"
             android:gravity="right"
-            android:text="Допустимая ампутация"
+            android:text="Длительный ток"
             android:textColor="#0577D1"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -44,13 +43,23 @@
             android:textSize="16sp" />
     </RelativeLayout>
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/screenStyle">
 
+    </androidx.core.widget.NestedScrollView>
     <LinearLayout
         style="@style/cardStyle"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:padding="18dp"
         tools:ignore="LabelFor">
+
+
+
+
+
 
 
         <LinearLayout
@@ -64,44 +73,55 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/input1Name"
-            style="@style/baseStyle"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:text="Материал"
-            android:textColor="@color/black"
-            android:textSize="13sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="38dp">
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                style="@style/baseStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="0dp"
+                android:layout_marginBottom="0dp"
+                android:paddingTop="10dp"
+                android:text="Материал"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
 
             <Spinner
                 android:id="@+id/spinner2"
-                style="@style/bigSpinnerStyle"
+                style="@style/spinnerStyle"
+
                 tools:listitem="@layout/item_spin" />
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/input3Name"
-            style="@style/baseStyle"
-            android:layout_marginTop="20dp"
-            android:text="Температура окружающей среды t° (°C | °F )"
-            android:textColor="@color/black"
-            android:textSize="13sp" />
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="37dp">
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                style="@style/baseStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="0dp"
+                android:layout_marginBottom="0dp"
+                android:paddingTop="10dp"
+                android:text="Температура среды t°(°C | °F)"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
 
             <Spinner
                 android:id="@+id/spinner3"
                 style="@style/spinnerStyle"
+
                 tools:listitem="@layout/item_spin" />
 
         </LinearLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
@@ -140,7 +160,7 @@
                 android:layout_marginTop="0dp"
                 android:layout_toEndOf="@+id/input2Name"
                 android:importantForAutofill="no"
-                android:textAlignment="center" />
+                android:textAlignment="viewStart" />
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -153,7 +173,7 @@
                 android:layout_width="206dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
-                android:text="Определяемый Пользователем Поправочный Коэффициент"
+                android:text="Свой поправочный коэффициент"
                 android:textColor="@color/black"
                 android:textSize="13sp" />
 
@@ -162,6 +182,8 @@
                 style="@style/inputStyle"
                 android:inputType="number"
                 android:maxLength="5"
+                android:hint="1"
+                android:textAlignment="viewStart"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hint"
                 android:textSize="12sp"
@@ -170,7 +192,6 @@
                 android:layout_marginStart="-1dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="0dp"
-                android:textAlignment="center"
                 android:layout_toEndOf="@+id/input4Name"
                 android:importantForAutofill="no" />
 
@@ -192,20 +213,22 @@
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="0dp"
-                android:text="Раздел"
+                android:text="Сечение"
                 android:textColor="@color/black"
                 android:textSize="13sp" />
 
             <RelativeLayout
-                android:layout_width="192dp"
-                android:layout_height="27dp"
+                android:layout_width="188dp"
+                android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="78dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="62dp"
+                android:layout_marginBottom="0dp"
                 android:layout_toEndOf="@+id/input5Name">
 
                 <Spinner
                     android:id="@+id/spinner4"
-                    android:layout_width="218dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="0dp"
@@ -217,7 +240,6 @@
 
 
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -284,6 +306,8 @@
             android:text="0 B"
             android:textColor="@color/dark"
             android:textSize="20sp" />
+
+
     </LinearLayout>
 
 

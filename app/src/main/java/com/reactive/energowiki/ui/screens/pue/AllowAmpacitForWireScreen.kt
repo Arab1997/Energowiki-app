@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.allowable_ampacity_for_wire_screen.spinner
 import kotlinx.android.synthetic.main.allowable_ampacity_for_wire_screen.spinner4
 import kotlin.math.pow
 
-class AllowableAmpacitiesForWireScreen: BaseFragment(R.layout.allowable_ampacity_for_wire_screen){
+class AllowAmpacitForWireScreen: BaseFragment(R.layout.allowable_ampacity_for_wire_screen){
 
     private val spinValues = arrayListOf<ArrayList<String>>()
     private var koef1 :Double =  0.015995
@@ -41,7 +41,7 @@ class AllowableAmpacitiesForWireScreen: BaseFragment(R.layout.allowable_ampacity
     }
 
     private fun initSpinners(){
-        spinValues.add(arrayListOf("Одно ядро открыто","Два-основных закрыт","три-основные закрытые","Два одноядерных замкнутых","Три одноядерных закрытых","Четыре одноядерных закрытых","Одножильный кабель в воздухе","Двухжильный кабель в воздухе","Трехжильный кабель в воздухе","Двухжильный кабель в земле","Трехжильный кабель в земле"))
+        spinValues.add(arrayListOf("Одножильных провод открыто","Один двух жильных закрыто","Один трехжильных закрыто","Два одножильных закрыто","Три одножильных закрыто","Четыре одножильных закрыто","Одножильный кабель в воздухе","Двухжильный кабель в воздухе","Трехжильный кабель в воздухе","Двухжильный кабель в земле","Трехжильный кабель в земле"))
         spinValues.add(arrayListOf("Медь","Алюминий"))
         spinValues.add(arrayListOf("auto","- 5 °C |41 °Ф"," 0 °C | 32 °Ф"," 5 °C |41 °Ф","10 °C |50 °Ф","15 °C |59 °Ф","20 °C |68 °Ф","25 °C |77 °Ф","30 °C |86 °Ф","35 °C |95 °Ф","40 °C |104 °Ф","45 °C |113 °Ф","50 °C |122 °Ф"))
         spinValues.add(arrayListOf("1 мм² |1.13 мм", "1.2 мм²| 1.4 мм", "1.5 мм²| 1.38 мм", "2 мм² | 1.6 мм", "2.5 мм²|1.78 мм","3 мм²| 1.95 мм", "4 мм²| 2.26 мм", "5 мм²| 2.52 мм", "6 мм²| 2.76 мм","8 мм²| 3.19 мм", "10 мм²| 3.57 мм", "16 мм²| 4.51 мм", "25 мм²| 5.64 мм","35 мм²| 6.68 мм", "70 мм²| 9.44 мм", "95 мм²| 11 мм","120 мм²| 12.36 мм","150 мм²| 13.82 мм" ))
@@ -150,27 +150,6 @@ class AllowableAmpacitiesForWireScreen: BaseFragment(R.layout.allowable_ampacity
                 initCalculation()
             }
         }
-        // t
-       /* spinner4.onItemSelectedListener= object: AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
-
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                koef3 = 1
-                koef3 *= when (position) {
-                    0 -> 1
-                    1 -> 0
-                    else -> 1
-                }
-                initCalculation()
-            }
-        }*/
-//section
         spinner4.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
@@ -213,7 +192,7 @@ class AllowableAmpacitiesForWireScreen: BaseFragment(R.layout.allowable_ampacity
 
     private fun initViews() {
 
-        header.text = "Допустимые электрические токи"
+        header.text = "Длительных ток"
     }
 
     private fun initClicks() {
@@ -222,7 +201,6 @@ class AllowableAmpacitiesForWireScreen: BaseFragment(R.layout.allowable_ampacity
 
         clearBtn.setOnClickListener {
             input2.text?.clear()
-           // input3.text?.clear()
             input4.text?.clear()
         }
 
@@ -263,16 +241,18 @@ class AllowableAmpacitiesForWireScreen: BaseFragment(R.layout.allowable_ampacity
         })
     }
 
+/*http://electrik.info/main/school/1175-dlitelno-dopustimyy-tok-kabelya.html#:~:text=m%20%3D%20V*%CE%A9%2C,%D0%A2%D0%BF%D1%80%20%E2%80%94%20%D0%A20%20%E2%80%94%20%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%82%D0%B5%D0%BC%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D1%83%D1%80%D1%8B.*/
+
 
     private fun initCalculation() {
-        //val R = input2.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
-       /* val c = input2.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
+        val R = input2.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
+        val c = input2.text.toString().let { if (it.isEmpty()) 1.0 else it.toDouble() }
         val f = input4.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
         var result=0.0
         if(koef3==0) result=R*f/(koef1*(1+(c-32)*5*k*10.0.pow(-3.0)/9))
         else result=R*f/(koef1*(1+c*k*10.0.pow(-3.0)))
 
-        showResult((result  * koef2 * koef4*10.0.pow(6.0)*1000).toInt().toDouble()/1000)*/
+        showResult((result  * koef2 * koef4*10.0.pow(6.0)*1000).toInt().toDouble()/1000)
     }
 
     @SuppressLint("SetTextI18n")
