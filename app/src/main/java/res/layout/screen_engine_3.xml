@@ -5,7 +5,6 @@
     style="@style/screenStyle"
     android:paddingTop="15dp"
     tools:ignore="HardcodedText">
-
     <include layout="@layout/content_header" />
 
     <LinearLayout

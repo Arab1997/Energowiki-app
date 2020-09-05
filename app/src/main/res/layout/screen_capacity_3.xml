@@ -416,7 +416,6 @@
                     android:background="@drawable/back_of_input"
                     android:lines="1"
                     android:padding="4dp"
-                    android:clickable="false"
                     android:id="@+id/input_capacity_screen3_6"
                     android:inputType="number"
                     android:textColorHint="#000"

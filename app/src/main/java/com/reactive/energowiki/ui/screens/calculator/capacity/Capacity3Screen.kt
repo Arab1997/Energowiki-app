@@ -89,8 +89,6 @@ class Capacity3Screen: BaseFragment(R.layout.screen_capacity_3){
               //  initCalculation()
             }
         }
-
-
     }
 
     private fun initClicks(){
@@ -111,23 +109,42 @@ class Capacity3Screen: BaseFragment(R.layout.screen_capacity_3){
 
 
         if(radiobt_capacity_screen3_1.isChecked){
+
+
+               title_capacity_screen3.visibility = View.GONE
                liner_1_capacity_screen3.visibility = View.GONE
                liner_2_capacity_screen3.visibility = View.GONE
                liner_3_capacity_screen3.visibility = View.GONE
         }
 
-      //  radiobt_capacity_screen3_2.setChecked(true)
         radiobt_capacity_screen3_2.setOnClickListener{
+
+          //  input_capacity_screen3_6.setEnabled(false)
+           // input_capacity_screen3_7.setEnabled(true)
+
             radiobt_capacity_screen3_1.setChecked(false)
+            title_capacity_screen3.visibility = View.VISIBLE
             liner_1_capacity_screen3.visibility = View.VISIBLE
             liner_2_capacity_screen3.visibility = View.VISIBLE
             liner_3_capacity_screen3.visibility = View.VISIBLE
         }
 
         radiobt_capacity_screen3_1.setOnClickListener {
+            //input_capacity_screen3_7.
+           // input_capacity_screen3_6.setEnabled(true)
+
             radiobt_capacity_screen3_2.setChecked(false)
+            title_capacity_screen3.visibility = View.GONE
             liner_1_capacity_screen3.visibility = View.GONE
             liner_2_capacity_screen3.visibility = View.GONE
             liner_3_capacity_screen3.visibility = View.GONE
         }
-    }}
+    }
+
+ fun calculateInputs(){
+
+
+
+ }
+
+}
