@@ -80,7 +80,7 @@ class CalculatorFragment : BaseFragment(R.layout.fragment_calculator) {
                 setData(
                     when (data.type) {
                         CalculatorMenus.BASICS -> arrayListOf<Any>(1, 2, 3, 4, 5, 6, 7)
-                        CalculatorMenus.CAPACITY -> arrayListOf<Any>(1, 2, 3, 4, 5, 6, 7, 8, 9)
+                        CalculatorMenus.CAPACITY -> arrayListOf<Any>(1, 2, 3, 4, 5, 6, 7, 8)
                         CalculatorMenus.CONDUCTOR -> arrayListOf<Any>(1, 2, 3, 4, 5, 6)
                         CalculatorMenus.ENGINE -> arrayListOf<Any>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,13)
                         CalculatorMenus.CABEL -> arrayListOf<Any>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)

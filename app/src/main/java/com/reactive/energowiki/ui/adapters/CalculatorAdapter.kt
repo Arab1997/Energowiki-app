@@ -27,10 +27,9 @@ class CalculatorAdapter(private val type: CalculatorData, private val listener: 
                     "Конденсатор для пуска трехфазного двигателя в однофазной сети"
                 4 -> holder.itemView.name.text = "Емкостной делитель напряжение"
                 5 -> holder.itemView.name.text = "Заряд и энергия корденсатора"
-                6 -> holder.itemView.name.text = "Заряд и энергия конденсатора"
-                7 -> holder.itemView.name.text = "Декодировать в буквенно-цифровую маркировку"
-                8 -> holder.itemView.name.text = "Кодировать в буквенно-цифровую маркировку"
-                9 -> holder.itemView.name.text = "Гасящий конденсатор"
+                6 -> holder.itemView.name.text = "Декодировать в буквенно-цифровую маркировку"
+                7 -> holder.itemView.name.text = "Кодировать в буквенно-цифровую маркировку"
+                8 -> holder.itemView.name.text = "Гасящий конденсатор"
             }
             CalculatorMenus.CONDUCTOR -> when (data) {
                 1 -> holder.itemView.name.text = "Сопротивление проводника"
