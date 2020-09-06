@@ -7,6 +7,31 @@
 
     <include layout="@layout/content_header" />
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:padding="8dp"
+        android:background="#F4F4F4"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="40"
+            android:text="Xc :"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="60"
+            android:id="@+id/capacity_screen2_result1"
+            android:textStyle="bold"
+            android:textColor="#2196F3"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
     <LinearLayout
         style="@style/cardStyle"
         android:layout_marginLeft="30dp"
@@ -36,12 +61,12 @@
             android:layout_height="40dp">
 
             <EditText
-                android:id="@+id/input1"
+                android:id="@+id/input_capacity_screen2_1"
                 style="@style/inputStyle"
                 android:importantForAutofill="no" />
 
             <Spinner
-                android:id="@+id/spinner1"
+                android:id="@+id/spinner_capacity_screen2_1"
                 style="@style/spinnerStyle"
                 tools:listitem="@layout/item_spin" />
 
@@ -60,12 +85,12 @@
             android:layout_height="40dp">
 
             <EditText
-                android:id="@+id/input2"
+                android:id="@+id/input_capacity_screen2_2"
                 style="@style/inputStyle"
                 android:importantForAutofill="no" />
 
             <Spinner
-                android:id="@+id/spinner2"
+                android:id="@+id/spinner_capacity_screen2_2"
                 style="@style/spinnerStyle"
                 tools:listitem="@layout/item_spin" />
 
@@ -83,7 +108,7 @@
         tools:ignore="RtlHardcoded">
 
         <Button
-            android:id="@+id/clearBtn"
+            android:id="@+id/clear_bt_capacity_screen2"
             android:layout_width="98dp"
             android:layout_height="44dp"
             android:layout_marginEnd="10dp"
@@ -95,7 +120,7 @@
             android:textSize="14sp" />
 
         <Button
-            android:id="@+id/resultBtn"
+            android:id="@+id/result_bt_capacity_screen2"
             android:layout_width="98dp"
             android:layout_height="44dp"
             android:background="@drawable/rounded_green_cart"
@@ -106,38 +131,5 @@
             android:textSize="14sp" />
     </LinearLayout>
 
-    <View
-        style="@style/baseStyle"
-        android:layout_height="1dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="30dp"
-        android:background="@color/hint" />
 
-    <LinearLayout
-        style="@style/baseStyle"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="30dp"
-        android:background="@color/back">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:fontFamily="@font/inter_medium"
-            android:text="Результат расчета"
-            android:textColor="@color/dark"
-            android:textSize="13sp" />
-
-        <TextView
-            android:id="@+id/result"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/inter_medium"
-            android:text="0 B"
-            android:textColor="@color/dark"
-            android:textSize="20sp" />
-    </LinearLayout>
 </LinearLayout>

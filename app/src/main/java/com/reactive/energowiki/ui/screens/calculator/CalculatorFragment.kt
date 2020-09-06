@@ -40,6 +40,9 @@ class CalculatorFragment : BaseFragment(R.layout.fragment_calculator) {
                         3 -> addFragment(Capacity3Screen())
                         4 -> addFragment(Capacity4Screen())
                         5 -> addFragment(Capacity5Screen())
+                        6 -> toast(requireContext(), "inDevelopment")
+                        7 -> toast(requireContext(), "inDevelopment")
+                        8 -> addFragment(Capacity8Screen())
                         else -> toast(requireContext(), "inDevelopment")
                     }
                     CalculatorMenus.ENGINE -> when (it) {

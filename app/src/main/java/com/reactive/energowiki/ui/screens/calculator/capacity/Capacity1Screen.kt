@@ -12,14 +12,12 @@ class Capacity1Screen : BaseFragment(R.layout.screen_capacity_1) {
 
     private val magnitudes = charArrayOf('k', 'M', 'G', 'T', 'P', 'E') // enough for Long
 
-    var total: Double = 0.0
-    var C1: Double = 0.0
-    var C2: Double = 0.0
-    var C3: Double = 0.0
+    var total = 0.0F
+    var C1 = 0.0F
+    var C2 = 0.0F
+    var C3 = 0.0F
     override fun initialize() {
         initClicks()
-
-
     }
 
     private fun initClicks() {
@@ -72,9 +70,9 @@ class Capacity1Screen : BaseFragment(R.layout.screen_capacity_1) {
         var inputC2 = input_capacity_screen1_2.text.toString()
         var inputC3 = input_capacity_screen1_3.text.toString()
 
-        if (inputC1 != "") C1 =1.0e-6* inputC1.toDouble() else C1 = 0.0
-        if (inputC2 != "") C2 = 1.0e-9* inputC2.toDouble() else C2 = 0.0
-        if (inputC3 != "") C3 = 1.0e-12* inputC3.toDouble() else C3 = 0.0
+        if (inputC1 != "") C1 =1.0e-6F* inputC1.toFloat() else C1 = 0.0F
+        if (inputC2 != "") C2 = 1.0e-9F* inputC2.toFloat()else C2 = 0.0F
+        if (inputC3 != "") C3 = 1.0e-12F* inputC3.toFloat() else C3 = 0.0F
 
         if (radiobt_capacity_screen1_1.isChecked) {
             total = C1 + C2 + C3
@@ -84,17 +82,17 @@ class Capacity1Screen : BaseFragment(R.layout.screen_capacity_1) {
         if (radiobt_capacity_screen1_2.isChecked) {
 
 
-            if (C1 == 0.0) total = C2 * C3 / (C2 + C3)
-            if (C2 == 0.0) total = C1 * C3 / (C1 + C3)
-            if (C3 == 0.0) total = C2 * C1 / (C2 + C1)
+            if (C1 == 0.0F) total = C2 * C3 / (C2 + C3)
+            if (C2 == 0.0F) total = C1 * C3 / (C1 + C3)
+            if (C3 == 0.0F) total = C2 * C1 / (C2 + C1)
 
-            if (C2 == 0.0 && C1 == 0.0) total = C3
-            if (C2 == 0.0 && C3 == 0.0) total = C1
-            if (C1 == 0.0 && C3 == 0.0) total = C2
+            if (C2 == 0.0F && C1 == 0.0F) total = C3
+            if (C2 == 0.0F && C3 == 0.0F) total = C1
+            if (C1 == 0.0F && C3 == 0.0F) total = C2
 
-            if (C1 == 0.0 && C2 == 0.0 && C3 == 0.0) total = 0.0
+            if (C1 == 0.0F && C2 == 0.0F && C3 == 0.0F) total = 0.0F
 
-            if (C1 != 0.0 && C2 != 0.0 && C3 != 0.0)
+            if (C1 != 0.0F && C2 != 0.0F && C3 != 0.0F)
             total = C1 * C2 * C3 / (C2 * C3 + C1 * C3 + C1 * C2)
 
             capacity_screen1_result1.text = total.toString() + " Farad"

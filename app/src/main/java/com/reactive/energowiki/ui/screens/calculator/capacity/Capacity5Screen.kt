@@ -14,9 +14,9 @@ class Capacity5Screen : BaseFragment(R.layout.screen_capacity_5) {
 
     private val spinValues1 = arrayListOf<ArrayList<String>>()
     private val spinValues2 = arrayListOf<ArrayList<String>>()
-    var birlik: Double = 0.0
-    var C: Double = 0.0
-    var U: Double = 0.0
+    var birlik = 0.0F
+    var C = 0.0F
+    var U = 0.0F
 
     override fun initialize() {
         initClicks()
@@ -83,17 +83,17 @@ class Capacity5Screen : BaseFragment(R.layout.screen_capacity_5) {
     }
 
 
-    fun getBirlik(spinner: Spinner): Double {
+    fun getBirlik(spinner: Spinner): Float {
         when (spinner.selectedItemPosition) {
-            0 -> birlik = 1.0e-12.toDouble()
-            1 -> birlik = 1.0e-9.toDouble()
-            2 -> birlik = 1.0e-6.toDouble()
-            3 -> birlik = 1.0e-3.toDouble()
-            4 -> birlik = 1.toDouble()
-            5 -> birlik = 1.0e3.toDouble()
-            6 -> birlik = 1.0e6.toDouble()
-            7 -> birlik = 1.0e9.toDouble()
-            else -> 1.toDouble()
+            0 -> birlik = 1.0e-12F
+            1 -> birlik = 1.0e-9F
+            2 -> birlik = 1.0e-6F
+            3 -> birlik = 1.0e-3F
+            4 -> birlik = 1.0F
+            5 -> birlik = 1.0e3F
+            6 -> birlik = 1.0e6F
+            7 -> birlik = 1.0e9F
+            else -> 1.0F
         }
         return birlik
     }
@@ -140,8 +140,8 @@ class Capacity5Screen : BaseFragment(R.layout.screen_capacity_5) {
         capacity_screen5_result2.text = ""
 
         if (input_capacity_screen5_1.text.toString() != "" && input_capacity_screen5_2.text.toString() != "") {
-            U = input_capacity_screen5_1.text.toString().toDouble()
-            C = input_capacity_screen5_2.text.toString().toDouble()
+            U = input_capacity_screen5_1.text.toString().toFloat()
+            C = input_capacity_screen5_2.text.toString().toFloat()
 
             var Q =
                 C * getBirlik(spinner_capacity_screen5_2) * U * getBirlik(spinner_capacity_screen5_1)
