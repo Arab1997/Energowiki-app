@@ -118,7 +118,6 @@
                 android:weightSum="100"
                 android:gravity="center"
                 android:background="@drawable/gradient_rounded_gray"
-
                 android:layout_height="wrap_content">
 
                 <TextView
