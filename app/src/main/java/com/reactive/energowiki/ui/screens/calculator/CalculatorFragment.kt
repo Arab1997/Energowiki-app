@@ -5,9 +5,7 @@ import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.adapters.CalculatorAdapter
 import com.reactive.energowiki.ui.screens.calculator.basics.*
 import com.reactive.energowiki.ui.screens.calculator.cabel.*
-import com.reactive.energowiki.ui.screens.calculator.capacity.Capacity1Screen
-import com.reactive.energowiki.ui.screens.calculator.capacity.Capacity2Screen
-import com.reactive.energowiki.ui.screens.calculator.capacity.Capacity3Screen
+import com.reactive.energowiki.ui.screens.calculator.capacity.*
 import com.reactive.energowiki.ui.screens.calculator.engine.*
 import com.reactive.energowiki.utils.extensions.toast
 import kotlinx.android.synthetic.main.fragment_calculator.*
@@ -40,6 +38,11 @@ class CalculatorFragment : BaseFragment(R.layout.fragment_calculator) {
                         1 -> addFragment(Capacity1Screen())
                         2 -> addFragment(Capacity2Screen())
                         3 -> addFragment(Capacity3Screen())
+                        4 -> addFragment(Capacity4Screen())
+                        5 -> addFragment(Capacity5Screen())
+                        6 -> toast(requireContext(), "inDevelopment")
+                        7 -> toast(requireContext(), "inDevelopment")
+                        8 -> addFragment(Capacity8Screen())
                         else -> toast(requireContext(), "inDevelopment")
                     }
                     CalculatorMenus.ENGINE -> when (it) {
@@ -77,7 +80,7 @@ class CalculatorFragment : BaseFragment(R.layout.fragment_calculator) {
                 setData(
                     when (data.type) {
                         CalculatorMenus.BASICS -> arrayListOf<Any>(1, 2, 3, 4, 5, 6, 7)
-                        CalculatorMenus.CAPACITY -> arrayListOf<Any>(1, 2, 3, 4, 5, 6, 7, 8, 9)
+                        CalculatorMenus.CAPACITY -> arrayListOf<Any>(1, 2, 3, 4, 5, 6, 7, 8)
                         CalculatorMenus.CONDUCTOR -> arrayListOf<Any>(1, 2, 3, 4, 5, 6)
                         CalculatorMenus.ENGINE -> arrayListOf<Any>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,13)
                         CalculatorMenus.CABEL -> arrayListOf<Any>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
