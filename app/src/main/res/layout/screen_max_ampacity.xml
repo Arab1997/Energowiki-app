@@ -2,6 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/screenStyle"
+    android:background="#F4F4F4"
+    android:orientation="vertical"
+    android:padding="8dp"
     tools:ignore="HardcodedText">
 
     <include layout="@layout/content_header" />
@@ -9,35 +12,36 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="33dp">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="33dp"
-    android:orientation="vertical"
-    >
 
-    <TextView
-        android:id="@+id/text1"
-        style="@style/baseStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="20dp"
-        android:gravity="left"
-        android:text="Максимальный ток"
-        android:textColor="@color/black"
-        android:textSize="13sp" />
-    <TextView
-        android:id="@+id/text2"
-        style="@style/baseStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="20dp"
-        android:text="Максимальная мощность"
-        android:textColor="@color/black"
-        android:textSize="13sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:orientation="vertical">
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/text1"
+                style="@style/baseStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="20dp"
+                android:gravity="left"
+                android:text="Максимальный ток"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/text2"
+                style="@style/baseStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:text="Максимальная мощность"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/amper"
@@ -60,432 +64,448 @@
 
     </RelativeLayout>
 
-
     <LinearLayout
+        android:id="@+id/layoutMain3"
         style="@style/cardStyle"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header1"
+        android:orientation="vertical"
         tools:ignore="LabelFor">
 
-        <LinearLayout
-            android:id="@+id/x"
-            android:layout_width="fill_parent"
-            android:layout_height="30dp"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <Spinner
-                android:id="@+id/spinner1"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:listitem="@layout/item_spin" />
-
-            <Spinner
-                android:id="@+id/spinner2"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:listitem="@layout/item_spin" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginTop="8dp">
-
-            <Spinner
-                android:id="@+id/spinner3"
-                style="@style/bigSpinnerStyle"
-                tools:listitem="@layout/item_spin" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="37dp"
-            android:layout_marginTop="8dp">
+            android:layout_height="match_parent">
 
             <LinearLayout
-                android:layout_width="40dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_vertical">
+                android:id="@+id/layoutMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                tools:ignore="LabelFor">
 
-                <TextView
-                    android:layout_width="88dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:text="Длина"
-                    android:textColor="@color/dark"
-                    android:textSize="13sp"
-                    tools:ignore="SmallSp" />
+                <LinearLayout
+                    android:id="@+id/x"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
-            </LinearLayout>
+                    <Spinner
+                        android:id="@+id/spinner1"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        tools:listitem="@layout/item_spin" />
 
-            <EditText
-                android:id="@+id/input1"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="start"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:longClickable="false"
-                android:maxLength="5"
-                android:text=""
-                android:textColor="@color/black"
-                android:textColorHint="@color/hint"
-                android:textSize="12sp" />
-
-            <Spinner
-                android:id="@+id/spinner4"
-                style="@style/spinnerStyle"
-                android:layout_width="86dp"
-                tools:listitem="@layout/item_spin" />
-
-        </LinearLayout>
+                    <Spinner
+                        android:id="@+id/spinner2"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        tools:listitem="@layout/item_spin" />
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="37dp"
-            android:layout_marginTop="10dp">
+                </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="37dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="8dp">
 
-                <TextView
+                    <Spinner
+                        android:id="@+id/spinner3"
+                        style="@style/bigSpinnerStyle"
+                        tools:listitem="@layout/item_spin" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="37dp"
+                    android:layout_marginTop="8dp">
+
+                    <LinearLayout
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="88dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
+                            android:text="Длина"
+                            android:textColor="@color/dark"
+                            android:textSize="13sp"
+                            tools:ignore="SmallSp" />
+
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/input1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:longClickable="false"
+                        android:maxLength="5"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/hint"
+                        android:textSize="12sp" />
+
+                    <Spinner
+                        android:id="@+id/spinner4"
+                        style="@style/spinnerStyle"
+                        android:layout_width="86dp"
+                        tools:listitem="@layout/item_spin" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="37dp"
+                    android:layout_marginTop="10dp">
+
+                    <LinearLayout
+                        android:layout_width="37dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
+                            android:text="Капля"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"
+                            tools:ignore="SmallSp" />
+
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/input2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:longClickable="false"
+                        android:maxLength="5"
+                        android:text="4"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/hint"
+                        android:textSize="12sp" />
+
+
+                    <Spinner
+                        android:id="@+id/spinner5"
+                        style="@style/spinnerStyle"
+                        android:layout_width="86dp"
+                        tools:listitem="@layout/item_spin" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="37dp"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/input333Name"
+                        style="@style/baseStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginBottom="0dp"
+                        android:paddingTop="10dp"
+                        android:text="Температура окружающей среды"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <Spinner
+                        android:id="@+id/spinner6"
+                        style="@style/spinnerStyle"
+                        android:layout_width="126dp"
+                        tools:listitem="@layout/item_spin" />
+
+                </LinearLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="37dp"
+                    android:layout_marginTop="6dp">
+
+                    <TextView
+                        android:id="@+id/text3"
+                        style="@style/baseStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginBottom="0dp"
+                        android:paddingTop="10dp"
+                        android:text="Количество проводников"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/input3"
+                        android:layout_width="104dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="66dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_toEndOf="@+id/text3"
+                        android:hint="3"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:longClickable="false"
+                        android:maxLength="5"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/hint"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="37dp"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:layout_width="112dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="2dp"
+                        android:text="Коэффициент мощности"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        tools:ignore="SmallSp" />
+
+                    <TextView
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:maxLength="5"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/input4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:longClickable="false"
+                        android:maxLength="5"
+                        android:text="0.85"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/hint"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="37dp"
+                    android:layout_marginTop="8dp">
+
+                    <LinearLayout
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="88dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
+                            android:text="Напряжение"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            tools:ignore="SmallSp" />
+
+                    </LinearLayout>
+
+
+                    <EditText
+                        android:id="@+id/input5"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="30dp"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:longClickable="false"
+                        android:maxLength="5"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/hint"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:text="Вольт"
+                        android:textColor="@color/black"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="10dp">
+
+
+                    <TextView
+                        style="@style/baseStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="Определяемый Пользователем Поправочный Коэффициент"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+
+                    <EditText
+                        android:id="@+id/input6"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="20dp"
+                        android:layout_weight="0.4"
+                        android:gravity="start"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:longClickable="false"
+                        android:maxLength="5"
+                        android:text="1"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/hint"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="37dp"
+                    android:layout_marginBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="37dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
+                            android:text="Раздел"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"
+                            tools:ignore="SmallSp" />
+
+                    </LinearLayout>
+
+
+                    <Spinner
+                        android:id="@+id/spinner7"
+                        style="@style/spinnerStyle"
+                        android:layout_width="106dp"
+                        tools:listitem="@layout/item_spin" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:text="Капля"
-                    android:textColor="@color/black"
-                    android:textSize="13sp"
-                    tools:ignore="SmallSp" />
+                    android:layout_gravity="right"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:orientation="horizontal"
+                    tools:ignore="RtlHardcoded">
 
-            </LinearLayout>
+                    <Button
+                        android:id="@+id/clearBtn"
+                        android:layout_width="98dp"
+                        android:layout_height="44dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/rounded_yellow_cart"
+                        android:gravity="center"
+                        android:text="Сброс"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/input2"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="start"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:longClickable="false"
-                android:maxLength="5"
-                android:text="4"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hint"
-                android:textSize="12sp" />
+                    <Button
+                        android:id="@+id/resultBtn"
+                        android:layout_width="98dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/rounded_green_cart"
+                        android:gravity="center"
+                        android:text="Отчёт"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+                </LinearLayout>
 
+                <View
+                    style="@style/baseStyle"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@color/hint" />
 
-            <Spinner
-                android:id="@+id/spinner5"
-                style="@style/spinnerStyle"
-                android:layout_width="86dp"
-                tools:listitem="@layout/item_spin" />
-        </LinearLayout>
+                <LinearLayout
+                    style="@style/baseStyle"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@color/back">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="37dp"
-            android:layout_marginTop="8dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/inter_medium"
+                        android:text="Результат расчета"
+                        android:textColor="@color/dark"
+                        android:textSize="13sp" />
 
-            <TextView
-                android:id="@+id/input333Name"
-                style="@style/baseStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="0dp"
-                android:layout_marginBottom="0dp"
-                android:paddingTop="10dp"
-                android:text="Температура окружающей среды"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <Spinner
-                android:id="@+id/spinner6"
-                style="@style/spinnerStyle"
-                android:layout_width="126dp"
-                tools:listitem="@layout/item_spin" />
-
-        </LinearLayout>
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="37dp"
-            android:layout_marginTop="6dp">
-
-            <TextView
-                android:id="@+id/text3"
-                style="@style/baseStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginBottom="0dp"
-                android:paddingTop="10dp"
-                android:text="Количество проводников"
-                android:textColor="@color/black"
-                android:textSize="13sp" />
-
-            <EditText
-                android:id="@+id/input3"
-                android:layout_width="104dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="66dp"
-                android:layout_marginTop="0dp"
-                android:layout_toEndOf="@+id/text3"
-                android:hint="3"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:longClickable="false"
-                android:maxLength="5"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hint"
-                android:textSize="12sp" />
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="37dp"
-            android:layout_marginTop="8dp">
-
-            <TextView
-                android:layout_width="112dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="2dp"
-                android:text="Коэффициент мощности"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                tools:ignore="SmallSp" />
-            <TextView
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:maxLength="5"
-                android:textSize="12sp" />
-            <EditText
-                android:id="@+id/input4"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="start"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:longClickable="false"
-                android:maxLength="5"
-                android:text="0.85"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hint"
-                android:textSize="12sp" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="37dp"
-            android:layout_marginTop="8dp">
-
-            <LinearLayout
-                android:layout_width="40dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="88dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:text="Напряжение"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
-                    tools:ignore="SmallSp" />
-
+                    <TextView
+                        android:id="@+id/result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_medium"
+                        android:text="0 B"
+                        android:textColor="@color/dark"
+                        android:textSize="20sp" />
+                </LinearLayout>
             </LinearLayout>
 
 
-
-
-            <EditText
-                android:id="@+id/input5"
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="30dp"
-                android:layout_weight="1"
-                android:gravity="start"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:longClickable="false"
-                android:maxLength="5"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hint"
-                android:textSize="12sp" />
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:gravity="center"
-                android:text="Вольт"
-                android:textColor="@color/black"
-                android:textSize="10sp" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="8dp">
-
-
-            <TextView
-                style="@style/baseStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical"
-                android:text="Определяемый Пользователем Поправочный Коэффициент"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-
-            <EditText
-                android:id="@+id/input6"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_weight="0.4"
-                android:gravity="start"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:longClickable="false"
-                android:maxLength="5"
-                android:text="1"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hint"
-                android:textSize="12sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="37dp"
-            android:layout_marginBottom="10dp">
-
-            <LinearLayout
-                android:layout_width="37dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:text="Раздел"
-                    android:textColor="@color/black"
-                    android:textSize="13sp"
-                    tools:ignore="SmallSp" />
-
-            </LinearLayout>
-
-
-            <Spinner
-                android:id="@+id/spinner7"
-                style="@style/spinnerStyle"
-                android:layout_width="106dp"
-                tools:listitem="@layout/item_spin" />
-        </LinearLayout>
-
-
+        </ScrollView>
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:orientation="horizontal"
-        tools:ignore="RtlHardcoded">
-
-        <Button
-            android:id="@+id/clearBtn"
-            android:layout_width="98dp"
-            android:layout_height="44dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/rounded_yellow_cart"
-            android:gravity="center"
-            android:text="Сброс"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="14sp" />
-
-        <Button
-            android:id="@+id/resultBtn"
-            android:layout_width="98dp"
-            android:layout_height="44dp"
-            android:background="@drawable/rounded_green_cart"
-            android:gravity="center"
-            android:text="Отчёт"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-    <View
-        style="@style/baseStyle"
-        android:layout_height="1dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="30dp"
-        android:background="@color/hint" />
-
-    <LinearLayout
-        style="@style/baseStyle"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="30dp"
-        android:background="@color/back">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:fontFamily="@font/inter_medium"
-            android:text="Результат расчета"
-            android:textColor="@color/dark"
-            android:textSize="13sp" />
-
-        <TextView
-            android:id="@+id/result"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/inter_medium"
-            android:text="0 B"
-            android:textColor="@color/dark"
-            android:textSize="20sp" />
-    </LinearLayout>
-
 
 </LinearLayout>
