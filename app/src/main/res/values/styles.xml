@@ -10,6 +10,11 @@
 
     </style>
 
+
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/popup_backround</item>
+    </style>
+
     <style name="elevationStyle">
         <item name="android:translationZ">5dp</item>
         <item name="android:elevation">5dp</item>

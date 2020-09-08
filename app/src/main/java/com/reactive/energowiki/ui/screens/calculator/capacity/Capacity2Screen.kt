@@ -81,6 +81,7 @@ class Capacity2Screen : BaseFragment(R.layout.screen_capacity_2) {
         TextChanged(input_capacity_screen2_1)
         TextChanged(input_capacity_screen2_2)
 
+
         spinnerSelectedListener(spinner_capacity_screen2_2)
         spinnerSelectedListener(spinner_capacity_screen2_1)
     }
