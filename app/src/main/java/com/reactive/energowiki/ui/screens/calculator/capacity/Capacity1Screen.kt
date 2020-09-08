@@ -42,11 +42,22 @@ class Capacity1Screen : BaseFragment(R.layout.screen_capacity_1) {
 
 
 
-        result_bt_capacity_screen1.setOnClickListener{
-            var state =""
-            if (radiobt_capacity_screen1_1.isChecked) {state = "Параллельно"} else state = "Последовательно"
+        result_bt_capacity_screen1.setOnClickListener {
+            var state = ""
+            if (radiobt_capacity_screen1_1.isChecked) {
+                state = "Параллельно"
+            } else state = "Последовательно"
 
-            val dialog = context?.let { it1 -> CapacityReport1Dialog(it1,input_capacity_screen1_1.text.toString(),input_capacity_screen1_2.text.toString(),input_capacity_screen1_3.text.toString(),getZeroNums(total),state) }
+            val dialog = context?.let { it1 ->
+                CapacityReport1Dialog(
+                    it1,
+                    input_capacity_screen1_1.text.toString(),
+                    input_capacity_screen1_2.text.toString(),
+                    input_capacity_screen1_3.text.toString(),
+                    getZeroNums(total),
+                    state
+                )
+            }
             dialog!!.show()
             calculate()
         }
@@ -81,8 +92,8 @@ class Capacity1Screen : BaseFragment(R.layout.screen_capacity_1) {
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 calculate()
-                    if(input_capacity_screen1_1.text.toString()==""&&input_capacity_screen1_2.text.toString()==""&&input_capacity_screen1_1.text.toString()=="")
-                        result_bt_capacity_screen1.enableDisable(false)
+                if (input_capacity_screen1_1.text.toString() == "" && input_capacity_screen1_2.text.toString() == "" && input_capacity_screen1_1.text.toString() == "")
+                    result_bt_capacity_screen1.enableDisable(false)
                 else result_bt_capacity_screen1.enableDisable(true)
             }
         })
@@ -95,9 +106,9 @@ class Capacity1Screen : BaseFragment(R.layout.screen_capacity_1) {
         var inputC2 = input_capacity_screen1_2.text.toString()
         var inputC3 = input_capacity_screen1_3.text.toString()
 
-        if (inputC1 != "") C1 =1.0e-6F* inputC1.toFloat() else C1 = 0.0F
-        if (inputC2 != "") C2 = 1.0e-9F* inputC2.toFloat()else C2 = 0.0F
-        if (inputC3 != "") C3 = 1.0e-12F* inputC3.toFloat() else C3 = 0.0F
+        if (inputC1 != "") C1 = 1.0e-6F * inputC1.toFloat() else C1 = 0.0F
+        if (inputC2 != "") C2 = 1.0e-9F * inputC2.toFloat() else C2 = 0.0F
+        if (inputC3 != "") C3 = 1.0e-12F * inputC3.toFloat() else C3 = 0.0F
 
         if (radiobt_capacity_screen1_1.isChecked) {
             total = C1 + C2 + C3
@@ -118,7 +129,7 @@ class Capacity1Screen : BaseFragment(R.layout.screen_capacity_1) {
             if (C1 == 0.0F && C2 == 0.0F && C3 == 0.0F) total = 0.0F
 
             if (C1 != 0.0F && C2 != 0.0F && C3 != 0.0F)
-            total = C1 * C2 * C3 / (C2 * C3 + C1 * C3 + C1 * C2)
+                total = C1 * C2 * C3 / (C2 * C3 + C1 * C3 + C1 * C2)
 
             capacity_screen1_result1.text = getZeroNums(total) + " Farad"
         }
@@ -153,7 +164,6 @@ class Capacity1Screen : BaseFragment(R.layout.screen_capacity_1) {
 
         return "${(num * 10f.pow(-ansPowDegree))} $end"
     }
-
 
 
 }

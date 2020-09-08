@@ -6,12 +6,15 @@ import android.view.View
 import android.widget.*
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
+import com.reactive.energowiki.ui.dialogs.CapacityReport2Dialog
+import com.reactive.energowiki.ui.dialogs.CapacityReport3Dialog
 import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.bottomsheet_detail.*
 import kotlinx.android.synthetic.main.screen_cabel_1.*
 import kotlinx.android.synthetic.main.screen_cabel_1.input1
 import kotlinx.android.synthetic.main.screen_cabel_2.*
 import kotlinx.android.synthetic.main.screen_capacity_1.*
+import kotlinx.android.synthetic.main.screen_capacity_2.*
 import kotlinx.android.synthetic.main.screen_capacity_3.*
 import kotlinx.android.synthetic.main.screen_capacity_3.liner_2_capacity_screen3
 import kotlinx.android.synthetic.main.screen_capacity_4.*
@@ -73,9 +76,6 @@ class Capacity3Screen : BaseFragment(R.layout.screen_capacity_3) {
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner_capacity_screen3_2.adapter = adapter2
 
-
-
-
         spinner_capacity_screen3_2.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -106,6 +106,7 @@ class Capacity3Screen : BaseFragment(R.layout.screen_capacity_3) {
 
     private fun initClicks() {
         close.setOnClickListener { finishFragment() }
+
 
 
         TextChanged(input_capacity_screen3_1)
@@ -168,6 +169,82 @@ class Capacity3Screen : BaseFragment(R.layout.screen_capacity_3) {
             liner_2_capacity_screen3.visibility = View.GONE
             liner_3_capacity_screen3.visibility = View.GONE
         }
+
+
+
+
+        result_bt_capacity_screen3.setOnClickListener {
+
+            if (radiobt_capacity_screen3_1.isChecked) {
+                if (input_capacity_screen3_1.text.toString() != "" && input_capacity_screen3_2.text.toString() != "" && input_capacity_screen3_6.text.toString() != "") {
+                    var k = false
+                    if (radiobt_capacity_screen3_1.isChecked) k = false
+                    if (radiobt_capacity_screen3_2.isChecked) k = true
+
+                    var s = ""
+                    if (input_capacity_screen3_5.text.toString().toFloat() > 1) s = " %"
+
+                    var t = input_capacity_screen3_6.text.toString() + " Ампер"
+                    if (radiobt_capacity_screen3_2.isChecked) t = inputI.toString() + " Ампер"
+
+                    val dialog = context?.let { it1 ->
+                        CapacityReport3Dialog(
+                            it1,
+                            spinner_capacity_screen3_1.selectedItem.toString(),
+                            operating_value.text.toString(),
+                            starting_value.text.toString(),
+                            min_voltage_value.text.toString(),
+                            input_capacity_screen3_1.text.toString() + " Вольт",
+                            input_capacity_screen3_2.text.toString() + " Гц",
+                            t,
+                            input_capacity_screen3_3.text.toString() + " Вольт",
+                            input_capacity_screen3_4.text.toString(),
+                            input_capacity_screen3_5.text.toString() + s,
+                            input_capacity_screen3_7.text.toString() + " кВт",
+                            k
+                        )
+                    }
+                    dialog!!.show()
+                } else Toast.makeText(context, "Salom", Toast.LENGTH_SHORT).show()
+
+            }
+            if (radiobt_capacity_screen3_2.isChecked) {
+
+                if (input_capacity_screen3_1.text.toString() != "" && input_capacity_screen3_2.text.toString() != "" && input_capacity_screen3_4.text.toString() != "" && input_capacity_screen3_7.text.toString() != "") {
+                    var k = false
+                    if (radiobt_capacity_screen3_1.isChecked) k = false
+                    if (radiobt_capacity_screen3_2.isChecked) k = true
+
+                    var s = ""
+                    if (input_capacity_screen3_5.text.toString().toFloat() > 1) s = " %"
+
+                    var t = input_capacity_screen3_6.text.toString() + " Ампер"
+                    if (radiobt_capacity_screen3_2.isChecked) t = inputI.toString() + " Ампер"
+
+                    val dialog = context?.let { it1 ->
+                        CapacityReport3Dialog(
+                            it1,
+                            spinner_capacity_screen3_1.selectedItem.toString(),
+                            operating_value.text.toString(),
+                            starting_value.text.toString(),
+                            min_voltage_value.text.toString(),
+                            input_capacity_screen3_1.text.toString() + " Вольт",
+                            input_capacity_screen3_2.text.toString() + " Гц",
+                            t,
+                            input_capacity_screen3_3.text.toString() + " Вольт",
+                            input_capacity_screen3_4.text.toString(),
+                            input_capacity_screen3_5.text.toString() + s,
+                            input_capacity_screen3_7.text.toString() + " кВт",
+                            k
+                        )
+                    }
+                    dialog!!.show()
+
+                } else Toast.makeText(context, "Hello", Toast.LENGTH_SHORT).show()
+            }
+
+
+        }
     }
 
     fun spinnerSelectedListener(spinner: Spinner) {
@@ -202,6 +279,7 @@ class Capacity3Screen : BaseFragment(R.layout.screen_capacity_3) {
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 calculateInputs()
+
             }
         })
     }
