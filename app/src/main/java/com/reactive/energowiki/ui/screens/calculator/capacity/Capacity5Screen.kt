@@ -89,8 +89,8 @@ class Capacity5Screen : BaseFragment(R.layout.screen_capacity_5) {
             val dialog = context?.let { it1 ->
                 CapacityReport5Dialog(
                     it1,
-                    Q.toString() + " Кл",
-                    En.toString() + " Ж",
+                    "%.5f".format(Q) + " Кл",
+                    "%.5f".format(En) + " Ж",
                     U.toString() + " В",
                     C.toString() + " Ф"
                 )
@@ -168,14 +168,14 @@ class Capacity5Screen : BaseFragment(R.layout.screen_capacity_5) {
             ) * U * getBirlik(spinner_capacity_screen5_1)) / 2
 
             if (Q >= 0) {
-                capacity_screen5_result1.text = Q.toString() + " Culon"
+                capacity_screen5_result1.text = "%.5f".format(Q) + " Culon"
             } else {
                 Toast.makeText(context, "ошибка, Q<0", Toast.LENGTH_SHORT).show()
             }
 
             if (En >= 0) {
 
-                capacity_screen5_result2.text = En.toString() + " Joul"
+                capacity_screen5_result2.text = "%.5f".format(En)+ "Joul"
             } else {
                 Toast.makeText(context, "ошибка, Q<0", Toast.LENGTH_SHORT).show()
             }

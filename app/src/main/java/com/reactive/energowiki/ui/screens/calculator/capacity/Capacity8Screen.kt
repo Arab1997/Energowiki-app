@@ -87,8 +87,8 @@ class Capacity8Screen : BaseFragment(R.layout.screen_capacity_8) {
             val dialog = context?.let { it1 ->
                 CapacityReport8Dialog(
                     it1,
-                    capacitience.toString() + " µF",
-                    resistance.toString() + " Ω | \n$power W",
+                    "%.5f".format(capacitience)+ " µF",
+                    "%.5f".format(resistance) + " Ω | \n" +"%.5f".format(power) +" W",
                     getGers(spinner_capacity_screen8_1).toString()+" Гц",
                     input_capacity_screen8_1.text.toString() + " Вольт",
                     input_capacity_screen8_2.text.toString() + " Вольт",

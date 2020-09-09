@@ -272,9 +272,9 @@ class Capacity3Screen : BaseFragment(R.layout.screen_capacity_3) {
     }
 
     fun fillResults() {
-        operating_value.setText(operatingC.toString() + " µF")
-        starting_value.setText(startingC.toString() + "-" + finishingC + " µF")
-        min_voltage_value.setText(minVoltage.toString() + " V")
+        operating_value.setText("%.5f".format(operatingC)+ " µF" )
+        starting_value.setText("%.5f".format(startingC)+ " µF" + "-" + "%.5f".format(finishingC)+ " µF" )
+        min_voltage_value.setText("%.5f".format(minVoltage) + " V")
     }
 
     fun calculateInputs() {

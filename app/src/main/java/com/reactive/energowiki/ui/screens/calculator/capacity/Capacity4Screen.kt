@@ -258,7 +258,7 @@ class Capacity4Screen : BaseFragment(R.layout.screen_capacity_4) {
                     ))
 
                     if (outputU >= 0)
-                        capacity_4result.setText(outputU.toString() + " V")
+                        capacity_4result.setText("%.5f".format(outputU)+ " V")
                     else
                         {Toast.makeText(context, "ошибка, U<0", Toast.LENGTH_SHORT).show()
                         isValid = false}

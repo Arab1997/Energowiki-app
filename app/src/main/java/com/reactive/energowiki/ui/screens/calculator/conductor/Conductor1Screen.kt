@@ -24,11 +24,6 @@ class Conductor1Screen : BaseFragment(R.layout.screen_conductor_1) {
     private val spinValues4 = arrayListOf<ArrayList<String>>()
 
     var resistance: Double = 0.0
-    var ro: Double = 0.0
-    var rokCoef: Double = 0.0
-    var lengthL: Double = 0.0
-    var areaS: Double = 0.0
-    var temperature: Double = 0.0
     override fun initialize() {
 
 
@@ -57,7 +52,7 @@ class Conductor1Screen : BaseFragment(R.layout.screen_conductor_1) {
             val dialog = context?.let { it1 ->
                 ConductorReport1(
                     it1,
-                    resistance.toString()+ " Oм",
+                    "%.5f".format(resistance)+ " Oм",
                     spinner_conductor_screen1_1.selectedItem.toString(),
                     input_conductor_screen1_3.text.toString()+ " мм²",
                     getLengthL(
@@ -180,7 +175,7 @@ class Conductor1Screen : BaseFragment(R.layout.screen_conductor_1) {
                 spinner_conductor_screen1_3,
                 input_conductor_screen1_2
             ) - 20))) / (input_conductor_screen1_3.text.toString().toDouble() * 1.0e-6)
-         conductor_screen1_text1.setText(resistance.toString()+ " Oм")
+         conductor_screen1_text1.setText("%.5f".format(resistance)+ " Oм")
         }
 
 
