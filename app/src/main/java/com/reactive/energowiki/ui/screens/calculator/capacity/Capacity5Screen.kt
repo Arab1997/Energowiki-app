@@ -6,8 +6,8 @@ import android.view.View
 import android.widget.*
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
+import com.reactive.energowiki.ui.dialogs.capacityReport.CapacityReport5Dialog
 import kotlinx.android.synthetic.main.bottomsheet_detail.*
-import kotlinx.android.synthetic.main.screen_capacity_4.*
 import kotlinx.android.synthetic.main.screen_capacity_5.*
 
 class Capacity5Screen : BaseFragment(R.layout.screen_capacity_5) {
@@ -17,6 +17,8 @@ class Capacity5Screen : BaseFragment(R.layout.screen_capacity_5) {
     var birlik = 0.0F
     var C = 0.0F
     var U = 0.0F
+    var Q = 0f
+    var En = 0f
 
     override fun initialize() {
         initClicks()
@@ -80,6 +82,22 @@ class Capacity5Screen : BaseFragment(R.layout.screen_capacity_5) {
 
         spinnerSelectedListener(spinner_capacity_screen5_2)
         spinnerSelectedListener(spinner_capacity_screen5_1)
+
+
+        result_bt_capacity_screen5.setOnClickListener {
+
+            val dialog = context?.let { it1 ->
+                CapacityReport5Dialog(
+                    it1,
+                    Q.toString() + " Кл",
+                    En.toString() + " Ж",
+                    U.toString() + " В",
+                    C.toString() + " Ф"
+                )
+            }
+            dialog!!.show()
+
+        }
     }
 
 
@@ -143,9 +161,9 @@ class Capacity5Screen : BaseFragment(R.layout.screen_capacity_5) {
             U = input_capacity_screen5_1.text.toString().toFloat()
             C = input_capacity_screen5_2.text.toString().toFloat()
 
-            var Q =
+            Q =
                 C * getBirlik(spinner_capacity_screen5_2) * U * getBirlik(spinner_capacity_screen5_1)
-            var E = (C * getBirlik(spinner_capacity_screen5_2) * U * getBirlik(
+            En = (C * getBirlik(spinner_capacity_screen5_2) * U * getBirlik(
                 spinner_capacity_screen5_1
             ) * U * getBirlik(spinner_capacity_screen5_1)) / 2
 
@@ -155,9 +173,9 @@ class Capacity5Screen : BaseFragment(R.layout.screen_capacity_5) {
                 Toast.makeText(context, "ошибка, Q<0", Toast.LENGTH_SHORT).show()
             }
 
-            if (E >= 0) {
+            if (En >= 0) {
 
-                capacity_screen5_result2.text = E.toString() + " Joul"
+                capacity_screen5_result2.text = En.toString() + " Joul"
             } else {
                 Toast.makeText(context, "ошибка, Q<0", Toast.LENGTH_SHORT).show()
             }

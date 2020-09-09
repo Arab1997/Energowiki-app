@@ -6,24 +6,11 @@ import android.view.View
 import android.widget.*
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
-import com.reactive.energowiki.ui.dialogs.CapacityReport2Dialog
-import com.reactive.energowiki.ui.dialogs.CapacityReport3Dialog
+import com.reactive.energowiki.ui.dialogs.capacityReport.CapacityReport3Dialog
 import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.bottomsheet_detail.*
-import kotlinx.android.synthetic.main.screen_cabel_1.*
-import kotlinx.android.synthetic.main.screen_cabel_1.input1
-import kotlinx.android.synthetic.main.screen_cabel_2.*
-import kotlinx.android.synthetic.main.screen_capacity_1.*
-import kotlinx.android.synthetic.main.screen_capacity_2.*
 import kotlinx.android.synthetic.main.screen_capacity_3.*
 import kotlinx.android.synthetic.main.screen_capacity_3.liner_2_capacity_screen3
-import kotlinx.android.synthetic.main.screen_capacity_4.*
-import kotlinx.android.synthetic.main.screen_engine_7.*
-import kotlinx.android.synthetic.main.screen_engine_7.clearBtn
-import kotlinx.android.synthetic.main.screen_engine_7.input2
-import kotlinx.android.synthetic.main.screen_engine_7.input3
-import kotlinx.android.synthetic.main.screen_engine_7.spinner1
-import kotlin.math.PI
 import kotlin.math.sqrt
 
 class Capacity3Screen : BaseFragment(R.layout.screen_capacity_3) {

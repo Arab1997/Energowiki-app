@@ -6,6 +6,7 @@ import com.reactive.energowiki.ui.adapters.CalculatorAdapter
 import com.reactive.energowiki.ui.screens.calculator.basics.*
 import com.reactive.energowiki.ui.screens.calculator.cabel.*
 import com.reactive.energowiki.ui.screens.calculator.capacity.*
+import com.reactive.energowiki.ui.screens.calculator.conductor.Conductor1Screen
 import com.reactive.energowiki.ui.screens.calculator.engine.*
 import com.reactive.energowiki.utils.extensions.toast
 import kotlinx.android.synthetic.main.fragment_calculator.*
@@ -72,6 +73,16 @@ class CalculatorFragment : BaseFragment(R.layout.fragment_calculator) {
                         8 -> addFragment(Cabel8Screen())
                         9 -> addFragment(Cabel9Screen())
                         10 -> addFragment(Cabel10Screen())
+                        else -> toast(requireContext(), "inDevelopment")
+                    }
+
+                    CalculatorMenus.CONDUCTOR -> when (it) {
+                        1 -> addFragment(Conductor1Screen())
+                      /*  2 -> addFragment(Conductor1Screen())
+                        3 -> addFragment(Conductor1Screen())
+                        4 -> addFragment(Conductor1Screen())
+                        5 -> addFragment(Conductor1Screen())
+                        6 -> addFragment(Conductor1Screen())*/
                         else -> toast(requireContext(), "inDevelopment")
                     }
                 }

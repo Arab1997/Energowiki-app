@@ -6,12 +6,9 @@ import android.view.View
 import android.widget.*
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
-import com.reactive.energowiki.utils.extensions.enable
+import com.reactive.energowiki.ui.dialogs.capacityReport.CapacityReport4Dialog
 import com.reactive.energowiki.utils.extensions.enableDisable
-import com.reactive.energowiki.utils.extensions.toastLong
 import kotlinx.android.synthetic.main.bottomsheet_detail.*
-import kotlinx.android.synthetic.main.screen_capacity_3.*
-import kotlinx.android.synthetic.main.screen_capacity_3.spinner_capacity_screen3_1
 import kotlinx.android.synthetic.main.screen_capacity_4.*
 
 class Capacity4Screen : BaseFragment(R.layout.screen_capacity_4) {
@@ -23,6 +20,7 @@ class Capacity4Screen : BaseFragment(R.layout.screen_capacity_4) {
     var outputU: Float = 0.0F
     var C1: Float = 0.0F
     var C2: Float = 0.0F
+    var isValid = true
 
 
     override fun initialize() {
@@ -185,11 +183,40 @@ class Capacity4Screen : BaseFragment(R.layout.screen_capacity_4) {
         adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner_capacity_screen4_5.adapter = adapter4
 
-
     }
 
     private fun initClicks() {
         close.setOnClickListener { finishFragment() }
+        result_bt_capacity_screen4.setOnClickListener {
+
+            when (spinner_capacity_screen4_1.selectedItemPosition){
+                0-> {
+                    if(input_capacity_screen4_1.text.toString()!=""&&input_capacity_screen4_2.text.toString()!=""&&input_capacity_screen4_3.text.toString()!=""){
+                       showDialog()
+                    }
+                    else Toast.makeText(context, "Что-то не так", Toast.LENGTH_SHORT).show()
+                }
+                1-> {
+                    if(input_capacity_screen4_2.text.toString()!=""&&input_capacity_screen4_3.text.toString()!=""&&input_capacity_screen4_4.text.toString()!=""){
+                        showDialog()
+                    }
+                    else Toast.makeText(context, "Что-то не так", Toast.LENGTH_SHORT).show()
+                }
+                2-> {
+                    if(input_capacity_screen4_1.text.toString()!=""&&input_capacity_screen4_3.text.toString()!=""&&input_capacity_screen4_4.text.toString()!=""){
+                        showDialog()
+                    }
+                    else Toast.makeText(context, "Что-то не так", Toast.LENGTH_SHORT).show()
+                }
+                3-> {
+                    if(input_capacity_screen4_1.text.toString()!=""&&input_capacity_screen4_2.text.toString()!=""&&input_capacity_screen4_4.text.toString()!=""){
+                        showDialog()
+                    }
+                    else Toast.makeText(context, "Что-то не так", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+        }
 
 
         clear_bt_capacity_screen4.setOnClickListener {
@@ -233,7 +260,8 @@ class Capacity4Screen : BaseFragment(R.layout.screen_capacity_4) {
                     if (outputU >= 0)
                         capacity_4result.setText(outputU.toString() + " V")
                     else
-                        Toast.makeText(context, "ошибка, U<0", Toast.LENGTH_SHORT).show()
+                        {Toast.makeText(context, "ошибка, U<0", Toast.LENGTH_SHORT).show()
+                        isValid = false}
 
 
                 }
@@ -255,7 +283,8 @@ class Capacity4Screen : BaseFragment(R.layout.screen_capacity_4) {
                     if (inputU >= 0)
                         capacity_4result.setText(inputU.toString() + " V")
                     else
-                        Toast.makeText(context, "ошибка, U<0", Toast.LENGTH_SHORT).show()
+                    {Toast.makeText(context, "ошибка, U<0", Toast.LENGTH_SHORT).show()
+                        isValid = false}
 
 
                 }
@@ -281,9 +310,10 @@ class Capacity4Screen : BaseFragment(R.layout.screen_capacity_4) {
 
 
                     if (C1 >= 0)
-                        capacity_4result.setText(C1.toString() + " V")
+                        capacity_4result.setText(C1.toString() + " F")
                     else
-                        Toast.makeText(context, "ошибка, U<0", Toast.LENGTH_SHORT).show()
+                    {Toast.makeText(context, "ошибка, C1 < 0", Toast.LENGTH_SHORT).show()
+                        isValid = false}
 
                 }
 
@@ -304,9 +334,10 @@ class Capacity4Screen : BaseFragment(R.layout.screen_capacity_4) {
                         spinner_capacity_screen4_5
                     )
                     if (C2 >= 0)
-                        capacity_4result.setText(C2.toString() + " V")
+                        capacity_4result.setText(C2.toString() + " F")
                     else
-                        Toast.makeText(context, "ошибка, U<0", Toast.LENGTH_SHORT).show()
+                    {Toast.makeText(context, "ошибка, C2 < 0", Toast.LENGTH_SHORT).show()
+                        isValid = false}
 
                 }
             }
@@ -364,8 +395,24 @@ class Capacity4Screen : BaseFragment(R.layout.screen_capacity_4) {
             override fun onNothingSelected(parent: AdapterView<*>) {
                 // Another interface callback
             }
+
+
+
         }
     }
 
+    fun showDialog(){
+        val dialog = context?.let { it1 ->
+            CapacityReport4Dialog(
+                it1,
+                outputU.toString() + " V",
+                inputU.toString() + " V",
+                C1.toString() + " F",
+                C2.toString() + " F"
+
+            )
+        }
+        dialog!!.show()
+    }
 
 }

@@ -6,14 +6,10 @@ import android.view.View
 import android.widget.*
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
-import com.reactive.energowiki.ui.dialogs.CapacityReport1Dialog
-import com.reactive.energowiki.ui.dialogs.CapacityReport2Dialog
+import com.reactive.energowiki.ui.dialogs.capacityReport.CapacityReport2Dialog
 import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.bottomsheet_detail.*
-import kotlinx.android.synthetic.main.screen_capacity_1.*
 import kotlinx.android.synthetic.main.screen_capacity_2.*
-import kotlinx.android.synthetic.main.screen_capacity_5.*
-import kotlinx.android.synthetic.main.screen_capacity_5.spinner_capacity_screen5_1
 import kotlin.math.log
 import kotlin.math.pow
 
@@ -92,7 +88,7 @@ class Capacity2Screen : BaseFragment(R.layout.screen_capacity_2) {
                 CapacityReport2Dialog(
                     it1,
                     input_capacity_screen2_1.text.toString() + " " + spinner_capacity_screen2_1.selectedItem,
-                    input_capacity_screen2_2.text.toString() + " " + spinner_capacity_screen2_2.selectedItem,
+                    input_capacity_screen2_2.text.toString() + " " + spinner_capacity_screen2_1.selectedItem,
                     capacity_screen2_result1.text.toString()
                 )
             }

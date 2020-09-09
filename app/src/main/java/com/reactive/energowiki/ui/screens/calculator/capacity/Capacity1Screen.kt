@@ -3,15 +3,12 @@ package com.reactive.energowiki.ui.screens.calculator.capacity
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
-import android.widget.Toast
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
-import com.reactive.energowiki.ui.dialogs.CapacityReport1Dialog
+import com.reactive.energowiki.ui.dialogs.capacityReport.CapacityReport1Dialog
 import com.reactive.energowiki.utils.extensions.enableDisable
-import kotlinx.android.synthetic.main.capacity_report_1.*
 import kotlinx.android.synthetic.main.dialog_crash.*
 import kotlinx.android.synthetic.main.screen_capacity_1.*
-import kotlinx.android.synthetic.main.screen_price.*
 import java.lang.Math.abs
 import kotlin.math.log
 import kotlin.math.pow

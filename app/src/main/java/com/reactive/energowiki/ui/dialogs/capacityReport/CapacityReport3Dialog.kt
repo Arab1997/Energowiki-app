@@ -1,8 +1,9 @@
-package com.reactive.energowiki.ui.dialogs
+package com.reactive.energowiki.ui.dialogs.capacityReport
 
 import android.content.Context
 import android.view.View
 import com.reactive.energowiki.R
+import com.reactive.energowiki.ui.dialogs.BaseDialog
 import kotlinx.android.synthetic.main.capacity_report_3.view.*
 
 class CapacityReport3Dialog(

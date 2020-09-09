@@ -9,10 +9,8 @@ import android.widget.EditText
 import android.widget.Spinner
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
+import com.reactive.energowiki.ui.dialogs.capacityReport.CapacityReport8Dialog
 import kotlinx.android.synthetic.main.bottomsheet_detail.*
-import kotlinx.android.synthetic.main.screen_capacity_1.*
-import kotlinx.android.synthetic.main.screen_capacity_2.*
-import kotlinx.android.synthetic.main.screen_capacity_2.spinner_capacity_screen2_1
 import kotlinx.android.synthetic.main.screen_capacity_8.*
 import kotlin.math.PI
 import kotlin.math.log10
@@ -55,10 +53,10 @@ class Capacity8Screen : BaseFragment(R.layout.screen_capacity_8) {
 
         spinValues2.add(
             arrayListOf(
-                "А",
-                "мА",
-                "кВт",
-                "Вт"
+                " А",
+                " мА",
+                " кВт",
+                " Вт"
             )
         )
 
@@ -83,6 +81,24 @@ class Capacity8Screen : BaseFragment(R.layout.screen_capacity_8) {
 
         spinnerSelectedListener(spinner_capacity_screen8_1)
         spinnerSelectedListener(spinner_capacity_screen8_2)
+
+        result_bt_capacity_screen8.setOnClickListener {
+
+            val dialog = context?.let { it1 ->
+                CapacityReport8Dialog(
+                    it1,
+                    capacitience.toString() + " µF",
+                    resistance.toString() + " Ω | \n$power W",
+                    getGers(spinner_capacity_screen8_1).toString()+" Гц",
+                    input_capacity_screen8_1.text.toString() + " Вольт",
+                    input_capacity_screen8_2.text.toString() + " Вольт",
+                    loadI.toString() + spinner_capacity_screen8_2.selectedItem.toString()
+
+                )
+            }
+            dialog!!.show()
+
+        }
     }
 
 

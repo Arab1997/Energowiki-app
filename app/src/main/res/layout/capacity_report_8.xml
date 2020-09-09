@@ -10,8 +10,8 @@
     <ScrollView
         android:layout_width="match_parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btn"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
@@ -22,26 +22,19 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="3dp"
-                android:text="Конденсатор для пуска"
-                android:textColor="#000" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:id="@+id/capacity_report3_text1"
-                android:padding="3dp"
+                android:text="Гасящий конденсатор"
                 android:textColor="#000" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|left"
-                android:padding="8dp"
-                android:id="@+id/capacity_report3_text2"
+                android:padding="3dp"
+                android:text="C = I / 2*π*φ * √(U² - U²н)
+\nR = 19.6 / (C * lg(0.34 * U))"
                 android:textColor="#000" />
-            <ImageView
-                android:layout_width="match_parent"
-                android:id="@+id/capacity_report3_image"
-                android:layout_height="200dp"/>
+
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -73,7 +66,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_weight="40"
                         android:padding="3dp"
-                        android:text="Рабочий"
+                        android:text="Емкость "
                         android:textColor="#000" />
 
                     <TextView
@@ -81,7 +74,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="60"
-                        android:id="@+id/capacity_report3_text3"
+                        android:id="@+id/capacity_report8_text1"
                         android:padding="3dp"
                         android:text=""
                         android:textColor="#000" />
@@ -101,7 +94,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_weight="40"
                         android:padding="3dp"
-                        android:text="Пусковой"
+                        android:text="Разрядный резистор"
                         android:textColor="#000" />
 
                     <TextView
@@ -109,41 +102,25 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="60"
-                        android:id="@+id/capacity_report3_text4"
+                        android:id="@+id/capacity_report8_text2"
                         android:padding="3dp"
                         android:text=""
                         android:textColor="#000" />
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:background="@drawable/stroke"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="100">
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="40"
-                        android:padding="3dp"
-                        android:text="Минимальное напряжение"
-                        android:textColor="#000" />
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="60"
-                        android:id="@+id/capacity_report3_text5"
-                        android:padding="3dp"
-                        android:text=""
-                        android:textColor="#000" />
+            </LinearLayout>
 
-                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:id="@+id/capacity_report3_liner"
+                android:orientation="vertical">
+
 
                 <TextView
                     android:layout_width="match_parent"
@@ -155,48 +132,11 @@
                     android:textColor="#fff"
                     android:textStyle="bold" />
 
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:orientation="vertical">
-
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:background="@drawable/stroke"
-                    android:weightSum="100">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="40"
-                        android:padding="3dp"
-                        android:text="Напражение"
-                        android:textColor="#000" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="60"
-                        android:id="@+id/capacity_report3_text6"
-                        android:padding="3dp"
-                        android:text=""
-                        android:textColor="#000" />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/stroke"
-                    android:orientation="horizontal"
                     android:weightSum="100">
 
                     <TextView
@@ -214,7 +154,35 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="60"
-                        android:id="@+id/capacity_report3_text7"
+                        android:id="@+id/capacity_report8_text3"
+                        android:padding="3dp"
+                        android:text=""
+                        android:textColor="#000" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/stroke"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="40"
+                        android:padding="3dp"
+                        android:text="Напряжение вход"
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="60"
+                        android:id="@+id/capacity_report8_text4"
                         android:padding="3dp"
                         android:text=""
                         android:textColor="#000" />
@@ -235,7 +203,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_weight="40"
                         android:padding="3dp"
-                        android:text="Ток"
+                        android:text="Напряжение выход"
                         android:textColor="#000" />
 
                     <TextView
@@ -243,148 +211,72 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="60"
-                        android:id="@+id/capacity_report3_text8"
+                        android:id="@+id/capacity_report8_text5"
                         android:padding="3dp"
                         android:text=""
                         android:textColor="#000" />
 
                 </LinearLayout>
+                <LinearLayout
+                    android:background="@drawable/stroke"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
 
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="40"
+                        android:padding="3dp"
+                        android:text="Нагрузка"
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="60"
+                        android:id="@+id/capacity_report8_text6"
+                        android:padding="3dp"
+                        android:text=""
+                        android:textColor="#000" />
+
+                </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:id="@+id/capacity_report3_liner"
-                android:orientation="vertical">
-
+                android:id="@+id/btn"
+                android:weightSum="100"
+                android:padding="8dp"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="?actionBarSize"
-                    android:background="#4BAF4F"
-                    android:gravity="center|left"
-                    android:padding="4dp"
-                    android:text="Данные трефхазного двигателя "
-                    android:textColor="#fff"
-                    android:textStyle="bold" />
+                    android:layout_width="0dp"
+                    android:layout_weight="70"
+                    android:layout_height="44dp"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+
+
+                <Button
+                    android:id="@+id/capacity_report8_close"
+                    android:layout_width="0dp"
+                    android:padding="8dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:background="@drawable/stroke"
-                    android:weightSum="100">
+                    android:layout_weight="30"
+                    android:background="@drawable/rounded_green_cart"
+                    android:gravity="center"
+                    android:text="Ok"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="40"
-                        android:padding="3dp"
-                        android:text="Трефхазное напражение"
-                        android:textColor="#000" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="60"
-                        android:id="@+id/capacity_report3_text9"
-                        android:padding="3dp"
-                        android:text=""
-                        android:textColor="#000" />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/stroke"
-                    android:orientation="horizontal"
-                    android:weightSum="100">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="40"
-                        android:padding="3dp"
-                        android:text="cos(φ)"
-                        android:textColor="#000" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="60"
-                        android:id="@+id/capacity_report3_text10"
-                        android:padding="3dp"
-                        android:text=""
-                        android:textColor="#000" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:background="@drawable/stroke"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="100">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="40"
-                        android:padding="3dp"
-                        android:text="Кпд"
-                        android:textColor="#000" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="60"
-                        android:id="@+id/capacity_report3_text11"
-                        android:padding="3dp"
-                        android:text=""
-                        android:textColor="#000" />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:background="@drawable/stroke"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="100">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="40"
-                        android:padding="3dp"
-                        android:text="Мошность двигателя "
-                        android:textColor="#000" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="60"
-                        android:id="@+id/capacity_report3_text12"
-                        android:padding="3dp"
-                        android:text=""
-                        android:textColor="#000" />
-
-                </LinearLayout>
             </LinearLayout>
-
-
         </LinearLayout>
 
 
@@ -393,38 +285,7 @@
 
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:id="@+id/btn"
-        android:weightSum="100"
-        android:padding="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="70"
-            android:layout_height="44dp"/>
-
-
-
-        <Button
-            android:id="@+id/capacity_report3_close"
-            android:layout_width="0dp"
-            android:padding="8dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="30"
-            android:background="@drawable/rounded_green_cart"
-            android:gravity="center"
-            android:text="Ok"
-            android:textStyle="bold"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="14sp" />
-
-    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
