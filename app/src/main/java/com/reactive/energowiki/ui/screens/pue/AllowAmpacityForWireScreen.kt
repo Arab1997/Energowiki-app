@@ -9,18 +9,18 @@ import android.widget.ArrayAdapter
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import kotlinx.android.synthetic.main.content_header.*
-import kotlinx.android.synthetic.main.allowable_ampacity_for_wire_screen.clearBtn
-import kotlinx.android.synthetic.main.allowable_ampacity_for_wire_screen.input2
-import kotlinx.android.synthetic.main.allowable_ampacity_for_wire_screen.input4
-import kotlinx.android.synthetic.main.allowable_ampacity_for_wire_screen.result
-import kotlinx.android.synthetic.main.allowable_ampacity_for_wire_screen.resultBtn
-import kotlinx.android.synthetic.main.allowable_ampacity_for_wire_screen.spinner1
-import kotlinx.android.synthetic.main.allowable_ampacity_for_wire_screen.spinner2
-import kotlinx.android.synthetic.main.allowable_ampacity_for_wire_screen.spinner3
-import kotlinx.android.synthetic.main.allowable_ampacity_for_wire_screen.spinner4
+import kotlinx.android.synthetic.main.allow_ampacity_for_wire_screen.clearBtn
+import kotlinx.android.synthetic.main.allow_ampacity_for_wire_screen.input2
+import kotlinx.android.synthetic.main.allow_ampacity_for_wire_screen.input4
+import kotlinx.android.synthetic.main.allow_ampacity_for_wire_screen.result
+import kotlinx.android.synthetic.main.allow_ampacity_for_wire_screen.resultBtn
+import kotlinx.android.synthetic.main.allow_ampacity_for_wire_screen.spinner1
+import kotlinx.android.synthetic.main.allow_ampacity_for_wire_screen.spinner2
+import kotlinx.android.synthetic.main.allow_ampacity_for_wire_screen.spinner3
+import kotlinx.android.synthetic.main.allow_ampacity_for_wire_screen.spinner4
 import kotlin.math.pow
 
-class AllowAmpacitForWireScreen: BaseFragment(R.layout.allowable_ampacity_for_wire_screen){
+class AllowAmpacityForWireScreen: BaseFragment(R.layout.allow_ampacity_for_wire_screen){
 
     private val spinValues = arrayListOf<ArrayList<String>>()
     private var koef1 :Double =  0.015995

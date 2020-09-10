@@ -33,7 +33,8 @@ class PueFragment : BaseFragment(R.layout.fragment_pue) {
             ) {
                 when (data.type) {
                     PueMenus.BASICS -> when (it) {
-                        1 -> addFragment(AllowAmpacitForWireScreen())
+                        //1 -> addFragment(AllowAmpacityForWireScreen())
+                        1 -> addFragment(Screen1())
                         2 -> addFragment(WireSizeScreen())
                         3 -> addFragment(MotorProtectionScreen())
                         4 -> addFragment(MaxCirCondLengthScreen())
