@@ -12,6 +12,7 @@ import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.dialogs.conductorReport.ConductorReport5
 import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.bottomsheet_detail.*
+import kotlinx.android.synthetic.main.screen_conductor_1.*
 import kotlinx.android.synthetic.main.screen_conductor_5.*
 
 class Conductor5Screen: BaseFragment(R.layout.screen_conductor_5){
@@ -54,7 +55,7 @@ class Conductor5Screen: BaseFragment(R.layout.screen_conductor_5){
                     it1,
                     "%.4f".format(ro)+ " Ω*мм²/м",
                     "%.4f".format(sigma)+ " См*м/мм²",
-                    input_conductor_screen5_3.text.toString() + " мм²",
+                    input_conductor_screen5_3.text.toString()+ " " +spinner_conductor_screen5_3.selectedItem.toString(),
                     (getResistanceOm(spinner_conductor_screen5_1,input_conductor_screen5_1)).toString()+ " Ω",
                     (getLengthL(
                         spinner_conductor_screen5_2,
@@ -102,14 +103,14 @@ class Conductor5Screen: BaseFragment(R.layout.screen_conductor_5){
 
         spinValues2.add(
             arrayListOf(
-                "пОм",
-                "нОм",
-                "мкОм",
-                "мОм",
-                "Ом",
-                "кОм",
-                "МОм",
-                "ГОм"
+                "пΩ",
+                "нΩ",
+                "мкΩ",
+                "мΩ",
+                "Ω",
+                "кΩ",
+                "МΩ",
+                "ГΩ"
             )
         )
 
@@ -126,6 +127,7 @@ class Conductor5Screen: BaseFragment(R.layout.screen_conductor_5){
         spinValues4.add(
             arrayListOf(
                 "мм²"
+            ,"kcmil"
             )
         )
 
@@ -144,7 +146,7 @@ class Conductor5Screen: BaseFragment(R.layout.screen_conductor_5){
             ro = (getResistanceOm(
                 spinner_conductor_screen5_1,
                 input_conductor_screen5_1
-            ))*(input_conductor_screen5_3.text.toString().toDouble())/getLengthL(spinner_conductor_screen5_2,input_conductor_screen5_2)
+            ))*(getMM(spinner_conductor_screen5_3,input_conductor_screen5_3))/getLengthL(spinner_conductor_screen5_2,input_conductor_screen5_2)
           sigma = 1/ro
             conductor_screen5_text1.setText("%.4f".format(ro)+ " Ω*мм²/м")
             conductor_screen5_text2.setText("%.4f".format(sigma)+ " См*м/мм²")
@@ -153,6 +155,19 @@ class Conductor5Screen: BaseFragment(R.layout.screen_conductor_5){
 
 
 
+    }
+
+    private fun getMM(spinner: Spinner, editText: EditText): Double {
+        var temp: Double = 0.0
+        when (spinner.selectedItemPosition) {
+            0 -> {
+                temp = editText.text.toString().toDouble()
+            }
+            1 -> {
+                temp = ((editText.text.toString().toDouble()) * 0.5067)
+            }
+        }
+        return temp
     }
 
     private fun TextChanged(editText: EditText) {

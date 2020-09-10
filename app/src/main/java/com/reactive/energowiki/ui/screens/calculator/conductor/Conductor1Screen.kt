@@ -52,9 +52,9 @@ class Conductor1Screen : BaseFragment(R.layout.screen_conductor_1) {
             val dialog = context?.let { it1 ->
                 ConductorReport1(
                     it1,
-                    "%.5f".format(resistance)+ " Oм",
+                    "%.5f".format(resistance)+ " Ω",
                     spinner_conductor_screen1_1.selectedItem.toString(),
-                    input_conductor_screen1_3.text.toString()+ " мм²",
+                    getMM(spinner_conductor_screen1_4,input_conductor_screen1_3).toString()+ " м²",
                     getLengthL(
                         spinner_conductor_screen1_2,
                         input_conductor_screen1_1
@@ -152,7 +152,8 @@ class Conductor1Screen : BaseFragment(R.layout.screen_conductor_1) {
 
         spinValues4.add(
             arrayListOf(
-                "мм²"
+                "мм²",
+                "kcmil"
             )
         )
 
@@ -174,8 +175,10 @@ class Conductor1Screen : BaseFragment(R.layout.screen_conductor_1) {
             ) * materialData.ro20 * (1 + materialData.alfa * (getCelciumTemperature(
                 spinner_conductor_screen1_3,
                 input_conductor_screen1_2
-            ) - 20))) / (input_conductor_screen1_3.text.toString().toDouble() * 1.0e-6)
-         conductor_screen1_text1.setText("%.5f".format(resistance)+ " Oм")
+            ) - 20))) / (getMM(spinner_conductor_screen1_4,input_conductor_screen1_3))
+
+
+         conductor_screen1_text1.setText("%.5f".format(resistance)+ " Ω")
         }
 
 
@@ -229,12 +232,12 @@ class Conductor1Screen : BaseFragment(R.layout.screen_conductor_1) {
 
         when (spinner.selectedItemPosition) {
             0 -> { //"Медь"  Copper
-                t = 1.67 * 1.0e-8
-                alfa = 0.004041
+                t = 1.78 * 1.0e-8
+                alfa = 0.005700
             }
             1 -> { //"Алюминий",ok Alumin
-                t = 2.65 * 1.0e-8
-                alfa = 0.004308
+                t = 2.9 * 1.0e-8
+                alfa = 0.00348
             }
             2 -> { //"Никелин",ok Nickeline
                 t = 50 * 1.0e-8
@@ -245,37 +248,37 @@ class Conductor1Screen : BaseFragment(R.layout.screen_conductor_1) {
                 alfa = 0.004403
             }
             4 -> {// "Серебро",ok Silver
-                t = 1.59 * 1.0e-8
-                alfa = 0.003819
+                t = 1.65 * 1.0e-8
+                alfa = 0.00625
             }
             5 -> { //"Железо",ok Iron
-                t = 9.71 * 1.0e-8
-                alfa = 0.005671
+                t = 130 * 1.0e-8
+                alfa = 0.00075
             }
             6 -> { //"Сталь",ok Steel
                 t = 1.6 * 1.0e-7
                 alfa = 0.003
             }
             7 -> {// "Константан",ok Constantan
-                t = 4.90 * 1.0e-7
-                alfa = 0.000005
+                t = 50 * 1.0e-7
+                alfa = 0.0002
             }
             8 -> {//"Нихром",ok Nichrome
                 t = 1.05 * 1.0e-8
                 alfa = 0.00017
             }
             9 -> {// "Латунь", Brass
-                t = 0.8 * 1.0e-7
-                alfa = 1.0e-4
+                t = 0.75 * 1.0e-7
+                alfa = 0.001335
             }
             10 -> {//"Золото",ok  Gold
                 t = 2.44 * 1.0e-8
-                alfa = 0.003715
+                alfa = 0.00416
             }
             11 -> {//"Платина",ok  Platinum
-                t = 1.06 * 1.0e-7
+                t = 10 * 1.0e-7
                 alfa =
-                    0.003729
+                    0.0010
             }
             12 -> { //"Фехраль",ok  Fechral
                 t = 1.39 * 1.0e-6
@@ -287,11 +290,11 @@ class Conductor1Screen : BaseFragment(R.layout.screen_conductor_1) {
             }
             14 -> {//"Цинк",ok Zinc
                 t = 5.90 * 1.0e-8
-                alfa = 0.003847
+                alfa = 0.00169
             }
             15 -> { //"Никель"ok///Nickel
-                t = 6.84 * 1.0e-8
-                alfa = 0.0065
+                t = 7 * 1.0e-8
+                alfa = 0.00143
             }
         }
 
@@ -328,6 +331,19 @@ class Conductor1Screen : BaseFragment(R.layout.screen_conductor_1) {
             }
             1 -> {
                 temp = ((editText.text.toString().toDouble() - 32) * 5) / 9
+            }
+        }
+        return temp
+    }
+
+    private fun getMM(spinner: Spinner, editText: EditText): Double {
+        var temp: Double = 0.0
+        when (spinner.selectedItemPosition) {
+            0 -> {
+                temp = editText.text.toString().toDouble()* 1.0e-6
+            }
+            1 -> {
+                temp = ((editText.text.toString().toDouble()) * 0.5067* 1.0e-6)
             }
         }
         return temp
