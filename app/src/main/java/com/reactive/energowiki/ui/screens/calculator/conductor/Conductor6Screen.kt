@@ -12,12 +12,9 @@ import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.dialogs.conductorReport.ConductorReport6
 import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.bottomsheet_detail.*
-import kotlinx.android.synthetic.main.screen_conductor_1.*
-import kotlinx.android.synthetic.main.screen_conductor_2.*
 import kotlinx.android.synthetic.main.screen_conductor_6.*
 
 class Conductor6Screen : BaseFragment(R.layout.screen_conductor_6) {
-
     private val spinValues1 = arrayListOf<ArrayList<String>>()
     private val spinValues2 = arrayListOf<ArrayList<String>>()
     private val spinValues3 = arrayListOf<ArrayList<String>>()
@@ -38,7 +35,7 @@ class Conductor6Screen : BaseFragment(R.layout.screen_conductor_6) {
         input_conductor_screen6_1.text?.clear()
         input_conductor_screen6_2.text?.clear()
         input_conductor_screen6_3.text?.clear()
-        input_conductor_screen6_4.text?.clear()
+            // input_conductor_screen6_4.text?.clear()
         input_conductor_screen6_5.text?.clear()
         conductor_screen6_text1.setText("")
     }
@@ -51,6 +48,10 @@ class Conductor6Screen : BaseFragment(R.layout.screen_conductor_6) {
         clear_bt_conductor_screen6.setOnClickListener {
             clear()
         }
+
+        input_conductor_screen6_4.setText("4")
+
+
 
 
         result_bt_conductor_screen6.setOnClickListener {
