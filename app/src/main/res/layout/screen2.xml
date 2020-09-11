@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/screenStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F4F4"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:ignore="HardcodedText">
+
+    <include layout="@layout/content_header" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F4F4F4"
+        android:padding="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F4F4F4"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="40"
+                    android:text="Сечение"
+                    android:textColor="#000"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/conductor_text1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="60"
+                    android:text="2 x400 мм²| 31 °C"
+                    android:textColor="#2196F3"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:padding="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F4F4F4"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:weightSum="100">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_weight="50"
+                    android:background="@drawable/spinner_back">
+
+                    <Spinner
+                        android:id="@+id/spinner_screen1_1"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="4dp"
+                        android:layout_weight="60"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:tooltipText="dddd"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:background="@drawable/spinner_back">
+
+                    <Spinner
+                        android:id="@+id/spinner_screen1_2"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="4dp"
+                        android:layout_weight="60"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:tooltipText="dddd"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F4F4F4"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:weightSum="100">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="60"
+                    android:background="@drawable/spinner_back">
+
+                    <Spinner
+                        android:id="@+id/spinner_screen1_3"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="60"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:tooltipText="dddd" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/liner_1_screen4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="40"
+                    android:text="Температура среды"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="60"
+                    android:background="@drawable/spinner_back">
+
+                    <Spinner
+                        android:id="@+id/spinner_screen1_4"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="4dp"
+                        android:layout_weight="30"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:tooltipText="dddd"
+                        tools:ignore="NestedWeights" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="60"
+                    android:text="Количество проводников"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="40"
+                    android:background="@drawable/spinner_back">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_screen1_1"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="10"
+                        android:background="@drawable/back_of_input"
+                        android:inputType="number"
+                        android:lines="1"
+                        android:outlineSpotShadowColor="#fff"
+                        android:padding="4dp"
+                        android:textColor="#000"
+                        android:textColorHint="#000"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="60"
+                    android:text="Коэффициент мощности"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="40"
+                    android:background="@drawable/spinner_back">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_screen1_2"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="10"
+                        android:background="@drawable/back_of_input"
+                        android:inputType="number"
+                        android:lines="1"
+                        android:outlineSpotShadowColor="#fff"
+                        android:padding="4dp"
+                        android:textColor="#000"
+                        android:textColorHint="#000"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="40"
+                    android:text="Длина"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_screen1_3"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="25"
+                    android:background="@drawable/back_of_input"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:outlineSpotShadowColor="#fff"
+                    android:padding="4dp"
+                    android:textColor="#000"
+                    android:textColorHint="#000"
+                    android:textSize="14sp" />
+
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="30"
+                    android:background="@drawable/spinner_back">
+
+                    <Spinner
+                        android:id="@+id/spinner_conductor_screen1_5"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="30"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:tooltipText="dddd" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="40"
+                    android:text="Напряжение"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_screen1_4"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="25"
+                    android:background="@drawable/back_of_input"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:outlineSpotShadowColor="#fff"
+                    android:padding="4dp"
+                    android:textColor="#000"
+                    android:textColorHint="#000"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="40">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="25"
+                        android:gravity="center"
+                        android:text="Вольт"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="40"
+                    android:text="Капля"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_screen1_5"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="25"
+                    android:background="@drawable/back_of_input"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:outlineSpotShadowColor="#fff"
+                    android:padding="4dp"
+                    android:textColor="#000"
+                    android:textColorHint="#000"
+                    android:textSize="14sp" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="30"
+                    android:background="@drawable/spinner_back">
+
+                    <Spinner
+                        android:id="@+id/spinner_conductor_screen1_6"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="30"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:tooltipText="dddd" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:weightSum="100">
+
+                <RadioButton
+                    android:id="@+id/radiobt_capacity_screen3_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="40"
+                    android:checked="true"
+                    android:text="і Ток"
+                    android:textSize="14dp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_screen1_6"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="25"
+                    android:background="@drawable/back_of_input"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:outlineSpotShadowColor="#fff"
+                    android:padding="4dp"
+                    android:textColor="#000"
+                    android:textColorHint="#000"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="40">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="35"
+                        android:gravity="center"
+                        android:text="Ампер"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:weightSum="100">
+
+                <RadioButton
+                    android:id="@+id/radiobt_screen3_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="40"
+                    android:text="і Мошность"
+                    android:textSize="14dp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_screen1_7"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="25"
+                    android:background="@drawable/back_of_input"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:outlineSpotShadowColor="#fff"
+                    android:padding="4dp"
+                    android:textColor="#000"
+                    android:textColorHint="#000"
+                    android:textSize="14dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="35">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="20"
+                        android:gravity="center"
+                        android:text="кВт"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="60"
+                    android:text="Свой поправочный коэффициент"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="40"
+                    android:background="@drawable/spinner_back">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_screen1_8"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="10"
+                        android:background="@drawable/back_of_input"
+                        android:inputType="number"
+                        android:lines="1"
+                        android:outlineSpotShadowColor="#fff"
+                        android:padding="4dp"
+                        android:textColor="#000"
+                        android:textColorHint="#000"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="40"
+                    android:text="Рассмотрим автоматический выключатель"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/liner_1_rezerv_screen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="40"
+                    android:text="Запас по току"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_screen1_9"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="25"
+                    android:background="@drawable/back_of_input"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:outlineSpotShadowColor="#fff"
+                    android:padding="4dp"
+                    android:textColor="#000"
+                    android:textColorHint="#000"
+                    android:textSize="14sp" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="30">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="30"
+                        android:gravity="center"
+                        android:text="%"
+                        android:textSize="14sp"
+                        android:tooltipText="dddd" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/checkbox_conductor_screen1_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Стандарт"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                tools:ignore="RtlHardcoded">
+
+                <Button
+                    android:id="@+id/clear_btn_screen1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/rounded_yellow_cart"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="Сброс"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/result_btn_screen1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_green_cart"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="Отчёт"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

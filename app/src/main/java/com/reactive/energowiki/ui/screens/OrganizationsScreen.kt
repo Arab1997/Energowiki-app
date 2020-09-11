@@ -1,5 +1,8 @@
 package com.reactive.energowiki.ui.screens
 
+import android.os.Parcelable
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.reactive.energowiki.R

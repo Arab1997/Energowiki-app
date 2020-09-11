@@ -3,9 +3,7 @@ package com.reactive.energowiki.ui.dialogs.pueReports
 import android.content.Context
 import com.reactive.energowiki.R
 import com.reactive.energowiki.ui.dialogs.BaseDialog
-import kotlinx.android.synthetic.main.capacity_report_8.view.*
 import kotlinx.android.synthetic.main.conductor_report_1.view.*
-import kotlinx.android.synthetic.main.screen_conductor_1.view.*
 
 class PueReport1(
     context: Context,

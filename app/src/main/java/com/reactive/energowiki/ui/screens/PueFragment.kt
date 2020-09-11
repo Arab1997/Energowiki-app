@@ -35,7 +35,8 @@ class PueFragment : BaseFragment(R.layout.fragment_pue) {
                     PueMenus.BASICS -> when (it) {
                         //1 -> addFragment(AllowAmpacityForWireScreen())
                         1 -> addFragment(Screen1())
-                        2 -> addFragment(WireSizeScreen())
+                       // 2 -> addFragment(WireSizeScreen())
+                        2 -> addFragment(Screen2())
                         3 -> addFragment(MotorProtectionScreen())
                         4 -> addFragment(MaxCirCondLengthScreen())
                         5 -> addFragment(MaxCirAmpacityScreen())

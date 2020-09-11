@@ -9,11 +9,9 @@ import android.widget.EditText
 import android.widget.Spinner
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
-import com.reactive.energowiki.ui.dialogs.capacityReport.CapacityReport8Dialog
 import com.reactive.energowiki.ui.dialogs.conductorReport.ConductorReport1
 import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.bottomsheet_detail.*
-import kotlinx.android.synthetic.main.screen_capacity_8.*
 import kotlinx.android.synthetic.main.screen_conductor_1.*
 
 class Conductor1Screen : BaseFragment(R.layout.screen_conductor_1) {
@@ -33,35 +31,35 @@ class Conductor1Screen : BaseFragment(R.layout.screen_conductor_1) {
     }
 
     private fun clear(){
-        input_conductor_screen1_1.text?.clear()
-        input_conductor_screen1_2.text?.clear()
-        input_conductor_screen1_3.text?.clear()
-        conductor_screen1_text1.setText("")
+        input_screen1_1.text?.clear()
+        input_screen1_2.text?.clear()
+        input_screen1_3.text?.clear()
+        conductor_text1.setText("")
     }
     private fun initClicks() {
 
         close.setOnClickListener { finishFragment() }
-        result_bt_conductor_screen1.enableDisable(false)
+        result_btn_screen1.enableDisable(false)
 
         clear_bt_conductor_screen1.setOnClickListener {
         clear()
         }
 
 
-        result_bt_conductor_screen1.setOnClickListener {
+        result_btn_screen1.setOnClickListener {
             val dialog = context?.let { it1 ->
                 ConductorReport1(
                     it1,
                     "%.5f".format(resistance)+ " Ω",
-                    spinner_conductor_screen1_1.selectedItem.toString(),
-                    getMM(spinner_conductor_screen1_4,input_conductor_screen1_3).toString()+ " м²",
+                    spinner_screen1_1.selectedItem.toString(),
+                    getMM(spinner_screen1_4,input_screen1_3).toString()+ " м²",
                     getLengthL(
-                        spinner_conductor_screen1_2,
-                        input_conductor_screen1_1
+                        spinner_screen1_2,
+                        input_screen1_1
                     ).toString()+" м" ,
                     getCelciumTemperature(
-                        spinner_conductor_screen1_3,
-                        input_conductor_screen1_2
+                        spinner_screen1_3,
+                        input_screen1_2
                     ).toString()+" °C"
                 )
             }
@@ -69,14 +67,14 @@ class Conductor1Screen : BaseFragment(R.layout.screen_conductor_1) {
         }
 
 
-        TextChanged(input_conductor_screen1_1)
-        TextChanged(input_conductor_screen1_2)
-        TextChanged(input_conductor_screen1_3)
+        TextChanged(input_screen1_1)
+        TextChanged(input_screen1_2)
+        TextChanged(input_screen1_3)
 
-        spinnerSelectedListener(spinner_conductor_screen1_1)
-        spinnerSelectedListener(spinner_conductor_screen1_2)
-        spinnerSelectedListener(spinner_conductor_screen1_3)
-        spinnerSelectedListener(spinner_conductor_screen1_4)
+        spinnerSelectedListener(spinner_screen1_1)
+        spinnerSelectedListener(spinner_screen1_2)
+        spinnerSelectedListener(spinner_screen1_3)
+        spinnerSelectedListener(spinner_screen1_4)
 
 
     }
@@ -110,7 +108,7 @@ class Conductor1Screen : BaseFragment(R.layout.screen_conductor_1) {
         val adapter1: ArrayAdapter<String> =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues1[0])
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_conductor_screen1_1.adapter = adapter1
+        spinner_screen1_1.adapter = adapter1
 
 
         //spinner 2 set
@@ -130,7 +128,7 @@ class Conductor1Screen : BaseFragment(R.layout.screen_conductor_1) {
         val adapter2: ArrayAdapter<String> =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues2[0])
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_conductor_screen1_2.adapter = adapter2
+        spinner_screen1_2.adapter = adapter2
 
 
         //spinner 3 set
@@ -145,7 +143,7 @@ class Conductor1Screen : BaseFragment(R.layout.screen_conductor_1) {
         val adapter3: ArrayAdapter<String> =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues3[0])
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_conductor_screen1_3.adapter = adapter3
+        spinner_screen1_3.adapter = adapter3
 
 
         //spinner 3 set
@@ -160,25 +158,25 @@ class Conductor1Screen : BaseFragment(R.layout.screen_conductor_1) {
         val adapter4: ArrayAdapter<String> =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues4[0])
         adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_conductor_screen1_4.adapter = adapter4
+        spinner_screen1_4.adapter = adapter4
 
     }
 
 
     private fun calculation() {
 
-        if (input_conductor_screen1_1.text.toString() != "" && input_conductor_screen1_2.text.toString() != "" && input_conductor_screen1_3.text.toString() != "") {
-            var materialData = getMaterialValue(spinner_conductor_screen1_1)
+        if (input_screen1_1.text.toString() != "" && input_screen1_2.text.toString() != "" && input_screen1_3.text.toString() != "") {
+            var materialData = getMaterialValue(spinner_screen1_1)
             resistance = (getLengthL(
-                spinner_conductor_screen1_2,
-                input_conductor_screen1_1
+                spinner_screen1_2,
+                input_screen1_1
             ) * materialData.ro20 * (1 + materialData.alfa * (getCelciumTemperature(
-                spinner_conductor_screen1_3,
-                input_conductor_screen1_2
-            ) - 20))) / (getMM(spinner_conductor_screen1_4,input_conductor_screen1_3))
+                spinner_screen1_3,
+                input_screen1_2
+            ) - 20))) / (getMM(spinner_screen1_4,input_screen1_3))
 
 
-         conductor_screen1_text1.setText("%.5f".format(resistance)+ " Ω")
+         conductor_text1.setText("%.5f".format(resistance)+ " Ω")
         }
 
 
@@ -198,10 +196,10 @@ class Conductor1Screen : BaseFragment(R.layout.screen_conductor_1) {
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 calculation()
-                if (input_conductor_screen1_1.text.toString() == "" || input_conductor_screen1_2.text.toString() == "" || input_conductor_screen1_3.text.toString() == "") {
-                    conductor_screen1_text1.setText("")
-                    result_bt_conductor_screen1.enableDisable(false)
-                } else result_bt_conductor_screen1.enableDisable(true)
+                if (input_screen1_1.text.toString() == "" || input_screen1_2.text.toString() == "" || input_screen1_3.text.toString() == "") {
+                    conductor_text1.setText("")
+                    result_btn_screen1.enableDisable(false)
+                } else result_btn_screen1.enableDisable(true)
             }
         })
     }
