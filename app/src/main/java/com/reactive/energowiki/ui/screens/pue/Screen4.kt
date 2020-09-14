@@ -9,27 +9,28 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
+import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.content_header.*
-import kotlinx.android.synthetic.main.screen_max_ampacity.*
-import kotlinx.android.synthetic.main.screen_max_ampacity.clearBtn
-import kotlinx.android.synthetic.main.screen_max_ampacity.input1
-import kotlinx.android.synthetic.main.screen_max_ampacity.input2
-import kotlinx.android.synthetic.main.screen_max_ampacity.input3
-import kotlinx.android.synthetic.main.screen_max_ampacity.input4
-import kotlinx.android.synthetic.main.screen_max_ampacity.input5
-import kotlinx.android.synthetic.main.screen_max_ampacity.input6
-import kotlinx.android.synthetic.main.screen_max_ampacity.result
-import kotlinx.android.synthetic.main.screen_max_ampacity.resultBtn
-import kotlinx.android.synthetic.main.screen_max_ampacity.spinner1
-import kotlinx.android.synthetic.main.screen_max_ampacity.spinner2
-import kotlinx.android.synthetic.main.screen_max_ampacity.spinner3
-import kotlinx.android.synthetic.main.screen_max_ampacity.spinner4
-import kotlinx.android.synthetic.main.screen_max_ampacity.spinner5
-import kotlinx.android.synthetic.main.screen_max_ampacity.spinner6
-import kotlinx.android.synthetic.main.screen_max_ampacity.*
+import kotlinx.android.synthetic.main.screen_4_pue.clearBtn
+import kotlinx.android.synthetic.main.screen_4_pue.input1
+import kotlinx.android.synthetic.main.screen_4_pue.input2
+import kotlinx.android.synthetic.main.screen_4_pue.input3
+import kotlinx.android.synthetic.main.screen_4_pue.input4
+import kotlinx.android.synthetic.main.screen_4_pue.input5
+import kotlinx.android.synthetic.main.screen_4_pue.input6
+import kotlinx.android.synthetic.main.screen_4_pue.input7
+import kotlinx.android.synthetic.main.screen_4_pue.result
+import kotlinx.android.synthetic.main.screen_4_pue.resultBtn
+import kotlinx.android.synthetic.main.screen_4_pue.spinner1
+import kotlinx.android.synthetic.main.screen_4_pue.spinner2
+import kotlinx.android.synthetic.main.screen_4_pue.spinner3
+import kotlinx.android.synthetic.main.screen_4_pue.spinner4
+import kotlinx.android.synthetic.main.screen_4_pue.spinner5
+import kotlinx.android.synthetic.main.screen_4_pue.spinner6
+import kotlinx.android.synthetic.main.screen_4_pue.*
 import kotlin.math.pow
 
-class MaxCirAmpacityScreen : BaseFragment(R.layout.screen_max_ampacity) {
+class Screen4 : BaseFragment(R.layout.screen_4_pue) {
     private val spinValues = arrayListOf<ArrayList<String>>()
     private var koef1: Double = 10.0.pow(-12.0)
     private var koef2: Double = 10.0.pow(-12.0)
@@ -74,24 +75,8 @@ class MaxCirAmpacityScreen : BaseFragment(R.layout.screen_max_ampacity) {
 
         spinValues.add(
             arrayListOf(
-                "m",
-                "ft"
-
-            )
-        )
-
-        spinValues.add(
-            arrayListOf(
-                "%",
-                "V"
-
-            )
-        )
-
-        spinValues.add(
-            arrayListOf(
                 "auto",
-                "- 5 °C|23 °Ф",
+                "- 5 °C |23 °Ф",
                 " 0 °C | 32 °Ф",
                 " 5 °C |41 °Ф",
                 "10 °C |50 °Ф",
@@ -103,6 +88,14 @@ class MaxCirAmpacityScreen : BaseFragment(R.layout.screen_max_ampacity) {
                 "40 °C |104 °Ф",
                 "45 °C |113 °Ф",
                 "50 °C |122 °Ф"
+            )
+        )
+
+        spinValues.add(
+            arrayListOf(
+                "%",
+                "V"
+
             )
         )
 
@@ -135,7 +128,6 @@ class MaxCirAmpacityScreen : BaseFragment(R.layout.screen_max_ampacity) {
         )
 
 
-
         val aa1: ArrayAdapter<String> =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[0])
         aa1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -161,12 +153,6 @@ class MaxCirAmpacityScreen : BaseFragment(R.layout.screen_max_ampacity) {
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[5])
         aa6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner6.adapter = aa6
-
-        val aa7: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[6])
-        aa7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner7.adapter = aa7
-
 
         spinner1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -252,6 +238,17 @@ class MaxCirAmpacityScreen : BaseFragment(R.layout.screen_max_ampacity) {
                 koef4 *= when (position) {
                     0 -> 10.0.pow(-12.0)
                     1 -> 10.0.pow(-9.0)
+                    2 -> 10.0.pow(-6.0)
+                    3 -> 10.0.pow(-3.0)
+                    4 -> 1.0
+                    5 -> 10.0.pow(3)
+                    6 -> 10.0.pow(6)
+                    7 -> 10.0.pow(9)
+                    8 -> 10.0.pow(9)
+                    9 -> 10.0.pow(9)
+                    10 -> 10.0.pow(9)
+                    11 -> 10.0.pow(9)
+                    12 -> 10.0.pow(9)
                     else -> 10.0.pow(-12.0)
                 }
                 initCalculation()
@@ -303,37 +300,6 @@ class MaxCirAmpacityScreen : BaseFragment(R.layout.screen_max_ampacity) {
                     10 -> 10.0.pow(-9.0)
                     11 -> 10.0.pow(-9.0)
                     12 -> 10.0.pow(-9.0)
-                    else -> 10.0.pow(-12.0)
-                }
-                initCalculation()
-            }
-        }
-
-        spinner7.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
-
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                koef4 = 1.0
-                koef4 *= when (position) {
-                    0 -> 10.0.pow(-12.0)
-                    1 -> 10.0.pow(-9.0)
-                    2 -> 10.0.pow(-9.0)
-                    3 -> 10.0.pow(-9.0)
-                    4 -> 10.0.pow(-9.0)
-                    5 -> 10.0.pow(-9.0)
-                    6 -> 10.0.pow(-9.0)
-                    7 -> 10.0.pow(-9.0)
-                    8 -> 10.0.pow(-9.0)
-                    9 -> 10.0.pow(-9.0)
-                    10 -> 10.0.pow(-9.0)
-                    11 -> 10.0.pow(-9.0)
-                    12 -> 10.0.pow(-9.0)
                     13 -> 10.0.pow(-9.0)
                     14 -> 10.0.pow(-9.0)
                     15 -> 10.0.pow(-9.0)
@@ -349,29 +315,52 @@ class MaxCirAmpacityScreen : BaseFragment(R.layout.screen_max_ampacity) {
                 initCalculation()
             }
         }
+
     }
 
     private fun initViews() {
-        header.text = "Максимальная нагрузка"
+        header.text = "Максимальная длина"
     }
 
     private fun initClicks() {
+        input1.setText("0.8586")
+        input2.setText("3")
+        input3.setText("4")
+        input4.setText("10")
+        input5.setText("9.9991")
+        input6.setText("0.1487")
+        input7.setText("1")
+
 
         close.setOnClickListener { finishFragment() }
 
         clearBtn.setOnClickListener {
-            input1.text?.clear()
-            input2.text?.clear()
-            input3.text?.clear()
+
             input4.text?.clear()
             input5.text?.clear()
             input6.text?.clear()
+
         }
 
         resultBtn.setOnClickListener {
             Toast.makeText(context, "click", Toast.LENGTH_SHORT).show()
 
             initCalculation()
+        }
+        if (radioCurrent.isChecked) {
+            input6.enableDisable(false)
+        }
+        radioPower.setOnClickListener {
+            input6.enableDisable(true)
+            input5.enableDisable(false)
+            radioCurrent.isChecked = false
+        }
+
+        radioCurrent.setOnClickListener {
+            input6.enableDisable(false)
+            input5.enableDisable(true)
+
+            radioPower.isChecked = false
         }
     }
 
@@ -380,43 +369,29 @@ class MaxCirAmpacityScreen : BaseFragment(R.layout.screen_max_ampacity) {
             override fun afterTextChanged(s: Editable?) {
 
             }
-
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
             }
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 initCalculation()
             }
-
         })
         input2.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-
             }
-
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
             }
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 initCalculation()
             }
-
         })
         input3.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-
             }
-
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
             }
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 initCalculation()
             }
-
         })
         input4.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -460,8 +435,20 @@ class MaxCirAmpacityScreen : BaseFragment(R.layout.screen_max_ampacity) {
             }
 
         })
-    }
+        input7.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
 
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                initCalculation()
+            }
+        })
+    }
 
     private fun initCalculation() {
         val R = input1.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
@@ -470,7 +457,8 @@ class MaxCirAmpacityScreen : BaseFragment(R.layout.screen_max_ampacity) {
         val Е = input4.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
         val T = input5.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
         val Y = input6.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
-        val result = Y / (((koef1 * R).pow(2) + (koef3 * w_c - 1 / (w_l * koef2)).pow(2)).pow(0.5))
+        val U = input7.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
+        val result = T * (U * Е) / Y / (((koef1 * R).pow(2) + (koef3 * w_c - 1 / (w_l * koef2)).pow(2)).pow(0.5))
         showResult((result * koef4 * 1000).toInt().toDouble() / 1000)
     }
 
@@ -478,4 +466,6 @@ class MaxCirAmpacityScreen : BaseFragment(R.layout.screen_max_ampacity) {
     private fun showResult(res: Double) {
         result.text = "$res А"
     }
-    }
+
+
+}

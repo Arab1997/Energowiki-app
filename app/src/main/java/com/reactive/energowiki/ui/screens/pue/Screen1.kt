@@ -13,9 +13,9 @@ import com.reactive.energowiki.ui.dialogs.pueReports.PueReport1
 import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.bottomsheet_detail.close
 import kotlinx.android.synthetic.main.bottomsheet_detail.header
-import kotlinx.android.synthetic.main.screen1.*
+import kotlinx.android.synthetic.main.screen_1_pue.*
 
-class Screen1 : BaseFragment(R.layout.screen1) {
+class Screen1 : BaseFragment(R.layout.screen_1_pue) {
 
     private val spinValues1 = arrayListOf<ArrayList<String>>()
     private val spinValues2 = arrayListOf<ArrayList<String>>()
@@ -57,15 +57,16 @@ class Screen1 : BaseFragment(R.layout.screen1) {
                     it1,
                     "%.5f".format(resistance) + " A",
                     spinner_screen1_1.selectedItem.toString(),
-                    getMM(spinner_screen1_4,
+                    getMM(
+                        spinner_screen1_4,
                         input_screen1_2
                     ).toString() + " м²",
                     getCountСon(
-                       spinner_screen1_2,
+                        spinner_screen1_2,
                         input_screen1_1
                     ).toString() + " м",
                     getTemperature(
-                       spinner_screen1_3, input_screen1_1
+                        spinner_screen1_3, input_screen1_1
                     ).toString() + " °C"
                 )
             }
@@ -73,7 +74,7 @@ class Screen1 : BaseFragment(R.layout.screen1) {
         }
 
         input_screen1_1.setText("3")
-    input_screen1_2.setText("1")
+        input_screen1_2.setText("1")
 
         TextChanged(input_screen1_1)
         TextChanged(input_screen1_2)
@@ -204,7 +205,7 @@ class Screen1 : BaseFragment(R.layout.screen1) {
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 calculation()
-                if (input_screen1_1.text.toString() == "" ||input_screen1_2.text.toString() == ""
+                if (input_screen1_1.text.toString() == "" || input_screen1_2.text.toString() == ""
                 ) {
                     conductor_text1.text = ""
                     result_btn_screen1.enableDisable(false)

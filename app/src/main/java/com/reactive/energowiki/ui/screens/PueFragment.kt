@@ -33,13 +33,12 @@ class PueFragment : BaseFragment(R.layout.fragment_pue) {
             ) {
                 when (data.type) {
                     PueMenus.BASICS -> when (it) {
-                        //1 -> addFragment(AllowAmpacityForWireScreen())
                         1 -> addFragment(Screen1())
                        // 2 -> addFragment(WireSizeScreen())
                         2 -> addFragment(Screen2())
-                        3 -> addFragment(MotorProtectionScreen())
-                        4 -> addFragment(MaxCirCondLengthScreen())
-                        5 -> addFragment(MaxCirAmpacityScreen())
+                        3 -> addFragment(Screen3())
+                        4 -> addFragment(Screen4())
+                        5 -> addFragment(Screen5())
 
                         else -> toast(requireContext(), "inDevelopment")
                     }

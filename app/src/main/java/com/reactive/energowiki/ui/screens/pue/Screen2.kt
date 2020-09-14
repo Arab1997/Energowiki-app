@@ -10,20 +10,20 @@ import com.reactive.energowiki.ui.dialogs.pueReports.PueReport1
 import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.bottomsheet_detail.close
 import kotlinx.android.synthetic.main.bottomsheet_detail.header
-import kotlinx.android.synthetic.main.screen2.clear_btn_screen1
-import kotlinx.android.synthetic.main.screen2.conductor_text1
-import kotlinx.android.synthetic.main.screen2.input_screen1_1
-import kotlinx.android.synthetic.main.screen2.input_screen1_2
-import kotlinx.android.synthetic.main.screen2.result_btn_screen1
-import kotlinx.android.synthetic.main.screen2.spinner_screen1_1
-import kotlinx.android.synthetic.main.screen2.spinner_screen1_2
-import kotlinx.android.synthetic.main.screen2.spinner_screen1_3
-import kotlinx.android.synthetic.main.screen2.spinner_screen1_4
-import kotlinx.android.synthetic.main.screen2.*
-import kotlinx.android.synthetic.main.screen2.radiobt_capacity_screen3_1
+import kotlinx.android.synthetic.main.screen_2_pue.clear_btn_screen1
+import kotlinx.android.synthetic.main.screen_2_pue.conductor_text1
+import kotlinx.android.synthetic.main.screen_2_pue.input_screen1_1
+import kotlinx.android.synthetic.main.screen_2_pue.input_screen1_2
+import kotlinx.android.synthetic.main.screen_2_pue.result_btn_screen1
+import kotlinx.android.synthetic.main.screen_2_pue.spinner_screen1_1
+import kotlinx.android.synthetic.main.screen_2_pue.spinner_screen1_2
+import kotlinx.android.synthetic.main.screen_2_pue.spinner_screen1_3
+import kotlinx.android.synthetic.main.screen_2_pue.spinner_screen1_4
+import kotlinx.android.synthetic.main.screen_2_pue.*
+import kotlinx.android.synthetic.main.screen_2_pue.radiobt_capacity_screen3_1
 import kotlin.math.pow
 
-class Screen2 : BaseFragment(R.layout.screen2) {
+class Screen2 : BaseFragment(R.layout.screen_2_pue) {
 
     private val spinValues1 = arrayListOf<ArrayList<String>>()
     private val spinValues2 = arrayListOf<ArrayList<String>>()
@@ -51,14 +51,10 @@ class Screen2 : BaseFragment(R.layout.screen2) {
     }
 
     private fun clear() {
-        input_screen1_1.text?.clear()
-        input_screen1_2.text?.clear()
         input_screen1_3.text?.clear()
         input_screen1_4.text?.clear()
-        input_screen1_5.text?.clear()
         input_screen1_6.text?.clear()
         input_screen1_7.text?.clear()
-        input_screen1_8.text?.clear()
         input_screen1_9.text?.clear()
         conductor_text1.text = ""
 

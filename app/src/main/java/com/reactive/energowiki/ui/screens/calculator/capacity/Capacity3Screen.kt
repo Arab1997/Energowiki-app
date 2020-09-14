@@ -9,7 +9,7 @@ import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.dialogs.capacityReport.CapacityReport3Dialog
 import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.bottomsheet_detail.*
-import kotlinx.android.synthetic.main.screen2.*
+import kotlinx.android.synthetic.main.screen_2_pue.*
 import kotlinx.android.synthetic.main.screen_capacity_3.*
 import kotlinx.android.synthetic.main.screen_capacity_3.liner_2_capacity_screen3
 import kotlinx.android.synthetic.main.screen_capacity_3.radiobt_capacity_screen3_1

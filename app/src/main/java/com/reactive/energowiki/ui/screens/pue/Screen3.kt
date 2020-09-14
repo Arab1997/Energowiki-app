@@ -10,7 +10,6 @@ import android.widget.Toast
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import kotlinx.android.synthetic.main.content_header.*
-import kotlinx.android.synthetic.main.screen_calc_alternative_curr.*
 import kotlinx.android.synthetic.main.screen_calc_alternative_curr.clearBtn
 import kotlinx.android.synthetic.main.screen_calc_alternative_curr.input1
 import kotlinx.android.synthetic.main.screen_calc_alternative_curr.input2
@@ -22,10 +21,10 @@ import kotlinx.android.synthetic.main.screen_calc_alternative_curr.spinner1
 import kotlinx.android.synthetic.main.screen_calc_alternative_curr.spinner2
 import kotlinx.android.synthetic.main.screen_calc_alternative_curr.spinner3
 import kotlinx.android.synthetic.main.screen_calc_alternative_curr.spinner4
-import kotlinx.android.synthetic.main.screen_motor_protection.*
+import kotlinx.android.synthetic.main.screen_3_pue.*
 import kotlin.math.pow
 
-class MotorProtectionScreen : BaseFragment(R.layout.screen_motor_protection) {
+class Screen3 : BaseFragment(R.layout.screen_3_pue) {
     private val spinValues = arrayListOf<ArrayList<String>>()
     private var koef1: Double = 10.0.pow(-12.0)
     private var koef2: Double = 10.0.pow(-12.0)
