@@ -221,9 +221,9 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
 
           // resistance = (veinData * ( materialData.ro20 * tempData) * mmData)
 
-           resistance = (getCountСon(spinner_screen1_2, input_screen1_1) * materialData.ro20 * tempData) / mmData
+           resistance = veinData + ( materialData.ro20 * tempData) /*+ mmData*/
 
-            screen_text1.text = "%.4f".format(resistance) + "A"
+            screen_text1.text = "%.0f".format(resistance) + "A"
         }
     }
 
@@ -233,50 +233,52 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
 
         when (spinner.selectedItemPosition) {
             0 -> { //"Медь"  Copper
-                t = 1.78 * 1.0e-8
+                t = 1.78
             }
             1 -> { //"Алюминий",ok Alumin
-                t = 2.9 * 1.0e-8
+                t = 2.9
             }
         }
-
         return MaterialsData(t)
     }
-
+//  4   +
     private fun getVeinValue(spinner: Spinner): Double {
         var t: Double = 0.0
         var alfa: Double = 0.0
 
         when (spinner.selectedItemPosition) {
             0 -> { // Одножильных провод открыто
-                t = 11.0
+                t = 7.0
             }
             1 -> { //Один двух жильных закрыто
-                t = 17.0
+                t = 11.0
             }
             2 -> { //Один трехжильных закрыто
-                t = 23.0
+                t = 10.0
             }
             3 -> { //Два одножильных закрыто
-                t = 41.0
+                t = 10.0
             }
             4 -> { //Три одножильных закрыто
-                t = 50.0
+                t = 11.0
             }
             5 -> { //Четыре одножильных закрыто
-                t = 2.9
+                t = 10.0
             }
             6 -> { //Двухжильный кабель в воздухе
-                t = 15.0
+                t = 19.0
             }
             7 -> { //Трехжильный кабель в воздухе
-                t = 17.0
+                t = 15.0
             }
             8 -> { //Двухжильный кабель в земле
-                t = 2.9
+                t = 15.0
             }
             9 -> { //Трехжильный кабель в земле
-                t = 2.9 * 1.0e-8
+                t = 31.0
+            }
+            10 -> { //Трехжильный кабель в земле
+                t = 23.0
             }
         }
         return t
@@ -329,22 +331,22 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
                 temp = 0.96
             }
             7 -> {
-                temp = 0.96
+                temp = 0.92
             }
             8 -> {
-                temp = 0.96
+                temp = 0.88
             }
             9 -> {
-                temp = 0.96
+                temp = 0.83
             }
             10 -> {
-                temp = 0.96
+                temp = 0.78
             }
             11 -> {
-                temp = 0.96
+                temp = 0.73
             }
             12 -> {
-                temp = ((32 * 5) / 9).toDouble()
+                temp = 0.68
             }
             13 -> {
                 temp = ((32 * 5) / 9).toDouble()
@@ -357,10 +359,10 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
         var mm: Double = 0.0
         when (spinner.selectedItemPosition) {
             0 -> {
-                mm = 0.5  * 1.0e-6
+                mm = 0.5 * 1.0e-6
             }
             1 -> {
-                mm =  0.75  * 1.0e-6
+                mm =  0.75 * 1.0e-6
             }
             2 -> {
                 mm = 1 * 1.0e-6
