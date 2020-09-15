@@ -229,7 +229,7 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
         spinValues5.add(
             arrayListOf(
                 "auto",
-                "- 5 °C |41 °Ф",
+                "-5 °C |41 °Ф",
                 " 0 °C | 32 °Ф",
                 " 5 °C |41 °Ф",
                 "10 °C |50 °Ф",

@@ -9,7 +9,6 @@ import android.widget.EditText
 import android.widget.Spinner
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
-import com.reactive.energowiki.ui.dialogs.pueReports.PueReport1
 import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.bottomsheet_detail.close
 import kotlinx.android.synthetic.main.bottomsheet_detail.header
@@ -32,10 +31,7 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
     }
 
     private fun clear() {
-        input_screen1_1.text?.clear()
-        input_screen1_2.text?.clear()
-        conductor_text1.text = ""
-
+        screen_text1.text = ""
     }
 
     private fun initViews() {
@@ -47,11 +43,11 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
         close.setOnClickListener { finishFragment() }
         result_btn_screen1.enableDisable(false)
 
-        clear_bt_conductor_screen1.setOnClickListener {
+        clear_btn_pue_screen1.setOnClickListener {
             clear()
         }
 
-        result_btn_screen1.setOnClickListener {
+       /* result_btn_screen1.setOnClickListener {
             val dialog = context?.let { it1 ->
                 PueReport1(
                     it1,
@@ -71,7 +67,7 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
                 )
             }
             dialog!!.show()
-        }
+        }*/
 
         input_screen1_1.setText("3")
         input_screen1_2.setText("1")
@@ -171,26 +167,6 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
         spinner_screen1_4.adapter = adapter4
         //S
     }
-
-    private fun calculation() {
-        if (input_screen1_1.text.toString() != "" && input_screen1_2.text.toString() != "") {
-            //   жильных  
-            var veinData = getVeinValue(spinner_screen1_1)
-            //   material  
-            var materialData = getMaterialValue(spinner_screen1_2)
-
-            resistance =
-                (getCountСon(spinner_screen1_2, input_screen1_1)
-                        * materialData.ro20 * (getTemperature(
-                    spinner_screen1_3,
-                    input_screen1_2
-                ) - 20)) / (getMM(spinner_screen1_4, input_screen1_1))
-
-            conductor_text1.text = "%.4f".format(resistance) + "A"
-        }
-
-    }
-
     private fun TextChanged(editText: EditText) {
 
         editText.addTextChangedListener(object : TextWatcher {
@@ -207,7 +183,7 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
                 calculation()
                 if (input_screen1_1.text.toString() == "" || input_screen1_2.text.toString() == ""
                 ) {
-                    conductor_text1.text = ""
+                    screen_text1.text = ""
                     result_btn_screen1.enableDisable(false)
                 } else result_btn_screen1.enableDisable(true)
             }
@@ -232,6 +208,25 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
         }
     }
 
+    private fun calculation() {
+        if (input_screen1_1.text.toString() != "" && input_screen1_2.text.toString() != "") {
+            //   жильных  
+            var veinData = getVeinValue(spinner_screen1_1)
+            //   material
+            var materialData = getMaterialValue(spinner_screen1_2)
+            //  Температура
+            var tempData = getTemperature(spinner_screen1_3)
+            //  Сечение
+            var mmData = getMM(spinner_screen1_4)
+
+          // resistance = (veinData * ( materialData.ro20 * tempData) * mmData)
+
+           resistance = (getCountСon(spinner_screen1_2, input_screen1_1) * materialData.ro20 * tempData) / mmData
+
+            screen_text1.text = "%.4f".format(resistance) + "A"
+        }
+    }
+
     private fun getMaterialValue(spinner: Spinner): MaterialsData {
         var t: Double = 0.0
         var alfa: Double = 0.0
@@ -248,43 +243,43 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
         return MaterialsData(t)
     }
 
-    private fun getVeinValue(spinner: Spinner): MaterialsData {
+    private fun getVeinValue(spinner: Spinner): Double {
         var t: Double = 0.0
         var alfa: Double = 0.0
 
         when (spinner.selectedItemPosition) {
             0 -> { // Одножильных провод открыто
-                t = 1.78 * 1.0e-8
+                t = 11.0
             }
             1 -> { //Один двух жильных закрыто
-                t = 2.9 * 1.0e-8
+                t = 17.0
             }
             2 -> { //Один трехжильных закрыто
-                t = 2.9 * 1.0e-8
+                t = 23.0
             }
             3 -> { //Два одножильных закрыто
-                t = 2.9 * 1.0e-8
+                t = 41.0
             }
             4 -> { //Три одножильных закрыто
-                t = 2.9 * 1.0e-8
+                t = 50.0
             }
             5 -> { //Четыре одножильных закрыто
-                t = 2.9 * 1.0e-8
+                t = 2.9
             }
             6 -> { //Двухжильный кабель в воздухе
-                t = 2.9 * 1.0e-8
+                t = 15.0
             }
             7 -> { //Трехжильный кабель в воздухе
-                t = 2.9 * 1.0e-8
+                t = 17.0
             }
             8 -> { //Двухжильный кабель в земле
-                t = 2.9 * 1.0e-8
+                t = 2.9
             }
             9 -> { //Трехжильный кабель в земле
                 t = 2.9 * 1.0e-8
             }
         }
-        return MaterialsData(t)
+        return t
     }
 
     private fun getCountСon(spinner: Spinner, editText: EditText): Double {
@@ -309,33 +304,139 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
         return conductor
     }
 
-    private fun getTemperature(spinner: Spinner, editText: EditText): Double {
+    private fun getTemperature(spinner: Spinner): Double {
         var temp: Double = 0.0
         when (spinner.selectedItemPosition) {
             0 -> {
-                temp = editText.text.toString().toDouble()
+                temp = 1.14
             }
             1 -> {
-                temp = ((editText.text.toString().toDouble() - 32) * 5) / 9
+                temp = 1.14
+            }
+            2 -> {
+                temp = 1.11
+            }
+            3 -> {
+                temp = 1.08
+            }
+            4 -> {
+                temp = 1.04
+            }
+            5 -> {
+                temp = 1.00
+            }
+            6 -> {
+                temp = 0.96
+            }
+            7 -> {
+                temp = 0.96
+            }
+            8 -> {
+                temp = 0.96
+            }
+            9 -> {
+                temp = 0.96
+            }
+            10 -> {
+                temp = 0.96
+            }
+            11 -> {
+                temp = 0.96
+            }
+            12 -> {
+                temp = ((32 * 5) / 9).toDouble()
+            }
+            13 -> {
+                temp = ((32 * 5) / 9).toDouble()
             }
         }
         return temp
     }
 
-    private fun getMM(spinner: Spinner, editText: EditText): Double {
-        var temp: Double = 0.0
+    private fun getMM(spinner: Spinner): Double {
+        var mm: Double = 0.0
         when (spinner.selectedItemPosition) {
             0 -> {
-                temp = editText.text.toString().toDouble() * 1.0e-6
+                mm = 0.5  * 1.0e-6
             }
-            /*   1 -> {
-                   temp = ((editText.text.toString().toDouble()) * 0.5067 * 1.0e-6)
-               }*/
+            1 -> {
+                mm =  0.75  * 1.0e-6
+            }
+            2 -> {
+                mm = 1 * 1.0e-6
+            }
+            3 -> {
+                mm = 1.2  * 1.0e-6
+            }
+            4 -> {
+                mm = 1.5  * 1.0e-6
+            }
+            5 -> {
+                mm = 2  * 1.0e-6
+            }
+            6 -> {
+                mm = 2.5  * 1.0e-6
+            }
+            7 -> {
+                mm = 3  * 1.0e-6
+            }
+            8 -> {
+                mm = 4  * 1.0e-6
+            }
+            9 -> {
+                mm = 5  * 1.0e-6
+            }
+            10 -> {
+                mm = 6  * 1.0e-6
+            }
+            11 -> {
+                mm = 8  * 1.0e-6
+            }
+            12 -> {
+                mm = 10  * 1.0e-6
+            }
+            13 -> {
+                mm = 16  * 1.0e-6
+            }
+            14 -> {
+                mm =  25  * 1.0e-6
+            }
+            15 -> {
+                mm = 35  * 1.0e-6
+            }
+            16 -> {
+                mm =  50  * 1.0e-6
+            }
+            17 -> {
+                mm =  70  * 1.0e-6
+            }
+            18 -> {
+                mm =   95  * 1.0e-6
+            }
+            19 -> {
+                mm =  120  * 1.0e-6
+            }
+            20 -> {
+                mm =  150  * 1.0e-6
+            }
+            21 -> {
+                mm =  185  * 1.0e-6
+            }
+            22 -> {
+                mm = 240  * 1.0e-6
+            }
+            23 -> {
+                mm = 300  * 1.0e-6
+            }
+            24 -> {
+                mm =  400  * 1.0e-6
+            }
         }
-        return temp
+        return mm
     }
 }
 
-data class MaterialsData(var ro20: Double)
+data class MaterialsData(var ro20: Double) {
+}
 
 
