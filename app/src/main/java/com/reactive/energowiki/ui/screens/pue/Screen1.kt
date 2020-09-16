@@ -1,5 +1,6 @@
 package com.reactive.energowiki.ui.screens.pue
 
+import android.annotation.SuppressLint
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -208,20 +209,21 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun calculation() {
         if (input_screen1_1.text.toString() != "" && input_screen1_2.text.toString() != "") {
             //   жильных  
-            var veinData = getVeinValue(spinner_screen1_1)
+            val veinData = getVeinValue(spinner_screen1_1)
             //   material
-            var materialData = getMaterialValue(spinner_screen1_2)
+            val materialData = getMaterialValue(spinner_screen1_2)
             //  Температура
-            var tempData = getTemperature(spinner_screen1_3)
+            val tempData = getTemperature(spinner_screen1_3)
             //  Сечение
-            var mmData = getMM(spinner_screen1_4)
+            val mmData = getMM(spinner_screen1_4)
 
           // resistance = (veinData * ( materialData.ro20 * tempData) * mmData)
 
-           resistance = veinData + ( materialData.ro20 * tempData) /*+ mmData*/
+           resistance = (veinData + mmData ) *( materialData.ro20 * tempData)
 
             screen_text1.text = "%.0f".format(resistance) + "A"
         }
@@ -229,7 +231,6 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
 
     private fun getMaterialValue(spinner: Spinner): MaterialsData {
         var t: Double = 0.0
-        var alfa: Double = 0.0
 
         when (spinner.selectedItemPosition) {
             0 -> { //"Медь"  Copper
@@ -244,66 +245,41 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
 //  4   +
     private fun getVeinValue(spinner: Spinner): Double {
         var t: Double = 0.0
-        var alfa: Double = 0.0
 
         when (spinner.selectedItemPosition) {
             0 -> { // Одножильных провод открыто
-                t = 7.0
+                t = 8.0
             }
             1 -> { //Один двух жильных закрыто
-                t = 11.0
+                t = 6.0
             }
             2 -> { //Один трехжильных закрыто
-                t = 10.0
+                t = 6.0
             }
             3 -> { //Два одножильных закрыто
-                t = 10.0
+                t = 7.0
             }
             4 -> { //Три одножильных закрыто
-                t = 11.0
+                t = 6.0
             }
             5 -> { //Четыре одножильных закрыто
-                t = 10.0
+                t = 5.0
             }
             6 -> { //Двухжильный кабель в воздухе
-                t = 19.0
+                t = 6.0
             }
             7 -> { //Трехжильный кабель в воздухе
-                t = 15.0
+                t = 6.0
             }
             8 -> { //Двухжильный кабель в земле
                 t = 15.0
             }
             9 -> { //Трехжильный кабель в земле
-                t = 31.0
+                t = 11.0
             }
-            10 -> { //Трехжильный кабель в земле
-                t = 23.0
-            }
+
         }
         return t
-    }
-
-    private fun getCountСon(spinner: Spinner, editText: EditText): Double {
-        var conductor: Double = 0.0
-        when (spinner.selectedItemPosition) {
-            0 -> {
-                conductor = editText.text.toString().toDouble()
-            }
-            1 -> {
-                conductor = editText.text.toString().toDouble() * 0.3048
-            }
-            2 -> {
-                conductor = editText.text.toString().toDouble() * 1000
-            }
-            3 -> {
-                conductor = editText.text.toString().toDouble() / 100
-            }
-            4 -> {
-                conductor = editText.text.toString().toDouble() / 1000
-            }
-        }
-        return conductor
     }
 
     private fun getTemperature(spinner: Spinner): Double {
@@ -348,9 +324,6 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
             12 -> {
                 temp = 0.68
             }
-            13 -> {
-                temp = ((32 * 5) / 9).toDouble()
-            }
         }
         return temp
     }
@@ -359,34 +332,34 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
         var mm: Double = 0.0
         when (spinner.selectedItemPosition) {
             0 -> {
-                mm = 0.5 * 1.0e-6
+                mm = 0.5
             }
             1 -> {
-                mm =  0.75 * 1.0e-6
+                mm =  0.75
             }
             2 -> {
-                mm = 1 * 1.0e-6
+                mm = 1.0
             }
             3 -> {
-                mm = 1.2  * 1.0e-6
+                mm = 1.2
             }
             4 -> {
-                mm = 1.5  * 1.0e-6
+                mm = 1.5
             }
             5 -> {
-                mm = 2  * 1.0e-6
+                mm = 2.0
             }
             6 -> {
-                mm = 2.5  * 1.0e-6
+                mm = 2.5
             }
             7 -> {
-                mm = 3  * 1.0e-6
+                mm = 3.0
             }
             8 -> {
-                mm = 4  * 1.0e-6
+                mm = 4.0
             }
             9 -> {
-                mm = 5  * 1.0e-6
+                mm = 5.0
             }
             10 -> {
                 mm = 6  * 1.0e-6
