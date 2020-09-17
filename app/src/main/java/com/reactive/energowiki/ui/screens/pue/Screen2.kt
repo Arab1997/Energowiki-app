@@ -6,12 +6,11 @@ import android.view.View
 import android.widget.*
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
-import com.reactive.energowiki.ui.dialogs.pueReports.PueReport1
 import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.bottomsheet_detail.close
 import kotlinx.android.synthetic.main.bottomsheet_detail.header
 import kotlinx.android.synthetic.main.screen_2_pue.clear_btn_screen1
-import kotlinx.android.synthetic.main.screen_2_pue.conductor_text1
+import kotlinx.android.synthetic.main.screen_2_pue.result_text1
 import kotlinx.android.synthetic.main.screen_2_pue.input_screen1_1
 import kotlinx.android.synthetic.main.screen_2_pue.input_screen1_2
 import kotlinx.android.synthetic.main.screen_2_pue.result_btn_screen1
@@ -20,7 +19,10 @@ import kotlinx.android.synthetic.main.screen_2_pue.spinner_screen1_2
 import kotlinx.android.synthetic.main.screen_2_pue.spinner_screen1_3
 import kotlinx.android.synthetic.main.screen_2_pue.spinner_screen1_4
 import kotlinx.android.synthetic.main.screen_2_pue.*
-import kotlinx.android.synthetic.main.screen_2_pue.radiobt_capacity_screen3_1
+import kotlinx.android.synthetic.main.screen_2_pue.checkBox
+import kotlinx.android.synthetic.main.screen_2_pue.input_screen1_3
+import kotlinx.android.synthetic.main.screen_2_pue.radio_btn_screen3_1
+import kotlinx.android.synthetic.main.screen_conductor_1.*
 import kotlin.math.pow
 
 class Screen2 : BaseFragment(R.layout.screen_2_pue) {
@@ -56,7 +58,7 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
         input_screen1_6.text?.clear()
         input_screen1_7.text?.clear()
         input_screen1_9.text?.clear()
-        conductor_text1.text = ""
+        result_text1.text = ""
 
     }
 
@@ -64,12 +66,11 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
 
         close.setOnClickListener { finishFragment() }
         result_btn_screen1.enableDisable(false)
-
         clear_btn_screen1.setOnClickListener {
             clear()
         }
 
-        result_btn_screen1.setOnClickListener {
+       /* result_btn_screen1.setOnClickListener {
             val dialog = context?.let { it1 ->
                 PueReport1(
                     it1,
@@ -90,17 +91,16 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
                 )
             }
             dialog!!.show()
-        }
-
+        }*/
         input_screen1_1.setText("3")
         input_screen1_2.setText("0.85")
-        input_screen1_3.setText("24")
-        input_screen1_4.setText("12")
+        input_screen1_3.setText("")
+        input_screen1_4.setText("")
         input_screen1_5.setText("4")
-        input_screen1_6.setText("663")
-        input_screen1_7.setText("6.7626")
+        input_screen1_6.setText("")
+        input_screen1_7.setText("")
         input_screen1_8.setText("1")
-        input_screen1_9.setText("12")
+        input_screen1_9.setText("")
 
         TextChanged(input_screen1_1)
         TextChanged(input_screen1_2)
@@ -116,19 +116,19 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
         spinnerSelectedListener(spinner_screen1_2)
         spinnerSelectedListener(spinner_screen1_3)
         spinnerSelectedListener(spinner_screen1_4)
-        spinnerSelectedListener(spinner_conductor_screen1_5)
-        spinnerSelectedListener(spinner_conductor_screen1_6)
+        spinnerSelectedListener(spinner_screen1_5)
+        spinnerSelectedListener(spinner_screen1_6)
 
-        if (radiobt_capacity_screen3_1.isChecked) {
+        if (radio_btn_screen3_1.isChecked) {
             input_screen1_7.enableDisable(false)
         }
         radiobt_screen3_2.setOnClickListener {
             input_screen1_7.enableDisable(true)
             input_screen1_6.enableDisable(false)
-            radiobt_capacity_screen3_1.isChecked = false
+            radio_btn_screen3_1.isChecked = false
         }
 
-        radiobt_capacity_screen3_1.setOnClickListener {
+        radio_btn_screen3_1.setOnClickListener {
 
             input_screen1_7.enableDisable(false)
             input_screen1_6.enableDisable(true)
@@ -136,12 +136,23 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
             radiobt_screen3_2.isChecked = false
         }
 
+        checkBox.setOnCheckedChangeListener{buttonView, isChecked ->
+            if(isChecked)
+            {liner_1_rezerv_screen.visibility=View.VISIBLE
+                input_screen1_9.visibility=View.VISIBLE
+            }
+            else {
+                input_screen1_9.visibility=View.GONE
+                liner_1_rezerv_screen.visibility=View.GONE
+            }
+            calculation()
+        }
         result_btn_screen1.setOnClickListener {
 
-            if (radiobt_capacity_screen3_1.isChecked) {
+            if (radio_btn_screen3_1.isChecked) {
                 if (input_screen1_1.text.toString() != "" && input_screen1_2.text.toString() != "" && input_screen1_3.text.toString() != "") {
                     var k = false
-                    if (radiobt_capacity_screen3_1.isChecked) k = false
+                    if (radio_btn_screen3_1.isChecked) k = false
                     if (radiobt_screen3_2.isChecked) k = true
 
                     var s = ""
@@ -157,7 +168,7 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
 
                 if (input_screen1_1.text.toString() != "" && input_screen1_2.text.toString() != "" && input_screen1_3.text.toString() != "" && input_screen1_4.text.toString() != "") {
                     var k = false
-                    if (radiobt_capacity_screen3_1.isChecked) k = false
+                    if (radio_btn_screen3_1.isChecked) k = false
                     if (radiobt_screen3_2.isChecked) k = true
 
                     var s = ""
@@ -189,7 +200,6 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
                 "Однофазный"
             )
         )
-
         val adapter2: ArrayAdapter<String> =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues2[0])
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -217,7 +227,21 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
         spinner_screen1_3.adapter = adapter3
         //Allowable ampacity   /  Допустимая ампутация    28.06 A
 
-        spinValues4.add(arrayListOf("Медь", "Алюминий"))
+        spinValues4.add(arrayListOf(
+            "auto",
+            "-5 °C |41 °Ф",
+            " 0 °C | 32 °Ф",
+            " 5 °C |41 °Ф",
+            "10 °C |50 °Ф",
+            "15 °C |59 °Ф",
+            "20 °C |68 °Ф",
+            "25 °C |77 °Ф",
+            "30 °C |86 °Ф",
+            "35 °C |95 °Ф",
+            "40 °C |104 °Ф",
+            "45 °C |113 °Ф",
+            "50 °C |122 °Ф"
+        ))
 
         val adapter4: ArrayAdapter<String> =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues4[0])
@@ -225,28 +249,15 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
         spinner_screen1_4.adapter = adapter4
         //material p
 
-
         spinValues5.add(
             arrayListOf(
-                "auto",
-                "-5 °C |41 °Ф",
-                " 0 °C | 32 °Ф",
-                " 5 °C |41 °Ф",
-                "10 °C |50 °Ф",
-                "15 °C |59 °Ф",
-                "20 °C |68 °Ф",
-                "25 °C |77 °Ф",
-                "30 °C |86 °Ф",
-                "35 °C |95 °Ф",
-                "40 °C |104 °Ф",
-                "45 °C |113 °Ф",
-                "50 °C |122 °Ф"
+                  "м" , "ft"
             )
         )
         val adapter5: ArrayAdapter<String> =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues5[0])
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_conductor_screen1_5.adapter = adapter5
+        spinner_screen1_5.adapter = adapter5
         // t
 
         spinValues6.add(
@@ -259,31 +270,8 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
         val adapter6: ArrayAdapter<String> =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues6[0])
         adapter6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_conductor_screen1_6.adapter = adapter6
+        spinner_screen1_6.adapter = adapter6
         //S
-
-
-    }
-
-    private fun calculation() {
-        if (input_screen1_1.text.toString() != "" && input_screen1_2.text.toString() != "" && input_screen1_3.text.toString() != ""
-            && input_screen1_4.text.toString() != ""&& input_screen1_5.text.toString() != ""&& input_screen1_6.text.toString() != ""
-            && input_screen1_7.text.toString() != ""&& input_screen1_8.text.toString() != ""&& input_screen1_9.text.toString() != "") {
-            //   жильных  
-            var veinData = getVeinValue(spinner_screen1_1)
-            //   material  
-            var materialData = getMaterialValue(spinner_screen1_2)
-
-            resistance =
-                (getCountСon(spinner_screen1_2, input_screen1_1)
-                        * materialData.ro20 * (getTemperature(
-                    spinner_screen1_3,
-                    input_screen1_2
-                ) - 20)) / (getMM(spinner_screen1_4, input_screen1_1))
-
-            conductor_text1.text = "%.4f".format(resistance) + "A"
-        }
-
     }
 
     private fun TextChanged(editText: EditText) {
@@ -300,9 +288,12 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 calculation()
-                if (input_screen1_1.text.toString() == "" || input_screen1_2.text.toString() == ""
+                if (input_screen1_1.text.toString() == "" || input_screen1_2.text.toString() == "" ||
+                    input_screen1_2.text.toString() == "" || input_screen1_3.text.toString() == "" ||
+                    input_screen1_4.text.toString() == "" || input_screen1_5.text.toString() == "" ||
+                    input_screen1_6.text.toString() == "" || input_screen1_7.text.toString() == ""
                 ) {
-                    conductor_text1.text = ""
+                    result_text1.text = ""
                     result_btn_screen1.enableDisable(false)
                 } else result_btn_screen1.enableDisable(true)
             }
@@ -327,108 +318,200 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
         }
     }
 
-    private fun getMaterialValue(spinner: Spinner): MaterialsData {
-        var t: Double = 0.0
-        var alfa: Double = 0.0
+    private fun calculation() {
+        if (input_screen1_1.text.toString() != "" && input_screen1_2.text.toString() != "" && input_screen1_3.text.toString() != "" ) {
 
-        when (spinner.selectedItemPosition) {
-            0 -> { //"Медь"  Copper
-                t = 1.78 * 1.0e-8
-            }
-            1 -> { //"Алюминий",ok Alumin
-                t = 2.9 * 1.0e-8
-            }
+            //   Материал
+            val materialData = getMaterialValue(spinner_screen1_1)
+            //  фази
+            val phase = getPhase(spinner_screen1_2)
+            //   жильных
+            val veinData = getVeinValue(spinner_screen1_3)
+            //  Температура
+            val tempData = getTemperature(spinner_screen1_4)
+            //  длина
+            val length = getLengthL(spinner_screen1_5, input_screen1_5)
+            //  Сечение
+            val percentLoses = getLosses(spinner_screen1_6, input_screen1_6)
+
+
+            resistance = (length * materialData.r20 *
+                    (1 + materialData.alfa * phase.r20 *  veinData.r20 * (tempData - 20) )
+                    )  / percentLoses
+
+
+            result_text1.text = "%.5f".format(resistance)+ " Ω"
+
+           // resistance = (veinData.r20 * phase.r20  ) *( materialData.r20 * tempData) + length + percentLoses
+
         }
-
-        return MaterialsData(t)
     }
 
-    private fun getVeinValue(spinner: Spinner): MaterialsData {
+    private fun getMaterialValue(spinner: Spinner): MaterialData {
+        var t: Double = 0.0
+        var alfa: Double = 0.0
+        when (spinner.selectedItemPosition) {
+            0 -> { //"Медь"  Copper
+                t = 1.78
+            }
+            1 -> { //"Алюминий",ok Alumin
+                t = 2.9
+            }
+        }
+        return MaterialData(t , alfa)
+    }
+
+    private fun getVeinValue(spinner: Spinner): MaterialData {
         var t: Double = 0.0
         var alfa: Double = 0.0
 
         when (spinner.selectedItemPosition) {
             0 -> { // Одножильных провод открыто
-                t = 1.78 * 1.0e-8
+                t = 1.78
             }
             1 -> { //Один двух жильных закрыто
-                t = 2.9 * 1.0e-8
+                t = 2.9
             }
             2 -> { //Один трехжильных закрыто
-                t = 2.9 * 1.0e-8
+                t = 2.9
             }
             3 -> { //Два одножильных закрыто
-                t = 2.9 * 1.0e-8
+                t = 2.9
             }
             4 -> { //Три одножильных закрыто
-                t = 2.9 * 1.0e-8
+                t = 2.9
             }
             5 -> { //Четыре одножильных закрыто
-                t = 2.9 * 1.0e-8
+                t = 2.9
             }
             6 -> { //Двухжильный кабель в воздухе
-                t = 2.9 * 1.0e-8
+                t = 2.9
             }
             7 -> { //Трехжильный кабель в воздухе
-                t = 2.9 * 1.0e-8
+                t = 2.9
             }
             8 -> { //Двухжильный кабель в земле
-                t = 2.9 * 1.0e-8
+                t = 2.9
             }
             9 -> { //Трехжильный кабель в земле
-                t = 2.9 * 1.0e-8
+                t = 2.9
             }
         }
-        return MaterialsData(t)
+        return MaterialData(t, alfa)
     }
 
-    private fun getCountСon(spinner: Spinner, editText: EditText): Double {
-        var conductor: Double = 0.0
+    private fun getPhase(spinner: Spinner): MaterialData {
+        var t: Double = 0.0
+        var alfa: Double = 0.0
+
         when (spinner.selectedItemPosition) {
-            0 -> {
-                conductor = editText.text.toString().toDouble()
+            0 -> { // Одножильных провод открыто
+                t = 1.78
             }
-            1 -> {
-                conductor = editText.text.toString().toDouble() * 0.3048
+            1 -> { //Один двух жильных закрыто
+                t = 2.9
             }
-            2 -> {
-                conductor = editText.text.toString().toDouble() * 1000
+            2 -> { //Один трехжильных закрыто
+                t = 2.9
             }
-            3 -> {
-                conductor = editText.text.toString().toDouble() / 100
+            3 -> { //Два одножильных закрыто
+                t = 2.9
             }
-            4 -> {
-                conductor = editText.text.toString().toDouble() / 1000
+            4 -> { //Три одножильных закрыто
+                t = 2.9
+            }
+            5 -> { //Четыре одножильных закрыто
+                t = 2.9
+            }
+            6 -> { //Двухжильный кабель в воздухе
+                t = 2.9
+            }
+            7 -> { //Трехжильный кабель в воздухе
+                t = 2.9
+            }
+            8 -> { //Двухжильный кабель в земле
+                t = 2.9
+            }
+            9 -> { //Трехжильный кабель в земле
+                t = 2.9
             }
         }
-        return conductor
+        return MaterialData(t, alfa)
     }
 
-    private fun getTemperature(spinner: Spinner, editText: EditText): Double {
+    private fun getTemperature(spinner: Spinner): Double {
         var temp: Double = 0.0
         when (spinner.selectedItemPosition) {
             0 -> {
-                temp = editText.text.toString().toDouble()
+                temp = 1.14
             }
             1 -> {
-                temp = ((editText.text.toString().toDouble() - 32) * 5) / 9
+                temp = 1.14
+            }
+            2 -> {
+                temp = 1.11
+            }
+            3 -> {
+                temp = 1.08
+            }
+            4 -> {
+                temp = 1.04
+            }
+            5 -> {
+                temp = 1.00
+            }
+            6 -> {
+                temp = 0.96
+            }
+            7 -> {
+                temp = 0.92
+            }
+            8 -> {
+                temp = 0.88
+            }
+            9 -> {
+                temp = 0.83
+            }
+            10 -> {
+                temp = 0.78
+            }
+            11 -> {
+                temp = 0.73
+            }
+            12 -> {
+                temp = 0.68
             }
         }
         return temp
     }
 
-    private fun getMM(spinner: Spinner, editText: EditText): Double {
+    private fun getLengthL(spinner: Spinner, editText: EditText): Double {
+        var length: Double = 0.0
+        when (spinner.selectedItemPosition) {
+            0 -> {
+                length = editText.text.toString().toDouble()
+            }
+            1 -> {
+                length = editText.text.toString().toDouble() * 0.3048
+            }
+
+        }
+        return length
+    }
+
+    private fun getLosses(spinner: Spinner, editText: EditText): Double {
         var temp: Double = 0.0
         when (spinner.selectedItemPosition) {
             0 -> {
                 temp = editText.text.toString().toDouble() * 1.0e-6
             }
-            /*   1 -> {
-                   temp = ((editText.text.toString().toDouble()) * 0.5067 * 1.0e-6)
-               }*/
+            1 -> {
+                temp = ((editText.text.toString().toDouble()) * 1.0e-6)
+            }
         }
         return temp
     }
 }
+data class MaterialData(var r20: Double, var alfa: Double)
 
 

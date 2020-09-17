@@ -19,11 +19,11 @@ class PueReport1(
             conductor_report1_close.setOnClickListener {
                 close()
             }
-            conductor_report1_text1.setText(text1)
-            conductor_report1_text2.setText(text2)
-            conductor_report1_text3.setText(text3)
-            conductor_report1_text4.setText(text4)
-            conductor_report1_text5.setText(text5)
+           /* conductor_report1_text1.text = text1
+            conductor_report1_text2.text = text2
+            conductor_report1_text3.text(text3)
+            conductor_report1_text4.text = text4
+            conductor_report1_text5.text(text5)*/
 
         }
     }

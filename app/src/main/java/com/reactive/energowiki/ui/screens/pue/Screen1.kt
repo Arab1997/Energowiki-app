@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Spinner
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
+import com.reactive.energowiki.ui.dialogs.pueReports.PueReport1
 import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.bottomsheet_detail.close
 import kotlinx.android.synthetic.main.bottomsheet_detail.header
@@ -47,24 +48,18 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
         clear_btn_pue_screen1.setOnClickListener {
             clear()
         }
-
-       /* result_btn_screen1.setOnClickListener {
+        //------------------------------PUE REPORT---------------------------------//
+        /*  result_btn_screen1.setOnClickListener {
             val dialog = context?.let { it1 ->
                 PueReport1(
                     it1,
-                    "%.5f".format(resistance) + " A",
+                    "%.4f".format(resistance) + " A",
                     spinner_screen1_1.selectedItem.toString(),
-                    getMM(
-                        spinner_screen1_4,
-                        input_screen1_2
-                    ).toString() + " м²",
-                    getCountСon(
-                        spinner_screen1_2,
-                        input_screen1_1
-                    ).toString() + " м",
-                    getTemperature(
-                        spinner_screen1_3, input_screen1_1
-                    ).toString() + " °C"
+                    getVeinValue(spinner_screen1_1),
+                    getMaterialValue(spinner_screen1_2),
+                    getTemperature(spinner_screen1_3).toString() + " °C",
+                    getMM(spinner_screen1_4).toString() + " м²",
+
                 )
             }
             dialog!!.show()
@@ -222,9 +217,7 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
             val mmData = getMM(spinner_screen1_4)
 
           // resistance = (veinData * ( materialData.ro20 * tempData) * mmData)
-
            resistance = (veinData + mmData ) *( materialData.ro20 * tempData)
-
             screen_text1.text = "%.0f".format(resistance) + "A"
         }
     }
@@ -269,13 +262,13 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
                 t = 6.0
             }
             7 -> { //Трехжильный кабель в воздухе
-                t = 6.0
+                t = 7.0
             }
             8 -> { //Двухжильный кабель в земле
-                t = 15.0
+                t = 8.0
             }
             9 -> { //Трехжильный кабель в земле
-                t = 11.0
+                t = 9.0
             }
 
         }
@@ -362,49 +355,49 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
                 mm = 5.0
             }
             10 -> {
-                mm = 6  * 1.0e-6
+                mm = 6.0
             }
             11 -> {
-                mm = 8  * 1.0e-6
+                mm = 8.0
             }
             12 -> {
-                mm = 10  * 1.0e-6
+                mm = 10.0
             }
             13 -> {
-                mm = 16  * 1.0e-6
+                mm = 16.0
             }
             14 -> {
-                mm =  25  * 1.0e-6
+                mm =  25.0
             }
             15 -> {
-                mm = 35  * 1.0e-6
+                mm = 35.0
             }
             16 -> {
-                mm =  50  * 1.0e-6
+                mm =  50.0
             }
             17 -> {
-                mm =  70  * 1.0e-6
+                mm =  70.0
             }
             18 -> {
-                mm =   95  * 1.0e-6
+                mm =   95.0
             }
             19 -> {
-                mm =  120  * 1.0e-6
+                mm =  120.0
             }
             20 -> {
-                mm =  150  * 1.0e-6
+                mm =  150.0
             }
             21 -> {
-                mm =  185  * 1.0e-6
+                mm =  185.0
             }
             22 -> {
-                mm = 240  * 1.0e-6
+                mm = 240.0
             }
             23 -> {
-                mm = 300  * 1.0e-6
+                mm = 300.0
             }
             24 -> {
-                mm =  400  * 1.0e-6
+                mm =  400.0
             }
         }
         return mm
