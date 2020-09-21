@@ -30,7 +30,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="40"
+                    android:layout_weight="50"
                     android:text="Сечение"
                     android:textColor="#000"
                     android:textSize="14sp"
@@ -40,8 +40,18 @@
                     android:id="@+id/result_text1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="60"
-                    android:text="1111"
+                    android:layout_weight="30"
+                    android:text="23"
+                    android:layout_marginRight="10dp"
+                    android:gravity="right"
+                    android:textColor="#2196F3"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/result_text2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="20"
+                    android:text="2"
                     android:textColor="#2196F3"
                     android:textStyle="bold" />
 

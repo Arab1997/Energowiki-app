@@ -9,7 +9,6 @@ import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.dialogs.capacityReport.CapacityReport3Dialog
 import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.bottomsheet_detail.*
-import kotlinx.android.synthetic.main.screen_2_pue.*
 import kotlinx.android.synthetic.main.screen_capacity_3.*
 import kotlinx.android.synthetic.main.screen_capacity_3.liner_2_capacity_screen3
 import kotlinx.android.synthetic.main.screen_capacity_3.radiobt_capacity_screen3_1
@@ -135,7 +134,7 @@ class Capacity3Screen : BaseFragment(R.layout.screen_capacity_3) {
             liner_3_capacity_screen3.visibility = View.GONE
         }
 
-        radiobt_screen3_2.setOnClickListener {
+        radiobt_capacity_screen3_2.setOnClickListener {
 
             input_capacity_screen3_7.enableDisable(true)
             input_capacity_screen3_6.enableDisable(false)
@@ -152,7 +151,7 @@ class Capacity3Screen : BaseFragment(R.layout.screen_capacity_3) {
             input_capacity_screen3_7.enableDisable(false)
             input_capacity_screen3_6.enableDisable(true)
 
-            radiobt_screen3_2.setChecked(false)
+            radiobt_capacity_screen3_2.setChecked(false)
             title_capacity_screen3.visibility = View.GONE
             liner_1_capacity_screen3.visibility = View.GONE
             liner_2_capacity_screen3.visibility = View.GONE
@@ -168,13 +167,13 @@ class Capacity3Screen : BaseFragment(R.layout.screen_capacity_3) {
                 if (input_capacity_screen3_1.text.toString() != "" && input_capacity_screen3_2.text.toString() != "" && input_capacity_screen3_6.text.toString() != "") {
                     var k = false
                     if (radiobt_capacity_screen3_1.isChecked) k = false
-                    if (radiobt_screen3_2.isChecked) k = true
+                    if (radiobt_capacity_screen3_2.isChecked) k = true
 
                     var s = ""
                     if (input_capacity_screen3_5.text.toString().toFloat() > 1) s = " %"
 
                     var t = input_capacity_screen3_6.text.toString() + " Ампер"
-                    if (radiobt_screen3_2.isChecked) t = inputI.toString() + " Ампер"
+                    if (radiobt_capacity_screen3_2.isChecked) t = inputI.toString() + " Ампер"
 
                     val dialog = context?.let { it1 ->
                         CapacityReport3Dialog(
@@ -197,18 +196,18 @@ class Capacity3Screen : BaseFragment(R.layout.screen_capacity_3) {
                 } else Toast.makeText(context, "Salom", Toast.LENGTH_SHORT).show()
 
             }
-            if (radiobt_screen3_2.isChecked) {
+            if (radiobt_capacity_screen3_2.isChecked) {
 
                 if (input_capacity_screen3_1.text.toString() != "" && input_capacity_screen3_2.text.toString() != "" && input_capacity_screen3_4.text.toString() != "" && input_capacity_screen3_7.text.toString() != "") {
                     var k = false
                     if (radiobt_capacity_screen3_1.isChecked) k = false
-                    if (radiobt_screen3_2.isChecked) k = true
+                    if (radiobt_capacity_screen3_2.isChecked) k = true
 
                     var s = ""
                     if (input_capacity_screen3_5.text.toString().toFloat() > 1) s = " %"
 
                     var t = input_capacity_screen3_6.text.toString() + " Ампер"
-                    if (radiobt_screen3_2.isChecked) t = inputI.toString() + " Ампер"
+                    if (radiobt_capacity_screen3_2.isChecked) t = inputI.toString() + " Ампер"
 
                     val dialog = context?.let { it1 ->
                         CapacityReport3Dialog(
@@ -386,7 +385,7 @@ class Capacity3Screen : BaseFragment(R.layout.screen_capacity_3) {
 
 
 
-        if (radiobt_screen3_2.isChecked) {
+        if (radiobt_capacity_screen3_2.isChecked) {
 
 
             when (spinner_capacity_screen3_1.selectedItemPosition) {

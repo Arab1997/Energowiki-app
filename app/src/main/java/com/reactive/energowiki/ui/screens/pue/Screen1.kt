@@ -235,6 +235,7 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
         }
         return MaterialsData(t)
     }
+
 //  4   +
     private fun getVeinValue(spinner: Spinner): Double {
         var t: Double = 0.0
