@@ -338,8 +338,8 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
             val p = input_screen1_7.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
             val z = input_screen1_9.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
 
-            S =(I * getMM(spinner_screen1_5) * p * 100) /  (U * getVeinValue(spinner_screen1_3) * getMM(spinner_screen1_4) * getPhase(spinner_screen1_2).r20)
-            resistance2 = (getVeinValue(spinner_screen1_3) + getMM(spinner_screen1_5) + getPhase(spinner_screen1_2).r20 + getTemperature(spinner_screen1_4))
+            S = 2 * (I * getMM(spinner_screen1_5) * p * 100) /  (U * getPoteri(spinner_screen1_6, input_screen1_5))
+            resistance2 = (getVeinValue(spinner_screen1_3)  + getPhase(spinner_screen1_2).r20 + getTemperature(spinner_screen1_4))
 
             /*  S =(2 * I * length  * p * 100) /  (veinData + mmData + phaseData.r20)
             resistance2 = (veinData + mmData + phaseData.r20 + tempData)*/
@@ -370,7 +370,7 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
 
         when (spinner.selectedItemPosition) {
             0 -> { // Одножильных провод открыто
-                t = 8.0
+                t = 17.0
             }
             1 -> { //Один двух жильных закрыто
                 t = 6.0
@@ -409,7 +409,7 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
 
         when (spinner.selectedItemPosition) {
             0 -> { // Трехфазный
-                t = 3.0
+                t = 4.0
             }
             1 -> { //Трехфазный + N
                 t = 3.0
@@ -501,10 +501,10 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
         var temp: Double = 0.0
         when (spinner.selectedItemPosition) {
             0 -> {
-                temp = editText.text.toString().toDouble()
+                temp = editText.text.toString().toDouble() * 10
             }
             1 -> {
-                temp = editText.text.toString().toDouble()
+                temp = editText.text.toString().toDouble() * 100
             }
         }
         return temp
