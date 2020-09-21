@@ -341,6 +341,12 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
             S =(I * getMM(spinner_screen1_5) * p * 100) /  (U * getVeinValue(spinner_screen1_3) * getMM(spinner_screen1_4) * getPhase(spinner_screen1_2).r20)
             resistance2 = (getVeinValue(spinner_screen1_3) + getMM(spinner_screen1_5) + getPhase(spinner_screen1_2).r20 + getTemperature(spinner_screen1_4))
 
+            /*  S =(2 * I * length  * p * 100) /  (veinData + mmData + phaseData.r20)
+            resistance2 = (veinData + mmData + phaseData.r20 + tempData)*/
+
+            /*resistance = ( materialData.r20 * tempData) + (veinData + mmData + phaseData.r20 + tempData)
+            resistance2 = (veinData + mmData + phaseData.r20 + tempData)*/
+
             result_text1.text = "%.0f".format(S) + " мм² |"
             result_text2.text = "%.0f".format(resistance2) + "°C"
         }
@@ -468,16 +474,16 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
         var mm: Double = 0.0
         when (spinner.selectedItemPosition) {
             0 -> {
-                mm = 1.0
+                mm = 10.0
             }
             1 -> {
-                mm =  5.0
+                mm =  1.0
             }
         }
         return mm
     }
 
-    private fun getLength(spinner: Spinner, editText: EditText): Double {
+    private fun getLengthL(spinner: Spinner, editText: EditText): Double {
         var length: Double = 0.0
         when (spinner.selectedItemPosition) {
             0 -> {
