@@ -28,13 +28,13 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="30"
+                    android:layout_weight="40"
                     android:text="Сечение"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/operating_value"
+                    android:id="@+id/starting_value"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="60"
@@ -60,7 +60,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/starting_value"
+                    android:id="@+id/operating_value"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="60"
@@ -108,7 +108,7 @@
                         android:gravity="center"
                         android:textSize="14sp"
                         android:tooltipText="dddd"
-                        tools:ignore="RtlHardcoded" />
+                        tools:ignore="NestedWeights,RtlHardcoded" />
 
                 </LinearLayout>
 
@@ -129,7 +129,7 @@
                         android:gravity="center"
                         android:textSize="14sp"
                         android:tooltipText="dddd"
-                        tools:ignore="RtlHardcoded" />
+                        tools:ignore="NestedWeights,RtlHardcoded" />
 
                 </LinearLayout>
 
@@ -159,7 +159,8 @@
                         android:layout_weight="60"
                         android:gravity="center"
                         android:textSize="16sp"
-                        android:tooltipText="dddd" />
+                        android:tooltipText="dddd"
+                        tools:ignore="NestedWeights" />
 
                 </LinearLayout>
 
@@ -183,15 +184,15 @@
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="60">
-
-                    <Space
-                        android:layout_width="60dp"
-                        android:layout_height="40dp" />
+                    android:layout_gravity="right"
+                    android:layout_weight="40"
+                    android:layout_marginEnd="-80dp"
+                    android:background="@drawable/spinner_back"
+                    tools:ignore="RtlHardcoded">
 
                     <Spinner
                         android:id="@+id/spinner4"
@@ -199,12 +200,11 @@
                         android:layout_height="40dp"
                         android:layout_gravity="center"
                         android:layout_marginLeft="4dp"
-                        android:layout_weight="30"
-                        android:background="@drawable/spinner_back"
+                        android:layout_weight="60"
                         android:gravity="center"
                         android:textSize="14sp"
                         android:tooltipText="dddd"
-                        tools:ignore="NestedWeights" />
+                        tools:ignore="NestedWeights,RtlHardcoded" />
 
                 </LinearLayout>
 
@@ -246,7 +246,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="40">
+                    android:layout_weight="30">
 
                     <TextView
                         android:layout_width="0dp"
@@ -255,12 +255,12 @@
                         android:layout_weight="25"
                         android:gravity="center"
                         android:text="Вольт"
-                        android:textSize="16dp" />
+                        android:textSize="16sp"
+                        tools:ignore="NestedWeights" />
 
                 </LinearLayout>
 
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -278,16 +278,14 @@
                     android:text="Прдолж. вкллючения (ПВ)"
                     android:textSize="14sp"
                     android:textStyle="bold" />
-
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="60">
-
-                    <Space
-                        android:layout_width="60dp"
-                        android:layout_height="40dp" />
+                    android:layout_gravity="right"
+                    android:layout_weight="40"
+                    android:layout_marginEnd="-80dp"
+                    android:background="@drawable/spinner_back"
+                    tools:ignore="RtlHardcoded">
 
                     <Spinner
                         android:id="@+id/spinner5"
@@ -295,12 +293,11 @@
                         android:layout_height="40dp"
                         android:layout_gravity="center"
                         android:layout_marginLeft="4dp"
-                        android:layout_weight="30"
-                        android:background="@drawable/spinner_back"
+                        android:layout_weight="60"
                         android:gravity="center"
                         android:textSize="14sp"
                         android:tooltipText="dddd"
-                        tools:ignore="NestedWeights" />
+                        tools:ignore="NestedWeights,RtlHardcoded" />
 
                 </LinearLayout>
 
@@ -342,7 +339,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="40">
+                    android:layout_weight="30">
 
                     <TextView
                         android:layout_width="0dp"
@@ -695,7 +692,7 @@
                 tools:ignore="RtlHardcoded">
 
                 <Button
-                    android:id="@+id/clearBtn"
+                    android:id="@+id/clear_Btn"
                     android:layout_width="98dp"
                     android:layout_height="44dp"
                     android:layout_marginEnd="10dp"
@@ -716,41 +713,6 @@
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
-            </LinearLayout>
-
-            <View
-                style="@style/baseStyle"
-                android:layout_height="1dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="30dp"
-                android:background="@color/hint" />
-
-            <LinearLayout
-                style="@style/baseStyle"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="30dp"
-                android:background="@color/back">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/inter_medium"
-                    android:text="Результат расчета"
-                    android:textColor="@color/dark"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:id="@+id/result"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_medium"
-                    android:text="0 B"
-                    android:textColor="@color/dark"
-                    android:textSize="20sp" />
             </LinearLayout>
 
         </LinearLayout>

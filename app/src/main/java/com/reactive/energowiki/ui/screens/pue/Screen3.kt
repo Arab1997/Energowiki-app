@@ -4,24 +4,22 @@ import android.annotation.SuppressLint
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Toast
+import android.widget.*
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
+import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.content_header.*
-import kotlinx.android.synthetic.main.screen_calc_alternative_curr.clearBtn
-import kotlinx.android.synthetic.main.screen_calc_alternative_curr.input1
-import kotlinx.android.synthetic.main.screen_calc_alternative_curr.input2
-import kotlinx.android.synthetic.main.screen_calc_alternative_curr.input3
-import kotlinx.android.synthetic.main.screen_calc_alternative_curr.input4
-import kotlinx.android.synthetic.main.screen_calc_alternative_curr.result
-import kotlinx.android.synthetic.main.screen_calc_alternative_curr.resultBtn
-import kotlinx.android.synthetic.main.screen_calc_alternative_curr.spinner1
-import kotlinx.android.synthetic.main.screen_calc_alternative_curr.spinner2
-import kotlinx.android.synthetic.main.screen_calc_alternative_curr.spinner3
-import kotlinx.android.synthetic.main.screen_calc_alternative_curr.spinner4
+import kotlinx.android.synthetic.main.screen_2_pue.*
 import kotlinx.android.synthetic.main.screen_3_pue.*
+import kotlinx.android.synthetic.main.screen_3_pue.input1
+import kotlinx.android.synthetic.main.screen_3_pue.input2
+import kotlinx.android.synthetic.main.screen_3_pue.input3
+import kotlinx.android.synthetic.main.screen_3_pue.input4
+import kotlinx.android.synthetic.main.screen_3_pue.resultBtn
+import kotlinx.android.synthetic.main.screen_3_pue.spinner1
+import kotlinx.android.synthetic.main.screen_3_pue.spinner2
+import kotlinx.android.synthetic.main.screen_3_pue.spinner3
+import kotlinx.android.synthetic.main.screen_3_pue.spinner4
 import kotlin.math.pow
 
 class Screen3 : BaseFragment(R.layout.screen_3_pue) {
@@ -383,21 +381,95 @@ class Screen3 : BaseFragment(R.layout.screen_3_pue) {
 
         close.setOnClickListener { finishFragment() }
 
-        clearBtn.setOnClickListener {
+        clear_Btn.setOnClickListener {
             input1.text?.clear()
-            input2.text?.clear()
-            input3.text?.clear()
             input4.text?.clear()
-            input5.text?.clear()
-            input6.text?.clear()
             input7.text?.clear()
-            input8.text?.clear()
         }
+      /*  resultBtn.setOnClickListener {
+            val dialog = context?.let { it1 ->
+                PueReport1(
+                    it1,
+                    "%.2f".format(S),
+                    spinner_screen1_1.selectedItem.toString(),
+                    getMM(spinner_screen1_5).toString() + " м²",
+                    getVeinValue(spinner_screen1_3).toString() + " м",
+                    getTemperature(spinner_screen1_4).toString() + " °C"
+                )
+            }
+            dialog!!.show()
+        }*/
+        input2.setText("0.85")
+        input3.setText("0.9")
+        input5.setText("4")
+        input8.setText("1")
 
+        TextChanged(input1)
+        TextChanged(input2)
+        TextChanged(input3)
+        TextChanged(input4)
+        TextChanged(input5)
+        TextChanged(input6)
+        TextChanged(input7)
+        TextChanged(input8)
+
+        spinnerSelectedListener(spinner1)
+        spinnerSelectedListener(spinner2)
+        spinnerSelectedListener(spinner3)
+        spinnerSelectedListener(spinner4)
+        spinnerSelectedListener(spinner5)
+        spinnerSelectedListener(spinner6)
+        spinnerSelectedListener(spinner7)
+        spinnerSelectedListener(spinner8)
+        spinnerSelectedListener(spinner9)
         resultBtn.setOnClickListener {
             Toast.makeText(context, "click", Toast.LENGTH_SHORT).show()
 
             initCalculation()
+        }
+    }
+    private fun TextChanged(editText: EditText) {
+
+        editText.addTextChangedListener(object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable) {}
+
+            override fun beforeTextChanged(
+                s: CharSequence, start: Int,
+                count: Int, after: Int
+            ) {
+            }
+
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                initCalculation()
+                if (input1.text.toString() == "" || input2.text.toString() == "" ||
+                    input3.text.toString() == "" || input4.text.toString() == "" ||
+                    input5.text.toString() == "" || input6.text.toString() == "" ||
+                    input7.text.toString() == "" || input8.text.toString() == ""
+                ) {
+                    starting_value.text = ""
+                    operating_value.text = ""
+                    resultBtn.enableDisable(false)
+                } else resultBtn.enableDisable(true)
+            }
+        })
+    }
+
+    private fun spinnerSelectedListener(spinner: Spinner) {
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long
+            ) {
+                initCalculation()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Another interface callback
+            }
         }
     }
 
@@ -527,13 +599,16 @@ class Screen3 : BaseFragment(R.layout.screen_3_pue) {
         val Y = input6.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
         val U = input7.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
         val I = input8.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
-        val result = U / (((koef1 * R).pow(2) + (koef3 * w_c - 1 / (w_l * koef2)).pow(2)).pow(0.5))
+
+        val result = U * Y /  (Е * T *  I *((koef1 * R).pow(2) + (koef3 * w_c - 1 / (w_l * koef2)).pow(2)).pow(0.5))
         showResult((result * koef4 * 1000).toInt().toDouble() / 1000)
+
+
     }
 
     @SuppressLint("SetTextI18n")
     private fun showResult(res: Double) {
-        result.text = "$res А"
+        starting_value.text = "$res А"
     }
 
 

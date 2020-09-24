@@ -31,13 +31,13 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="50"
+                    android:layout_weight="60"
                     android:text="Максимальный ток"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView1"
+                    android:id="@+id/result"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="50"
@@ -63,7 +63,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/result2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="40"
@@ -209,7 +209,6 @@
                         android:textColor="#000"
                         android:textColorHint="#000"
                         android:textSize="14sp" />
-
 
                     <Space
                         android:layout_width="0dp"
@@ -464,7 +463,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_weight="40">
+                        android:layout_weight="30">
 
                         <TextView
                             android:layout_width="0dp"
@@ -596,44 +595,10 @@
                         android:textSize="14sp" />
                 </LinearLayout>
 
-                <View
-                    style="@style/baseStyle"
-                    android:layout_height="1dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="30dp"
-                    android:background="@color/hint" />
-
-                <LinearLayout
-                    style="@style/baseStyle"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="30dp"
-                    android:background="@color/back">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/inter_medium"
-                        android:text="Результат расчета"
-                        android:textColor="@color/dark"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:id="@+id/result"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_medium"
-                        android:text="0 B"
-                        android:textColor="@color/dark"
-                        android:textSize="20sp" />
-                </LinearLayout>
             </LinearLayout>
 
-
         </ScrollView>
+
     </LinearLayout>
 
 </LinearLayout>

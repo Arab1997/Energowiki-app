@@ -353,11 +353,11 @@ class Screen5 : BaseFragment(R.layout.screen_5_pue) {
     }
 
     private fun initClicks() {
-        input1.setText("200")
+        input1.setText("")
         input2.setText("4")
         input3.setText("3")
         input4.setText("0.85")
-        input5.setText("50")
+        input5.setText("")
         input6.setText("1")
         close.setOnClickListener { finishFragment() }
 
@@ -371,7 +371,6 @@ class Screen5 : BaseFragment(R.layout.screen_5_pue) {
 
             initCalculation()
         }
-
     }
 
     private fun initEditTexts() {
@@ -461,7 +460,6 @@ class Screen5 : BaseFragment(R.layout.screen_5_pue) {
         })
     }
 
-
     private fun initCalculation() {
         val R = input1.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
         val w_l = input2.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
@@ -469,12 +467,15 @@ class Screen5 : BaseFragment(R.layout.screen_5_pue) {
         val Е = input4.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
         val T = input5.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
         val Y = input6.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
-        val result = (Y * Е) / T * (((koef1 * R).pow(2) + (koef3 * w_c - 1 / (w_l * koef2)).pow(2)).pow(0.5))
+        val result = (R * Y * Е) /  (((koef1 * R).pow(2) + (koef3 * w_c - 1 / (w_l * koef2)).pow(2)).pow(0.5))
+        val result2 = (R * Y * T * Е) /  (((koef1 * R).pow(2) + (koef3 * w_c - 1 / (w_l * koef2)).pow(2)).pow(0.5))
         showResult((result * koef4 * 1000).toInt().toDouble() / 1000)
+        showResult((result2 * koef4 * 1000).toInt().toDouble() / 1000)
     }
 
     @SuppressLint("SetTextI18n")
     private fun showResult(res: Double) {
         result.text = "$res А"
+        result2.text = "$res кВт"
     }
-    }
+}

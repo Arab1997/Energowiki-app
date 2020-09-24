@@ -21,13 +21,21 @@
             style="@style/baseStyle"
             android:layout_width="177dp"
             android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:gravity="left"
             android:text="Макс. Длина"
             android:textColor="@color/black"
-            android:textSize="13sp" />
+            android:textSize="14sp" />
+        <TextView
+            android:id="@+id/result"
+            style="@style/baseStyle"
+            android:layout_width="157dp"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:text=""
+            android:textStyle="bold"
+            android:textColor="#2196F3"
+            android:textSize="14sp" />
 
     </LinearLayout>
 
@@ -590,41 +598,6 @@
                         android:textAllCaps="false"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
-                </LinearLayout>
-
-                <View
-                    style="@style/baseStyle"
-                    android:layout_height="1dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="30dp"
-                    android:background="@color/hint" />
-
-                <LinearLayout
-                    style="@style/baseStyle"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="30dp"
-                    android:background="@color/back">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/inter_medium"
-                        android:text="Результат расчета"
-                        android:textColor="@color/dark"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:id="@+id/result"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_medium"
-                        android:text="0 B"
-                        android:textColor="@color/dark"
-                        android:textSize="20sp" />
                 </LinearLayout>
 
             </LinearLayout>

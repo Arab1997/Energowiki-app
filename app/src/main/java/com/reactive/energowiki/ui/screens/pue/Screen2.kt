@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.*
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
+import com.reactive.energowiki.ui.dialogs.pueReports.PueReport1
 import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.bottomsheet_detail.close
 import kotlinx.android.synthetic.main.bottomsheet_detail.header
@@ -62,7 +63,6 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
         input_screen1_7.text?.clear()
         input_screen1_9.text?.clear()
         result_text1.text = ""
-
     }
 
     private fun initClicks() {
@@ -73,37 +73,26 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
             clear()
         }
 
-       /* result_btn_screen1.setOnClickListener {
+        result_btn_screen1.setOnClickListener {
             val dialog = context?.let { it1 ->
                 PueReport1(
                     it1,
-                    "%.5f".format(resistance) + " A",
+                    "%.2f".format(S),
                     spinner_screen1_1.selectedItem.toString(),
-                    getMM(
-                        spinner_screen1_4,
-                        input_screen1_2
-                    ).toString() + " м²",
-                    getCountСon(
-                        spinner_screen1_2,
-                        input_screen1_1
-                    ).toString() + " м",
-                    getTemperature(
-                        spinner_screen1_3,
-                        input_screen1_1
-                    ).toString() + " °C"
+                    getMM(spinner_screen1_5).toString() + " м²",
+                    getVeinValue(spinner_screen1_3).toString() + " м",
+                    getTemperature(spinner_screen1_4).toString() + " °C"
                 )
             }
             dialog!!.show()
-        }*/
+        }
         input_screen1_1.setText("3")
         input_screen1_2.setText("0.85")
         input_screen1_3.setText("")
         input_screen1_4.setText("")
         input_screen1_5.setText("4")
-        input_screen1_6.setText("")
-        input_screen1_7.setText("")
         input_screen1_8.setText("1")
-        input_screen1_9.setText("")
+
 
         TextChanged(input_screen1_1)
         TextChanged(input_screen1_2)
@@ -111,9 +100,9 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
         TextChanged(input_screen1_4)
         TextChanged(input_screen1_5)
         TextChanged(input_screen1_6)
-        TextChanged(input_screen1_7)
+  /*      TextChanged(input_screen1_7)
         TextChanged(input_screen1_8)
-        TextChanged(input_screen1_9)
+        TextChanged(input_screen1_9)*/
 
         spinnerSelectedListener(spinner_screen1_1)
         spinnerSelectedListener(spinner_screen1_2)
@@ -150,6 +139,7 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
             }
             calculation()
         }
+
         result_btn_screen1.setOnClickListener {
 
             if (radio_btn_screen3_1.isChecked) {
@@ -291,8 +281,8 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
                 if (input_screen1_1.text.toString() == "" || input_screen1_2.text.toString() == "" ||
                     input_screen1_2.text.toString() == "" || input_screen1_3.text.toString() == "" ||
                     input_screen1_4.text.toString() == "" || input_screen1_5.text.toString() == "" ||
-                    input_screen1_6.text.toString() == "" || input_screen1_7.text.toString() == "" ||
-                    input_screen1_8.text.toString() == "" || input_screen1_9.text.toString() == ""
+                   input_screen1_6.text.toString() == ""  /*|| input_screen1_7.text.toString() == "" ||
+                    input_screen1_8.text.toString() == "" || input_screen1_9.text.toString() == ""*/
                 ) {
                     result_text1.text = ""
                     result_btn_screen1.enableDisable(false)
@@ -321,7 +311,9 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
 
     @SuppressLint("SetTextI18n")
     private fun calculation() {
-        if (input_screen1_1.text.toString() != "" && input_screen1_2.text.toString() != "") {
+        if (input_screen1_1.text.toString() != "" && input_screen1_2.text.toString() != "" && input_screen1_3.text.toString() != ""
+            && input_screen1_4.text.toString() != "" && input_screen1_5.text.toString() != ""  && input_screen1_6.text.toString() != ""
+        /*  && input_screen1_7.text.toString() != ""  && input_screen1_8.text.toString() != "" && input_screen1_9.text.toString() != ""*/) {
             //   material
             val materialData = getMaterialValue(spinner_screen1_1)
             //   phase
@@ -333,25 +325,19 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
             //  длина
             val length = getMM(spinner_screen1_5)
 
-            val U = input_screen1_5.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
+            val U = input_screen1_4.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
             val I = input_screen1_6.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
             val p = input_screen1_7.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
             val z = input_screen1_9.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
 
-            S = 2 * (I * getMM(spinner_screen1_5) * p * 100) /  (U * getPoteri(spinner_screen1_6, input_screen1_5))
-            resistance2 = (getVeinValue(spinner_screen1_3)  + getPhase(spinner_screen1_2).r20 + getTemperature(spinner_screen1_4))
+            S =(getPhase(spinner_screen1_2).r20 * materialData.r20 * getMM(spinner_screen1_5) * I  * p * z * 100) /
+                    (U * getPoteri(spinner_screen1_6, input_screen1_5))
+            resistance2 = (getVeinValue(spinner_screen1_3) + getPhase(spinner_screen1_2).r20  + getTemperature(spinner_screen1_4) + materialData.r20)
 
-            /*  S =(2 * I * length  * p * 100) /  (veinData + mmData + phaseData.r20)
-            resistance2 = (veinData + mmData + phaseData.r20 + tempData)*/
-
-            /*resistance = ( materialData.r20 * tempData) + (veinData + mmData + phaseData.r20 + tempData)
-            resistance2 = (veinData + mmData + phaseData.r20 + tempData)*/
-
-            result_text1.text = "%.0f".format(S) + " мм² |"
+            result_text1.text = "%.0f".format(S/ 1000) + " мм² |"
             result_text2.text = "%.0f".format(resistance2) + "°C"
         }
     }
-
     private fun getMaterialValue(spinner: Spinner): MaterialData {
         var t: Double = 0.0
         when (spinner.selectedItemPosition) {
@@ -370,36 +356,35 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
 
         when (spinner.selectedItemPosition) {
             0 -> { // Одножильных провод открыто
-                t = 17.0
+                t = 16.0
             }
             1 -> { //Один двух жильных закрыто
-                t = 6.0
+                t = 17.0
             }
             2 -> { //Один трехжильных закрыто
-                t = 6.0
+                t = 18.0
             }
             3 -> { //Два одножильных закрыто
-                t = 7.0
+                t = 15.0
             }
             4 -> { //Три одножильных закрыто
-                t = 6.0
+                t = 16.0
             }
             5 -> { //Четыре одножильных закрыто
-                t = 5.0
+                t = 20.0
             }
             6 -> { //Двухжильный кабель в воздухе
-                t = 6.0
+                t = 19.0
             }
             7 -> { //Трехжильный кабель в воздухе
-                t = 7.0
+                t = 25.0
             }
             8 -> { //Двухжильный кабель в земле
-                t = 8.0
+                t = 19.0
             }
             9 -> { //Трехжильный кабель в земле
-                t = 9.0
+                t = 19.0
             }
-
         }
         return t
     }
@@ -409,7 +394,7 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
 
         when (spinner.selectedItemPosition) {
             0 -> { // Трехфазный
-                t = 4.0
+                t = 3.0
             }
             1 -> { //Трехфазный + N
                 t = 3.0
@@ -434,7 +419,7 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
                 temp = 5.0
             }
             1 -> {
-                temp = -5.0
+                temp = 5.0
             }
             2 -> {
                 temp = 0.0
@@ -481,20 +466,6 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
             }
         }
         return mm
-    }
-
-    private fun getLengthL(spinner: Spinner, editText: EditText): Double {
-        var length: Double = 0.0
-        when (spinner.selectedItemPosition) {
-            0 -> {
-                length = editText.text.toString().toDouble()
-            }
-            1 -> {
-                length = editText.text.toString().toDouble() * 0.3048
-            }
-
-        }
-        return length
     }
 
     private fun getPoteri(spinner: Spinner, editText: EditText): Double {
