@@ -7,6 +7,7 @@ import android.widget.*
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.dialogs.capacityReport.CapacityReport5Dialog
+import com.reactive.energowiki.utils.extensions.addItems
 import kotlinx.android.synthetic.main.bottomsheet_detail.*
 import kotlinx.android.synthetic.main.screen_capacity_5.*
 
@@ -40,10 +41,7 @@ class Capacity5Screen : BaseFragment(R.layout.screen_capacity_5) {
             )
         )
 
-        val adapter1: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues1[0])
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_capacity_screen5_1.adapter = adapter1
+        spinner_capacity_screen5_1.addItems(requireContext(), spinValues1[0])
         spinner_capacity_screen5_1.setSelection(4)
 
         //Third spinner set up
@@ -60,13 +58,9 @@ class Capacity5Screen : BaseFragment(R.layout.screen_capacity_5) {
             )
         )
 
-        val adapter2: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues2[0])
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_capacity_screen5_2.adapter = adapter2
+        spinner_capacity_screen5_2.addItems(requireContext(), spinValues2[0])
         spinner_capacity_screen5_2.setSelection(4)
-
-
+        
     }
 
     private fun initClicks() {

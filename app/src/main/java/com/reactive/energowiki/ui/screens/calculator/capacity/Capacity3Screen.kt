@@ -7,7 +7,10 @@ import android.widget.*
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.dialogs.capacityReport.CapacityReport3Dialog
+import com.reactive.energowiki.utils.extensions.addItems
 import com.reactive.energowiki.utils.extensions.enableDisable
+import com.reactive.energowiki.utils.extensions.gone
+import com.reactive.energowiki.utils.extensions.visible
 import kotlinx.android.synthetic.main.bottomsheet_detail.*
 import kotlinx.android.synthetic.main.screen_capacity_3.*
 import kotlinx.android.synthetic.main.screen_capacity_3.liner_2_capacity_screen3
@@ -52,17 +55,10 @@ class Capacity3Screen : BaseFragment(R.layout.screen_capacity_3) {
                 "Неполная звезда (б)"
             )
         )
-        val adapter1: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues1[0])
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_capacity_screen3_1.adapter = adapter1
-
+        spinner_capacity_screen3_1.addItems(requireContext(), spinValues1[0])
 
         spinValues2.add(arrayListOf("отн.ед", "%"))
-        val adapter2: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues2[0])
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_capacity_screen3_2.adapter = adapter2
+        spinner_capacity_screen3_2.addItems(requireContext(), spinValues2[0])
 
         spinner_capacity_screen3_2.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
@@ -128,10 +124,10 @@ class Capacity3Screen : BaseFragment(R.layout.screen_capacity_3) {
         if (radiobt_capacity_screen3_1.isChecked) {
 
             input_capacity_screen3_7.enableDisable(false)
-            title_capacity_screen3.visibility = View.GONE
-            liner_1_capacity_screen3.visibility = View.GONE
-            liner_2_capacity_screen3.visibility = View.GONE
-            liner_3_capacity_screen3.visibility = View.GONE
+            title_capacity_screen3.gone()
+            liner_1_capacity_screen3.gone()
+            liner_2_capacity_screen3.gone()
+            liner_3_capacity_screen3.gone()
         }
 
         radiobt_capacity_screen3_2.setOnClickListener {
@@ -140,10 +136,10 @@ class Capacity3Screen : BaseFragment(R.layout.screen_capacity_3) {
             input_capacity_screen3_6.enableDisable(false)
 
             radiobt_capacity_screen3_1.setChecked(false)
-            title_capacity_screen3.visibility = View.VISIBLE
-            liner_1_capacity_screen3.visibility = View.VISIBLE
-            liner_2_capacity_screen3.visibility = View.VISIBLE
-            liner_3_capacity_screen3.visibility = View.VISIBLE
+            title_capacity_screen3.visible()
+            liner_1_capacity_screen3.visible()
+            liner_2_capacity_screen3.visible()
+            liner_3_capacity_screen3.visible()
         }
 
         radiobt_capacity_screen3_1.setOnClickListener {
@@ -152,10 +148,10 @@ class Capacity3Screen : BaseFragment(R.layout.screen_capacity_3) {
             input_capacity_screen3_6.enableDisable(true)
 
             radiobt_capacity_screen3_2.setChecked(false)
-            title_capacity_screen3.visibility = View.GONE
-            liner_1_capacity_screen3.visibility = View.GONE
-            liner_2_capacity_screen3.visibility = View.GONE
-            liner_3_capacity_screen3.visibility = View.GONE
+            title_capacity_screen3.gone()
+            liner_1_capacity_screen3.gone()
+            liner_2_capacity_screen3.gone()
+            liner_3_capacity_screen3.gone()
         }
 
 
@@ -273,8 +269,8 @@ class Capacity3Screen : BaseFragment(R.layout.screen_capacity_3) {
     }
 
     fun fillResults() {
-        operating_value.setText("%.5f".format(operatingC)+ " µF" )
-        starting_value.setText("%.5f".format(startingC)+ " µF" + "-" + "%.5f".format(finishingC)+ " µF" )
+        operating_value.setText("%.5f".format(operatingC) + " µF")
+        starting_value.setText("%.5f".format(startingC) + " µF" + "-" + "%.5f".format(finishingC) + " µF")
         min_voltage_value.setText("%.5f".format(minVoltage) + " V")
     }
 

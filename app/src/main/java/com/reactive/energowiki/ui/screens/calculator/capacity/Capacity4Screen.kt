@@ -7,6 +7,7 @@ import android.widget.*
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.dialogs.capacityReport.CapacityReport4Dialog
+import com.reactive.energowiki.utils.extensions.addItems
 import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.bottomsheet_detail.*
 import kotlinx.android.synthetic.main.screen_capacity_4.*
@@ -43,10 +44,7 @@ class Capacity4Screen : BaseFragment(R.layout.screen_capacity_4) {
         )
 
 
-        val adapter0: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues0[0])
-        adapter0.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_capacity_screen4_1.adapter = adapter0
+        spinner_capacity_screen4_1.addItems(requireContext(), spinValues0[0])
 
         spinner_capacity_screen4_1.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
@@ -145,11 +143,7 @@ class Capacity4Screen : BaseFragment(R.layout.screen_capacity_4) {
             )
         )
 
-        val adapter1: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues1[0])
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_capacity_screen4_2.adapter = adapter1
-
+        spinner_capacity_screen4_2.addItems(requireContext(), spinValues1[0])
 
         //Third spinner set up
         spinValues2.add(
@@ -165,23 +159,13 @@ class Capacity4Screen : BaseFragment(R.layout.screen_capacity_4) {
             )
         )
 
-        val adapter2: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues2[0])
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_capacity_screen4_3.adapter = adapter2
-
+        spinner_capacity_screen4_3.addItems(requireContext(), spinValues2[0])
 
         //Fourth spinner set up
 
-        val adapter3: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues2[0])
-        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_capacity_screen4_4.adapter = adapter3
+        spinner_capacity_screen4_4.addItems(requireContext(), spinValues2[0])
 
-        val adapter4: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues1[0])
-        adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_capacity_screen4_5.adapter = adapter4
+        spinner_capacity_screen4_5.addItems(requireContext(), spinValues1[0])
 
     }
 
