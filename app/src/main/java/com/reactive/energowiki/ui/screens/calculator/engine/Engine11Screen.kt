@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
+import com.reactive.energowiki.utils.extensions.addItems
 import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.screen_engine_11.*
 
@@ -36,11 +37,8 @@ class Engine11Screen: BaseFragment(R.layout.screen_engine_11){
     private fun initSpinners() {
         spinValues.add(arrayListOf("отн.ед", "%"))
 
-        val a1: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[0])
-        a1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner3.adapter = a1
-        spinner4.adapter = a1
+        spinner3.addItems(requireContext(), spinValues[0])
+        spinner4.addItems(requireContext(), spinValues[1])
 
         spinner3.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {

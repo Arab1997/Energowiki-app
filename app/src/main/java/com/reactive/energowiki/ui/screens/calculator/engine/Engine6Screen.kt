@@ -11,6 +11,7 @@ import android.widget.CheckBox
 import android.widget.Toast
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
+import com.reactive.energowiki.utils.extensions.addItems
 import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.screen_engine_6.*
 
@@ -40,18 +41,10 @@ class Engine6Screen: BaseFragment(R.layout.screen_engine_6){
         spinValues.add(arrayListOf("50 Гц", "60 Гц"))
         spinValues.add(arrayListOf("3000", "1500", "1000", "750", "600", "500", "429", "375", "333", "300", "273", "240", "231", "214", "200"))
         spinValues.add(arrayListOf("2", "4", "6", "8", "10", "12", "14", "16", "18", "20", "22", "24", "26", "28", "30"))
-        val a1: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[0])
-        a1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner1.adapter = a1
-        val a2: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[1])
-        a2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner2.adapter = a2
-        val a3: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[2])
-        a3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner5.adapter = a3
+
+        spinner1.addItems(requireContext(), spinValues[0])
+        spinner2.addItems(requireContext(), spinValues[1])
+        spinner5.addItems(requireContext(), spinValues[2])
 
         spinner1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {

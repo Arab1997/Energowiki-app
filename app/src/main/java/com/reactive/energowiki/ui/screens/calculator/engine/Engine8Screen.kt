@@ -9,6 +9,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
+import com.reactive.energowiki.utils.extensions.addItems
 import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.screen_engine_8.*
 
@@ -39,22 +40,10 @@ class Engine8Screen: BaseFragment(R.layout.screen_engine_8){
         spinValues.add(arrayListOf("750 об/мин", "1000 об/мин", "1500 об/мин", "3000 об/мин"))
         spinValues.add(arrayListOf("кВт", "ЛС"))
 
-        val a1: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[0])
-        a1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner1.adapter = a1
-        val a2: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[1])
-        a2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner4.adapter = a2
-        val a3: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[2])
-        a3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner5.adapter = a3
-        val a4: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[3])
-        a4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner6.adapter = a4
+        spinner1.addItems(requireContext(), spinValues[0])
+        spinner4.addItems(requireContext(), spinValues[1])
+        spinner5.addItems(requireContext(), spinValues[2])
+        spinner6.addItems(requireContext(), spinValues[3])
 
         spinner1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
