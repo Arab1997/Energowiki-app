@@ -8,6 +8,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
+import com.reactive.energowiki.utils.extensions.addItems
 import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.screen_cabel_5.*
 import kotlin.math.pow
@@ -42,24 +43,12 @@ class Cabel5Screen: BaseFragment(R.layout.screen_cabel_5){
         spinValues.add(arrayListOf("мм²", "мм", "kcmil"))
         spinValues.add(arrayListOf("1 сплошной", "19", "37", "49", "133 и боле") )
 
-        val a1: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[0])
-        a1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner1.adapter = a1
-        val a2: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[1])
-        a2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner2.adapter = a2
-        val a3: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[2])
-        a3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner3.adapter = a3
-        spinner5.adapter=a3
-        val a4: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[3])
-        a4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner4.adapter = a4
-        spinner6.adapter=a4
+        spinner1.addItems(requireContext(), spinValues[0])
+        spinner2.addItems(requireContext(), spinValues[1])
+        spinner3.addItems(requireContext(), spinValues[2])
+        spinner5.addItems(requireContext(), spinValues[2])
+        spinner4.addItems(requireContext(), spinValues[3])
+        spinner6.addItems(requireContext(), spinValues[3])
 
         spinner1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {

@@ -8,6 +8,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
+import com.reactive.energowiki.utils.extensions.addItems
 import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.screen_cabel_9.*
 import kotlinx.android.synthetic.main.screen_cabel_9.checkBox
@@ -56,34 +57,13 @@ class Cabel9Screen: BaseFragment(R.layout.screen_cabel_9){
             "185.0 мм² | 15.35 мм", "240.0 мм² | 17.48 мм", "300.0 мм² | 19.54 мм", "400.0 мм² | 22.57 мм"))
         spinValues.add(arrayListOf("мм²", "AVG"))
 
-        val a1: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[0])
-        a1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner11.adapter = a1
-        val a2: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[1])
-        a2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner12.adapter = a2
-        val a3: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[2])
-        a3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner2.adapter = a3
-        val a4: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[3])
-        a4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner3.adapter = a4
-        val a5: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[4])
-        a5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner4.adapter = a5
-        val a6: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[5])
-        a6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner81.adapter = a6
-        val a7: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[6])
-        a7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner82.adapter = a7
+        spinner11.addItems(requireContext(), spinValues[0])
+        spinner12.addItems(requireContext(), spinValues[1])
+        spinner2.addItems(requireContext(), spinValues[2])
+        spinner3.addItems(requireContext(), spinValues[3])
+        spinner4.addItems(requireContext(), spinValues[4])
+        spinner81.addItems(requireContext(), spinValues[5])
+        spinner82.addItems(requireContext(), spinValues[6])
 
         spinner11.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {

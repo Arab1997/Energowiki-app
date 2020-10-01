@@ -8,6 +8,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
+import com.reactive.energowiki.utils.extensions.addItems
 import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.screen_cabel_3.*
 
@@ -37,12 +38,9 @@ class Cabel3Screen: BaseFragment(R.layout.screen_cabel_3){
     private fun initSpinners() {
         spinValues.add(arrayListOf("мм", "дюйм", "см", "м"))
 
-        val a1: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[0])
-        a1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner1.adapter = a1
-        spinner2.adapter = a1
-        spinner3.adapter = a1
+        spinner1.addItems(requireContext(), spinValues[0])
+        spinner2.addItems(requireContext(), spinValues[0])
+        spinner3.addItems(requireContext(), spinValues[0])
 
         spinner1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
