@@ -81,7 +81,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation project(':tic_tac_toe')
     /**
      * Core
      */

@@ -1,5 +1,6 @@
 package com.reactive.energowiki.ui.screens
 
+import android.content.Intent
 import androidx.annotation.DrawableRes
 import androidx.lifecycle.Observer
 import com.reactive.energowiki.R
@@ -17,6 +18,7 @@ import com.reactive.energowiki.ui.screens.calculator.CalculatorFragment
 import com.reactive.energowiki.ui.screens.calculator.CalculatorMenus
 import com.reactive.energowiki.ui.screens.payment.PaymentScreen
 import com.reactive.energowiki.utils.extensions.inDevelopment
+import jetray.tictactoe.SplashScreen
 import kotlinx.android.synthetic.main.screen_home.*
 
 class HomeScreen : BaseFragment(R.layout.screen_home) {
@@ -71,7 +73,10 @@ class HomeScreen : BaseFragment(R.layout.screen_home) {
                 HomeMenus.PUE -> addFragment(PueFragment.newInstance(PueData("Основы", PueMenus.BASICS)))
                 HomeMenus.CALCULATOR -> inDevelopment(requireContext())// todo
                 HomeMenus.GLOSSARY -> addFragment(GlossariesScreen())
-                HomeMenus.PEREKUR -> inDevelopment(requireContext())// todo
+                HomeMenus.PEREKUR -> {
+                    val intent = Intent(requireActivity(), SplashScreen::class.java)
+                    startActivity(intent)
+                }
                 else -> {
                 }
             }
