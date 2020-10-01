@@ -8,6 +8,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
+import com.reactive.energowiki.utils.extensions.addItems
 import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.screen_calc_conductor.clearBtn
 import kotlinx.android.synthetic.main.screen_calc_conductor.input2
@@ -46,18 +47,11 @@ class ConductorCalcScreen: BaseFragment(R.layout.screen_calc_conductor){
         spinValues.add(arrayListOf("пОм", "нОм", "мкОм", "мОм", "Ом", "кОм", "МОм", "ГОм"))
         spinValues.add(arrayListOf("°C", "°Ф"))
         spinValues.add(arrayListOf("мм²", "м²", "kcmil"))
-        val aa1: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[0])
-        aa1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner1.adapter = aa1 //material p
-        val aa2: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[1])
-        aa2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner2.adapter = aa2  // R
-        val aa3: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[2])
-        aa3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner3.adapter = aa3  // t
-        val aa4: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[3])
-        aa4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner4.adapter = aa4  //S
+
+        spinner1.addItems(requireContext(), spinValues[0])
+        spinner2.addItems(requireContext(), spinValues[1])
+        spinner3.addItems(requireContext(), spinValues[2])
+        spinner4.addItems(requireContext(), spinValues[3])
 
         spinner1.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {

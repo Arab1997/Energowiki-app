@@ -8,6 +8,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
+import com.reactive.energowiki.utils.extensions.addItems
 import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.screen_calc_continous_curr.clearBtn
 import kotlinx.android.synthetic.main.screen_calc_continous_curr.input1
@@ -36,13 +37,9 @@ class ContinousCurrCalcScreen : BaseFragment(R.layout.screen_calc_continous_curr
     private fun initSpinners(){
         spinValues.add(arrayListOf("пОм", "нОм", "мкОм", "мОм", "Ом", "кОм", "МОм", "ГОм"))
         spinValues.add(arrayListOf("пВ", "нВ", "мкВ", "мВ", "В", "кВ", "МВ", "ГВ"))
-        val aa1: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[0])
-        aa1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner1.adapter = aa1
-        val aa2: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[1])
-        aa2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner2.adapter = aa2
 
+        spinner1.addItems(requireContext(), spinValues[0])
+        spinner2.addItems(requireContext(), spinValues[1])
 
         spinner1.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {

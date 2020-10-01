@@ -8,6 +8,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
+import com.reactive.energowiki.utils.extensions.addItems
 import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.screen_calc_alternative_curr.*
 import kotlin.math.pow
@@ -33,22 +34,10 @@ class AlternativeCurrCalcScreen : BaseFragment(R.layout.screen_calc_alternative_
     private fun initSpinners() {
         spinValues.add(arrayListOf("пОм", "нОм", "мкОм", "мОм", "Ом", "кОм", "МОм", "ГОм"))
         spinValues.add(arrayListOf("пВ", "нВ", "мкВ", "мВ", "В", "кВ", "МВ", "ГВ"))
-        val aa1: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[0])
-        aa1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner1.adapter = aa1
-        val aa2: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[0])
-        aa2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner2.adapter = aa2
-        val aa3: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[0])
-        aa3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner3.adapter = aa3
-        val aa4: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[1])
-        aa4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner4.adapter = aa4
+        spinner1.addItems(requireContext(), spinValues[0])
+        spinner2.addItems(requireContext(), spinValues[0])
+        spinner3.addItems(requireContext(), spinValues[0])
+        spinner4.addItems(requireContext(), spinValues[1])
 
 
         spinner1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {

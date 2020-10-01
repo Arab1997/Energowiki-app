@@ -8,6 +8,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
+import com.reactive.energowiki.utils.extensions.addItems
 import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.screen_calc_resistivity.*
 import kotlinx.android.synthetic.main.screen_calc_resistivity.clearBtn
@@ -55,21 +56,12 @@ class ResistivityCalcScreen : BaseFragment(R.layout.screen_calc_resistivity) {
         spinValues.add(arrayListOf("мм²", "м²", "kcmil"))
         spinValues.add(arrayListOf("°C", "°Ф"))
         spinValues.add(arrayListOf("Медь","Алюминий","Никелин","Вольфрам","Середро","Железо","Сталь","Константан","Нихром","Латунь","Золото","Платина","Фехраль","Маганин","Цинк","Никель"))
-        val ra: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[0])
-        ra.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner1.adapter = ra //R
-        val la: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[1])
-        la.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner2.adapter = la //l
-        val aa: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[2])
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner3.adapter = aa  //S
-        val ta: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[3])
-        ta.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner4.adapter = ta //t
-        val pa: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues[4])
-        pa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner5.adapter = pa //material p
+
+        spinner1.addItems(requireContext(), spinValues[0])
+        spinner2.addItems(requireContext(), spinValues[1])
+        spinner3.addItems(requireContext(), spinValues[2])
+        spinner4.addItems(requireContext(), spinValues[3])
+        spinner5.addItems(requireContext(), spinValues[4])
 
         spinner1.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
