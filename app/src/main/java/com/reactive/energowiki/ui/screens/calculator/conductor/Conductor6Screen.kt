@@ -10,17 +10,14 @@ import android.widget.Spinner
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.dialogs.conductorReport.ConductorReport6
+import com.reactive.energowiki.utils.extensions.addItems
 import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.bottomsheet_detail.*
 import kotlinx.android.synthetic.main.screen_conductor_6.*
 
 class Conductor6Screen : BaseFragment(R.layout.screen_conductor_6) {
-    private val spinValues1 = arrayListOf<ArrayList<String>>()
-    private val spinValues2 = arrayListOf<ArrayList<String>>()
-    private val spinValues3 = arrayListOf<ArrayList<String>>()
-    private val spinValues4 = arrayListOf<ArrayList<String>>()
-    private val spinValues5 = arrayListOf<ArrayList<String>>()
-    private val spinValues6 = arrayListOf<ArrayList<String>>()
+
+    private val spinValues = arrayListOf<ArrayList<String>>()
     var resistance: Double = 0.0
     var resultim: Double = 0.0
     override fun initialize() {
@@ -99,7 +96,7 @@ class Conductor6Screen : BaseFragment(R.layout.screen_conductor_6) {
     private fun initSpinners() {
 
         //spinner 1
-        spinValues1.add(
+        spinValues.add(
             arrayListOf(
                 "Медь",
                 "Алюминий",
@@ -121,30 +118,23 @@ class Conductor6Screen : BaseFragment(R.layout.screen_conductor_6) {
 
             )
         )
-        val adapter1: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues1[0])
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_conductor_screen6_1.adapter = adapter1
+        spinner_conductor_screen6_1.addItems(requireContext(), spinValues[0])
 
 
         //spinner 2 set
 
 
-        spinValues2.add(
+        spinValues.add(
             arrayListOf(
                 "°C",
                 "F"
             )
         )
-
-        val adapter2: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues2[0])
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_conductor_screen6_2.adapter = adapter2
+        spinner_conductor_screen6_2.addItems(requireContext(), spinValues[1])
 
 
         //spinner 3 set
-        spinValues3.add(
+        spinValues.add(
             arrayListOf(
                 "пВ",
                 "нВ",
@@ -156,56 +146,38 @@ class Conductor6Screen : BaseFragment(R.layout.screen_conductor_6) {
                 "ГВ"
             )
         )
-
-        val adapter3: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues3[0])
-        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_conductor_screen6_3.adapter = adapter3
+        spinner_conductor_screen6_3.addItems(requireContext(), spinValues[2])
         spinner_conductor_screen6_3.setSelection(4)
-
 
 //spinner 4
 
-        spinValues4.add(
+        spinValues.add(
             arrayListOf(
                 "мА",
                 "А",
                 "кA"
             )
         )
-
-        val adapter4: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues4[0])
-        adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_conductor_screen6_4.adapter = adapter4
+        spinner_conductor_screen6_4.addItems(requireContext(), spinValues[3])
         spinner_conductor_screen6_4.setSelection(1)
 
         //spinner 5
-        spinValues5.add(
+        spinValues.add(
             arrayListOf(
                 "%",
                 "B"
             )
         )
-
-        val adapter5: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues5[0])
-        adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_conductor_screen6_5.adapter = adapter5
-
+        spinner_conductor_screen6_5.addItems(requireContext(), spinValues[4])
 
         //spinner 6
-        spinValues6.add(
+        spinValues.add(
             arrayListOf(
                 "мм²",
                 "kcmil"
             )
         )
-
-        val adapter6: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues6[0])
-        adapter6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_conductor_screen6_6.adapter = adapter6
+        spinner_conductor_screen6_6.addItems(requireContext(), spinValues[5])
 
     }
 

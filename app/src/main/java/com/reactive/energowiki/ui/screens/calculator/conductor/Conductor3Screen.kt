@@ -10,6 +10,7 @@ import android.widget.Spinner
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.dialogs.conductorReport.ConductorReport3
+import com.reactive.energowiki.utils.extensions.addItems
 import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.bottomsheet_detail.*
 import kotlinx.android.synthetic.main.screen_conductor_3.*
@@ -128,10 +129,7 @@ class Conductor3Screen : BaseFragment(R.layout.screen_conductor_3) {
 
             )
         )
-        val adapter1: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues1[0])
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_conductor_screen3_1.adapter = adapter1
+        spinner_conductor_screen3_1.addItems(requireContext(), spinValues1[0])
 
 
         //spinner 2 set
@@ -145,10 +143,7 @@ class Conductor3Screen : BaseFragment(R.layout.screen_conductor_3) {
             )
         )
 
-        val adapter6: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues2[0])
-        adapter6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_conductor_screen3_2.adapter = adapter6
+        spinner_conductor_screen3_2.addItems(requireContext(), spinValues2[0])
 
 
         spinValues3.add(
@@ -158,11 +153,7 @@ class Conductor3Screen : BaseFragment(R.layout.screen_conductor_3) {
             )
         )
 
-        val adapter2: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues3[0])
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_conductor_screen3_3.adapter = adapter2
-
+        spinner_conductor_screen3_3.addItems(requireContext(), spinValues3[0])
 
         //spinner 3 set
         spinValues4.add(
@@ -178,10 +169,7 @@ class Conductor3Screen : BaseFragment(R.layout.screen_conductor_3) {
             )
         )
 
-        val adapter3: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues4[0])
-        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_conductor_screen3_4.adapter = adapter3
+        spinner_conductor_screen3_4.addItems(requireContext(), spinValues4[0])
         spinner_conductor_screen3_4.setSelection(4)
 
 
@@ -195,10 +183,7 @@ class Conductor3Screen : BaseFragment(R.layout.screen_conductor_3) {
             )
         )
 
-        val adapter4: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues5[0])
-        adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_conductor_screen3_5.adapter = adapter4
+        spinner_conductor_screen3_5.addItems(requireContext(), spinValues5[0])
         spinner_conductor_screen3_5.setSelection(1)
 
         //spinner 5
@@ -209,11 +194,7 @@ class Conductor3Screen : BaseFragment(R.layout.screen_conductor_3) {
             )
         )
 
-        val adapter5: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues6[0])
-        adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_conductor_screen3_6.adapter = adapter5
-
+        spinner_conductor_screen3_6.addItems(requireContext(), spinValues6[0])
 
         //spinner 6
 

@@ -10,6 +10,7 @@ import android.widget.Spinner
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
 import com.reactive.energowiki.ui.dialogs.conductorReport.ConductorReport5
+import com.reactive.energowiki.utils.extensions.addItems
 import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.bottomsheet_detail.*
 import kotlinx.android.synthetic.main.screen_conductor_1.*
@@ -93,11 +94,7 @@ class Conductor5Screen: BaseFragment(R.layout.screen_conductor_5){
             )
         )
 
-        val adapter1: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues1[0])
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_conductor_screen5_2.adapter = adapter1
-
+        spinner_conductor_screen5_2.addItems(requireContext(), spinValues1[0])
 
         //spinner 2 set
 
@@ -114,10 +111,7 @@ class Conductor5Screen: BaseFragment(R.layout.screen_conductor_5){
             )
         )
 
-        val adapter2: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinValues2[0])
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_conductor_screen5_1.adapter = adapter2
+        spinner_conductor_screen5_1.addItems(requireContext(), spinValues2[0])
         spinner_conductor_screen5_1.setSelection(4)
 
         //spinner 3 set
