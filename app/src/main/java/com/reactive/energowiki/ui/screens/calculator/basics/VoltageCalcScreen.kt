@@ -5,6 +5,7 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import com.reactive.energowiki.R
 import com.reactive.energowiki.base.BaseFragment
+import com.reactive.energowiki.utils.extensions.addItems
 import com.reactive.energowiki.utils.extensions.disable
 import kotlinx.android.synthetic.main.content_header.*
 import kotlinx.android.synthetic.main.screen_calc_voltage.*
@@ -73,10 +74,4 @@ class VoltageCalcScreen : BaseFragment(R.layout.screen_calc_voltage) {
     }
 
 
-}
-
-private fun Spinner.addItems(context: Context, data: ArrayList<String>){
-    val aa: ArrayAdapter<String> = ArrayAdapter(context, android.R.layout.simple_spinner_item, data)
-    aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-    adapter = aa
 }

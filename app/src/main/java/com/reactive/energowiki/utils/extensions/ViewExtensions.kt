@@ -1,11 +1,14 @@
 package com.reactive.energowiki.utils.extensions
 
+import android.R
 import android.content.Context
 import android.os.Handler
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.annotation.LayoutRes
@@ -76,4 +79,9 @@ fun dpToPx(activity: FragmentActivity, dp: Int): Int {
     return (dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT)).roundToLong().toInt()
 }
 
+fun Spinner.addItems(context: Context, data: ArrayList<String>){
+    val aa: ArrayAdapter<String> = ArrayAdapter(context, R.layout.simple_spinner_item, data)
+    aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+    adapter = aa
+}
 
