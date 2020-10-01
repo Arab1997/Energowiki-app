@@ -112,7 +112,8 @@ class Cabel10Screen: BaseFragment(R.layout.screen_cabel_10){
         var inputNum2 = input4.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
 
         var res1=0.0 // todo
-
+        // static
+        res1 = 52.7
         showResult((res1*1000).toInt().toDouble()/1000)
     }
     @SuppressLint("SetTextI18n")

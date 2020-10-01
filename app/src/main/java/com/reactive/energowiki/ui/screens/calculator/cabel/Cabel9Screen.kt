@@ -386,6 +386,9 @@ class Cabel9Screen: BaseFragment(R.layout.screen_cabel_9){
 
 //        res1 = //todo
 //        res2=
+        // static
+        res1 = 5.0
+        res2 = 10.5
         showResult((res1*1000).toInt().toDouble()/1000, (res2*1000).toInt().toDouble()/1000)
     }
     @SuppressLint("SetTextI18n")

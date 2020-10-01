@@ -179,7 +179,7 @@ class Cabel4Screen: BaseFragment(R.layout.screen_cabel_4){
             var inputNum42 = input42.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
             var inputNum43 = input43.text.toString().let { if (it.isEmpty()) 0.0 else it.toDouble() }
         }
-        var res1:Double= 0.0
+        var res1 = 0.0
 
 
         res1 = inputNum1

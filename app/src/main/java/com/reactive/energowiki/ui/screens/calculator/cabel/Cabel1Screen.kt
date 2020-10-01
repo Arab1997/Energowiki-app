@@ -95,6 +95,8 @@ class Cabel1Screen: BaseFragment(R.layout.screen_cabel_1){
             toast(requireContext(), "Наружн.диам.кабеля>Внутр.диам.трубы")
             }
             else {
+                // static
+                res1 = 5.0
 //                res1 =// todo
                 }
             showResult((1000*res1).toInt().toDouble()/1000)
