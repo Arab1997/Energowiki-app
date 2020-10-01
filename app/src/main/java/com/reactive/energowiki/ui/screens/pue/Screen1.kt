@@ -15,6 +15,13 @@ import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.bottomsheet_detail.close
 import kotlinx.android.synthetic.main.bottomsheet_detail.header
 import kotlinx.android.synthetic.main.screen_1_pue.*
+import kotlinx.android.synthetic.main.screen_1_pue.input_screen1_1
+import kotlinx.android.synthetic.main.screen_1_pue.input_screen1_2
+import kotlinx.android.synthetic.main.screen_1_pue.result_btn_screen1
+import kotlinx.android.synthetic.main.screen_1_pue.spinner_screen1_1
+import kotlinx.android.synthetic.main.screen_1_pue.spinner_screen1_2
+import kotlinx.android.synthetic.main.screen_1_pue.spinner_screen1_3
+import kotlinx.android.synthetic.main.screen_1_pue.spinner_screen1_4
 
 class Screen1 : BaseFragment(R.layout.screen_1_pue) {
 
@@ -43,27 +50,28 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
     private fun initClicks() {
 
         close.setOnClickListener { finishFragment() }
-        result_btn_screen1.enableDisable(false)
+        result_btn_screen1.enableDisable(true)
 
         clear_btn_pue_screen1.setOnClickListener {
             clear()
         }
         //------------------------------PUE REPORT---------------------------------//
-        /*  result_btn_screen1.setOnClickListener {
+          result_btn_screen1.setOnClickListener {
             val dialog = context?.let { it1 ->
                 PueReport1(
                     it1,
-                    "%.4f".format(resistance) + " A",
-                    spinner_screen1_1.selectedItem.toString(),
-                    getVeinValue(spinner_screen1_1),
-                    getMaterialValue(spinner_screen1_2),
-                    getTemperature(spinner_screen1_3).toString() + " °C",
-                    getMM(spinner_screen1_4).toString() + " м²",
-
+                    "%.1f".format(resistance) + " A",
+                    spinner_screen1_2.selectedItem.toString(),
+                    getVeinValue(spinner_screen1_1).toString()+ " мм²",
+                    getTemperature(spinner_screen1_3).toString()+ " °C" ,
+                    getMM(spinner_screen1_4).toString(),
+                    getMM(spinner_screen1_4).toString(),
+                    getMM(spinner_screen1_4).toString(),
+                    getMM(spinner_screen1_4).toString()
                 )
             }
             dialog!!.show()
-        }*/
+        }
 
         input_screen1_1.setText("3")
         input_screen1_2.setText("1")
@@ -217,7 +225,8 @@ class Screen1 : BaseFragment(R.layout.screen_1_pue) {
             val mmData = getMM(spinner_screen1_4)
 
           // resistance = (veinData * ( materialData.ro20 * tempData) * mmData)
-           resistance = (veinData + mmData ) *( materialData.ro20 * tempData)
+          // resistance = (veinData + mmData ) *( materialData.ro20 * tempData)
+            resistance = veinData + ( 2 * ( mmData * 10* materialData.ro20 * tempData))
             screen_text1.text = "%.0f".format(resistance) + "A"
         }
     }

@@ -3,7 +3,7 @@ package com.reactive.energowiki.ui.dialogs.pueReports
 import android.content.Context
 import com.reactive.energowiki.R
 import com.reactive.energowiki.ui.dialogs.BaseDialog
-import kotlinx.android.synthetic.main.conductor_report_1.view.*
+import kotlinx.android.synthetic.main.pue_report_screen1.view.*
 
 class PueReport1(
     context: Context,
@@ -11,20 +11,25 @@ class PueReport1(
     text2: String,
     text3: String,
     text4: String,
-    text5: String
-) : BaseDialog(context, R.layout.conductor_report_1) {
+    text5: String,
+    text6: String,
+    text7: String,
+    text8: String
+) : BaseDialog(context, R.layout.pue_report_screen1) {
     init {
         view.apply {
 
-            conductor_report1_close.setOnClickListener {
+            reulst_btn.setOnClickListener {
                 close()
             }
-           /* conductor_report1_text1.text = text1
-            conductor_report1_text2.text = text2
-            conductor_report1_text3.text(text3)
-            conductor_report1_text4.text = text4
-            conductor_report1_text5.text(text5)*/
-
+            tok_result.text = text1
+            material_result.text = text2.toString()
+            secheniya_result.text = text3
+            temp_result.text = text4
+            tempp_result.text = text5
+            count_result.text = text6
+            koefsient_result.text = text7
+            svoy_koefsient_result.text = text8
         }
     }
 }

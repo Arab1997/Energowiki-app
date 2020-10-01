@@ -11,7 +11,6 @@ import com.reactive.energowiki.ui.dialogs.pueReports.PueReport1
 import com.reactive.energowiki.utils.extensions.enableDisable
 import kotlinx.android.synthetic.main.bottomsheet_detail.close
 import kotlinx.android.synthetic.main.bottomsheet_detail.header
-import kotlinx.android.synthetic.main.screen_1_pue.*
 import kotlinx.android.synthetic.main.screen_2_pue.clear_btn_screen1
 import kotlinx.android.synthetic.main.screen_2_pue.result_text1
 import kotlinx.android.synthetic.main.screen_2_pue.input_screen1_1
@@ -25,7 +24,6 @@ import kotlinx.android.synthetic.main.screen_2_pue.*
 import kotlinx.android.synthetic.main.screen_2_pue.checkBox
 import kotlinx.android.synthetic.main.screen_2_pue.input_screen1_3
 import kotlinx.android.synthetic.main.screen_2_pue.radio_btn_screen3_1
-import kotlinx.android.synthetic.main.screen_calc_alternative_curr.*
 import kotlin.math.pow
 
 class Screen2 : BaseFragment(R.layout.screen_2_pue) {
@@ -73,7 +71,7 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
             clear()
         }
 
-        result_btn_screen1.setOnClickListener {
+     /*   result_btn_screen1.setOnClickListener {
             val dialog = context?.let { it1 ->
                 PueReport1(
                     it1,
@@ -85,7 +83,7 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
                 )
             }
             dialog!!.show()
-        }
+        }*/
         input_screen1_1.setText("3")
         input_screen1_2.setText("0.85")
         input_screen1_3.setText("")
