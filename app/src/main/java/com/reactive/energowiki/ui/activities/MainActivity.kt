@@ -153,26 +153,62 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
                 HomeMenus.MAIN -> {
                 }
                 HomeMenus.BASICS -> {
-                    add(BasicsScreen())
+                    add(
+                        CalculatorFragment.newInstance(
+                            CalculatorData(
+                                "Основы",
+                                CalculatorMenus.BASICS
+                            )
+                        )
+                    )
                 }
                 HomeMenus.CAPACITY -> {
-                    inDevelopment(this)
+                    add(
+                        CalculatorFragment.newInstance(
+                            CalculatorData(
+                                "Емкость",
+                                CalculatorMenus.CAPACITY
+                            )
+                        )
+                    )
                 }
                 HomeMenus.CONDUCTOR -> {
-                    inDevelopment(this)
+                    add(
+                        CalculatorFragment.newInstance(
+                            CalculatorData(
+                                "Проводник",
+                                CalculatorMenus.CONDUCTOR
+                            )
+                        )
+                    )
                 }
                 HomeMenus.PUE -> {
                     // inDevelopment(this)
                     add(PueFragment.newInstance(PueData("ПУЭ", PueMenus.BASICS)))
                 }
                 HomeMenus.ENGINE -> {
-                    inDevelopment(this)
+                    add(
+                        CalculatorFragment.newInstance(
+                            CalculatorData(
+                                "Двигатель",
+                                CalculatorMenus.ENGINE
+                            )
+                        )
+                    )
                 }
                 HomeMenus.CABLE -> {
-                    inDevelopment(this)
+                    add(
+                        CalculatorFragment.newInstance(
+                            CalculatorData(
+                                "Кабель",
+                                CalculatorMenus.CABEL
+                            )
+                        )
+                    )
                 }
                 HomeMenus.PEREKUR -> {
-                    inDevelopment(this)
+                    val intent = Intent(this, jetray.tictactoe.MainActivity::class.java)
+                    startActivity(intent)
                 }
                 HomeMenus.PAYMENT -> {
                     add(PaymentScreen())
@@ -196,7 +232,14 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
                     inDevelopment(this)
                 }
                 HomeMenus.CALCULATOR -> {
-                    add(CalculatorFragment.newInstance(CalculatorData("Основы", CalculatorMenus.BASICS)))
+                    add(
+                        CalculatorFragment.newInstance(
+                            CalculatorData(
+                                "Основы",
+                                CalculatorMenus.BASICS
+                            )
+                        )
+                    )
                 }
                 HomeMenus.LINKS -> {
                     add(LinksScreen())
