@@ -19,7 +19,6 @@ import com.reactive.energowiki.ui.screens.calculator.CalculatorMenus
 import com.reactive.energowiki.ui.screens.payment.PaymentScreen
 import com.reactive.energowiki.utils.extensions.inDevelopment
 import jetray.tictactoe.MainActivity
-import jetray.tictactoe.SplashScreen
 import kotlinx.android.synthetic.main.screen_home.*
 
 class HomeScreen : BaseFragment(R.layout.screen_home) {

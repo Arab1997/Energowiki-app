@@ -21,7 +21,7 @@ android {
 dependencies {
     implementation 'com.android.support.constraint:constraint-layout:2.0.1'
     api fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation 'junit:junit:4.13'
+
     //noinspection GradleDynamicVersion
     api 'com.android.support:appcompat-v7:26+'
     //noinspection GradleDynamicVersion

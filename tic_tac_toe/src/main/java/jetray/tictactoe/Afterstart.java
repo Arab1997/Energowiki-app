@@ -830,39 +830,6 @@ public class Afterstart extends AppCompatActivity {
         showExitDialog();
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.exit) {
-//            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//            intent.putExtra("EXIT", true);
-//            doreset();
-//            startActivity(intent);
-//        }
-//
-//        if (id == R.id.daynightmode) {
-//
-//            if (night % 2 == 0) {
-//                View view = this.getWindow().getDecorView();
-//                view.setBackgroundColor(Color.parseColor("#000000"));
-//                item.setTitle("Day Mode");
-//            } else {
-//                View view = this.getWindow().getDecorView();
-//                view.setBackgroundColor(Color.parseColor("#FFFFFF"));
-//                item.setTitle("Night Mode");
-//            }
-//            night++;
-//        }
-//
-//
-//        return super.onOptionsItemSelected(item);
-//    }
 }
 
 

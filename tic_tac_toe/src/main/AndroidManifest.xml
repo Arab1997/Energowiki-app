@@ -21,11 +21,6 @@
             android:label="@string/title_activity_afterstart"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".SplashScreen"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyTheme">
-        </activity>
     </application>
 
 </manifest>
