@@ -71,7 +71,7 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
             clear()
         }
 
-     /*   result_btn_screen1.setOnClickListener {
+       /* result_btn_screen1.setOnClickListener {
             val dialog = context?.let { it1 ->
                 PueReport1(
                     it1,
@@ -79,6 +79,8 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
                     spinner_screen1_1.selectedItem.toString(),
                     getMM(spinner_screen1_5).toString() + " м²",
                     getVeinValue(spinner_screen1_3).toString() + " м",
+                    getTemperature(spinner_screen1_4).toString() + " °C",
+                    getTemperature(spinner_screen1_4).toString() + " °C",
                     getTemperature(spinner_screen1_4).toString() + " °C"
                 )
             }
@@ -91,16 +93,12 @@ class Screen2 : BaseFragment(R.layout.screen_2_pue) {
         input_screen1_5.setText("4")
         input_screen1_8.setText("1")
 
-
         TextChanged(input_screen1_1)
         TextChanged(input_screen1_2)
         TextChanged(input_screen1_3)
         TextChanged(input_screen1_4)
         TextChanged(input_screen1_5)
         TextChanged(input_screen1_6)
-  /*      TextChanged(input_screen1_7)
-        TextChanged(input_screen1_8)
-        TextChanged(input_screen1_9)*/
 
         spinnerSelectedListener(spinner_screen1_1)
         spinnerSelectedListener(spinner_screen1_2)
